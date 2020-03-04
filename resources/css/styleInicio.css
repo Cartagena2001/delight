@@ -1,0 +1,153 @@
+.navbar {
+    background-color: #ffffff;
+  }
+  .navbar .navbar-brand {
+    color: #9c9c9c;
+  }
+  .navbar .navbar-brand:hover,
+  .navbar .navbar-brand:focus {
+    color: #03658c;
+  }
+  .navbar .navbar-text {
+    color: #9c9c9c;
+  }
+  .navbar .navbar-text a {
+    color: #03658c;
+  }
+  .navbar .navbar-text a:hover,
+  .navbar .navbar-text a:focus {
+    color: #03658c; 
+  }
+  .navbar .navbar-nav .nav-link {
+    color: #9c9c9c;
+    border-radius: .25rem;
+    margin: 0 0.25em;
+  }
+  .navbar .navbar-nav .nav-link:not(.disabled):hover,
+  .navbar .navbar-nav .nav-link:not(.disabled):focus {
+    color: #03658c;
+  }
+  .navbar .navbar-nav .nav-item.active .nav-link,
+  .navbar .navbar-nav .nav-item.active .nav-link:hover,
+  .navbar .navbar-nav .nav-item.active .nav-link:focus,
+  .navbar .navbar-nav .nav-item.show .nav-link,
+  .navbar .navbar-nav .nav-item.show .nav-link:hover,
+  .navbar .navbar-nav .nav-item.show .nav-link:focus {
+    color: #03658c;
+    background-color: #ffffff;
+  }
+  .navbar .navbar-toggle {
+    border-color: #ffffff;
+  }
+  .navbar .navbar-toggle:hover,
+  .navbar .navbar-toggle:focus {
+    background-color: #ffffff;
+  }
+  .navbar .navbar-toggle .navbar-toggler-icon {
+    color: #9c9c9c;
+  }
+  .navbar .navbar-collapse,
+  .navbar .navbar-form {
+    border-color: #9c9c9c;
+  }
+  .navbar .navbar-link {
+    color: #9c9c9c;
+  }
+  .navbar .navbar-link:hover {
+    color: #03658c;
+  }
+  
+  @media (max-width: 575px) {
+    .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item {
+      color: #9c9c9c;
+    }
+    .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+    .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item:focus {
+      color: #03658c;
+    }
+    .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item.active {
+      color: #03658c;
+      background-color: #ffffff;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item {
+      color: #9c9c9c;
+    }
+    .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+    .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item:focus {
+      color: #03658c;
+    }
+    .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item.active {
+      color: #03658c;
+      background-color: #ffffff;
+    }
+  }
+  
+  @media (max-width: 991px) {
+    .navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item {
+      color: #9c9c9c;
+    }
+    .navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+    .navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item:focus {
+      color: #03658c;
+    }
+    .navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item.active {
+      color: #03658c;
+      background-color: #ffffff;
+    }
+  }
+  
+  @media (max-width: 1199px) {
+    .navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item {
+      color: #9c9c9c;
+    }
+    .navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+    .navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item:focus {
+      color: #03658c;
+    }
+    .navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item.active {
+      color: #03658c;
+      background-color: #ffffff;
+    }
+  }
+  
+  .navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item {
+    color: #9c9c9c;
+  }
+  .navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+  .navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item:focus {
+    color: #03658c;
+  }
+  .navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item.active {
+    color: #03658c;
+    background-color: #ffffff;
+  }
+
+  
+#comprar{
+    background-color: #03658C;
+    color: white;
+}
+#footer{
+    background-color: #03A5A7;
+    color: white;
+}
+
+#botones{
+    color: #03658C;
+}
+
+#btnGroupDrop1{
+    color: #03658C;
+}
+
+.bd-callout{
+  padding: 1.25rem;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+  border: 1px solid #03658C;
+  border-left-width: .25rem;
+  border-radius: .25rem;
+}
