@@ -45,7 +45,7 @@ Page::headerTemplate('Principal');
         </table>
         </div>
     </div>
-
+    <!--taba de confirma de apagar--> 
     <div class="container col-lg-5">
     <div class="bd-callout bd-callout-warning mt-5">
         <h6 class="text-info" id="conveying-meaning-to-assistive-technologies">Total a pagar</h6>
