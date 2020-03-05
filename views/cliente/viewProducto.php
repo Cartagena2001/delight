@@ -73,7 +73,7 @@ Page::headerTemplate('Principal');
                     </div>
                     <div class="col-lg-9">
                         <h3>Epicardio</h3>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius fuga adipisci, hic at, a, ex nostrum odio eos tempora culpa repellendus inventore vero exercitationem pariatur impedit. Earum iure inventore recusandae!</p>
+                    <p>Gran producto me salva del estres en mi trabajo!!!</p>
                     </div>
                 </div>
                 <hr color=#82D2D3>
