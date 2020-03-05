@@ -31,7 +31,7 @@
                 <a href="#" id="link">¿Has olvidado tu contraseña?</a>
             </div>
             <div class="form-group">
-                <p class="mt-3 font-weight-n">¿Eres nuevo?<a href="#" id="link" >Resgistrate aqui!</a> </p>
+                <p class="mt-3 font-weight-n">¿Eres nuevo?<a href="registrarse.php" id="link" >Resgistrate aqui!</a> </p>
             </div>
             <button type="submit" class="btn mt-3 btn-primary btn-block"> <a href="../../views/cliente/inicio.php" style='text-decoration:none;color:white;'>Acceder </a> </button>
         </div>

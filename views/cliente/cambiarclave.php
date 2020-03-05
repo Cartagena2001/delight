@@ -18,31 +18,19 @@
             </div>
         </div>
         <div class="row">
-            <div class="container col-lg-6 ">
-                    <h1 class="text-center mb-5">Registrarse</h1>
+            <div class="container col-lg-6 mt-5">
+                    <h1 class="text-center mb-5">Cambiar clave</h1>
                 <form>
             <div class="form-group">
-                <label for="exampleInputEmail1">Nombre de usuario</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-            </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1">Correo electronico</label>
+                <label for="exampleInputPassword1">Nueva clave</label>
                 <input type="password" class="form-control" id="exampleInputPassword1">
             </div>
             <div class="form-group">
-                <label for="exampleInputPassword1">Nombre completo</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
-            </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1">Telefono</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
-            </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1">Contraseña</label>
+                <label for="exampleInputPassword1">confirmar clave</label>
                 <input type="password" class="form-control" id="exampleInputPassword1">
             </div>
             <div class="text-center">
-            <button type="submit" class="btn btn-primary col-lg-6 mt-3" href="login.php"><a href="login.php" style='text-decoration:none;color:white;'> Comezemos!</button>
+            <button type="submit" class="btn btn-primary col-lg-6 mt-3" href="login.php"><a href="#" style='text-decoration:none;color:white;'> Confirmar</button>
             </div>
             </form>
             </div>

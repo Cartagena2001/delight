@@ -15,7 +15,7 @@ Page::headerTemplate('Principal');
             <div class="card-body">
                 <h5 class="card-title">Papa Noel</h5>
                 <p class="card-text">Antiestres de espuma con forma circular.</p>
-                <button type="button" class="btn btn-primary">Ver mas</button>
+                <button type="button" class="btn btn-primary"><a href="viewProducto.php" style='text-decoration:none;color:white;'>Ver mas </a></button>
             </div>
             </div>
         </div>
@@ -30,7 +30,7 @@ Page::headerTemplate('Principal');
             <div class="card-body">
                 <h5 class="card-title">Casa tejado naranja</h5>
                 <p class="card-text">Antiestres de espuma para toda ocasion.</p>
-                <button type="button" class="btn btn-primary">Ver mas</button>
+                <button type="button" class="btn btn-primary"> <a href="viewProducto.php" style='text-decoration:none;color:white;'>Ver mas </a> </button>
             </div>
             </div>
         </div>
@@ -45,7 +45,7 @@ Page::headerTemplate('Principal');
             <div class="card-body">
                 <h5 class="card-title">Gota roja</h5>
                 <p class="card-text">Antiestres de goma roja en forma de gota feliz.</p>
-                <button type="button" class="btn btn-primary">Ver mas</button>
+                <button type="button" class="btn btn-primary"><a href="viewProducto.php" style='text-decoration:none;color:white;'>Ver mas </a></button>
             </div>
             </div>
         </div>
@@ -61,7 +61,7 @@ Page::headerTemplate('Principal');
             <div class="card-body">
                 <h5 class="card-title">Taza de cafe</h5>
                 <p class="card-text">Antiestres de espuma para todo tipo de persona.</p>
-                <button type="button" class="btn btn-primary">Ver mas</button>
+                <button type="button" class="btn btn-primary"><a href="viewProducto.php" style='text-decoration:none;color:white;'>Ver mas </a></button>
             </div>
             </div>
         </div>
@@ -76,7 +76,7 @@ Page::headerTemplate('Principal');
             <div class="card-body">
                 <h5 class="card-title">Semaforo</h5>
                 <p class="card-text">Goma espuma color negro y forma rectangular.</p>
-                <button type="button" class="btn btn-primary">Ver mas</button>
+                <button type="button" class="btn btn-primary"><a href="viewProducto.php" style='text-decoration:none;color:white;'>Ver mas </a></button>
             </div>
             </div>
         </div>
@@ -91,7 +91,7 @@ Page::headerTemplate('Principal');
             <div class="card-body">
                 <h5 class="card-title">Cubo</h5>
                 <p class="card-text">Cubo Rubik  con dos caras planas.</p>
-                <button type="button" class="btn btn-primary">Ver mas</button>
+                <button type="button" class="btn btn-primary"><a href="viewProducto.php" style='text-decoration:none;color:white;'>Ver mas </a></button>
             </div>
             </div>
         </div>
@@ -108,7 +108,7 @@ Page::headerTemplate('Principal');
             <div class="card-body">
                 <h5 class="card-title">Llavero de corazon rosa</h5>
                 <p class="card-text">Antiestres de espuma el amor es lo primero.</p>
-                <button type="button" class="btn btn-primary">Ver mas</button>
+                <button type="button" class="btn btn-primary"><a href="viewProducto.php" style='text-decoration:none;color:white;'>Ver mas </a></button>
             </div>
             </div>
         </div>
@@ -123,7 +123,7 @@ Page::headerTemplate('Principal');
             <div class="card-body">
                 <h5 class="card-title">Llavero de tomate</h5>
                 <p class="card-text">Demuestra lo saludable que eres.</p>
-                <button type="button" class="btn btn-primary">Ver mas</button>
+                <button type="button" class="btn btn-primary"><a href="viewProducto.php" style='text-decoration:none;color:white;'>Ver mas </a></button>
             </div>
             </div>
         </div>
@@ -138,7 +138,7 @@ Page::headerTemplate('Principal');
             <div class="card-body">
                 <h5 class="card-title">Set bolas chinas</h5>
                 <p class="card-text">Que mejor que uno sino que dos.</p>
-                <button type="button" class="btn btn-primary">Ver mas</button>
+                <button type="button" class="btn btn-primary"><a href="viewProducto.php" style='text-decoration:none;color:white;'>Ver mas </a></button>
             </div>
             </div>
         </div>
@@ -155,7 +155,7 @@ Page::headerTemplate('Principal');
             <div class="card-body">
                 <h5 class="card-title">Llavero de manzana</h5>
                 <p class="card-text">Antiestres de la mejores elecciones.</p>
-                <button type="button" class="btn btn-primary">Ver mas</button>
+                <button type="button" class="btn btn-primary"><a href="viewProducto.php" style='text-decoration:none;color:white;'>Ver mas </a></button>
             </div>
             </div>
         </div>
@@ -170,7 +170,7 @@ Page::headerTemplate('Principal');
             <div class="card-body">
                 <h5 class="card-title">Almohada de llaves</h5>
                 <p class="card-text">Encuentra la salida a tus problemas.</p>
-                <button type="button" class="btn btn-primary">Ver mas</button>
+                <button type="button" class="btn btn-primary"><a href="viewProducto.php" style='text-decoration:none;color:white;'>Ver mas </a></button>
             </div>
             </div>
         </div>
@@ -185,7 +185,7 @@ Page::headerTemplate('Principal');
             <div class="card-body">
                 <h5 class="card-title">Llavero de fresa</h5>
                 <p class="card-text">Antiestres que va adorable con tu estilo.</p>
-                <button type="button" class="btn btn-primary">Ver mas</button>
+                <button type="button" class="btn btn-primary"><a href="viewProducto.php" style='text-decoration:none;color:white;'>Ver mas </a></button>
             </div>
             </div>
         </div>
@@ -202,7 +202,7 @@ Page::headerTemplate('Principal');
             <div class="card-body">
                 <h5 class="card-title">Almohada en forma de camisa</h5>
                 <p class="card-text">De espuma. Identificate con nosotros.</p>
-                <button type="button" class="btn btn-primary">Ver mas</button>
+                <button type="button" class="btn btn-primary"><a href="viewProducto.php" style='text-decoration:none;color:white;'>Ver mas </a></button>
             </div>
             </div>
         </div>
@@ -217,7 +217,7 @@ Page::headerTemplate('Principal');
             <div class="card-body">
                 <h5 class="card-title">Llavero de sandia</h5>
                 <p class="card-text">Antiestres para reconfortar tu mente.</p>
-                <button type="button" class="btn btn-primary">Ver mas</button>
+                <button type="button" class="btn btn-primary"><a href="viewProducto.php" style='text-decoration:none;color:white;'>Ver mas </a></button>
             </div>
             </div>
         </div>
@@ -232,7 +232,7 @@ Page::headerTemplate('Principal');
             <div class="card-body">
                 <h5 class="card-title">Regalo</h5>
                 <p class="card-text">Producto de goma para llevar a todas partes.</p>
-                <button type="button" class="btn btn-primary">Ver mas</button>
+                <button type="button" class="btn btn-primary"><a href="viewProducto.php" style='text-decoration:none;color:white;'>Ver mas </a></button>
             </div>
             </div>
         </div>
@@ -249,7 +249,7 @@ Page::headerTemplate('Principal');
             <div class="card-body">
                 <h5 class="card-title">Almohada de corazon rojo</h5>
                 <p class="card-text">Demuestra tu amor con este maravilloso detalle.</p>
-                <button type="button" class="btn btn-primary">Ver mas</button>
+                <button type="button" class="btn btn-primary"><a href="viewProducto.php" style='text-decoration:none;color:white;'>Ver mas </a></button>
             </div>
             </div>
         </div>
@@ -264,7 +264,7 @@ Page::headerTemplate('Principal');
             <div class="card-body">
                 <h5 class="card-title">Burbuja</h5>
                 <p class="card-text">Revienta con algo, no con las persona.</p>
-                <button type="button" class="btn btn-primary">Ver mas</button>
+                <button type="button" class="btn btn-primary"><a href="viewProducto.php" style='text-decoration:none;color:white;'>Ver mas </a></button>
             </div>
             </div>
         </div>
@@ -279,7 +279,7 @@ Page::headerTemplate('Principal');
             <div class="card-body">
                 <h5 class="card-title">Llavero de banano</h5>
                 <p class="card-text">Divertido llavero de espuma para toda ocasion.</p>
-                <button type="button" class="btn btn-primary">Ver mas</button>
+                <button type="button" class="btn btn-primary"><a href="viewProducto.php" style='text-decoration:none;color:white;'>Ver mas </a></button>
             </div>
             </div>
         </div>
@@ -296,7 +296,7 @@ Page::headerTemplate('Principal');
             <div class="card-body">
                 <h5 class="card-title">Almohada de reno</h5>
                 <p class="card-text">Fuera estres con regalo inesperado.</p>
-                <button type="button" class="btn btn-primary">Ver mas</button>
+                <button type="button" class="btn btn-primary"><a href="viewProducto.php" style='text-decoration:none;color:white;'>Ver mas </a></button>
             </div>
             </div>
         </div>
@@ -311,7 +311,7 @@ Page::headerTemplate('Principal');
             <div class="card-body">
                 <h5 class="card-title">Llavero de araña</h5>
                 <p class="card-text">Convina con un estilo gotica e unico.</p>
-                <button type="button" class="btn btn-primary">Ver mas</button>
+                <button type="button" class="btn btn-primary"><a href="viewProducto.php" style='text-decoration:none;color:white;'>Ver mas </a></button>
             </div>
             </div>
         </div>
@@ -326,7 +326,7 @@ Page::headerTemplate('Principal');
             <div class="card-body">
                 <h5 class="card-title">Llavero murcielago</h5>
                 <p class="card-text">Duerme en paz con este producto de espuma.</p>
-                <button type="button" class="btn btn-primary">Ver mas</button>
+                <button type="button" class="btn btn-primary"><a href="viewProducto.php" style='text-decoration:none;color:white;'>Ver mas </a></button>
             </div>
             </div>
         </div>
@@ -342,7 +342,7 @@ Page::headerTemplate('Principal');
             <div class="card-body">
                 <h5 class="card-title">Llavero de calabaza</h5>
                 <p class="card-text">Antiestres dulce y aterrador.</p>
-                <button type="button" class="btn btn-primary">Ver mas</button>
+                <button type="button" class="btn btn-primary"><a href="viewProducto.php" style='text-decoration:none;color:white;'>Ver mas </a></button>
             </div>
             </div>
         </div>
@@ -357,7 +357,7 @@ Page::headerTemplate('Principal');
             <div class="card-body">
                 <h5 class="card-title">Calabera florecente</h5>
                 <p class="card-text">Sustos que dan gustos para todas las edades.</p>
-                <button type="button" class="btn btn-primary">Ver mas</button>
+                <button type="button" class="btn btn-primary"><a href="viewProducto.php" style='text-decoration:none;color:white;'>Ver mas </a></button>
             </div>
             </div>
         </div>
@@ -372,7 +372,7 @@ Page::headerTemplate('Principal');
             <div class="card-body">
                 <h5 class="card-title">Llavero de muñeco de nieve</h5>
                 <p class="card-text">Te derrites de ternura.</p>
-                <button type="button" class="btn btn-primary">Ver mas</button>
+                <button type="button" class="btn btn-primary"><a href="viewProducto.php" style='text-decoration:none;color:white;'>Ver mas </a></button>
             </div>
             </div>
         </div>
