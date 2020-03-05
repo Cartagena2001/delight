@@ -14,8 +14,6 @@ Page::headerTemplate('Principal');
         </div>
     </div>
 </div>
-
-
 <?php
 Page::footerTemplate();
 ?>
