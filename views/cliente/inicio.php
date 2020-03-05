@@ -18,12 +18,12 @@ Page::headerTemplate('Principal');
         <img src="../../resources/img/inicio4.jpg" class="d-block w-100" alt="...">
         </div>
     </div>
-    <a class="carousel-control-prev btn btn-info" href="#carouselExampleControls" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon btn btn-info" aria-hidden="true" style="background-color: #03A6A6"></span>
         <span class="sr-only">Previous</span>
     </a>
-    <a class="carousel-control-next btn btn-info" href="#carouselExampleControls" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next" >
+        <span class="carousel-control-next-icon btn btn-info" aria-hidden="true" style="background-color: #03A6A6"></span>
         <span class="sr-only">Next</span>
     </a>
     </div>
