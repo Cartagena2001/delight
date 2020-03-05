@@ -20,7 +20,7 @@ class page{
                     <img src="../../resources/img/LOGO.png" width="220" height="100" class="d-inline-block align-top" alt="Logo">
                 </a>
                 <div>
-                    <button type="button" class="btn" id="botones"><i class="fas fa-shopping-cart"></i> Carrito</button>
+                    <button type="button" class="btn" id="botones"><i class="fas fa-shopping-cart"></i> <a href="../../views/cliente/carrito.php" style="text-decoration:none;color:#03658C;">Carrito </a></button>
                     <div class="btn-group" role="group">
                     <button id="btnGroupDrop1" type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-user"></i> Cuenta
