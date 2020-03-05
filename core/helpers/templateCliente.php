@@ -11,6 +11,7 @@ class page{
             <link type="text/css" rel="stylesheet" href="../../resources/css/bootstrap.min.css"  media="screen,projection"/>
             <link type="text/css" rel="stylesheet" href="../../resources/css/styleInicio.css"  media="screen,projection"/>
             <link type="text/css" rel="stylesheet" href="../../resources/css/fontawesome.min.css"/>
+            <link type="text/css" rel="stylesheet" href="../../resources/css/simple-sidebar.css"/>
             <script src="https://kit.fontawesome.com/9b3f9e4d8d.js" crossorigin="anonymous"></script>
 
         </head>
@@ -26,7 +27,7 @@ class page{
                     <i class="fas fa-user"></i> Cuenta
                     </button>
                     <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                      <a class="dropdown-item" href="#"> Configuracion</a>
+                      <a class="dropdown-item" href="../../views/cliente/cuenta.php"> Configuracion</a>
                       <a class="dropdown-item" href="../../views/cliente/login.php"> Cerrar sesión</a>
                     </div>
                   </div>
