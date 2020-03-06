@@ -13,7 +13,18 @@ Page::headerTemplate('Principal');
             <a href="cuentaPedidos.php" class="list-group-item list-group-item-action" id="itemA">Pedidos</a>
         </div>
     </div>
+
+    <div class="row">
+    <div class="container col-lg-12">
+    <div class="bd-callout bd-callout-warning">
+        <h5 class="text-info" id="conveying-meaning-to-assistive-technologies">Cupones disponibles </h5>
+        </div>
+    </div>
+    </div>
+    
+
 </div>
+    
 <?php
 Page::footerTemplate();
 ?>
