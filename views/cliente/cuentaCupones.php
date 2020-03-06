@@ -2,7 +2,7 @@
 require_once('../../core/helpers/templateCliente.php');
 Page::headerTemplate('Principal');
 ?>
-<div class="d-flex mt-5" id="wrapper">
+<div class="d-flex mt-5" id="wrapper" >
     <div class="" id="sidebar-wrapper">
         <div class="sidebar-heading"><img src="../../resources/img/perfil.jpg" alt="" class="img-fluid rounded-circle" width="200"></div>
         <h6 class="text-center mb-4">Nombre de la cuenta</h6>
@@ -14,17 +14,52 @@ Page::headerTemplate('Principal');
         </div>
     </div>
 
-    <div class="row">
-    <div class="container col-lg-12">
-    <div class="bd-callout bd-callout-warning">
-        <h5 class="text-info" id="conveying-meaning-to-assistive-technologies">Cupones disponibles </h5>
+    <div class="container">
+            <div class="row">
+                <div class="col-lg-12 mb-3">
+                    <h4>Mis cupones</h4>
+                </div>
+        <div class="col-sm-6">
+            <div class="card">
+            <div class="card-body" style="background-color: #03A5A7">
+                <h5 class="card-title text-center mb-4" style="color: white">Cupon disponible</h5>
+                <p class="card-text" style="color: white">Tienes un cupon cupon disponible para reclamar, elije la opcion que mas deseas.</p>
+                <button type="submit" class="btn mt-3 btn-block" style="background-color: white">Productos gratis</button>
+                <button type="submit" class="btn mt-3 btn-block "style="background-color: white">Bolsa sorpresa</button>
+            </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+            <div class="card-body" style="background-color: #03A5A7">
+                <h5 class="card-title text-center mb-4" style="color: white">4 Compras de 6</h5>
+                <p class="card-text" style="color: white">Compra 2 productos más para obtener un cupon gratis.</p>
+                <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">60%</div>
+                </div>
+                <button type="submit" class="btn mt-3 btn-block "style="background-color: white">Comprar más productos</button>
+            </div>
+            </div>
+        </div>
+        <div class="col-sm-6 mt-3 mb-3">
+            <div class="card">
+            <div class="card-body" style="background-color: #03A5A7">
+                <h5 class="card-title text-center mb-4" style="color: white">Cupon disponible</h5>
+                <p class="card-text" style="color: white">Tienes un cupon cupon disponible para reclamar, elije la opcion que mas deseas.</p>
+                <button type="submit" class="btn mt-3 btn-block" style="background-color: white">Productos gratis</button>
+                <button type="submit" class="btn mt-3 btn-block "style="background-color: white">Bolsa sorpresa</button>
+            </div>
+            </div>
+        </div>
         </div>
     </div>
-    </div>
-    
-
 </div>
-    
+<script>
+    $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+  </script>
 <?php
 Page::footerTemplate();
 ?>
