@@ -13,52 +13,63 @@ Page::headerTemplate('Principal');
             <a href="cuentaPedidos.php" class="list-group-item list-group-item-action" id="itemA">Pedidos</a>
         </div>
     </div>
-    <div class="row">
-    <div class="container col-lg-11">
-        <div class="mt-4">
-        <h4>Pedidos</h4>
-        </div>
-        <div class="p-3 mb-2 text-white mt-4">
-        <table class="table table-hover text-back">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Producto</th>
-      <th scope="col">Precio</th>
-      <th scope="col">Fecha</th>
-      <th scope="col">Total</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Casa tejado naranja</td>
-      <td>$1.00</td>
-      <td>20/02/2020</td>
-      <td>$2.00</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Taza de cafe</td>
-      <td>$1.05</td>
-      <td>04/01/2020</td>
-      <td>$2.00</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Llavero de tomate</td>
-      <td>$0.99</td>
-      <td>16/02/2020</td>
-      <td>$1.99</td>
-    </tr>
-  </tbody>
-        </table>
-        </div>
+<div class="container">
+<h3 class="text-info">Por recibir</h3>
+
+    <div class="card-deck col-lg-10 mt-4">
+  <div class="card">
+  <img src="../../resources/img/casa.jpg" class="card-img mt-4" alt="producto">
+    <div class="card-body">
+      <h5 class="card-title">Casa de tejado naranja</h5>
+      <p class="card-text">Antiestres de espuma para toda ocasion.</p>
     </div>
+  </div>
+  <div class="card">
+  <img src="../../resources/img/taza-de-cafe.jpg" class="card-img mt-4" alt="producto">
+    <div class="card-body">
+      <h5 class="card-title">Taza de cafe</h5>
+      <p class="card-text">Antiestres de espuma para todo tipo de persona.</p>
+    </div>
+  </div>
+  <div class="card">
+  <img src="../../resources/img/llavero-tomate.jpg" class="card-img mt-4" alt="producto">
+  <div class="card-body">
+      <h5 class="card-title">Llavero de tomate</h5>
+      <p class="card-text">Demuestra lo saludable que eres.</p>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-4">
+<h3 class="text-info">Recibidos</h3>
+
+    <div class="card-deck col-lg-7 mt-4">
+  <div class="card">
+  <img src="../../resources/img/rosa.jpg" class="card-img mt-4" alt="producto">
+    <div class="card-body">
+      <h5 class="card-title">Llavero de corazon rosa</h5>
+      <p class="card-text">Antiestres de espuma el amor es lo primero.</p>
+      <p class="card-text"><small class="text-muted">11/01/2020</small></p>
+    </div>
+  </div>
+  <div class="card">
+  <img src="../../resources/img/regalo.jpg" class="card-img mt-4" alt="producto">
+  <div class="card-body">
+      <h5 class="card-title">Regalo</h5>
+      <p class="card-text">Producto de goma para llevar a todas partes.</p>
+      <p class="card-text"><small class="text-muted">23/12/2019</small></p>
+    </div>
+  </div>
+</div>
+</div>
 </div>
     
 </div>
 
+
+    
+</div>
+<br></br>
 
 <?php
 Page::footerTemplate();
