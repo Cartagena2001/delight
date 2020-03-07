@@ -21,7 +21,7 @@ Page::headerTemplate('Principal');
     </div> 
     <div class="container col-lg-5 mt-5 body">
     <div class="bd-callout bd-callout-warning">
-        <h5 class="text-primary" id="conveying-meaning-to-assistive-technologies">Valores</h5>
+        <h5 class="text-info" id="conveying-meaning-to-assistive-technologies">Valores</h5>
         <p> Honestidad: Ante todo  demostrarle al cliente que puede contar con nuestros productos de calidad.</p>
         <p> Responsabilida: Nos comprometemos a la entrega del producto seleccionado por el cliente. </p>
         <p> Confianza: Un producto con  entrega segura con empleados capacitados.</p>

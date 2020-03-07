@@ -24,3 +24,11 @@
     margin-left: 23vh;
     margin-top: -5vh;
 }
+#btnlogin{
+    background-color: #03658C;
+    color:white;
+    border:none;
+}
+#btnlogin:hover{
+    background-color: #025373;
+}

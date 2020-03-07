@@ -35,10 +35,11 @@
                     </div>
                     <a href="#" id="link">¿Has olvidado tu contraseña?</a>
                 </div>
+                <hr color=#03658C>
                 <div class="form-group">
                     <p class="mt-3 font-weight-n">¿Eres nuevo?<a href="registrarse.php" id="link" >Resgistrate aqui!</a> </p>
                 </div>
-                <button type="submit" class="btn mt-3 btn-primary btn-block"> <a href="../../views/cliente/inicio.php" style='text-decoration:none;color:white;'>Acceder </a> </button>
+                <a href="../../views/cliente/inicio.php" class="btn col-lg-6 container d-flex justify-content-center" id="btnlogin">Acceder</a>
             </div>
         </div>
     <div class="col-lg-6 d-none d-lg-block">

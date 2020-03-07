@@ -16,7 +16,7 @@ Page::headerTemplate('Principal');
         </div>
 
         <div class="bd-callout bd-callout-warning">
-        <h5 class="text-primary" id="conveying-meaning-to-assistive-technologies">Como lo consigo</h5>
+        <h5 class="text-info" id="conveying-meaning-to-assistive-technologies">Como lo consigo</h5>
         <p> Por compra de 6 productos completaras un cupon que te otorga dos opciones para poder cangearlo: </p>
         <p> 1. Un producto gratis  de nuestro catalogo. </p>
         <p> 2. Una bolsa sorpresa.</p>
