@@ -34,7 +34,7 @@ class page{
                 </div>
                 </nav>
                 <nav class="navbar navbar-expand-sm">
-                    <button class="navbar-toggler navbar-dark bg-dark" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation" style="background-color: #17A2B8;color:white;">
                         <span class="navbar-toggler-icon"></span>
                     </button>
             <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
@@ -75,9 +75,9 @@ class page{
 
             <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
             <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-            <script type="text/javascript" src=".././resources/js/bootstrap.bundle.min.js"></script>
             <script type="text/javascript" src="../../resources/js/bootstrap.min.js"></script>
-            <script type="text/javascript" src="../../resources/js/fontawesome.min.min.js"></script>
+            <script type="text/javascript" src="../../resources/js/fontawesome.min.js"></script>
+            <script type="text/javascript" src="../../resources/js/initialisation.js"></script>
         </body>
         </body>
         </html>
@@ -85,3 +85,4 @@ class page{
     }
 }
 ?>
+<!-- <script type="text/javascript" src=".././resources/js/bootstrap.bundle.min.js"></script> -->

@@ -5,7 +5,7 @@ Page::headerTemplate('Principal');
 <div class="d-flex mt-5" id="wrapper">
     <div class="" id="sidebar-wrapper">
         <div class="sidebar-heading"><img src="../../resources/img/perfil.jpg" alt="" class="img-fluid rounded-circle" width="200"></div>
-        <h6 class="text-center mb-4">Nombre de la cuenta</h6>
+        <h6 class="text-center mb-4">"Nombre de la cuenta"</h6>
         <hr color=#82D2D3>
         <div class="list-group list-group-flush mt-3 text-center">
             <a href="cuenta.php" class="list-group-item list-group-item-action" id="itemA">Cuenta</a>
@@ -14,6 +14,7 @@ Page::headerTemplate('Principal');
         </div>
     </div>
 <div class="container">
+<button class="btn mb-5" id="menu-toggle" id="hamburger" style="background-color: #17A2B8;color:white;"><i class="fas fa-bars"></i></button>
 <h3 class="text-info">Por recibir</h3>
 
     <div class="card-deck col-lg-10 mt-4">
