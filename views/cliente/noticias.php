@@ -3,7 +3,10 @@ require_once('../../core/helpers/templateCliente.php');
 Page::headerTemplate('Principal');
 ?>
 
-
+<div class="container">
+    <div class="container">
+    <h4 class="display-4 mt-3 mb-2">Noticias</h4>    
+    </div>
     <div class="card ml-3 mb-3">
     <img src="../../resources/img/aros-de-acero-joyeria.jpg" class="rounded mx-auto d-block img-thumbnail" alt="noticias"  width= "670" height= "300">
     <div class="card-body">
@@ -30,6 +33,7 @@ Page::headerTemplate('Principal');
         <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
     </div>
     </div>
+</div>
 </div>
 
 <?php

@@ -2,39 +2,34 @@
 require_once('../../core/helpers/templateCliente.php');
 Page::headerTemplate('Principal');
 ?>
-<style>
-.asd{
-    max-width: auto;
-    height: 43vh;
-}
-.das{
-    height: 100%;
-    overflow: auto;
-}
-#item{
-    height: 30vh;
-    width: 40vh;
-}
-</style>
+
 <div class="container-fluid mt-3">
     <div class="row">
         <div class="col-lg-6">
-            <img src="../../resources/img/calabera.jpg" alt="producto" class="img-fluid mb-5">
-            <hr color=#82D2D3>
-            <div class="row d-flex justify-content-center">
-                <div class="col-lg-3">
-                <img src="../../resources/img/calabera.jpg" alt="producto" class="img-fluid mb-5"  style="cursor: pointer;">
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                    <img src="../../resources/img/calabera.jpg" class="d-block w-100" alt="Producto">
+                    </div>
+                    <div class="carousel-item">
+                    <img src="../../resources/img/calabera.jpg" class="d-block w-100" alt="Producto">
+                    </div>
+                    <div class="carousel-item">
+                    <img src="../../resources/img/calabera.jpg" class="d-block w-100" alt="Producto">
+                    </div>
                 </div>
-                <div class="col-lg-3">
-                <img src="../../resources/img/calabera.jpg" alt="producto" class="img-fluid mb-5"  style="cursor: pointer;">
-                </div>
-                <div class="col-lg-3">
-                <img src="../../resources/img/calabera.jpg" alt="producto" class="img-fluid mb-5"  style="cursor: pointer;">
-                </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
             </div>
         </div>
         <div class="col-lg-6">
-            <h1>Nombre del producto</h1>
+            <h1 class="display-4">Nombre del producto</h1>
             <div>
             <i class="fas fa-star" style="color:#FFBB00"></i>
             <i class="fas fa-star" style="color:#FFBB00"></i>
@@ -43,14 +38,15 @@ Page::headerTemplate('Principal');
             <i class="fas fa-star"></i>
             </div>
             <div>
-                <h3>Precio: $1.99</h3>
+                <h4>Precio: $1.99</h4>
+                <p> <i class="fas fa-shopping-basket" style="color:#025373"></i> Vendidos: 324</p>
             </div>
             <div>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto voluptates vel voluptate voluptatem praesentium officia esse. Qui deleniti mollitia, voluptatum beatae vel consequuntur! Distinctio quod quisquam, laudantium molestiae accusantium nobis.</p>
             </div>
             <div>
                 <div class="form-group col-lg-3">
-                    <label for="exampleFormControlSelect1">Cantidad: </label>
+                    <label for="exampleFormControlSelect1">Cantidad:</label>
                     <select class="form-control" id="exampleFormControlSelect1">
                     <option>1</option>
                     <option>2</option>
@@ -61,35 +57,30 @@ Page::headerTemplate('Principal');
                 </div>
             </div>
             <div>
-            <button type="button" class="btn btn-lg mt-2" style="background-color: #03658C; color:white">Comprar</button>
+            <a href="#" class="btn col-lg-2 mt-3" id="btnuniversal">Comprar</a>
+            <a href="#" class="btn col-lg-3 mt-3" id="btnuniversal">Añadir a carrito</a>
             </div>
             <div class="mt-5">
-            <h3>Comentarios</h3>
-                <div class="row mt-5">
-                    <div class="col-lg-3">
-                    <div>
-                    <img src="../../resources/img/perfil.jpg" alt="foto_perfil" width="130" class="rounded-circle">
-                    </div>
-                    </div>
-                    <div class="col-lg-9">
-                        <h3>Epicardio</h3>
-                    <p>Gran producto me salva del estres en mi trabajo!!!</p>
-                    </div>
+            <h3 id="Coment">Comentarios</h3>
+                <div class="row mt-5 container">
+                <div class="media">
+                <img src="../../resources/img/perfil.jpg" class="mr-3 rounded-circle" alt="..." width="130">
+                <div class="media-body">
+                    <h5 class="mt-0">Epicardio</h5>
+                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                </div>
+                </div>
                 </div>
                 <hr color=#82D2D3>
-                <div class="row mt-5">
-                    <div class="col-lg-3">
-                    <div>
-                    <img src="../../resources/img/perfil.jpg" alt="foto_perfil" width="130" class="rounded-circle">
-                    </div>
-                    </div>
-                    <div class="col-lg-9">
-                        <h3>Epicardio</h3>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius fuga adipisci, hic at, a, ex nostrum odio eos tempora culpa repellendus inventore vero exercitationem pariatur impedit. Earum iure inventore recusandae!</p>
-                    </div>
+                <div class="row container mb-3">
+                <div class="media">
+                <img src="../../resources/img/perfil.jpg" class="mr-3 rounded-circle" alt="..." width="130">
+                <div class="media-body">
+                    <h5 class="mt-0">Malardo</h5>
+                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
                 </div>
-
-                
+                </div>
+                </div>
             </div>
         </div>
     </div>

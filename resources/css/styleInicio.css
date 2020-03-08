@@ -156,3 +156,20 @@
   color:  #138496;
   background-color: #138496;
 }
+.carousel-control-next,
+.carousel-control-prev {
+    filter: invert(100%);
+}
+
+#btnuniversal{
+  background-color: #03658C;
+  color:white;
+  border:none;
+}
+#btnuniversal:hover{
+  background-color: #025373;
+}
+
+#Coment{
+  border-bottom: 3px solid #025373;
+  }
