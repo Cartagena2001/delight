@@ -2,11 +2,11 @@
 require_once('../../core/helpers/templateCliente.php');
 Page::headerTemplate('Principal');
 ?>
-<div class="container">
+<div class="container mb-5">
   <div class="row">
       <div class="container-fluid col-lg-6">
-          <div class="mt-4">
-          <h4 >Carrito de compras</h4>
+          <div class="mt-1 col-lg-12">
+          <h4 class="display-4">Carrito de compras</h4>
           </div>
           <div class="p-3 mb-2 bg-info text-white mt-4">
           <table class="table table-hover text-light">
@@ -46,7 +46,7 @@ Page::headerTemplate('Principal');
           </div>
       </div>
       <!--taba de confirma de apagar--> 
-      <div class="container col-lg-5 mt-4 ">
+      <div class="container col-lg-5 mt-5 mb-2">
       <div class="bd-callout bd-callout-warning mt-5">
           <h6 class="text-info" id="conveying-meaning-to-assistive-technologies">Total a pagar</h6>
           <table class="table table-hover">
@@ -81,7 +81,8 @@ Page::headerTemplate('Principal');
   </div>
 <br></br>
 </div>
-
+<br>
+<br>
 <?php
 Page::footerTemplate();
 ?>

@@ -12,6 +12,7 @@ class page{
             <link type="text/css" rel="stylesheet" href="../../resources/css/styleInicio.css"  media="screen,projection"/>
             <link type="text/css" rel="stylesheet" href="../../resources/css/fontawesome.min.css"/>
             <link type="text/css" rel="stylesheet" href="../../resources/css/simple-sidebar.css"/>
+            <link  rel="icon"   href="../../resources/img/ICO.ico" type="image/png" />
             <script src="https://kit.fontawesome.com/9b3f9e4d8d.js" crossorigin="anonymous"></script>
 
         </head>
