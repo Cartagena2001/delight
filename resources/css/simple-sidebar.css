@@ -43,7 +43,7 @@ body {
   }
   
 }
-
+/* Cliente */
 #itemA{
   color: black;
   border: none;
@@ -55,3 +55,13 @@ body {
   opacity: 50%;
 }
 
+/* Admin */
+#itemAdmin{
+  color: black;
+  border: none;
+}
+#itemAdmin:hover{
+background-color: #CDF7F3;
+border-radius: 10vh;
+border: none;
+}
