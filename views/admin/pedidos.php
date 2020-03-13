@@ -10,14 +10,15 @@ Page::headerTemplate('Principal');
         </div>
         <div class="col-lg-12">
             <div class="container mb-5">
-                <table id="TbClientes" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
+                <table id="Tbpedidos" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
                     <thead>
                         <tr>
-                            <th>Usuario</th>
-                            <th>Nombre Completo</th>
-                            <th>Correo</th>
-                            <th>Telefono</th>
-                            <th>Acciones</th>
+                            <th>Cliente</th>
+                            <th>Costo envio</th>
+                            <th>Estado envio</th>
+                            <th>Fecha creacion</th>
+                            <th>Fecha entrega</th>
+                            <th>Aciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -26,6 +27,7 @@ Page::headerTemplate('Principal');
                             <td>Nixon</td>
                             <td>System Architect</td>
                             <td>Edinburgh</td>
+                            <td>Edinburgh</td>
                             <td><a href="#" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-edit"></i></a></td>
                         </tr>
                         <tr>
@@ -33,6 +35,7 @@ Page::headerTemplate('Principal');
                             <td>Winters</td>
                             <td>Accountant</td>
                             <td>Tokyo</td>
+                            <td>Edinburgh</td>
                             <td><a href="#" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-edit"></i></a></td>
                         </tr>
                         <tr>
@@ -40,12 +43,14 @@ Page::headerTemplate('Principal');
                             <td>Cox</td>
                             <td>Junior Technical Author</td>
                             <td>San Francisco</td>
+                            <td>Edinburgh</td>
                             <td><a href="#" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-edit"></i></a></td>
                         </tr>
                         <tr>
                             <td>Cedric</td>
                             <td>Kelly</td>
                             <td>Senior Javascript Developer</td>
+                            <td>Edinburgh</td>
                             <td>Edinburgh</td>
                             <td><a href="#" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-edit"></i></a></td>
                         </tr>
@@ -54,6 +59,7 @@ Page::headerTemplate('Principal');
                             <td>Satou</td>
                             <td>Accountant</td>
                             <td>Tokyo</td>
+                            <td>Edinburgh</td>
                             <td><a href="#" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-edit"></i></a></td>
                         </tr>
                         <tr>
@@ -61,6 +67,7 @@ Page::headerTemplate('Principal');
                             <td>Williamson</td>
                             <td>Integration Specialist</td>
                             <td>New York</td>
+                            <td>Edinburgh</td>
                             <td><a href="#" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-edit"></i></a></td>
                         </tr>
                         <tr>
@@ -68,6 +75,7 @@ Page::headerTemplate('Principal');
                             <td>Chandler</td>
                             <td>Sales Assistant</td>
                             <td>San Francisco</td>
+                            <td>Edinburgh</td>
                             <td><a href="#" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-edit"></i></a></td>
 
                         </tr>
@@ -76,6 +84,7 @@ Page::headerTemplate('Principal');
                             <td>Davidson</td>
                             <td>Integration Specialist</td>
                             <td>Tokyo</td>
+                            <td>Edinburgh</td>
                             <td><a href="#" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-edit"></i></a></td>
 
                         </tr>
@@ -84,12 +93,14 @@ Page::headerTemplate('Principal');
                             <td>Hurst</td>
                             <td>Javascript Developer</td>
                             <td>San Francisco</td>
+                            <td>Edinburgh</td>
                             <td><a href="#" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-edit"></i></a></td>
                         </tr>
                         <tr>
                             <td>Sonya</td>
                             <td>Frost</td>
                             <td>Software Engineer</td>
+                            <td>Edinburgh</td>
                             <td>Edinburgh</td>
                             <td><a href="#" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-edit"></i></a></td>
                         </tr>
@@ -98,6 +109,7 @@ Page::headerTemplate('Principal');
                             <td>Gaines</td>
                             <td>Office Manager</td>
                             <td>London</td>
+                            <td>Edinburgh</td>
                             <td><a href="#" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-edit"></i></a></td>
 
                         </tr>
@@ -106,6 +118,7 @@ Page::headerTemplate('Principal');
                             <td>Flynn</td>
                             <td>Support Lead</td>
                             <td>Edinburgh</td>
+                            <td>Edinburgh</td>
                             <td><a href="#" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-edit"></i></a></td>
                         </tr>
                         <tr>
@@ -113,6 +126,7 @@ Page::headerTemplate('Principal');
                             <td>Marshall</td>
                             <td>Regional Director</td>
                             <td>San Francisco</td>
+                            <td>Edinburgh</td>
                             <td><a href="#" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-edit"></i></a></td>
                         </tr>
                         <tr>
@@ -120,6 +134,7 @@ Page::headerTemplate('Principal');
                             <td>Kennedy</td>
                             <td>Senior Marketing Designer</td>
                             <td>London</td>
+                            <td>Edinburgh</td>
                             <td><a href="#" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-edit"></i></a></td>
                         </tr>
                         <tr>
@@ -127,6 +142,7 @@ Page::headerTemplate('Principal');
                             <td>Fitzpatrick</td>
                             <td>Regional Director</td>
                             <td>London</td>
+                            <td>Edinburgh</td>
                             <td><a href="#" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-edit"></i></a></td>
                         </tr>
                         <tr>
@@ -134,6 +150,7 @@ Page::headerTemplate('Principal');
                             <td>Silva</td>
                             <td>Marketing Designer</td>
                             <td>London</td>
+                            <td>Edinburgh</td>
                             <td><a href="#" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-edit"></i></a></td>
                         </tr>
                         <tr>
@@ -141,6 +158,7 @@ Page::headerTemplate('Principal');
                             <td>Byrd</td>
                             <td>Chief Financial Officer (CFO)</td>
                             <td>New York</td>
+                            <td>Edinburgh</td>
                             <td><a href="#" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-edit"></i></a></td>
                         </tr>
                         <tr>
@@ -148,6 +166,7 @@ Page::headerTemplate('Principal');
                             <td>Little</td>
                             <td>Systems Administrator</td>
                             <td>New York</td>
+                            <td>Edinburgh</td>
                             <td><a href="#" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-edit"></i></a></td>
                         </tr>
                         <tr>
@@ -155,12 +174,14 @@ Page::headerTemplate('Principal');
                             <td>Greer</td>
                             <td>Software Engineer</td>
                             <td>London</td>
+                            <td>Edinburgh</td>
                             <td><a href="#" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-edit"></i></a></td>
                         </tr>
                         <tr>
                             <td>Dai</td>
                             <td>Rios</td>
                             <td>Personnel Lead</td>
+                            <td>Edinburgh</td>
                             <td>Edinburgh</td>
                             <td><a href="#" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-edit"></i></a></td>
                         </tr>
@@ -169,6 +190,7 @@ Page::headerTemplate('Principal');
                             <td>Caldwell</td>
                             <td>Development Lead</td>
                             <td>New York</td>
+                            <td>Edinburgh</td>
                             <td><a href="#" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-edit"></i></a></td>
                         </tr>
                         <tr>
@@ -176,6 +198,7 @@ Page::headerTemplate('Principal');
                             <td>Berry</td>
                             <td>Chief Marketing Officer (CMO)</td>
                             <td>New York</td>
+                            <td>Edinburgh</td>
                             <td><a href="#" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-edit"></i></a></td>
                         </tr>
                         <tr>
@@ -183,6 +206,7 @@ Page::headerTemplate('Principal');
                             <td>Vance</td>
                             <td>Pre-Sales Support</td>
                             <td>New York</td>
+                            <td>Edinburgh</td>
                             <td><a href="#" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-edit"></i></a></td>
                         </tr>
                         <tr>
@@ -190,6 +214,7 @@ Page::headerTemplate('Principal');
                             <td>Wilder</td>
                             <td>Sales Assistant</td>
                             <td>Sidney</td>
+                            <td>Edinburgh</td>
                             <td><a href="#" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-edit"></i></a></td>
                         </tr>
                         <tr>
@@ -197,12 +222,14 @@ Page::headerTemplate('Principal');
                             <td>Ramos</td>
                             <td>Chief Executive Officer (CEO)</td>
                             <td>London</td>
+                            <td>Edinburgh</td>
                             <td><a href="#" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-edit"></i></a></td>
                         </tr>
                         <tr>
                             <td>Gavin</td>
                             <td>Joyce</td>
                             <td>Developer</td>
+                            <td>Edinburgh</td>
                             <td>Edinburgh</td>
                             <td><a href="#" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-edit"></i></a></td>
                         </tr>
@@ -211,6 +238,7 @@ Page::headerTemplate('Principal');
                             <td>Chang</td>
                             <td>Regional Director</td>
                             <td>Singapore</td>
+                            <td>Edinburgh</td>
                             <td><a href="#" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-edit"></i></a>
                             </td>
                     </tbody>
@@ -231,9 +259,10 @@ Page::headerTemplate('Principal');
             <div class="modal-body">
                 <div class="container text-center">
                 <div class="form-group">
-                        <h5>Estado del cliente</h5>
+                        <h5>Estado del envio</h5>
                         <select class="form-control" id="exampleFormControlSelect1">
-                        <option>Activo</option>
+                        <option>Entregado</option>
+                        <option>En curso</option>
                         <option>Suspendido</option>
                         </select>
                     </div>

@@ -13,3 +13,15 @@ $(document).ready(function() {
 $(document).ready(function() {
     $('#TbClientes').DataTable();
 } );
+
+$(document).ready(function() {
+    $('#Tbpedidos').DataTable();
+} );
+
+$(document).ready(function() {
+    $('#Tbproductos').DataTable();
+} );
+
+$(document).ready(function() {
+    $('#TbClientes').DataTable();
+} );
