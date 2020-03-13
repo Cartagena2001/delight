@@ -1,3 +1,4 @@
+// slidebar
 $(document).ready(function() {
 
     $("#menu-toggle").click(function(e) {
@@ -6,3 +7,9 @@ $(document).ready(function() {
     })
 
  });
+
+
+// datatables
+$(document).ready(function() {
+    $('#TbClientes').DataTable();
+} );

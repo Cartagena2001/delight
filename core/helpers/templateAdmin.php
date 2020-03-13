@@ -12,8 +12,11 @@ class page{
       <link type="text/css" rel="stylesheet" href="../../resources/css/fontawesome.min.css"/>
       <link type="text/css" rel="stylesheet" href="../../resources/css/simple-sidebar.css"/>
       <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
-      <link  rel="icon"   href="../../resources/img/ICO.ico" type="image/png" />
-      <script src="https://kit.fontawesome.com/9b3f9e4d8d.js" crossorigin="anonymous"></script>
+      <link  rel="icon"   href="../../resources/img/ICO.ico" type="image/png"/>
+      
+      <link type="text/css" rel="stylesheet" href="../../resources/css/dataTable/dataTables.bootstrap4.min.css"/>
+      <link type="text/css" rel="stylesheet" href="../../resources/css/dataTable/responsive.bootstrap4.min.css"/>
+
       <title>Inicio administrador</title>
   </head>
   <body>
@@ -45,11 +48,19 @@ class page{
   public function footerTemplate(){
     print('
       
+    
+
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script type="text/javascript" src="../../resources/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../../resources/js/fontawesome.min.js"></script>
     <script type="text/javascript" src="../../resources/js/initialisation.js"></script>
+    <script src="https://kit.fontawesome.com/9b3f9e4d8d.js" crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="../../resources/js/dataTable/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="../../resources/js/dataTable/dataTables.bootstrap4.min.js"></script>
+    <script type="text/javascript" src="../../resources/js/dataTable/dataTables.responsive.min.js"></script>
+    <script type="text/javascript" src="../../resources/js/dataTable/responsive.bootstrap4.min.js"></script>
     </body>
     </html>
     ');
