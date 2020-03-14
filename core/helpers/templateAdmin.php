@@ -30,7 +30,7 @@ class page{
         <div class="d-flex" id="wrapper">
           <div id="sidebar-wrapper">
               <div class="sidebar-heading text-center"><img src="../../resources/img/imgAdmin.jpg" alt="Perfil" class="img-fluid rounded-circle" width="150"></div>
-              <h5 class="text-center">Gabriela Ramirez</h5>
+              <h5 class="text-center mb-1">Gabriela Ramirez</h5>
               <h5 class="text-center">Admistrador</h5>
             <div class="list-group list-group-flush text-center mt-4">
               <a href="index.php" class="list-group-item list-group-item-action" id="itemAdmin">Inicio</a>
@@ -41,6 +41,8 @@ class page{
               <a href="categorias.php" class="list-group-item list-group-item-action" id="itemAdmin">Categorias</a>
               <a href="cupones.php" class="list-group-item list-group-item-action" id="itemAdmin">Cupones</a>
               <a href="noticias.php" class="list-group-item list-group-item-action" id="itemAdmin">Noticias</a>
+              <a href="editarperfil.php" class="btn text-center mt-3"><i class="fas fa-edit"></i> Editar perfil</a>
+              <a href="login.php" class="btn text-center"><i class="fas fa-sign-out-alt"></i></i> Cerrar sesión</a>
             </div>
           </div>
   ');

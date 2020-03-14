@@ -391,6 +391,7 @@ Page::headerTemplate('Principal');
         </div>
 </div>
 
+
 <!-- modal editar -->
 <div class="modal fade" id="editarmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -436,10 +437,10 @@ Page::headerTemplate('Principal');
                     <div class="input-group mb-3">
                         <div class="custom-file">
                             <input type="file" class="custom-file-input" id="inputGroupFile02">
-                            <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Choose file</label>
+                            <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Buscar imagen</label>
                         </div>
                         <div class="input-group-append">
-                            <span class="input-group-text" id="inputGroupFileAddon02">Upload</span>
+                            <span class="input-group-text" id="inputGroupFileAddon02">Subir</span>
                         </div>
                     </div>
             </div>
@@ -449,6 +450,7 @@ Page::headerTemplate('Principal');
             </div>
             </div>
         </div>
+    </div>
 </div>
 
 <!-- modal eliminar -->

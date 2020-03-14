@@ -23,3 +23,27 @@ tr{
     font-family: 'Montserrat', sans-serif;
     font-size: 15px;
 }
+
+#btnlogin{
+    background-color: #010923;
+    color:white;
+    border:none;
+}
+#btnlogin:hover{
+    background-color: #021140;
+}
+
+#username{
+    background-color: #F2F2F2;
+    border: none;
+    border-radius: 50px;
+}
+#password{
+    background-color: #F2F2F2;
+    border: none;
+    border-radius: 50px;
+}
+#bienvenido{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 35px;
+}
