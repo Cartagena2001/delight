@@ -5,10 +5,16 @@ a{
 }
 p{
     font-family: 'Montserrat', sans-serif;
-    font-size: 1px;
+    
 }
 label{
     font-family: 'Montserrat', sans-serif;
+}
+h4{
+    font-family: 'Montserrat', sans-serif;
+}
+#Equipo{
+    border-bottom: 3px solid #36B8B8;
 }
 
 /* tables */
@@ -23,6 +29,7 @@ tr{
     font-family: 'Montserrat', sans-serif;
     font-size: 15px;
 }
+
 
 #btnlogin{
     background-color: #010923;
@@ -46,4 +53,24 @@ tr{
 #bienvenido{
     font-family: 'Montserrat', sans-serif;
     font-size: 35px;
+}
+
+/* cards */
+#cards1{
+    border-radius: 10px;
+    background-color: #36B8B8;
+    border: none;
+    color: white;
+}
+#cards2{
+    border-radius: 10px;
+    background-color: #03A6A6;
+    border: none;
+    color: white;
+}
+#cards3{
+    border-radius: 10px;
+    background-color: rgb(8, 128, 128);
+    border: none;
+    color: white;
 }

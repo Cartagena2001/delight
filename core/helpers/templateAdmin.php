@@ -1,7 +1,9 @@
 <?php
-class page{
-  public static function headerTemplate($title){
-  print('
+class page
+{
+  public static function headerTemplate($title)
+  {
+    print('
   <!DOCTYPE html>
   <html lang="es">
   <head>
@@ -11,6 +13,7 @@ class page{
       <link type="text/css" rel="stylesheet" href="../../resources/css/styleAdmin.css"  media="screen,projection"/>
       <link type="text/css" rel="stylesheet" href="../../resources/css/fontawesome.min.css"/>
       <link type="text/css" rel="stylesheet" href="../../resources/css/simple-sidebar.css"/>
+      <link type="text/css" rel="stylesheet" href="../../resources/css/morris.css"/>
       <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
       <link  rel="icon"   href="../../resources/img/ICO.ico" type="image/png"/>
       
@@ -47,7 +50,8 @@ class page{
           </div>
   ');
   }
-  public function footerTemplate(){
+  public function footerTemplate()
+  {
     print('
       
     
@@ -56,8 +60,12 @@ class page{
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script type="text/javascript" src="../../resources/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../../resources/js/fontawesome.min.js"></script>
-    <script type="text/javascript" src="../../resources/js/initialisation.js"></script>
+    
     <script src="https://kit.fontawesome.com/9b3f9e4d8d.js" crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="../../resources/js/morris.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script type="text/javascript" src="../../resources/js/initialisation.js"></script>
 
     <script type="text/javascript" src="../../resources/js/dataTable/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="../../resources/js/dataTable/dataTables.bootstrap4.min.js"></script>
@@ -68,15 +76,3 @@ class page{
     ');
   }
 }
-?>
-
-
-
-
-
-
-
-
-
-
-      
