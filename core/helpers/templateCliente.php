@@ -59,7 +59,7 @@ class page{
                     </button>
             <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
                 <div class="navbar-nav">
-                    <a class="nav-item nav-link" href="../../views/cliente/inicio.php">Inicio</a>
+                    <a class="nav-item nav-link" href="../../views/cliente/index.php">Inicio</a>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Productos
