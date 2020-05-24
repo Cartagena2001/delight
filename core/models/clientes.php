@@ -1,6 +1,7 @@
 <?php
 
 class clientes extends Validator{
+
     private $id = null;
     private $usuario = null;
     private $nombre = null;
@@ -12,7 +13,8 @@ class clientes extends Validator{
 
 
 //Metodos para asignar valores a los atributos
-public function setId($value){
+public function setId($value)
+{
     if($this->validateNaturalNumber($value)){
         $this->id = $value;
         return true;    
@@ -60,39 +62,40 @@ public function setCorreo($value)
             return true;
         } else {
             return false;
+        }
+    }
 }
 
-public function setTelefono($file)
+public function setTelefono($value)
 {
-    if ($this->validateAlphanumeric($file, 500, 500)) {
-        $this->telefono = $this->getImageName();
-        $this->archivo = $file;
-        return true;
-    } else {
+    if($this->validateNaturalNumber($value)){
+        $this->telefono = $value;
+        return true;    
+    }
+    else{
         return false;
     }
 }
 
-public function setClave($file)
+
+public function setClave($value)
 {
-    if ($this->validateAlphanumeric($file, 100, 100)) {
-        $this->clave = $this->getImageName();
-        $this->archivo = $file;
-        return true;
-    } else {
-        return false;
-    }
+        if ($this->validatePassword($value)) {
+            $this->clave = $value;
+            return true;
+        } else {
+            return false;
+        }
 }
 
-public function setEstado($file)
+public function setEstado($value)
 {
-    if ($this->validateAlphanumeric($file, 500, 500)) {
-        $this->estado = $this->getImageName();
-        $this->archivo = $file;
-        return true;
-    } else {
-        return false;
-    }
+        if ($this->validateAlphanumeric($value, 1, 50)) {
+            $this->estado = $value;
+            return true;
+        } else {
+            return false;
+        }
 }
 
     public function getId()
@@ -145,20 +148,16 @@ public function setEstado($file)
         return Database::getRows($sql, $params);
     }
 
-    //Metodo para insertar una nuevo categoria
+    //Metodo para insertar una nuevo cliente
     public function crearClientes()
     {
-        if ($this->saveFile($this->Nombre, $this->Direccion, $this->Correo, $this->Telefono, $this->clave, $this->estado_cliente)) {
-            $sql = 'INSERT INTO tb_cliente(Nombre, Direccion, Correo, Telefono, clave, estado_cliente)
-                    VALUES(?, ?, ?, ?, ?, ?)';
-            $params = array($this->Nombre, $this->Direccion, $this->Correo, $this->Telefono, $this->clave, $this->estado_cliente);
-            return Database::executeRow($sql, $params);
-        } else {
-            return false;
-        }
+        $sql = 'INSERT INTO tb_cliente(Nombre, Direccion, Correo, Telefono, clave, estado_cliente)
+                VALUES(?, ?, ?, ?, ?, ?)';
+        $params = array($this->Nombre, $this->Direccion, $this->Correo, $this->Telefono, $this->clave, $this->estado_cliente);
+        return Database::executeRow($sql, $params);
     }
 
-    //Metodo para leer todas las categorias
+    //Metodo para leer todas las clientes
     public function leerTodosClientes()
     {
         $sql = 'SELECT Id_cliente, Usuario, Nombre, Direccion, Correo, Telefono, clave, estado_cliente
@@ -168,7 +167,7 @@ public function setEstado($file)
         return Database::getRows($sql, $params);
     }
 
-    //Metodo para leer solo una categoria
+    //Metodo para leer solo una cliente
     public function leerUnaClientes()
     {
         $sql = 'SELECT Id_cliente, Usuario, Nombre, Direccion, Correo, Telefono, clave, estado_cliente
@@ -178,24 +177,17 @@ public function setEstado($file)
         return Database::getRow($sql, $params);
     }
 
-    //Metodo para actualizar una categoria
+    //Metodo para actualizar una cliente
     public function actualizarClientes()
     {
-        if ($this->saveFile($this->archivo, $this->ruta, $this->imagen)) {
-            $sql = 'UPDATE tb_Cliente
-                    SET Nombre = ?, Direccion = ?, Correo = ? Telefono = ?, clave = ? estado_cliente = ?
-                    WHERE Id_cliente = ?';
-            $params = array($this->Nombre, $this->Direccion, $this->Correo, $this->Telefono, $this->clave, $this->estado_cliente,$this->id);
-        } else {
-            $sql = 'UPDATE tb_Cliente
-                    SET SET Nombre = ?, Direccion = ?, Correo = ? Telefono = ?, clave = ? estado_cliente = ?
-                    WHERE Id_cliente = ?';
-            $params = array($this->Nombre, $this->Direccion, $this->Correo, $this->Telefono, $this->clave, $this->estado_cliente,$this->id);
-        }
+        $sql = 'UPDATE tb_Cliente
+                SET Nombre = ?, Direccion = ?, Correo = ? Telefono = ?, clave = ? estado_cliente = ?
+                WHERE Id_cliente = ?';
+        $params = array($this->Nombre, $this->Direccion, $this->Correo, $this->Telefono, $this->clave, $this->estado_cliente,$this->id);
         return Database::executeRow($sql, $params);
     }
 
-    //Metodo para eliminar una categoria
+    //Metodo para eliminar una cliente
     public function eliminarClientes()
     {
         $sql = 'DELETE FROM tb_Cliente
@@ -203,14 +195,6 @@ public function setEstado($file)
         $params = array($this->id);
         return Database::executeRow($sql, $params);
     }
-
-
-
-
-
-
-
-
 
 }
 ?>

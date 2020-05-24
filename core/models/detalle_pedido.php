@@ -82,20 +82,16 @@ class  detalle_pedido extends Validator{
         return Database::getRows($sql, $params);
     }
 
-    //Metodo para insertar una nuevo categoria
+    //Metodo para insertar una nuevo detalle pedido
     public function crearDetalle()
     {
-        if ($this->saveFile($this->archivo, $this->ruta, $this->imagen)) {
-            $sql = 'INSERT INTO tb_detalle_pedido(Id_producto, Precio, cantidad)
-                    VALUES(?, ?, ?)';
-            $params = array($this->nombre, $this->imagen, $this->descripcion);
-            return Database::executeRow($sql, $params);
-        } else {
-            return false;
-        }
+        $sql = 'INSERT INTO tb_detalle_pedido(Id_producto, Precio, cantidad)
+        VALUES(?, ?, ?)';
+        $params = array($this->nombre, $this->imagen, $this->descripcion);
+        return Database::executeRow($sql, $params);
     }
 
-    //Metodo para leer todas las categorias
+    //Metodo para leer todas las detalle pedidos
     public function leerTodosDetalle()
     {
         $sql = 'SELECT Id_detalle_pedido, Id_producto, Precio, cantidad
@@ -105,7 +101,7 @@ class  detalle_pedido extends Validator{
         return Database::getRows($sql, $params);
     }
 
-    //Metodo para leer solo una categoria
+    //Metodo para leer solo una detalle pedido
     public function leerUnaDetalle()
     {
         $sql = 'SELECT Id_detalle_pedido, Id_producto, Precio, cantidad
@@ -115,24 +111,17 @@ class  detalle_pedido extends Validator{
         return Database::getRow($sql, $params);
     }
 
-    //Metodo para actualizar una categoria
+    //Metodo para actualizar una detalle pedido
     public function actualizarDetalle()
     {
-        if ($this->saveFile($this->archivo, $this->ruta, $this->imagen)) {
-            $sql = 'UPDATE tb_detalle_pedido
-                    SET Id_detalle_pedido = ?, Id_producto= ?, Precio= ?, cantidad = ?
-                    WHERE Id_detalle_pedido = ?';
-            $params = array($this->nombre, $this->descripcion, $this->imagen, $this->id);
-        } else {
-            $sql = 'UPDATE tb_detalle_pedido
-                    SET  Id_detalle_pedido = ?, Id_producto= ?, Precio= ?, cantidad = ?
-                    WHERE Id_detalle_pedido = ?';
-            $params = array($this->nombre, $this->descripcion, $this->id);
-        }
+        $sql = 'UPDATE tb_detalle_pedido
+                SET Id_producto= ?, Precio= ?, cantidad = ?
+                WHERE Id_detalle_pedido = ?';
+        $params = array($this->id_producto, $this->Precio, $this->cantidad, $this->id);
         return Database::executeRow($sql, $params);
     }
 
-    //Metodo para eliminar una categoria
+    //Metodo para eliminar una detalle pedido
     public function eliminarDetalle()
     {
         $sql = 'DELETE FROM tb_detalle_pedido
@@ -141,4 +130,3 @@ class  detalle_pedido extends Validator{
         return Database::executeRow($sql, $params);
     }
 }
-?>

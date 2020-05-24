@@ -31,7 +31,7 @@ class  resena extends Validator{
         }
     }
 
-    public function setComentario($value)
+    public function setComent($value)
     {
         if ($value) {
             if ($this->validateString($value, 1, 250)) {
@@ -46,7 +46,7 @@ class  resena extends Validator{
         }
     }
 
-    public function setId_detalle_pedido($value)
+    public function set_Id_detalle_pedido($value)
     {
         if($this->validateNaturalNumber($value)){
             $this->id_detalle_pedido = $value;
@@ -81,7 +81,7 @@ class  resena extends Validator{
     //Metodos para realizar las acciones del SCRUD
     public function buscarResenia($value)
     {
-        $sql = 'SELECT Id_resena, Calificacion, Comentario, Id_detalle_pedido
+        $sql = 'SELECT id_resenia, Calificacion, Comentario, Id_detalle_pedido
                 FROM tb_resenia
                 WHERE Calificacion ILIKE ? OR Comentario ILIKE ?
                 ORDER BY Calificacion';
@@ -89,7 +89,7 @@ class  resena extends Validator{
         return Database::getRows($sql, $params);
     }
 
-    //Metodo para insertar una nuevo categoria
+    //Metodo para insertar una nuevo resenia
     public function crearResenia()
     {
         if ($this->saveFile($this->archivo, $this->ruta, $this->imagen)) {
@@ -102,48 +102,41 @@ class  resena extends Validator{
         }
     }
 
-    //Metodo para leer todas las categorias
+    //Metodo para leer todas las resenias
     public function leerTodasResenia()
     {
-        $sql = 'SELECT Id_resena, Calificacion, Comentario, Id_detalle_pedido
+        $sql = 'SELECT id_resenia, Calificacion, Comentario, Id_detalle_pedido
                 FROM tb_resenia
                 ORDER BY Calificacion';
         $params = null;
         return Database::getRows($sql, $params);
     }
 
-    //Metodo para leer solo una categoria
+    //Metodo para leer solo una resenia
     public function leerUnaResenia()
     {
-        $sql = 'SELECT Id_resena, Calificacion, Comentario, Id_detalle_pedido
+        $sql = 'SELECT id_resenia, Calificacion, Comentario, Id_detalle_pedido
                 FROM tb_resenia
                 WHERE Calificacion = ?';
         $params = array($this->id);
         return Database::getRow($sql, $params);
     }
 
-    //Metodo para actualizar una categoria
+    //Metodo para actualizar una resenia
     public function actualizarResenia()
     {
-        if ($this->saveFile($this->archivo, $this->ruta, $this->imagen)) {
-            $sql = 'UPDATE tb_resenia
-                    SET Calificacion = ?, Comentario = ?, Id_detalle_pedido = ?
-                    WHERE Calificacion = ?';
+        $sql = 'UPDATE tb_resenia
+                SET Calificacion = ?, Comentario = ?, Id_detalle_pedido = ?
+                WHERE id_resenia = ?';
             $params = array($this->calificacion, $this->comentario, $this->id_detalle_pedido, $this->Id);
-        } else {
-            $sql = 'UPDATE tb_resenia
-                    SET Calificacion = ?, Comentario = ?, Id_detalle_pedido = ?
-                    WHERE Calificacion = ?';
-            $params = array($this->calificacion, $this->comentario, $this->id_detalle_pedido, $this->Id);
-        }
         return Database::executeRow($sql, $params);
     }
 
-    //Metodo para eliminar una categoria
+    //Metodo para eliminar una resenia
     public function eliminarResenia()
     {
         $sql = 'DELETE FROM tb_resenia
-                WHERE Calificacion = ?';
+                WHERE id_resenia = ?';
         $params = array($this->id);
         return Database::executeRow($sql, $params);
     }

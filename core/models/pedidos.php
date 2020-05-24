@@ -43,7 +43,7 @@ public function setId_cupon($value)
     }
 }
 
-public function setId_detalle($file)
+public function setId_detalle($value)
 {
     if($this->validateNaturalNumber($value)){
         $this->id_detalle = $value;
@@ -65,7 +65,7 @@ public function setCosto_envio($value)
         }
     }
 
-public function setFecha_pedido($file)
+public function setFecha_pedido($value)
 {
     if($this->validateAlphanumeric($value, 1, 50)) {
         $this->fecha_pedido = $value;
@@ -75,7 +75,7 @@ public function setFecha_pedido($file)
     }
 }
 
-public function setFecha_entrega($file)
+public function setFecha_entrega($value)
 {
     if($this->validateAlphanumeric($value, 1, 50)) {
         $this->fecha_entrega = $value;
@@ -120,7 +120,7 @@ public function setFecha_entrega($file)
         return $this->estado;
     }
 
-    //Metodo para buscar un categoria
+    //Metodo para buscar un pedidos
     public function buscarPedidos($value)
     {
         $sql = 'SELECT Id_pedido, Id_cliente, Id_cupon, Id_detalle_pedido, Costo_envio, Fecha_pedido , Fecha_entrega
@@ -131,7 +131,7 @@ public function setFecha_entrega($file)
         return Database::getRows($sql, $params);
     }
 
-    //Metodo para insertar una nuevo categoria
+    //Metodo para insertar una nuevo pedidos
     public function crearProductos()
     {
         if ($this->saveFile($this->Id_cliente, $this->Id_cupon, $this->Id_detalle_pedido, $this->Costo_envio, $this->Fecha_pedido, $this->Fecha_entrega)) {
@@ -144,7 +144,7 @@ public function setFecha_entrega($file)
         }
     }
 
-    //Metodo para leer todas las categorias
+    //Metodo para leer todas las pedidos
     public function leerTodosProductos()
     {
         $sql = 'SELECT Id_pedido, Id_cliente, Id_cupon, Id_detalle_pedido, Costo_envio, Fecha_pedido, Fecha_entrega
@@ -154,7 +154,7 @@ public function setFecha_entrega($file)
         return Database::getRows($sql, $params);
     }
 
-    //Metodo para leer solo una categoria
+    //Metodo para leer solo una pedido
     public function leerUnaProductos()
     {
         $sql = 'SELECT Id_pedido, Id_pedido, Id_cliente, Id_cupon, Id_detalle_pedido, Costo_envio, Fecha_pedido, Fecha_entrega
@@ -164,24 +164,17 @@ public function setFecha_entrega($file)
         return Database::getRow($sql, $params);
     }
 
-    //Metodo para actualizar una categoria
+    //Metodo para actualizar una pedidos
     public function actualizarProductos()
     {
-        if ($this->saveFile($this->archivo, $this->ruta, $this->imagen)) {
-            $sql = 'UPDATE tb_pedidos
-                    SET Id_pedido, Id_cliente = ?, Id_cupon = ?, Id_detalle_pedido = ?, Costo_envio = ?, Fecha_pedido = ?, Fecha_entrega = ?
-                    WHERE Id_pedido = ?';
-            $params = array($this->Id_cliente, $this->Id_cupon, $this->Id_detalle_pedido, $this->Costo_envio, $this->Fecha_pedido, $this->Fecha_entrega, $this->id);
-        } else {
-            $sql = 'UPDATE tb_pedidos
-                    SET SET Id_pedido = ?, Id_cliente = ?, Id_cupon = ?, Id_detalle_pedido = ?, Costo_envio = ?, Fecha_pedido = ?, Fecha_entrega = ?
-                    WHERE Id_pedido = ?';
-            $params = array($this->Id_cliente, $this->Id_cupon, $this->Id_detalle_pedido, $this->Costo_envio, $this->Fecha_pedido, $this->Fecha_entrega,$this->id);
-        }
+        $sql = 'UPDATE tb_pedidos
+                SET Id_cliente = ?, Id_cupon = ?, Id_detalle_pedido = ?, Costo_envio = ?, Fecha_pedido = ?, Fecha_entrega = ?
+                WHERE Id_pedido = ?';
+        $params = array($this->Id_cliente, $this->Id_cupon, $this->Id_detalle_pedido, $this->Costo_envio, $this->Fecha_pedido, $this->Fecha_entrega, $this->id);
         return Database::executeRow($sql, $params);
     }
 
-    //Metodo para eliminar una categoria
+    //Metodo para eliminar una pedidos
     public function eliminarProductos()
     {
         $sql = 'DELETE FROM tb_pedidos

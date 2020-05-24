@@ -110,7 +110,7 @@ class  categorias extends Validator{
         return Database::getRows($sql, $params);
     }
 
-    //Metodo para insertar una nuevo categoria
+    //Metodo para insertar una nuevo noticas
     public function crearNoticias()
     {
         if ($this->saveFile($this->archivo, $this->ruta, $this->imagen)) {
@@ -123,7 +123,7 @@ class  categorias extends Validator{
         }
     }
 
-    //Metodo para leer todas las categorias
+    //Metodo para leer todas las noticas
     public function leerTodasNoticias()
     {
         $sql = 'SELECT Id_noticia, titulo, descripcion, imagen, fecha_pub
@@ -133,7 +133,7 @@ class  categorias extends Validator{
         return Database::getRows($sql, $params);
     }
 
-    //Metodo para leer solo una categoria
+    //Metodo para leer solo una notica
     public function leerUnaNoticias()
     {
         $sql = 'SELECT Id_noticia, titulo, descripcion, imagen, fecha_pub
@@ -143,24 +143,24 @@ class  categorias extends Validator{
         return Database::getRow($sql, $params);
     }
 
-    //Metodo para actualizar una categoria
+    //Metodo para actualizar una noticas
     public function actualizarNoticias()
     {
         if ($this->saveFile($this->archivo, $this->ruta, $this->imagen)) {
             $sql = 'UPDATE tb_noticia
-                    SET Id_noticia = ?, titulo = ?, descripcion = ?, imagen = ?, fecha_pub = ?
+                    SET titulo = ?, descripcion = ?, imagen = ?, fecha_pub = ?
                     WHERE Id_noticia = ?';
             $params = array($this->titulo, $this->descripcion, $this->imagen, $this->fecha, $this->id);
         } else {
             $sql = 'UPDATE tb_noticia
-                    SET Id_noticia = ?, titulo = ?, descripcion = ?, fecha_pub = ?
+                    SET titulo = ?, descripcion = ?, fecha_pub = ?
                     WHERE Id_noticia = ?';
-            $params = array(($this->titulo, $this->descripcion, $this->fecha, $this->id);
+            $params = array($this->titulo, $this->descripcion, $this->fecha, $this->id);
         }
         return Database::executeRow($sql, $params);
     }
 
-    //Metodo para eliminar una categoria
+    //Metodo para eliminar una noticas
     public function eliminarNoticias()
     {
         $sql = 'DELETE FROM tb_noticia

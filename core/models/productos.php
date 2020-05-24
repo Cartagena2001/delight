@@ -70,7 +70,7 @@ public function setImagen($file)
     }
 }
 
-public function setId_categoria($file)
+public function setId_categoria($value)
 {
     if($this->validateNaturalNumber($value)){
         $this->id_categoria = $value;
@@ -80,7 +80,7 @@ public function setId_categoria($file)
     }
 }
 
-public function setEstado($file)
+public function setEstado($value)
 {
     if($this->validateAlphanumeric($value, 1, 50)) {
         $this->estado = $value;
@@ -140,7 +140,7 @@ public function setEstado($file)
         return Database::getRows($sql, $params);
     }
 
-    //Metodo para insertar una nuevo categoria
+    //Metodo para insertar una nuevo productos
     public function crearProductos()
     {
         if ($this->saveFile($this->Nombre, $this->Precio, $this->Descripcion, $this->Imagen, $this->Id_categoria, $this->estado)) {
@@ -153,7 +153,7 @@ public function setEstado($file)
         }
     }
 
-    //Metodo para leer todas las categorias
+    //Metodo para leer todas las productos
     public function leerTodosProductos()
     {
         $sql = 'SELECT Id_producto, Nombre, Precio, Descripcion, Imagen, Id_categoria, estado
@@ -163,7 +163,7 @@ public function setEstado($file)
         return Database::getRows($sql, $params);
     }
 
-    //Metodo para leer solo una categoria
+    //Metodo para leer solo una producto
     public function leerUnaProductos()
     {
         $sql = 'SELECT Id_producto, Nombre, Precio, Descripcion, Imagen, Id_categoria, estado
@@ -173,7 +173,7 @@ public function setEstado($file)
         return Database::getRow($sql, $params);
     }
 
-    //Metodo para actualizar una categoria
+    //Metodo para actualizar una productos
     public function actualizarProductos()
     {
         if ($this->saveFile($this->archivo, $this->ruta, $this->imagen)) {
@@ -190,7 +190,7 @@ public function setEstado($file)
         return Database::executeRow($sql, $params);
     }
 
-    //Metodo para eliminar una categoria
+    //Metodo para eliminar una productos
     public function eliminarProductos()
     {
         $sql = 'DELETE FROM tb_productos

@@ -30,16 +30,11 @@ class  cupones extends Validator{
 
     public function setOpcion($value)
     {
-        if ($value) {
-            if ($this->validateString($value, 1, 50)) {
-                $this->opcion = $value;
-                return true;
-            } else {
-                return false;
-            }
-        } else {
-            $this->descripcion = null;
+        if($this->validateString($value, 1, 6)) {
+            $this->opcion = $value;
             return true;
+        } else {
+            return false;
         }
     }
 
@@ -71,20 +66,16 @@ class  cupones extends Validator{
         return Database::getRows($sql, $params);
     }
 
-    //Metodo para insertar una nuevo categoria
+    //Metodo para insertar una nuevo cupon
     public function crearCupones()
     {
-        if ($this->saveFile($this->puntos, $this->opcion)) {
-            $sql = 'INSERT INTO tb_cupones(puntos, opcion)
+        $sql = 'INSERT INTO tb_cupones(puntos, opcion)
                     VALUES(?, ?)';
-            $params = array($this->puntos, $this->opcion);
-            return Database::executeRow($sql, $params);
-        } else {
-            return false;
-        }
+        $params = array($this->puntos, $this->opcion);
+        return Database::executeRow($sql, $params);
     }
 
-    //Metodo para leer todas las categorias
+    //Metodo para leer todas las cupones
     public function leerTodasCupones()
     {
         $sql = 'SELECT Id_cupon, puntos, opcion
@@ -94,7 +85,7 @@ class  cupones extends Validator{
         return Database::getRows($sql, $params);
     }
 
-    //Metodo para leer solo una categoria
+    //Metodo para leer solo una cupon
     public function leerUnaCupones()
     {
         $sql = 'SELECT Id_cupon, puntos, opcion
@@ -104,24 +95,17 @@ class  cupones extends Validator{
         return Database::getRow($sql, $params);
     }
 
-    //Metodo para actualizar una categoria
+    //Metodo para actualizar una cupon
     public function actualizarCupones()
     {
-        if ($this->saveFile($this->archivo, $this->ruta, $this->imagen)) {
-            $sql = 'UPDATE tb_cupones
-                    SET puntos = ?, opcion = ?
-                    WHERE Id_cupon = ?';
-            $params = array($this->puntos, $this->opcion, $this->id);
-        } else {
-            $sql = 'UPDATE tb_cupones
-                    SET puntos = ?, o = ?
-                    WHERE Id_cupon = ?';
-            $params = array($this->puntos, $this->opcion, $this->id);
-        }
+        $sql = 'UPDATE tb_cupones
+                SET puntos = ?, opcion = ?
+                WHERE Id_cupon = ?';
+        $params = array($this->puntos, $this->opcion, $this->id);
         return Database::executeRow($sql, $params);
     }
 
-    //Metodo para eliminar una categoria
+    //Metodo para eliminar una cupon
     public function eliminarCupones()
     {
         $sql = 'DELETE FROM tb_cupones
