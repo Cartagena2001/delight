@@ -16,7 +16,7 @@ if (isset($_GET['action'])) {
 
     switch ($_GET['action']) {
         case 'readAll':
-            if ($result['dataset'] = $pedidos->leerpedidos()) {
+            if ($result['dataset'] = $pedidos->leerPedidos()) {
                 $result['status'] = 1;
             } else {
                 $result['exception'] = 'No hay clientes';
@@ -75,7 +75,7 @@ if (isset($_GET['action'])) {
                 break;
                 case 'readOne':
                     if ($pedidos->setId($_POST['id_cliente'])) {
-                        if ($result['dataset'] = $pedidos->leerUnpedido()) {
+                        if ($result['dataset'] = $pedidos->leerUnPedidos()) {
                             $result['status'] = 1;
                         } else {
                             $result['exception'] = 'pedido inexistente';
@@ -87,13 +87,13 @@ if (isset($_GET['action'])) {
                 case 'update':
                     $_POST = $pedidos->validateForm($_POST);
                     if ($pedidos->setId_cliente($_POST['id_cliente'])) { 
-                        if ($data = $pedidos->leerUnPedido()) {
+                        if ($data = $pedidos->leerUnPedidos()) {
                             if($pedidos-> setId_cupon($_POST['id_cupon'])){
                                 if($pedidos-> setId_detalle($_POST['id_detalle_pedido'])){
                                    if($pedidos-> setCosto_envio ($_POST['costo_envio'])){
                                        if($pedidos-> setFecha_pedido ($_POST['fecha_pedido'])){
                                            if($pedidos-> setFecha_entrega ($_POST['fecha_entrega'])){
-                                                if ($pedidos->actualizarpedido()) {
+                                                if ($pedidos->actualizarPedidos()) {
                                                     $result['status'] = 1;
                                                     $result['message'] = 'pedido actualizado correctamente';
                                                 } else {
@@ -126,8 +126,8 @@ if (isset($_GET['action'])) {
                     case 'delete':
                         if ($_POST['id_cliente'] != $_SESSION['id_cliente']) {
                             if ($pedidos->setId($_POST['id_pedidos'])) {
-                                if ($pedidos->leerUnPedido()) {
-                                    if ($pedidos->eliminarpedidos()) {
+                                if ($pedidos->leerUnPedidos()) {
+                                    if ($pedidos->eliminarPedidos()) {
                                         $result['status'] = 1;
                                         $result['message'] = 'pedido eliminado correctamente';
                                     } else {
