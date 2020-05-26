@@ -132,7 +132,7 @@ public function setFecha_entrega($value)
     }
 
     //Metodo para insertar una nuevo pedidos
-    public function crearProductos()
+    public function crearPedidos()
     {
         if ($this->saveFile($this->Id_cliente, $this->Id_cupon, $this->Id_detalle_pedido, $this->Costo_envio, $this->Fecha_pedido, $this->Fecha_entrega)) {
             $sql = 'INSERT INTO tb_pedidos(Id_cliente, Id_cupon, Id_detalle_pedido, Costo_envio, Fecha_pedido, Fecha_entrega)
@@ -145,7 +145,7 @@ public function setFecha_entrega($value)
     }
 
     //Metodo para leer todas las pedidos
-    public function leerTodosProductos()
+    public function leerTodosPedidos()
     {
         $sql = 'SELECT Id_pedido, Id_cliente, Id_cupon, Id_detalle_pedido, Costo_envio, Fecha_pedido, Fecha_entrega
                 FROM tb_pedidos
@@ -155,7 +155,7 @@ public function setFecha_entrega($value)
     }
 
     //Metodo para leer solo una pedido
-    public function leerUnaProductos()
+    public function leerUnPedidos()
     {
         $sql = 'SELECT Id_pedido, Id_pedido, Id_cliente, Id_cupon, Id_detalle_pedido, Costo_envio, Fecha_pedido, Fecha_entrega
                 FROM tb_pedidos
@@ -165,7 +165,7 @@ public function setFecha_entrega($value)
     }
 
     //Metodo para actualizar una pedidos
-    public function actualizarProductos()
+    public function actualizarPedidos()
     {
         $sql = 'UPDATE tb_pedidos
                 SET Id_cliente = ?, Id_cupon = ?, Id_detalle_pedido = ?, Costo_envio = ?, Fecha_pedido = ?, Fecha_entrega = ?
@@ -175,7 +175,7 @@ public function setFecha_entrega($value)
     }
 
     //Metodo para eliminar una pedidos
-    public function eliminarProductos()
+    public function eliminarPedidos()
     {
         $sql = 'DELETE FROM tb_pedidos
                 WHERE Id_pedido = ?';
