@@ -92,10 +92,10 @@ $( '#save-form' ).submit(function( event ) {
     event.preventDefault();
     // Se llama a la función que crea o actualiza un registro. Se encuentra en el archivo components.js
     // Se comprueba si el id del registro esta asignado en el formulario para actualizar, de lo contrario se crea un registro.
-    if ( $( '#id_categoria' ).val() ) {
-        saveRow( API_CATEGORIAS, 'update', this, 'save-modal' );
+    if ( $( '#id_noticia' ).val() ) {
+        saveRow( API_NOTICIAS, 'update', this, 'save-modal' );
     } else {
-        saveRow( API_CATEGORIAS, 'create', this, 'save-modal' );
+        saveRow( API_NOTICIAS, 'create', this, 'save-modal' );
     }
 });
 
@@ -103,7 +103,7 @@ $( '#save-form' ).submit(function( event ) {
 function openDeleteDialog( id )
 {
     // Se declara e inicializa un objeto con el id del registro que será borrado.
-    let identifier = { id_categoria: id };
+    let identifier = { id_noticia: id };
     // Se llama a la función que elimina un registro. Se encuentra en el archivo components.js
-    confirmDelete( API_CATEGORIAS, identifier );
+    confirmDelete( API_NOTICIAS, identifier );
 }
