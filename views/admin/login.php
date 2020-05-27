@@ -16,7 +16,7 @@
             <div id="login-row" class="row justify-content-center align-items-center">
                 <div id="login-column" class="col-md-6">
                     <div id="login-box" class="col-md-12">
-                        <form id="login-form" class="form" action="" method="post">
+                        <form id="login-form" class="form" method="post">
                             <h5 class="text-center mb-5" id="bienvenido">Bienvenido administrador</h5>
                             <div class="form-group">
                                 <label for="username">Usuario:</label><br>
@@ -32,7 +32,7 @@
                             </div>
                             <hr color="#021140">
                             <div class="mt-5">
-                            <a class="btn col-lg-6 container d-flex justify-content-center" id="btnlogin" type="submit">Acceder</a>
+                                <button class="btn container d-flex justify-content-center" type="submit" id="btnlogin">Acceder</button>
                             </div>
                         </form>
                     </div>
