@@ -1,24 +1,21 @@
-const API_CATEGORIAS = '../../api/admin/categoria.php?action=';
+const API_CLIENTES = '../../api/admin/clientes.php?action=';
 
 $( document ).ready(function() {
     // Se llama a la función que obtiene los registros para llenar la tabla. Se encuentra en el archivo components.js
-    readRows( API_CATEGORIAS );
+    readRows( API_CLIENTES );
 });
 
-// Función para llenar la tabla con los datos enviados por readRows().
 function fillTable( dataset )
 {
     let content = '';
     dataset.forEach(function( row ) {
         content += `
             <tr>
+                <td>${row.usuario}</td>
                 <td>${row.nombre}</td>
-                <td>${row.descripcion}</td>
-                <td>../../resources/img/categorias/${row.imagen}</td>
-                <td>
-                    <a href="#" class="btn btn-info" data-toggle="modal" data-target="#agregarmodal (${row.id_categoria})"><i class="fas fa-plus-square"></i></a>    
-                    <a href="#" class="btn btn-warning" data-toggle="modal" data-target="#editarmodal (${row.id_categoria})"><i class="fas fa-edit"></i></a>
-                    <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#eliminarmodal (${row.id_categoria})"><i class="fas fa-trash-alt"></i></a></td>
+                <td>${row.correo}</td>
+                <td>${row.telefono}</td>
+                <td><a href="#" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter (${row.id_cliente})"><i class="fas fa-edit"></i></a></td>
             </tr>
         `;
     });
@@ -27,7 +24,6 @@ function fillTable( dataset )
     $( '.materialboxed' ).materialbox();
     $( '.tooltipped' ).tooltip();
 }
-
 
 // Función que prepara formulario para insertar un registro.
 function openCreateModal()
@@ -56,7 +52,7 @@ function openUpdateModal( id )
 
     $.ajax({
         dataType: 'json',
-        url: API_CATEGORIAS + 'readOne',
+        url: API_CLIENTES + 'readOne',
         data: { id_categoria: id },
         type: 'post'
     })
@@ -89,10 +85,10 @@ $( '#save-form' ).submit(function( event ) {
     event.preventDefault();
     // Se llama a la función que crea o actualiza un registro. Se encuentra en el archivo components.js
     // Se comprueba si el id del registro esta asignado en el formulario para actualizar, de lo contrario se crea un registro.
-    if ( $( '#id_categoria' ).val() ) {
-        saveRow( API_CATEGORIAS, 'update', this, 'save-modal' );
+    if ( $( '#id_cliente' ).val() ) {
+        saveRow( API_CLIENTES, 'update', this, 'save-modal' );
     } else {
-        saveRow( API_CATEGORIAS, 'create', this, 'save-modal' );
+        saveRow( API_CLIENTES, 'create', this, 'save-modal' );
     }
 });
 
@@ -100,7 +96,7 @@ $( '#save-form' ).submit(function( event ) {
 function openDeleteDialog( id )
 {
     // Se declara e inicializa un objeto con el id del registro que será borrado.
-    let identifier = { id_categoria: id };
+    let identifier = { id_cliente: id };
     // Se llama a la función que elimina un registro. Se encuentra en el archivo components.js
-    confirmDelete( API_CATEGORIAS, identifier );
+    confirmDelete( API_CLIENTES, identifier );
 }

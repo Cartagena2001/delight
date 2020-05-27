@@ -32,8 +32,8 @@ if(isset($_GET['action'])){
                 break;
             case 'login':
                 $_POST = $usuario->validateForm($_POST);
-                    if ($usuario->checkUsuario($_POST['usuario'])) {
-                        if ($usuario->checkClave($_POST['clave'])) {
+                    if ($usuario->checkUsuario($_POST['username'])) {
+                        if ($usuario->checkClave($_POST['password'])) {
                             $_SESSION['id_administrador'] = $usuario->getId();
                             $_SESSION['usuario'] = $usuario->getUsuario();
                             $result['status'] = 1;

@@ -137,7 +137,7 @@ Page::headerTemplate('Principal');
 
     </div>
 </div>
-
+<script type="text/javascript" src="../../core/controllers/admin/categoria.js"></script>
 <?php
 Page::footerTemplate();
 ?>

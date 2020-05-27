@@ -32,7 +32,7 @@
                             </div>
                             <hr color="#021140">
                             <div class="mt-5">
-                            <a href="index.php" class="btn col-lg-6 container d-flex justify-content-center" id="btnlogin">Acceder</a>
+                            <a href="index.php" class="btn col-lg-6 container d-flex justify-content-center" id="btnlogin" type="submit">Acceder</a>
                             </div>
                         </form>
                     </div>
