@@ -32,7 +32,7 @@
                             </div>
                             <hr color="#021140">
                             <div class="mt-5">
-                            <a href="index.php" class="btn col-lg-6 container d-flex justify-content-center" id="btnlogin" type="submit">Acceder</a>
+                            <a class="btn col-lg-6 container d-flex justify-content-center" id="btnlogin" type="submit">Acceder</a>
                             </div>
                         </form>
                     </div>
@@ -50,6 +50,7 @@
     <script type="text/javascript" src="../../resources/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../../resources/js/fontawesome.min.js"></script>
     <script type="text/javascript" src="../../core/controllers/admin/login.js"></script>
+    <script type="text/javascript" src="../../core/helpers/components.js"></script>
     <script src="https://kit.fontawesome.com/9b3f9e4d8d.js" crossorigin="anonymous"></script>
     
 </body>

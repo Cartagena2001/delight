@@ -125,7 +125,7 @@ public function getId()
     //Gestionar cuenta nombre
     public function checkUsuario($usuario)
     {
-        $sql = 'SELECT id_administrador FROM tb_administradores WHERE usuario = ?';
+        $sql = 'SELECT id_administrador FROM tb_administradores WHERE id_administrador = ?';
         $params = array($usuario);
         if ($data = Database::getRow($sql, $params)) {
             $this->id = $data['id_administrador'];
@@ -147,6 +147,23 @@ public function getId()
         } else {
             return false;
         }
+    }
+
+    public function cambiarClave()
+    {
+        $hash = password_hash($this->clave, PASSWORD_DEFAULT);
+        $sql = 'UPDATE tb_administradores SET clave = ? WHERE id_administrador = ?';
+        $params = array($hash, $this->id);
+        return Database::executeRow($sql, $params);
+    }
+
+    public function editProfile()
+    {
+        $sql = 'UPDATE tb_administradores
+                SET usuario = ?, nombre = ?, correo = ?, telefono = ?
+                WHERE id_administrador = ?';
+        $params = array($this->usuario, $this->nombre, $this->correo, $this->telefono, $this->id);
+        return Database::executeRow($sql, $params);
     }
 
 
@@ -172,7 +189,7 @@ public function getId()
      //Metodo para leer todas las clientes
      public function leerTodosLosAdmin()
      {
-         $sql = 'SELECT id_administradores, usuario, nombre, Correo, Telefono, clave, estado_admin
+         $sql = 'SELECT id_administrador, usuario, nombre, correo, telefono, clave, estado_admin
                  FROM tb_administradores
                  ORDER BY nombre';
          $params = null;
@@ -182,7 +199,7 @@ public function getId()
      //Metodo para leer solo una cliente
     public function leerUnAdmin()
     {
-        $sql = 'SELECT id_administradores, usuario, nombre, Correo, Telefono, clave, estado_admin
+        $sql = 'SELECT id_administrador, usuario, nombre, Correo, Telefono, clave, estado_admin
                 FROM tb_administradores
                 WHERE id_administradores = ?';
         $params = array($this->id);
@@ -194,7 +211,7 @@ public function getId()
     {
         $sql = 'UPDATE tb_administradores
                 SET usuario = ?, nombre = ?, Correo = ? Telefono = ?, clave = ? estado_admin = ?
-                WHERE id_administradores = ?';
+                WHERE id_administrador = ?';
         $params = array($this->usuario, $this->nombre, $this->Correo, $this->Telefono, $this->clave, $this->estado,$this->id);
         return Database::executeRow($sql, $params);
     }
@@ -203,7 +220,7 @@ public function getId()
     public function eliminarAdmin()
     {
         $sql = 'DELETE FROM tb_administradores
-                WHERE id_administradores = ?';
+                WHERE id_administrador = ?';
         $params = array($this->id);
         return Database::executeRow($sql, $params);
     }

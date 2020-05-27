@@ -9,11 +9,11 @@ function checkUsuarios()
     .done(function( response ) {
         // Se obtiene la ruta del documento en el servidor web.
         let current = window.location.pathname;
-        // Se comprueba si la página web actual es register.php, de lo contrario seria index.php
-        if ( current == '/delight/views/admin/login.php' ) {
+        
+        if ( current == '/delight/views/admin/register.php' ) {
             // Si ya existe un usuario registrado se envía a iniciar sesión, de lo contrario se pide crear el primero.
             if ( response.status ) {
-                alert("Credenciales aceptadas"); window.location='index.php'; 
+                alert("Credenciales aceptadas"); window.location='login.php'; 
                 
             } else {
                 alert ("Debe crear un usuario para comenzar");
@@ -22,6 +22,9 @@ function checkUsuarios()
             // Si ya existe al menos un usuario registrado se pide iniciar sesión, de lo contrario se envía a crear el primero.
             if ( response.status ) {
                 alert ("Debe autenticarse para ingresar");
+            }
+            else {
+                alert ("Debe registrarse primero"); window.location='register.php'; 
             }
         }
     })
