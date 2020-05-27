@@ -6,7 +6,7 @@ class productos extends Validator{
     private $precio = null;
     private $descripcion = null;
     private $imagen = null;
-    private $ruta = '../../../resources/img/categorias/';
+    private $ruta = '../../../resources/img/';
     private $id_categoria = null;
     private $estado = null;
 
