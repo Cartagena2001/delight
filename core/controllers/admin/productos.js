@@ -15,9 +15,9 @@ function fillTable( dataset )
                 <td>${row.nombre}</td>
                 <td>${row.precio}</td>
                 <td>${row.descripcion}</td>
+                <td>../../resources/img/categorias/${row.imagen}</td>
                 <td>${row.categoria}</td>
                 <td>${row.estado}</td>
-                <td>../../resources/img/categorias/${row.imagen}</td>
                 <td>
                 <a href="#" class="btn btn-info" data-toggle="modal" data-target="#agregarmodal (${row.id_producto})"><i class="fas fa-plus-square"></i></a>    
                 <a href="#" class="btn btn-warning" data-toggle="modal" data-target="#editarmodal (${row.id_producto})"><i class="fas fa-edit"></i></a>

@@ -15,6 +15,7 @@ function fillTable( dataset )
                 <td>${row.nombre}</td>
                 <td>${row.correo}</td>
                 <td>${row.telefono}</td>
+                <td>${row.estado}</td>
                 <td><a href="#" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter (${row.id_cliente})"><i class="fas fa-edit"></i></a></td>
             </tr>
         `;

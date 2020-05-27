@@ -12,8 +12,7 @@ function fillTable( dataset )
     dataset.forEach(function( row ) {
         content += `
             <tr>
-                <td>${row.cliente}</td>
-                <td>${row.producto}</td>
+                <td>${row.id_producto}</td>
                 <td>${row.precio}</td>
                 <td>${row.cantidad}</td>
                 <td>

@@ -14,7 +14,7 @@ function fillTable( dataset )
             <tr>
                 <td>${row.titulo}</td>
                 <td>${row.descripcion}</td>
-                <td>../../resources/img/noticia/${row.imagen}</td>
+                <td>../../resources/img/noticias/${row.imagen}</td>
                 <td>${row.fecha_pub}</td>
                 <td>
                     <a href="#" class="btn btn-info" data-toggle="modal" data-target="#agregarmodal (${row.id_noticias})"><i class="fas fa-plus-square"></i></a>    

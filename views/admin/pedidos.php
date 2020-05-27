@@ -14,14 +14,14 @@ Page::headerTemplate('Principal');
                     <thead>
                         <tr>
                             <th>Cliente</th>
+                            <th>Cupon</th>
                             <th>Costo envio</th>
-                            <th>Estado envio</th>
                             <th>Fecha creacion</th>
                             <th>Fecha entrega</th>
                             <th>Aciones</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="tbody-rows">
                         <tr>
                             <td>Tiger</td>
                             <td>Nixon</td>
@@ -30,217 +30,6 @@ Page::headerTemplate('Principal');
                             <td>Edinburgh</td>
                             <td><a href="#" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-edit"></i></a></td>
                         </tr>
-                        <tr>
-                            <td>Garrett</td>
-                            <td>Winters</td>
-                            <td>Accountant</td>
-                            <td>Tokyo</td>
-                            <td>Edinburgh</td>
-                            <td><a href="#" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-edit"></i></a></td>
-                        </tr>
-                        <tr>
-                            <td>Ashton</td>
-                            <td>Cox</td>
-                            <td>Junior Technical Author</td>
-                            <td>San Francisco</td>
-                            <td>Edinburgh</td>
-                            <td><a href="#" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-edit"></i></a></td>
-                        </tr>
-                        <tr>
-                            <td>Cedric</td>
-                            <td>Kelly</td>
-                            <td>Senior Javascript Developer</td>
-                            <td>Edinburgh</td>
-                            <td>Edinburgh</td>
-                            <td><a href="#" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-edit"></i></a></td>
-                        </tr>
-                        <tr>
-                            <td>Airi</td>
-                            <td>Satou</td>
-                            <td>Accountant</td>
-                            <td>Tokyo</td>
-                            <td>Edinburgh</td>
-                            <td><a href="#" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-edit"></i></a></td>
-                        </tr>
-                        <tr>
-                            <td>Brielle</td>
-                            <td>Williamson</td>
-                            <td>Integration Specialist</td>
-                            <td>New York</td>
-                            <td>Edinburgh</td>
-                            <td><a href="#" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-edit"></i></a></td>
-                        </tr>
-                        <tr>
-                            <td>Herrod</td>
-                            <td>Chandler</td>
-                            <td>Sales Assistant</td>
-                            <td>San Francisco</td>
-                            <td>Edinburgh</td>
-                            <td><a href="#" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-edit"></i></a></td>
-
-                        </tr>
-                        <tr>
-                            <td>Rhona</td>
-                            <td>Davidson</td>
-                            <td>Integration Specialist</td>
-                            <td>Tokyo</td>
-                            <td>Edinburgh</td>
-                            <td><a href="#" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-edit"></i></a></td>
-
-                        </tr>
-                        <tr>
-                            <td>Colleen</td>
-                            <td>Hurst</td>
-                            <td>Javascript Developer</td>
-                            <td>San Francisco</td>
-                            <td>Edinburgh</td>
-                            <td><a href="#" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-edit"></i></a></td>
-                        </tr>
-                        <tr>
-                            <td>Sonya</td>
-                            <td>Frost</td>
-                            <td>Software Engineer</td>
-                            <td>Edinburgh</td>
-                            <td>Edinburgh</td>
-                            <td><a href="#" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-edit"></i></a></td>
-                        </tr>
-                        <tr>
-                            <td>Jena</td>
-                            <td>Gaines</td>
-                            <td>Office Manager</td>
-                            <td>London</td>
-                            <td>Edinburgh</td>
-                            <td><a href="#" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-edit"></i></a></td>
-
-                        </tr>
-                        <tr>
-                            <td>Quinn</td>
-                            <td>Flynn</td>
-                            <td>Support Lead</td>
-                            <td>Edinburgh</td>
-                            <td>Edinburgh</td>
-                            <td><a href="#" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-edit"></i></a></td>
-                        </tr>
-                        <tr>
-                            <td>Charde</td>
-                            <td>Marshall</td>
-                            <td>Regional Director</td>
-                            <td>San Francisco</td>
-                            <td>Edinburgh</td>
-                            <td><a href="#" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-edit"></i></a></td>
-                        </tr>
-                        <tr>
-                            <td>Haley</td>
-                            <td>Kennedy</td>
-                            <td>Senior Marketing Designer</td>
-                            <td>London</td>
-                            <td>Edinburgh</td>
-                            <td><a href="#" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-edit"></i></a></td>
-                        </tr>
-                        <tr>
-                            <td>Tatyana</td>
-                            <td>Fitzpatrick</td>
-                            <td>Regional Director</td>
-                            <td>London</td>
-                            <td>Edinburgh</td>
-                            <td><a href="#" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-edit"></i></a></td>
-                        </tr>
-                        <tr>
-                            <td>Michael</td>
-                            <td>Silva</td>
-                            <td>Marketing Designer</td>
-                            <td>London</td>
-                            <td>Edinburgh</td>
-                            <td><a href="#" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-edit"></i></a></td>
-                        </tr>
-                        <tr>
-                            <td>Paul</td>
-                            <td>Byrd</td>
-                            <td>Chief Financial Officer (CFO)</td>
-                            <td>New York</td>
-                            <td>Edinburgh</td>
-                            <td><a href="#" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-edit"></i></a></td>
-                        </tr>
-                        <tr>
-                            <td>Gloria</td>
-                            <td>Little</td>
-                            <td>Systems Administrator</td>
-                            <td>New York</td>
-                            <td>Edinburgh</td>
-                            <td><a href="#" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-edit"></i></a></td>
-                        </tr>
-                        <tr>
-                            <td>Bradley</td>
-                            <td>Greer</td>
-                            <td>Software Engineer</td>
-                            <td>London</td>
-                            <td>Edinburgh</td>
-                            <td><a href="#" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-edit"></i></a></td>
-                        </tr>
-                        <tr>
-                            <td>Dai</td>
-                            <td>Rios</td>
-                            <td>Personnel Lead</td>
-                            <td>Edinburgh</td>
-                            <td>Edinburgh</td>
-                            <td><a href="#" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-edit"></i></a></td>
-                        </tr>
-                        <tr>
-                            <td>Jenette</td>
-                            <td>Caldwell</td>
-                            <td>Development Lead</td>
-                            <td>New York</td>
-                            <td>Edinburgh</td>
-                            <td><a href="#" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-edit"></i></a></td>
-                        </tr>
-                        <tr>
-                            <td>Yuri</td>
-                            <td>Berry</td>
-                            <td>Chief Marketing Officer (CMO)</td>
-                            <td>New York</td>
-                            <td>Edinburgh</td>
-                            <td><a href="#" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-edit"></i></a></td>
-                        </tr>
-                        <tr>
-                            <td>Caesar</td>
-                            <td>Vance</td>
-                            <td>Pre-Sales Support</td>
-                            <td>New York</td>
-                            <td>Edinburgh</td>
-                            <td><a href="#" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-edit"></i></a></td>
-                        </tr>
-                        <tr>
-                            <td>Doris</td>
-                            <td>Wilder</td>
-                            <td>Sales Assistant</td>
-                            <td>Sidney</td>
-                            <td>Edinburgh</td>
-                            <td><a href="#" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-edit"></i></a></td>
-                        </tr>
-                        <tr>
-                            <td>Angelica</td>
-                            <td>Ramos</td>
-                            <td>Chief Executive Officer (CEO)</td>
-                            <td>London</td>
-                            <td>Edinburgh</td>
-                            <td><a href="#" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-edit"></i></a></td>
-                        </tr>
-                        <tr>
-                            <td>Gavin</td>
-                            <td>Joyce</td>
-                            <td>Developer</td>
-                            <td>Edinburgh</td>
-                            <td>Edinburgh</td>
-                            <td><a href="#" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-edit"></i></a></td>
-                        </tr>
-                        <tr>
-                            <td>Jennifer</td>
-                            <td>Chang</td>
-                            <td>Regional Director</td>
-                            <td>Singapore</td>
-                            <td>Edinburgh</td>
-                            <td><a href="#" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-edit"></i></a>
-                            </td>
                     </tbody>
                 </table>  
             </div>
@@ -277,7 +66,7 @@ Page::headerTemplate('Principal');
 </div>
     </div>
 </div>
-
+<script type="text/javascript" src="../../core/controllers/admin/pedidos.js"></script>
 <?php
 Page::footerTemplate();
 ?>

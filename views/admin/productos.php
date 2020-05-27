@@ -16,9 +16,9 @@ Page::headerTemplate('Principal');
                             <th>Producto</th>
                             <th>Precio</th>
                             <th>Descripcion</th>
-                            <th>Existencia</th>
-                            <th>Categoria</th>
                             <th>Imagen</th>
+                            <th>Categoria</th>
+                            <th>Estado</th>
                             <th>Aciones</th>
                         </tr>
                     </thead>

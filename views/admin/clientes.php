@@ -16,6 +16,7 @@ Page::headerTemplate('Principal');
                             <th>Nombre Completo</th>
                             <th>Correo</th>
                             <th>Telefono</th>
+                            <th>Estado</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
@@ -25,7 +26,8 @@ Page::headerTemplate('Principal');
                             <td>Nixon</td>
                             <td>System Architect</td>
                             <td>Edinburgh</td>
-                            <td><a href="#" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-edit"></i></a></td>
+                            <td>Edinburgh</td>
+                            <td><a hrsef="#" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-edit"></i></a></td>
                         </tr>
                     </tbody>
                 </table>
@@ -62,7 +64,7 @@ Page::headerTemplate('Principal');
         </div>
     </div>
 </div>
-
+<script type="text/javascript" src="../../core/controllers/admin/clientes.js"></script>
 <?php
 Page::footerTemplate();
 ?>

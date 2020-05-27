@@ -13,9 +13,8 @@ Page::headerTemplate('Principal');
                 <table id="Tbpedidos" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
                     <thead>
                         <tr>
-                            <th>Cliente</th>
                             <th>Producto</th>
-                            <th>Precio de la compra</th>
+                            <th>Precio</th>
                             <th>Cantidad</th>
                             <th>Aciones</th>
                         </tr>
@@ -25,7 +24,6 @@ Page::headerTemplate('Principal');
                             <td>Tiger</td>
                             <td>Nixon</td>
                             <td>System Architect</td>
-                            <td>Edinburgh</td>
                             <td><a href="#" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-edit"></i></a></td>
                         </tr>
                     </tbody>
