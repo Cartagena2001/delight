@@ -12,10 +12,10 @@ function fillTable( dataset )
     dataset.forEach(function( row ) {
         content += `
             <tr>
-                <td>${row.id_producto}</td>
-                <td>${row.Precio}</td>
+                <td>${row.cliente}</td>
+                <td>${row.producto}</td>
+                <td>${row.precio}</td>
                 <td>${row.cantidad}</td>
-                <td>../../resources/img/detalle_pedido/${row.imagen}</td>
                 <td>
                     <a href="#" class="btn btn-info" data-toggle="modal" data-target="#agregarmodal (${row.id_detalle_pedido})"><i class="fas fa-plus-square"></i></a>    
                     <a href="#" class="btn btn-warning" data-toggle="modal" data-target="#editarmodal (${row.id_detalle_pedido})"><i class="fas fa-edit"></i></a>
@@ -65,7 +65,7 @@ function openUpdateModal( id )
         // Se comprueba si la API ha retornado una respuesta satisfactoria, de lo contrario se muestra un mensaje de error.
         if ( response.status ) {
             // Se inicializan los campos del formulario con los datos del registro seleccionado previamente.
-            $( '#id_detalle_pedido' ).val( response.dataset.id_categoria );
+            $( '#id_detalle_pedido' ).val( response.dataset.id_detalle_pedido);
             $( '#id_producto' ).val( response.dataset.id_producto );
             $( '#precio' ).val( response.dataset.Precio );
             $( '#cantidad' ).val( response.dataset.cantidad );
