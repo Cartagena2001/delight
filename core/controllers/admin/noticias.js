@@ -2,7 +2,7 @@ const API_NOTICIAS = '../../api/admin/categoria.php?action=';
 
 $( document ).ready(function() {
     // Se llama a la función que obtiene los registros para llenar la tabla. Se encuentra en el archivo components.js
-    readRows( API_CATEGORIAS );
+    readRows( API_NOTICIAS );
 });
 
 // Función para llenar la tabla con los datos enviados por readRows().
@@ -12,13 +12,14 @@ function fillTable( dataset )
     dataset.forEach(function( row ) {
         content += `
             <tr>
-                <td>${row.nombre}</td>
+                <td>${row.titulo}</td>
                 <td>${row.descripcion}</td>
                 <td>../../resources/img/categorias/${row.imagen}</td>
+                <td>${row.fecha_pub}</td>
                 <td>
-                    <a href="#" class="btn btn-info" data-toggle="modal" data-target="#agregarmodal (${row.id_categoria})"><i class="fas fa-plus-square"></i></a>    
-                    <a href="#" class="btn btn-warning" data-toggle="modal" data-target="#editarmodal (${row.id_categoria})"><i class="fas fa-edit"></i></a>
-                    <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#eliminarmodal (${row.id_categoria})"><i class="fas fa-trash-alt"></i></a></td>
+                    <a href="#" class="btn btn-info" data-toggle="modal" data-target="#agregarmodal (${row.id_noticias})"><i class="fas fa-plus-square"></i></a>    
+                    <a href="#" class="btn btn-warning" data-toggle="modal" data-target="#editarmodal (${row.id_noticias})"><i class="fas fa-edit"></i></a>
+                    <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#eliminarmodal (${row.id_noticias})"><i class="fas fa-trash-alt"></i></a></td>
             </tr>
         `;
     });
@@ -37,9 +38,9 @@ function openCreateModal()
     // Se abre la caja de dialogo (modal) que contiene el formulario.
     $( '#save-modal' ).modal( 'open' );
     // Se asigna el título para la caja de dialogo (modal).
-    $( '#modal-title' ).text( 'Crear categoría' );
+    $( '#modal-title' ).text( 'Crear noticia' );
     // Se establece el campo de tipo archivo como obligatorio.
-    $( '#archivo_categoria' ).prop( 'required', true );
+    $( '#archivo_noticia' ).prop( 'required', true );
 }
 
 // Función que prepara formulario para modificar un registro.
@@ -50,23 +51,25 @@ function openUpdateModal( id )
     // Se abre la caja de dialogo (modal) que contiene el formulario.
     $( '#save-modal' ).modal( 'open' );
     // Se asigna el título para la caja de dialogo (modal).
-    $( '#modal-title' ).text( 'Modificar categoría' );
+    $( '#modal-title' ).text( 'Modificar noticia' );
     // Se establece el campo de tipo archivo como opcional.
-    $( '#archivo_categoria' ).prop( 'required', false );
+    $( '#archivo_noticia' ).prop( 'required', false );
 
     $.ajax({
         dataType: 'json',
-        url: API_CATEGORIAS + 'readOne',
-        data: { id_categoria: id },
+        url: API_NOTICIAS + 'readOne',
+        data: { id_noticia: id },
         type: 'post'
     })
     .done(function( response ) {
         // Se comprueba si la API ha retornado una respuesta satisfactoria, de lo contrario se muestra un mensaje de error.
         if ( response.status ) {
             // Se inicializan los campos del formulario con los datos del registro seleccionado previamente.
-            $( '#id_categoria' ).val( response.dataset.id_categoria );
-            $( '#nombre_categoria' ).val( response.dataset.nombre_categoria );
-            $( '#descripcion_categoria' ).val( response.dataset.descripcion_categoria );
+            $( '#id_noticia' ).val( response.dataset.id_categoria );
+            $( '#titulo' ).val( response.dataset.titulo );
+            $( '#descripcion' ).val( response.dataset.descripcion );
+            $( '#imagen' ).val( response.dataset.imagen );
+            $( '#fecha_pub' ).val( response.dataset.fecha_pub );
             // Se actualizan los campos para que las etiquetas (labels) no queden sobre los datos.
             M.updateTextFields();
         } else {
