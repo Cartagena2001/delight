@@ -1,4 +1,4 @@
-const API = '../../api/admin/administradores.php?action=';
+const API = '../../core/api/admin/administradores.php?action=';
 
 function checkUsuarios()
 {

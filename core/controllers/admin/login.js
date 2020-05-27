@@ -1,4 +1,4 @@
-const API_ADMINISTRADORES = '../../api/admin/administradores.php?action=';
+const API_ADMINISTRADORES = '../../core/api/admin/administradores.php?action=';
 
 $( document ).ready(function() {
     checkUsuarios();
