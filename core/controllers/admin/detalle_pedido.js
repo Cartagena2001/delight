@@ -2,7 +2,7 @@ const API_DETALLE_PEDIDO= '../../api/admin/detalle_pedido.php?action=';
 
 $( document ).ready(function() {
     // Se llama a la función que obtiene los registros para llenar la tabla. Se encuentra en el archivo components.js
-    readRows( API_CATEGORIAS );
+    readRows( API_DETALLE_PEDIDO );
 });
 
 // Función para llenar la tabla con los datos enviados por readRows().
@@ -15,7 +15,7 @@ function fillTable( dataset )
                 <td>${row.id_producto}</td>
                 <td>${row.Precio}</td>
                 <td>${row.cantidad}</td>
-                <td>../../resources/img/categorias/${row.imagen}</td>
+                <td>../../resources/img/detalle_pedido/${row.imagen}</td>
                 <td>
                     <a href="#" class="btn btn-info" data-toggle="modal" data-target="#agregarmodal (${row.id_detalle_pedido})"><i class="fas fa-plus-square"></i></a>    
                     <a href="#" class="btn btn-warning" data-toggle="modal" data-target="#editarmodal (${row.id_detalle_pedido})"><i class="fas fa-edit"></i></a>
