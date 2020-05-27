@@ -1,4 +1,4 @@
-const API_NOTICIAS = '../../api/admin/categoria.php?action=';
+const API_NOTICIAS = '../../api/admin/noticia.php?action=';
 
 $( document ).ready(function() {
     // Se llama a la función que obtiene los registros para llenar la tabla. Se encuentra en el archivo components.js
@@ -14,7 +14,7 @@ function fillTable( dataset )
             <tr>
                 <td>${row.titulo}</td>
                 <td>${row.descripcion}</td>
-                <td>../../resources/img/categorias/${row.imagen}</td>
+                <td>../../resources/img/noticia/${row.imagen}</td>
                 <td>${row.fecha_pub}</td>
                 <td>
                     <a href="#" class="btn btn-info" data-toggle="modal" data-target="#agregarmodal (${row.id_noticias})"><i class="fas fa-plus-square"></i></a>    
