@@ -1,18 +1,15 @@
 <?php
 
-class clientes extends Validator{
+class administradores extends Validator{
 
     private $id = null;
     private $usuario = null;
     private $nombre = null;
-    private $direccion = null;
     private $correo = null;
     private $telefono = null;
     private $clave = null;
     private $estado = null;
 
-
-//Metodos para asignar valores a los atributos
 public function setId($value)
 {
     if($this->validateNaturalNumber($value)){
@@ -34,20 +31,11 @@ public function setUsuario($value)
     }
 }
 
+
 public function setNombre($value)
 {
     if($this->validateAlphanumeric($value, 1, 50)) {
         $this->nombre = $value;
-        return true;
-    } else {
-        return false;
-    }
-}
-
-public function setDireccion($value)
-{
-    if($this->validateAlphanumeric($value, 1, 50)) {
-        $this->direccion = $value;
         return true;
     } else {
         return false;
@@ -98,7 +86,8 @@ public function setEstado($value)
         }
 }
 
-    public function getId()
+
+public function getId()
     {
         return $this->id;
     }
@@ -111,11 +100,6 @@ public function setEstado($value)
     public function getNombre()
     {
         return $this->nombre;
-    } 
-
-    public function getDireccion()
-    {
-        return $this->direccion;
     } 
 
     public function getCorreo()
@@ -138,63 +122,92 @@ public function setEstado($value)
         return $this->estado;
     }
 
+    //Gestionar cuenta nombre
+    public function checkUsuario($usuario)
+    {
+        $sql = 'SELECT id_administrador FROM tb_administradores WHERE usuario = ?';
+        $params = array($usuario);
+        if ($data = Database::getRow($sql, $params)) {
+            $this->id = $data['id_administrador'];
+            $this->usuario = $usuario;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    //Gestionar cuenta password
+    public function checkClave($password)
+    {
+        $sql = 'SELECT clave FROM tb_administradores WHERE id_administrador = ?';
+        $params = array($this->id);
+        $data = Database::getRow($sql, $params);
+        if (password_verify($password, $data['clave'])) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
     public function buscarClientes($value)
     {
-        $sql = 'SELECT Id_cliente, Usuario, Nombre, Direccion, Correo, Telefono, clave, estado_cliente
-                FROM tb_cliente
-                WHERE Nombre ILIKE ? OR Direccion ILIKE ?
-                ORDER BY Nombre';
+        $sql = 'SELECT id_administrador, usuario, nombre, Correo, Telefono, clave, estado_admin
+                FROM tb_administradores
+                WHERE nombre ILIKE ? OR usuario ILIKE ?
+                ORDER BY nombre';
         $params = array("%$value%", "%$value%");
         return Database::getRows($sql, $params);
     }
 
-    //Metodo para insertar una nuevo cliente
-    public function crearClientes()
+    //SCURD
+    public function crearAdmin()
     {
-        $sql = 'INSERT INTO tb_cliente(Nombre, Direccion, Correo, Telefono, clave, estado_cliente)
+        $sql = 'INSERT INTO tb_administradores(usuario, nombre, Correo, Telefono, clave, estado_admin)
                 VALUES(?, ?, ?, ?, ?, ?)';
-        $params = array($this->Nombre, $this->Direccion, $this->Correo, $this->Telefono, $this->clave, $this->estado_cliente);
+        $params = array($this->usuario, $this->nombre, $this->Correo, $this->Telefono, $this->clave, $this->estado);
         return Database::executeRow($sql, $params);
     }
 
-    //Metodo para leer todas las clientes
-    public function leerTodosClientes()
-    {
-        $sql = 'SELECT Id_cliente, Usuario, Nombre, Direccion, Correo, Telefono, clave, estado_cliente
-                FROM tb_Cliente
-                ORDER BY Nombre';
-        $params = null;
-        return Database::getRows($sql, $params);
-    }
+     //Metodo para leer todas las clientes
+     public function leerTodosLosAdmin()
+     {
+         $sql = 'SELECT id_administradores, usuario, nombre, Correo, Telefono, clave, estado_admin
+                 FROM tb_administradores
+                 ORDER BY nombre';
+         $params = null;
+         return Database::getRows($sql, $params);
+     }
 
-    //Metodo para leer solo una cliente
-    public function leerUnCliente()
+     //Metodo para leer solo una cliente
+    public function leerUnAdmin()
     {
-        $sql = 'SELECT Id_cliente, Usuario, Nombre, Direccion, Correo, Telefono, clave, estado_cliente
-                FROM tb_Cliente
-                WHERE Id_cliente = ?';
+        $sql = 'SELECT id_administradores, usuario, nombre, Correo, Telefono, clave, estado_admin
+                FROM tb_administradores
+                WHERE id_administradores = ?';
         $params = array($this->id);
         return Database::getRow($sql, $params);
     }
-
+    
     //Metodo para actualizar una cliente
-    public function actualizarClientes()
+    public function actualizarAdmin()
     {
-        $sql = 'UPDATE tb_Cliente
-                SET Nombre = ?, Direccion = ?, Correo = ? Telefono = ?, clave = ? estado_cliente = ?
-                WHERE Id_cliente = ?';
-        $params = array($this->Nombre, $this->Direccion, $this->Correo, $this->Telefono, $this->clave, $this->estado_cliente,$this->id);
+        $sql = 'UPDATE tb_administradores
+                SET usuario = ?, nombre = ?, Correo = ? Telefono = ?, clave = ? estado_admin = ?
+                WHERE id_administradores = ?';
+        $params = array($this->usuario, $this->nombre, $this->Correo, $this->Telefono, $this->clave, $this->estado,$this->id);
         return Database::executeRow($sql, $params);
     }
 
     //Metodo para eliminar una cliente
-    public function eliminarClientes()
+    public function eliminarAdmin()
     {
-        $sql = 'DELETE FROM tb_Cliente
-                WHERE Id_cliente = ?';
+        $sql = 'DELETE FROM tb_administradores
+                WHERE id_administradores = ?';
         $params = array($this->id);
         return Database::executeRow($sql, $params);
     }
 
 }
+
 ?>

@@ -1,4 +1,4 @@
-const API_CATEGORIAS = '../../core/api/dashboard/categorias.php?action=';
+const API_CATEGORIAS = '../../api/admin/catesgorias.php?action=';
 
 $( document ).ready(function() {
     // Se llama a la función que obtiene los registros para llenar la tabla. Se encuentra en el archivo components.js
@@ -12,9 +12,9 @@ function fillTable( dataset )
     dataset.forEach(function( row ) {
         content += `
             <tr>
-                <td>${row.nombre_categoria}</td>
-                <td>${row.descripcion_categoria}</td>
-                <td>../../resources/img/categorias/${row.imagen_categoria}</td>
+                <td>${row.nombre}</td>
+                <td>${row.descripcion}</td>
+                <td>../../resources/img/categorias/${row.imagen}</td>
                 <td>
                     <a href="#" class="btn btn-info" data-toggle="modal" data-target="#agregarmodal (${row.id_categoria})"><i class="fas fa-plus-square"></i></a>    
                     <a href="#" class="btn btn-warning" data-toggle="modal" data-target="#editarmodal (${row.id_categoria})"><i class="fas fa-edit"></i></a>
@@ -24,9 +24,7 @@ function fillTable( dataset )
     });
     // Se agregan las filas al cuerpo de la tabla mediante su id para mostrar los registros.
     $( '#tbody-rows' ).html( content );
-    // Se inicializa el componente Material Box asignado a las imagenes para que funcione el efecto Lightbox.
     $( '.materialboxed' ).materialbox();
-    // Se inicializa el componente Tooltip asignado a los enlaces para que funcionen las sugerencias textuales.
     $( '.tooltipped' ).tooltip();
 }
 

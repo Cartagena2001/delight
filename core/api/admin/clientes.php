@@ -86,7 +86,7 @@
                 case 'update':
                     $_POST = $clientes->validateForm($_POST);
                     if ($clientes->setUsuario($_POST['usuario'])) { 
-                        if ($data = $clientes->leerUnClientes()) {
+                        if ($data = $clientes->leerUnCliente()) {
                          if($clientes-> setNombre($_POST['nombre'])){
                              if($clientes-> setDireccion($_POST['direccion'])){
                                 if($clientes-> setCorreo ($_POST['correo'])){
@@ -128,7 +128,7 @@
                     case 'delete':
                         if ($_POST['id_cliente'] != $_SESSION['id_cliente']) {
                             if ($clientes->setId($_POST['id_usuario'])) {
-                                if ($clientes->leerUnClientes()) {
+                                if ($clientes->leerUnCliente()) {
                                     if ($clientes->eliminarClientes()) {
                                         $result['status'] = 1;
                                         $result['message'] = 'Usuario eliminado correctamente';

@@ -73,7 +73,6 @@ if (isset($_GET['action'])) {
                 }
                 break;
             case 'update':
-                case 'update':
                     $_POST = $pedidos->validateForm($_POST);
                     if ($resena->setId($_POST['id_resenia'])) { 
                         if ($data = $resena->leerUnaResenia()) {

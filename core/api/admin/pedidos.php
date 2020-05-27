@@ -16,7 +16,7 @@ if (isset($_GET['action'])) {
 
     switch ($_GET['action']) {
         case 'readAll':
-            if ($result['dataset'] = $pedidos->leerPedidos()) {
+            if ($result['dataset'] = $pedidos->leerTodosPedidos()) {
                 $result['status'] = 1;
             } else {
                 $result['exception'] = 'No hay clientes';

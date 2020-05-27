@@ -1,6 +1,6 @@
 <?php
 
-class  categorias extends Validator{
+class  noticias extends Validator{
 
     //Atributos
     private $id = null;
