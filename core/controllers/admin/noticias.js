@@ -65,7 +65,7 @@ function openUpdateModal( id )
         // Se comprueba si la API ha retornado una respuesta satisfactoria, de lo contrario se muestra un mensaje de error.
         if ( response.status ) {
             // Se inicializan los campos del formulario con los datos del registro seleccionado previamente.
-            $( '#id_noticia' ).val( response.dataset.id_categoria );
+            $( '#id_noticia' ).val( response.dataset.id_noticia );
             $( '#titulo' ).val( response.dataset.titulo );
             $( '#descripcion' ).val( response.dataset.descripcion );
             $( '#imagen' ).val( response.dataset.imagen );
