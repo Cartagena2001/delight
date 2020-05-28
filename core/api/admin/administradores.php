@@ -217,33 +217,67 @@ if (isset($_GET['action'])) {
                 break;
             case 'register':
                 $_POST = $usuario->validateForm($_POST);
-                if ($usuario->setNombre($_POST['nombres'])) {
-                        if ($usuario->setCorreo($_POST['correo'])) {
-                            if ($usuario->setUsuario($_POST['usuario'])) {
-                                if ($_POST['clave1'] == $_POST['clave2']) {
-                                    if ($usuario->setClave($_POST['clave1'])) {
-                                        if ($usuario->crearAdmin()) {
-                                            $result['status'] = 1;
-                                            $result['message'] = 'Usuario registrado correctamente';
-                                        } else {
+                if($usuario -> setUsuario($_POST['usuario'])){
+                    if($usuario -> setNombre($_POST['nombre'])){
+                        if($usuario -> setCorreo($_POST['correo'])){
+                            if($usuario ->setTelefono($_POST['telefono'])){
+                                if($_POST['clave1'] == $_POST['clave2']){
+                                    if($usuario -> setClave($_POST['clave1'])){
+                                        if($usuario->crearAdmin()){
+                                            $result['status'] =1;
+                                            // $result['message'] = 'Usuario registrado correctamente';
+                                            echo '<script language="javascript">alert("Usuario registrado correctamente");</script>';
+                                        }else{
                                             $result['exception'] = Database::getException();
                                         }
-                                    } else {
+                                    }else{
                                         $result['exception'] = 'Clave menor a 6 caracteres';
                                     }
-                                } else {
-                                    $result['exception'] = 'Claves diferentes';
-                                }
-                            } else {
-                                $result['exception'] = 'Alias incorrecto';
+                                }else{
+                                    $result['exception'] = 'clave diferentes'; 
+                                }    
+                            }else{
+                                $result['exception'] = 'telefono incorrecto';
                             }
-                        } else {
-                            $result['exception'] = 'Correo incorrecto';
+                        }else{
+                            $result['exception'] = 'correo incorrecto'; 
                         }
-                } else {
-                    $result['exception'] = 'Nombres incorrectos';
+                    }else{
+                        $result['exception'] = 'nombre incorrecto'; 
+                    }
+                }else{
+                    $result['exception'] = 'Usuario incorrecto';
                 }
-                break;
+            break;    
+            // case 'register':
+            //     $_POST = $usuario->validateForm($_POST);
+            //     if ($usuario->setNombre($_POST['nombres'])) {
+            //             if ($usuario->setCorreo($_POST['correo'])) {
+            //                 if ($usuario->setUsuario($_POST['usuario'])) {
+            //                     if ($_POST['clave1'] == $_POST['clave2']) {
+            //                         if ($usuario->setClave($_POST['clave1'])) {
+            //                             if ($usuario->crearAdmin()) {
+            //                                 $result['status'] = 1;
+            //                                 $result['message'] = 'Usuario registrado correctamente';
+            //                             } else {
+            //                                 $result['exception'] = Database::getException();
+            //                             }
+            //                         } else {
+            //                             $result['exception'] = 'Clave menor a 6 caracteres';
+            //                         }
+            //                     } else {
+            //                         $result['exception'] = 'Claves diferentes';
+            //                     }
+            //                 } else {
+            //                     $result['exception'] = 'Alias incorrecto';
+            //                 }
+            //             } else {
+            //                 $result['exception'] = 'Correo incorrecto';
+            //             }
+            //     } else {
+            //         $result['exception'] = 'Nombres incorrectos';
+            //     }
+            //     break;
             case 'login':
                 $_POST = $usuario->validateForm($_POST);
                     if ($usuario->checkUsuario($_POST['usuario'])) {

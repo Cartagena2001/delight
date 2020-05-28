@@ -180,9 +180,10 @@ public function getId()
     //SCURD
     public function crearAdmin()
     {
-        $sql = 'INSERT INTO tb_administradores(usuario, nombre, Correo, Telefono, clave, estado_admin)
-                VALUES(?, ?, ?, ?, ?, ?)';
-        $params = array($this->usuario, $this->nombre, $this->Correo, $this->Telefono, $this->clave, $this->estado);
+        $hash = password_hash($this->clave, PASSWORD_DEFAULT);
+        $sql = 'INSERT INTO tb_administradores(usuario, nombre, correo, telefono, clave, estado_admin)
+                VALUES(?, ?, ?, ?, ?, Activo)';
+        $params = array($this->usuario, $this->nombre, $this->correo, $this->telefono, $hash);
         return Database::executeRow($sql, $params);
     }
 

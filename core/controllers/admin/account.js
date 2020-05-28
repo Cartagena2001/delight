@@ -13,7 +13,7 @@ function checkUsuarios()
         if ( current == '/delight/views/admin/register.php' ) {
             // Si ya existe un usuario registrado se envía a iniciar sesión, de lo contrario se pide crear el primero.
             if ( response.status ) {
-                window.location='login.php'; 
+                window.location='index.php'; 
                 
             } else {
                 alert ("Debe crear un usuario para comenzar");

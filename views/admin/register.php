@@ -24,38 +24,45 @@
     <div class="contaniner">
         <div class="row">
             <div class="col-lg-12 text-center">
-            <div class="sidebar-heading text-center"><img src="../../resources/img/imgAdmin.jpg" alt="Perfil" class="img-fluid rounded-circle" width="150"></div>
-              <h5 class="text-center mb-1">Gabriela Ramirez</h5>
-              <h5 class="text-center">Admistrador</h5>
+              <h5 class="text-center mb-5">Crear un nuevo usuario</h5>
             </div>            
         </div>
         <div class="container">
-            <form>
+            <form id="register-form">
                 <div class="row">
                     <div class="col">
                     <h5>Usuario</h5>
-                    <input type="text" class="form-control" placeholder="Usuario" style="background-color: #010923; color:white; border-radius:50px">
+                    <input id="usuario" type="text" class="form-control" placeholder="Usuario" style="background-color: #010923; color:white; border-radius:50px" required>
                     </div>
                     <div class="col">
                     <h5>Nombre</h5>
-                    <input type="text" class="form-control" placeholder="Nombre completo" style="background-color: #010923; color:white; border-radius:50px">
+                    <input id="nombre" type="text" class="form-control" placeholder="Nombre completo" style="background-color: #010923; color:white; border-radius:50px" required>
                     </div>
                 </div>
                 <div class="row mt-5">
                     <div class="col">
                     <h5>Correo</h5>
-                    <input type="text" class="form-control" placeholder="Correo" style="background-color: #010923; color:white; border-radius:50px">
+                    <input id="correo" type="text" class="form-control" placeholder="Correo" style="background-color: #010923; color:white; border-radius:50px" required>
                     </div>
                     <div class="col">
                     <h5>Telefono</h5>
-                    <input type="text" class="form-control" placeholder="Telefono" style="background-color: #010923; color:white; border-radius:50px">
+                    <input id="telefono" type="text" class="form-control" placeholder="Telefono" style="background-color: #010923; color:white; border-radius:50px" required>
                     </div>
                 </div>
                 <div class="row mt-5 justify-content-center">
                     <div class="col-lg-5 text-center">
                     <h5>Contraseña</h5>
-                    <input type="password" class="form-control" placeholder="clave" style="background-color: #010923; color:white; border-radius:50px">
+                    <input id="clave1" type="password" class="form-control" placeholder="clave" style="background-color: #010923; color:white; border-radius:50px" required>
                     </div>
+                </div>
+                <div class="row mt-5 justify-content-center">
+                    <div class="col-lg-5 text-center">
+                    <h5>Confirmar Contraseña</h5>
+                    <input id="clave2" type="password" class="form-control" placeholder="clave" style="background-color: #010923; color:white; border-radius:50px" required>
+                    </div>
+                </div>
+                <div class="mt-5">
+                    <button class="btn container d-flex justify-content-center" type="submit" id="btnlogin">Registrarse</button>
                 </div>
             </form>
     </div>
