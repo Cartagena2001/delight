@@ -45,7 +45,7 @@ public function setNombre($value)
 public function setCorreo($value)
 {
     if ($value) {
-        if($this->validateAlphanumeric($value, 1, 50)) {
+        if($this->validateEmail($value)) {
             $this->correo = $value;
             return true;
         } else {
@@ -125,7 +125,7 @@ public function getId()
     //Gestionar cuenta nombre
     public function checkUsuario($usuario)
     {
-        $sql = 'SELECT id_administrador FROM tb_administradores WHERE id_administrador = ?';
+        $sql = 'SELECT id_administrador FROM tb_administradores WHERE usuario = ?';
         $params = array($usuario);
         if ($data = Database::getRow($sql, $params)) {
             $this->id = $data['id_administrador'];
@@ -182,8 +182,8 @@ public function getId()
     {
         $hash = password_hash($this->clave, PASSWORD_DEFAULT);
         $sql = 'INSERT INTO tb_administradores(usuario, nombre, correo, telefono, clave, estado_admin)
-                VALUES(?, ?, ?, ?, ?, Activo)';
-        $params = array($this->usuario, $this->nombre, $this->correo, $this->telefono, $hash);
+                VALUES(?, ?, ?, ?, ?, ?)';
+        $params = array($this->usuario, $this->nombre, $this->correo, $this->telefono, $hash, 'Activo');
         return Database::executeRow($sql, $params);
     }
 

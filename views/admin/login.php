@@ -27,7 +27,7 @@
                                 <input type="password" name="password" id="password" class="form-control">
                             </div>
                             <div class="custom-control custom-radio mb-4">
-                            <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
+                                <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
                             <label class="custom-control-label" for="customRadio1">Recordarme</label>
                             </div>
                             <hr color="#021140">
@@ -40,9 +40,6 @@
             </div>
         </div>
     </div>
-
-
-
 
 
     <script src="../../resources/js/jquery-3.4.1.min.js"></script>

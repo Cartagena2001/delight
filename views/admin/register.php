@@ -28,37 +28,37 @@
             </div>            
         </div>
         <div class="container">
-            <form id="register-form">
+            <form id="register-form" method="post">
                 <div class="row">
                     <div class="col">
                     <h5>Usuario</h5>
-                    <input id="usuario" type="text" class="form-control" placeholder="Usuario" style="background-color: #010923; color:white; border-radius:50px" required>
+                    <input id="usuario" name="usuario" type="text" class="form-control" placeholder="Usuario" style="background-color: #010923; color:white; border-radius:50px" required>
                     </div>
                     <div class="col">
                     <h5>Nombre</h5>
-                    <input id="nombre" type="text" class="form-control" placeholder="Nombre completo" style="background-color: #010923; color:white; border-radius:50px" required>
+                    <input id="nombre" name="nombre" type="text" class="form-control" placeholder="Nombre completo" style="background-color: #010923; color:white; border-radius:50px" required>
                     </div>
                 </div>
                 <div class="row mt-5">
                     <div class="col">
                     <h5>Correo</h5>
-                    <input id="correo" type="text" class="form-control" placeholder="Correo" style="background-color: #010923; color:white; border-radius:50px" required>
+                    <input id="correo" name="correo" type="text" class="form-control" placeholder="Correo" style="background-color: #010923; color:white; border-radius:50px" required>
                     </div>
                     <div class="col">
                     <h5>Telefono</h5>
-                    <input id="telefono" type="text" class="form-control" placeholder="Telefono" style="background-color: #010923; color:white; border-radius:50px" required>
+                    <input id="telefono" name="telefono" type="text" class="form-control" placeholder="Telefono" style="background-color: #010923; color:white; border-radius:50px" required>
                     </div>
                 </div>
                 <div class="row mt-5 justify-content-center">
                     <div class="col-lg-5 text-center">
                     <h5>Contraseña</h5>
-                    <input id="clave1" type="password" class="form-control" placeholder="clave" style="background-color: #010923; color:white; border-radius:50px" required>
+                    <input id="clave1" name="clave1" type="password" class="form-control" placeholder="clave" style="background-color: #010923; color:white; border-radius:50px" required>
                     </div>
                 </div>
                 <div class="row mt-5 justify-content-center">
                     <div class="col-lg-5 text-center">
                     <h5>Confirmar Contraseña</h5>
-                    <input id="clave2" type="password" class="form-control" placeholder="clave" style="background-color: #010923; color:white; border-radius:50px" required>
+                    <input id="clave2" name="clave2" type="password" class="form-control" placeholder="clave" style="background-color: #010923; color:white; border-radius:50px" required>
                     </div>
                 </div>
                 <div class="mt-5">

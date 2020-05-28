@@ -18,7 +18,8 @@ $( '#register-form' ).submit(function( event ) {
         // Se comprueba si la API ha retornado una respuesta satisfactoria, de lo contrario se muestra un mensaje de error.
         if ( response.status ) {
             // sweetAlert( 1, response.message, 'index.php' );
-            alert("Credenciales aceptadas"); window.location='login.php'; 
+            alert(response.message); 
+            window.location='login.php'; 
             // window.location.href = "index.php"
                                 
         } else {

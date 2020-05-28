@@ -208,7 +208,7 @@ if (isset($_GET['action'])) {
         // Se compara la acción a realizar cuando el administrador no ha iniciado sesión.
         switch ($_GET['action']) {
             case 'readAll':
-                if ($usuario->leerUnAdmin()) {
+                if ($usuario->leerTodosLosAdmin()) {
                     $result['status'] = 1;
                     $result['message'] = 'Existe al menos un usuario registrado';
                 } else {
@@ -225,8 +225,7 @@ if (isset($_GET['action'])) {
                                     if($usuario -> setClave($_POST['clave1'])){
                                         if($usuario->crearAdmin()){
                                             $result['status'] =1;
-                                            // $result['message'] = 'Usuario registrado correctamente';
-                                            echo '<script language="javascript">alert("Usuario registrado correctamente");</script>';
+                                            $result['message'] = 'Usuario registrado correctamente';
                                         }else{
                                             $result['exception'] = Database::getException();
                                         }
@@ -280,8 +279,8 @@ if (isset($_GET['action'])) {
             //     break;
             case 'login':
                 $_POST = $usuario->validateForm($_POST);
-                    if ($usuario->checkUsuario($_POST['usuario'])) {
-                        if ($usuario->checkClave($_POST['clave'])) {
+                    if ($usuario->checkUsuario($_POST['username'])) {
+                        if ($usuario->checkClave($_POST['password'])) {
                             $_SESSION['id_administrador'] = $usuario->getId();
                             $_SESSION['usuario'] = $usuario->getUsuario();
                             $result['status'] = 1;
