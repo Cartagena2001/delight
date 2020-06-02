@@ -13,19 +13,17 @@ function checkUsuarios()
         if ( current == '/delight/views/admin/register.php' ) {
             // Si ya existe un usuario registrado se envía a iniciar sesión, de lo contrario se pide crear el primero.
             if ( response.status ) {
-                window.location='login.php'; 
-                
+                sweetAlert( 3, response.message, 'login.php' );
             } else {
-                alert ("Debe crear un usuario para comenzar");
+                sweetAlert( 4, 'Debe crear un usuario para comenzar', null );
             }
         } else {
             // Si ya existe al menos un usuario registrado se pide iniciar sesión, de lo contrario se envía a crear el primero.
             if ( response.status ) {
-                alert ("Debe autenticarse para ingresar");
+                sweetAlert( 4, 'Debe autenticarse para ingresar', null );
             }
             else {
-                alert ("Debe registrarse primero"); 
-                window.location='register.php'; 
+                sweetAlert( 3, response.exception, 'register.php' );
             }
         }
     })

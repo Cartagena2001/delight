@@ -18,13 +18,10 @@ $( '#login-form' ).submit(function( event ) {
     .done(function( response ) {
         // Se comprueba si la API ha retornado una respuesta satisfactoria, de lo contrario se muestra un mensaje de error.
         if ( response.status ) {
-            // sweetAlert( 1, response.message, 'index.php' );
-            alert("Credenciales aceptadas"); 
-            window.location='bienvenido.php'; 
-            // window.location.href = "index.php"
+            sweetAlert( 1, response.message, 'bienvenido.php');
                                 
         } else {
-            // sweetAlert( 2, response.exception, null );
+            sweetAlert( 2, response.exception, null );
         }
     })
     .fail(function( jqXHR ) {

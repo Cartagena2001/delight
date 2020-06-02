@@ -247,36 +247,7 @@ if (isset($_GET['action'])) {
                 }else{
                     $result['exception'] = 'Usuario incorrecto';
                 }
-            break;    
-            // case 'register':
-            //     $_POST = $usuario->validateForm($_POST);
-            //     if ($usuario->setNombre($_POST['nombres'])) {
-            //             if ($usuario->setCorreo($_POST['correo'])) {
-            //                 if ($usuario->setUsuario($_POST['usuario'])) {
-            //                     if ($_POST['clave1'] == $_POST['clave2']) {
-            //                         if ($usuario->setClave($_POST['clave1'])) {
-            //                             if ($usuario->crearAdmin()) {
-            //                                 $result['status'] = 1;
-            //                                 $result['message'] = 'Usuario registrado correctamente';
-            //                             } else {
-            //                                 $result['exception'] = Database::getException();
-            //                             }
-            //                         } else {
-            //                             $result['exception'] = 'Clave menor a 6 caracteres';
-            //                         }
-            //                     } else {
-            //                         $result['exception'] = 'Claves diferentes';
-            //                     }
-            //                 } else {
-            //                     $result['exception'] = 'Alias incorrecto';
-            //                 }
-            //             } else {
-            //                 $result['exception'] = 'Correo incorrecto';
-            //             }
-            //     } else {
-            //         $result['exception'] = 'Nombres incorrectos';
-            //     }
-            //     break;
+            break;
             case 'login':
                 $_POST = $usuario->validateForm($_POST);
                     if ($usuario->checkUsuario($_POST['username'])) {
@@ -293,7 +264,7 @@ if (isset($_GET['action'])) {
                     }
                 break;
             default:
-                exit('Acción no disponible');
+                exit('Acción no disponible .-.');
         }
     }
     header('content-type: application/json; charset=utf-8');

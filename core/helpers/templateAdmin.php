@@ -67,6 +67,7 @@ class page
     <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
     <script type="text/javascript" src="../../resources/js/initialisation.js"></script>
 
+    <script type="text/javascript" src="../../resources/js/sweetalert.min.js"></script>
     <script type="text/javascript" src="../../resources/js/dataTable/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="../../resources/js/dataTable/dataTables.bootstrap4.min.js"></script>
     <script type="text/javascript" src="../../resources/js/dataTable/dataTables.responsive.min.js"></script>

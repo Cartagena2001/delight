@@ -20,11 +20,11 @@
                             <h5 class="text-center mb-5" id="bienvenido">Bienvenido administrador</h5>
                             <div class="form-group">
                                 <label for="username">Usuario:</label><br>
-                                <input type="text" name="username" id="username" class="form-control">
+                                <input type="text" name="username" id="username" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <label for="password">Contraseña:</label><br>
-                                <input type="password" name="password" id="password" class="form-control">
+                                <input type="password" name="password" id="password" class="form-control" required>
                             </div>
                             <div class="custom-control custom-radio mb-4">
                                 <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
@@ -42,6 +42,7 @@
     </div>
 
 
+    <script type="text/javascript" src="../../resources/js/sweetalert.min.js"></script>
     <script src="../../resources/js/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script type="text/javascript" src="../../resources/js/bootstrap.min.js"></script>
