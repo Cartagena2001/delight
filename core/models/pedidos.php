@@ -147,9 +147,9 @@ public function setFecha_entrega($value)
     //Metodo para leer todas las pedidos
     public function leerTodosPedidos()
     {
-        $sql = 'SELECT Id_pedido, Id_cliente, Id_cupon, Id_detalle_pedido, Costo_envio, Fecha_pedido, Fecha_entrega
+        $sql = 'SELECT Id_pedido, Id_cliente, Id_cupon, Costo_envio, Fecha_pedido, Fecha_entrega
                 FROM tb_pedidos
-                ORDER BY Id_pedido,';
+                ORDER BY Id_pedido';
         $params = null;
         return Database::getRows($sql, $params);
     }

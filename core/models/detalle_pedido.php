@@ -94,9 +94,9 @@ class  detalle_pedido extends Validator{
     //Metodo para leer todas las detalle pedidos
     public function leerTodosDetalle()
     {
-        $sql = 'SELECT Id_detalle_pedido, Id_producto, Precio, cantidad
-                FROM tb_detalle_pedido
-                ORDER BY Id_detalle_pedido';
+        $sql = 'SELECT id_detalle_pedido, id_producto, precio, cantidad
+                FROM tb_detelle_pedido
+                ORDER BY id_detalle_pedido';
         $params = null;
         return Database::getRows($sql, $params);
     }

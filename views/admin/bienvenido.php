@@ -1,6 +1,7 @@
 <?php
 require_once('../../core/helpers/templateAdmin.php');
-Page::headerTemplate('Principal');
+$pagina = new page;
+$pagina->headerTemplate('Principal');
 ?>
 
 <div class="container">
@@ -63,9 +64,6 @@ Page::headerTemplate('Principal');
         </div>
     </div>
 </div>
-
-
-
 
 <?php
 Page::footerTemplate('account.js');

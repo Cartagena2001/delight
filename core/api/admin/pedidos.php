@@ -5,14 +5,14 @@ require_once('../../models/pedidos.php');
 
 if (isset($_GET['action'])) {
    
-   
+   session_start();
     // nueva sesion
     $pedidos = new pedidos;
 
     $result = array('status' => 0, 'message' => null, 'exception' => null);
 
 
-    if (isset($_SESSION['id_usuario'])) {
+    if (isset($_SESSION['id_administrador'])) {
 
     switch ($_GET['action']) {
         case 'readAll':

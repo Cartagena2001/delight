@@ -9,28 +9,23 @@ $pagina->headerTemplate('Principal');
         <div class="container col-lg-12">
         <h1 class="display-4">Detalles pedidos</h1>
         </div>
-        <div class="col-lg-12">
-            <div class="container mb-5">
-                <table id="Tbpedidos" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
-                    <thead>
-                        <tr>
-                            <th>Producto</th>
-                            <th>Precio</th>
-                            <th>Cantidad</th>
-                            <th>Aciones</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tbody-rows">
-                        <tr>
-                            <td>Tiger</td>
-                            <td>Nixon</td>
-                            <td>System Architect</td>
-                            <td><a href="#" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-edit"></i></a></td>
-                        </tr>
-                    </tbody>
-                </table>  
-            </div>
-        </div>
+
+<div class="container mt-4">
+    <div class="row">
+        <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
+                <th>Aciones</th>
+            </tr>
+        </thead>
+        <tbody id="table-detallepedidos">
+        </tbody>
+        </table>
+    </div>
+</div>
 
         <!-- modal -->
         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

@@ -4,6 +4,7 @@
  require_once('../../models/clientes.php');
 
     if (isset($_GET['action'])) {
+        session_start();
     // nueva sesion
     $clientes = new clientes;
     $result = array('status' => 0, 'message' => null, 'exception' => null);
@@ -161,7 +162,7 @@
  // Se imprime el resultado en formato JSON y se retorna al controlador.
         print(json_encode($result));
          }else {
-        exit('Acceso no disponible');
+        exit('Acceso no disponible -.-');
         }
         } else {
         exit('Recurso denegado');
