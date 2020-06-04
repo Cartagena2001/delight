@@ -1,6 +1,7 @@
 <?php
 require_once('../../core/helpers/templateAdmin.php');
-Page::headerTemplate('Principal');
+$pagina = new page;
+$pagina->headerTemplate('Principal');
 ?>
 
 <div class="container">
@@ -62,7 +63,7 @@ Page::headerTemplate('Principal');
 </div>
     </div>
 </div>
-<script type="text/javascript" src="../../core/controllers/admin/detalle_pedido.js"></script>
 <?php
-Page::footerTemplate();
+$pagina->footerTemplate('detalle_pedido.js');
+$pagina->footerTemplate('account.js');
 ?>

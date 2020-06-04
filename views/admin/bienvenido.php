@@ -67,26 +67,6 @@ Page::headerTemplate('Principal');
 
 
 
-
-
-<!-- <div class="container">
-    <h2>Graficas</h2>
-    <hr>
-    <div class="row">
-        <div class="col-lg-6">
-            <h2>Grafica de linea</h2>
-            <hr>
-            <div id="GraficoLienal"></div>
-        </div>
-        <div class="col-lg-6">
-            <h2>Grafico de pastel</h2>
-            <div id="GraficoPastel"></div>
-            <hr>
-        </div>
-    </div>
-</div> -->
-
-
 <?php
-Page::footerTemplate();
+Page::footerTemplate('account.js');
 ?>

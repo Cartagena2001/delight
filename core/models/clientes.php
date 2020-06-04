@@ -160,9 +160,9 @@ public function setEstado($value)
     //Metodo para leer todas las clientes
     public function leerTodosClientes()
     {
-        $sql = 'SELECT Id_cliente, Usuario, Nombre, Direccion, Correo, Telefono, clave, estado_cliente
-                FROM tb_Cliente
-                ORDER BY Nombre';
+        $sql = 'SELECT id_cliente ,usuario, nombre, correo, telefono, estado_cliente
+                FROM tb_cliente
+                ORDER BY nombre';
         $params = null;
         return Database::getRows($sql, $params);
     }

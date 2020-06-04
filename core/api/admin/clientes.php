@@ -7,9 +7,17 @@
     // nueva sesion
     $clientes = new clientes;
     $result = array('status' => 0, 'message' => null, 'exception' => null);
-    if (isset($_SESSION['id_usuario'])) {
+    if (isset($_SESSION['id_administrador'])) {
 
     switch ($_GET['action']) {
+        case 'logout':
+            if (session_destroy()) {
+                $result['status'] = 1;
+                $result['message'] = 'Sesión eliminada correctamente';
+            } else {
+                $result['exception'] = 'Ocurrió un problema al cerrar la sesión';
+            }
+            break;
         case 'readAll':
             if ($result['dataset'] = $clientes->leerTodosClientes()) {
                 $result['status'] = 1;
@@ -151,7 +159,7 @@
                 // Se indica el tipo de contenido a mostrar y su respectivo conjunto de caracteres.
             header('content-type: application/json; charset=utf-8');
  // Se imprime el resultado en formato JSON y se retorna al controlador.
-         print(json_encode($result));
+        print(json_encode($result));
          }else {
         exit('Acceso no disponible');
         }

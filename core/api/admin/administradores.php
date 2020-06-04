@@ -9,14 +9,15 @@ if (isset($_GET['action'])) {
     $result = array('status' => 0, 'message' => null, 'exception' => null);
     if (isset($_SESSION['id_administrador'])) {
         switch ($_GET['action']) {
+            
             case 'logout':
-                if (session_destroy()) {
+                if(session_destroy()){
                     $result['status'] = 1;
-                    $result['message'] = 'Sesión eliminada correctamente';
-                } else {
-                    $result['exception'] = 'Ocurrió un problema al cerrar la sesión';
+                    $result['message'] = 'Sesion eliminada correctamente';
+                } else{
+                    $result['exception'] = 'Ocurrio un problema al cerrar la sesion';
                 }
-                break;
+            break;
             case 'readProfile':
                 if ($usuario->setId($_SESSION['id_administrador'])) {
                     if ($result['dataset'] = $usuario->leerUnAdmin()) {
@@ -207,6 +208,7 @@ if (isset($_GET['action'])) {
     } else {
         // Se compara la acción a realizar cuando el administrador no ha iniciado sesión.
         switch ($_GET['action']) {
+            
             case 'readAll':
                 if ($usuario->leerTodosLosAdmin()) {
                     $result['status'] = 1;
