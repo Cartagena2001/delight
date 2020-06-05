@@ -156,9 +156,10 @@ public function setEstado($value)
     //Metodo para leer todas las productos
     public function leerTodosProductos()
     {
-        $sql = 'SELECT Id_producto, Nombre, Precio, Descripcion, Imagen, Id_categoria, estado
-                FROM tb_productos
-                ORDER BY Nombre';
+        $sql = 'SELECT tb_productos.Id_producto, tb_productos.Nombre, tb_productos.Precio, tb_productos.Descripcion, tb_productos.Imagen, tb_categoria.nombre, estado
+        FROM tb_productos INNER JOIN tb_categoria ON tb_productos.id_categoria = tb_categoria.id_categoria
+        GROUP BY tb_productos.Id_producto, tb_productos.Nombre, tb_productos.Precio, tb_productos.Descripcion, tb_productos.Imagen, tb_categoria.nombre, estado
+        ORDER BY tb_productos.Nombre';
         $params = null;
         return Database::getRows($sql, $params);
     }

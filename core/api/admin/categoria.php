@@ -7,12 +7,13 @@ require_once('../../models/categorias.php');
 
 
 if (isset($_GET['action'])) {
+    session_start();
  // Se instancia la clase correspondiente.
  $categoria = new Categorias;
  // Se declara e inicializa un arreglo para guardar el resultado que retorna la API.
  $result = array('status' => 0, 'message' => null, 'exception' => null);
 
- if (isset($_SESSION['id_usuario'])) {
+ if (isset($_SESSION['id_administrador'])) {
 
 
 

@@ -1,4 +1,4 @@
-const API_CUPONES = '../../api/admin/cupones.php?action=';
+const API_CUPONES = '../../core/api/admin/cupones.php?action=';
 
 $( document ).ready(function() {
     // Se llama a la función que obtiene los registros para llenar la tabla. Se encuentra en el archivo components.js
@@ -21,82 +21,64 @@ function fillTable( dataset )
         `;
     });
     // Se agregan las filas al cuerpo de la tabla mediante su id para mostrar los registros.
-    $( '#tbody-rows' ).html( content );
-    $( '.materialboxed' ).materialbox();
-    $( '.tooltipped' ).tooltip();
+    $( '#table-cupones' ).html( content );
+    // $( '.materialboxed' ).materialbox();
+    // $( '.tooltipped' ).tooltip();
 }
 
 // Función que prepara formulario para insertar un registro.
-function openCreateModal()
-{
-    // Se limpian los campos del formulario.
-    $( '#save-form' )[0].reset();
-    // Se abre la caja de dialogo (modal) que contiene el formulario.
-    $( '#save-modal' ).modal( 'open' );
-    // Se asigna el título para la caja de dialogo (modal).
-    $( '#modal-title' ).text( 'Crear cupon' );
-    // Se establece el campo de tipo archivo como obligatorio.
-    $( '#archivo_cupon' ).prop( 'required', true );
-}
+// function openCreateModal()
+// {
+//     $( '#save-form' )[0].reset();
+//     $( '#save-modal' ).modal( 'open' );
+//     $( '#modal-title' ).text( 'Crear cupon' );
+//     $( '#archivo_cupon' ).prop( 'required', true );
+// }
 
-// Función que prepara formulario para modificar un registro.
-function openUpdateModal( id )
-{
-    // Se limpian los campos del formulario.
-    $( '#save-form' )[0].reset();
-    // Se abre la caja de dialogo (modal) que contiene el formulario.
-    $( '#save-modal' ).modal( 'open' );
-    // Se asigna el título para la caja de dialogo (modal).
-    $( '#modal-title' ).text( 'Modificar categoría' );
-    // Se establece el campo de tipo archivo como opcional.
-    $( '#archivo_categoria' ).prop( 'required', false );
+// function openUpdateModal( id )
+// {
 
-    $.ajax({
-        dataType: 'json',
-        url: API_CUPONES + 'readOne',
-        data: { id_categoria: id },
-        type: 'post'
-    })
-    .done(function( response ) {
-        // Se comprueba si la API ha retornado una respuesta satisfactoria, de lo contrario se muestra un mensaje de error.
-        if ( response.status ) {
-            // Se inicializan los campos del formulario con los datos del registro seleccionado previamente.
-            $( '#id_cupon' ).val( response.dataset.id_cupon );
-            $( '#puntos' ).val( response.dataset.puntos );
-            $( '#opcion' ).val( response.dataset.opcion );
-            // Se actualizan los campos para que las etiquetas (labels) no queden sobre los datos.
-            M.updateTextFields();
-        } else {
-            sweetAlert( 2, response.exception, null );
-        }
-    })
-    .fail(function( jqXHR ) {
-        // Se verifica si la API ha respondido para mostrar la respuesta, de lo contrario se presenta el estado de la petición.
-        if ( jqXHR.status == 200 ) {
-            console.log( jqXHR.responseText );
-        } else {
-            console.log( jqXHR.status + ' ' + jqXHR.statusText );
-        }
-    });
-}
+//     $( '#save-form' )[0].reset();
+//     $( '#save-modal' ).modal( 'open' );
+//     $( '#modal-title' ).text( 'Modificar categoría' );
+//     $( '#archivo_categoria' ).prop( 'required', false );
 
-$( '#save-form' ).submit(function( event ) {
-    // Se evita recargar la página web después de enviar el formulario.
-    event.preventDefault();
-    // Se llama a la función que crea o actualiza un registro. Se encuentra en el archivo components.js
-    // Se comprueba si el id del registro esta asignado en el formulario para actualizar, de lo contrario se crea un registro.
-    if ( $( '#id_cupon' ).val() ) {
-        saveRow( API_CUPONES, 'update', this, 'save-modal' );
-    } else {
-        saveRow( API_CUPONES, 'create', this, 'save-modal' );
-    }
-});
+//     $.ajax({
+//         dataType: 'json',
+//         url: API_CUPONES + 'readOne',
+//         data: { id_categoria: id },
+//         type: 'post'
+//     })
+//     .done(function( response ) {
+//         if ( response.status ) {
+//             $( '#id_cupon' ).val( response.dataset.id_cupon );
+//             $( '#puntos' ).val( response.dataset.puntos );
+//             $( '#opcion' ).val( response.dataset.opcion );
+//             M.updateTextFields();
+//         } else {
+//             sweetAlert( 2, response.exception, null );
+//         }
+//     })
+//     .fail(function( jqXHR ) {
+//         if ( jqXHR.status == 200 ) {
+//             console.log( jqXHR.responseText );
+//         } else {
+//             console.log( jqXHR.status + ' ' + jqXHR.statusText );
+//         }
+//     });
+// }
 
-// Función para establecer el registro a eliminar mediante el id recibido.
-function openDeleteDialog( id )
-{
-    // Se declara e inicializa un objeto con el id del registro que será borrado.
-    let identifier = { id_cupon: id };
-    // Se llama a la función que elimina un registro. Se encuentra en el archivo components.js
-    confirmDelete( API_CUPONES, identifier );
-}
+// $( '#save-form' ).submit(function( event ) {
+//     event.preventDefault();
+//     if ( $( '#id_cupon' ).val() ) {
+//         saveRow( API_CUPONES, 'update', this, 'save-modal' );
+//     } else {
+//         saveRow( API_CUPONES, 'create', this, 'save-modal' );
+//     }
+// });
+
+// function openDeleteDialog( id )
+// {
+//     let identifier = { id_cupon: id };
+//     confirmDelete( API_CUPONES, identifier );
+// }

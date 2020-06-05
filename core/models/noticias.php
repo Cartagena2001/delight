@@ -127,7 +127,7 @@ class  noticias extends Validator{
     public function leerTodasNoticias()
     {
         $sql = 'SELECT Id_noticia, titulo, descripcion, imagen, fecha_pub
-                FROM tb_noticia
+                FROM tb_noticias
                 ORDER BY titulo';
         $params = null;
         return Database::getRows($sql, $params);
