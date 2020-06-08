@@ -159,7 +159,7 @@ public function setEstado($value)
     public function crearProductos()
     {
         if ($this->saveFile($this->archivo, $this->ruta, $this->imagen)) {
-            $sql = 'INSERT INTO tb_productos(nombre, precio, descripcion, imagen, id_categoria, estado)
+            $sql = 'INSERT INTO tb_productos(nombre_p, precio, descripcion, imagen, id_categoria, estado)
                     VALUES(?, ?, ?, ?, ?, ?)';
             $params = array($this->nombre, $this->precio, $this->descripcion, $this->imagen, $this->categoria, $this->estado);
             return Database::executeRow($sql, $params);
