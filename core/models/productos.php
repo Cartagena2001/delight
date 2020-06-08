@@ -6,8 +6,9 @@ class productos extends Validator{
     private $precio = null;
     private $descripcion = null;
     private $imagen = null;
-    private $ruta = '../../../resources/img/';
-    private $id_categoria = null;
+    private $ruta = '../../../resources/img/categorias/';
+    private $archivo = null;
+    private $categoria = null;
     private $estado = null;
 
 
@@ -44,20 +45,34 @@ public function setPrecio($value)
     }
 }
 
-public function setDescripcion($value)
+// public function setDescripcion($value)
+//     {
+//         if ($value) {
+//             if ($this->validateString($value, 1, 250)) {
+//                 $this->descripcion = $value;
+//                 return true;
+//             } else {
+//                 return false;
+//             }
+//         } else {
+//             $this->descripcion = null;
+//             return true;
+//         }
+//     }
+
+    public function setDescripcion($value)
     {
-        if ($value) {
-            if ($this->validateString($value, 1, 250)) {
-                $this->descripcion = $value;
-                return true;
-            } else {
-                return false;
-            }
-        } else {
-            $this->descripcion = null;
+        if($this->validateAlphanumeric($value, 1, 250))
+        {
+            $this->descripcion = $value;
             return true;
+    
+        }
+        else{
+            return false;
         }
     }
+
 
 public function setImagen($file)
 {
@@ -70,10 +85,10 @@ public function setImagen($file)
     }
 }
 
-public function setId_categoria($value)
+public function setCategoria($value)
 {
     if($this->validateNaturalNumber($value)){
-        $this->id_categoria = $value;
+        $this->categoria = $value;
         return true;
     } else {
         return false;
@@ -115,9 +130,9 @@ public function setEstado($value)
         return $this->imagen;
     }
 
-    public function getId_categoria()
+    public function getCategoria()
     {
-        return $this->id_categoria;
+        return $this->categoria;
     }
     
     public function getEstado()
@@ -141,16 +156,26 @@ public function setEstado($value)
     }
 
     //Metodo para insertar una nuevo productos
+    // public function crearProductos()
+    // {
+    //     if ($this->saveFile($this->archivo, $this->ruta, $this->imagen)) {
+    //         $sql = 'INSERT INTO tb_productos(nombre, precio, descripcion, imagen, id_categoria, estado)
+    //                 VALUES(?, ?, ?, ?, ?, ?)';
+    //         $params = array($this->nombre, $this->precio, $this->descripcion, $this->imagen, $this->categoria, $this->estado);
+    //         return Database::executeRow($sql, $params);
+    //     } else {
+    //         return false;
+    //     }
+    // }
+
     public function crearProductos()
     {
-        if ($this->saveFile($this->Nombre, $this->Precio, $this->Descripcion, $this->Imagen, $this->Id_categoria, $this->estado)) {
-            $sql = 'INSERT INTO tb_productos(Nombre, Precio, Descripcion, Imagen, Id_categoria, estado)
-                    VALUES(?, ?, ?, ?, ?, ?)';
-            $params = array($this->Nombre, $this->Precio, $this->Descripcion, $this->Imagen, $this->Id_categoria, $this->estado);
+        
+            $sql = 'INSERT INTO tb_productos(nombre, precio, descripcion, id_categoria, estado)
+                    VALUES(?, ?, ?, ?, ?)';
+            $params = array($this->nombre, $this->precio, $this->descripcion, $this->categoria, $this->estado);
             return Database::executeRow($sql, $params);
-        } else {
-            return false;
-        }
+        
     }
 
     //Metodo para leer todas las productos
@@ -181,12 +206,12 @@ public function setEstado($value)
             $sql = 'UPDATE tb_productos
                     SET Nombre = ?, Precio = ?, Descripcion = ?, Imagen = ?, Id_categoria = ?, estado = ?
                     WHERE Id_producto = ?';
-            $params = array($this->Nombre, $this->Precio, $this->Descripcion, $this->Imagen, $this->Id_categoria, $this->estado,$this->id);
+            $params = array($this->Nombre, $this->Precio, $this->Descripcion, $this->imagen, $this->categoria, $this->estado,$this->id);
         } else {
             $sql = 'UPDATE tb_productos
                     SET SET Nombre = ?, Precio = ?, Descripcion = ?, Id_categoria = ?, estado = ?
                     WHERE Id_producto = ?';
-            $params = array($this->Nombre, $this->Precio, $this->Descripcion, $this->Id_categoria, $this->estado,$this->id);
+            $params = array($this->Nombre, $this->Precio, $this->Descripcion, $this->categoria, $this->estado,$this->id);
         }
         return Database::executeRow($sql, $params);
     }

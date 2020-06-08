@@ -42,45 +42,45 @@ if (isset($_GET['action'])) {
                 break;
             case 'create':
                 $_POST = $producto->validateForm($_POST);
-                if ($producto->setNombre($_POST['nombre'])) {
-                    if ($producto->setPrecio($_POST['pecio'])) {
-                        if ($producto->setDescripcion($_POST['descripcion'])) {
-                            if (is_uploaded_file($_FILES['imagen']['tmp_name'])) {
-                                if ($producto->setImagen($_FILES['imagen'])) {
-                                    if (isset($_POST['categoria_producto'])) {
-                                        if ($producto->setId_categoria($_POST['id_categoria'])) {
-                                             if ($producto->setEstado(isset($_POST['estado']) ? 1 : 0)) {
-                                                if ($producto->crearProductos()) {
+                if($producto->setNombre($_POST['nombre'])){
+                    if($producto->setPrecio($_POST['precio'])){
+                        if($producto->setDescripcion($_POST['descripcion'])){
+                            // if(is_uploaded_file($_FILES['archivoProducto']['tmp_name'])){
+                            //     if($producto->setImagen($_FILES['archivoProducto'])){
+                                    if(isset($_POST['categoriaProducto'])){
+                                        if($producto->setCategoria($_POST['categoriaProducto'])){
+                                            if($producto->setEstado($_POST['estadoProducto'])){
+                                                if($producto->crearProductos()){
                                                     $result['status'] = 1;
                                                     $result['message'] = 'Producto creado correctamente';
-                                                } else {
-                                                    $result['exception'] = Database::getException();;
+                                                }else{
+                                                    $result['exception'] = Database::getException();
                                                 }
-                                            } else {
-                                                $result['exception'] = $producto->getImageError();
+                                            }else{
+                                                $result['exception'] = 'Estadp incorrecta';
                                             }
-                                        } else {
-                                            $result['exception'] = 'Seleccione una imagen';
+                                        }else{
+                                            $result['exception'] = 'Categoria incorrecta';
                                         }
-                                    } else {
-                                        $result['exception'] = 'Estado incorrecto';
+                                    }else{
+                                        $result['exception'] = 'Seleccione una categoría';
                                     }
-                                } else {
-                                    $result['exception'] = 'Categoría incorrecta';
-                                }
-                            } else {
-                                $result['exception'] = $producto->getImageError();
-                            }
-                        } else {
-                            $result['exception'] = 'Precio incorrecto';
+                            //     }else{
+                            //         $result['exception'] = $producto->getImageError();
+                            //     }
+                            // }else{
+                            //     $result['exception'] = 'Seleccione una imagen';
+                            // }
+                        }else{
+                            $result['exception'] = 'Descripcion incorrecta'; 
                         }
-                    } else {
-                        $result['exception'] = 'Descripción incorrecta';
+                    }else{
+                        $result['exception'] = 'Precio incorrecto'; 
                     }
-                } else {
+                }else{
                     $result['exception'] = 'Nombre incorrecto';
                 }
-                break;
+            break;    
             case 'readOne':
                 if ($producto->setId($_POST['id_producto'])) {
                     if ($result['dataset'] = $producto->leerUnaProductos()) {
@@ -102,7 +102,7 @@ if (isset($_GET['action'])) {
                             if (is_uploaded_file($_FILES['archivo_producto']['tmp_name'])) {
                                 if ($producto->setImagen($_FILES['archivo_producto'])) {
                                     if (isset($_POST['categoria_producto'])) {
-                                        if ($producto->setId_categoria($_POST['categoria_producto'])) {
+                                        if ($producto->setCategoria($_POST['categoria_producto'])) {
                                              if ($producto->setEstado(isset($_POST['estado']) ? 1 : 0)) {
                                                 if ($producto->crearProductos()) {
                                                     $result['status'] = 1;
@@ -161,7 +161,8 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'Producto incorrecto';
                 }
                 break;
-            
+                default: 
+                exit('Accion no disponible .-.');
         }
         // Se indica el tipo de contenido a mostrar y su respectivo conjunto de caracteres.
         header('content-type: application/json; charset=utf-8');

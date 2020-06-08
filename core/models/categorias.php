@@ -112,7 +112,7 @@ class  categorias extends Validator{
     {
         $sql = 'SELECT id_categoria, nombre, descripcion, imagen
                 FROM tb_categoria
-                ORDER BY nombre';
+                ';
         $params = null;
         return Database::getRows($sql, $params);
     }

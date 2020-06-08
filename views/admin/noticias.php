@@ -9,7 +9,11 @@ $pagina->headerTemplate('Principal');
         <div class="container col-lg-12">
         <h1 class="display-4">Noticias</h1>
         </div>
-
+<div class="container">
+    <div class="row">
+        <button type="button" class="btn btn-success mt-3" onclick="openCreateModal()">Agregar noticias</button>
+    </div>
+</div>
 <div class="container mt-4">
     <div class="row">
         <table class="table table-hover">

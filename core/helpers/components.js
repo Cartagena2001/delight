@@ -104,7 +104,7 @@ function saveRow( api, action, form, modalId)
             readRows( api );
             sweetAlert( 1, response.message, null );
             // Se cierra la caja de dialogo (modal) donde está el formulario.
-            $( '#' + modalId ).modal( 'close' );
+            $( '#' + modalId ).modal( 'hide' );
         } else {
             sweetAlert( 2, response.exception, null );
         }
@@ -218,7 +218,6 @@ function sweetAlert( type, text, url )
         });
     }
 }
-
 /*
 *   Función para cargar las opciones en un select de formulario.
 *
@@ -259,7 +258,7 @@ function fillSelect( api, selectId, selected )
             $( '#' + selectId ).html( '<option value="">No hay opciones disponibles</option>' );
         }
         // Se inicializa el componente Select del formulario para que muestre las opciones.
-        $( 'select' ).formSelect();
+       // $( 'select' ).formSelect();
     })
     .fail(function( jqXHR ) {
         // Se verifica si la API ha respondido para mostrar la respuesta, de lo contrario se presenta el estado de la petición.

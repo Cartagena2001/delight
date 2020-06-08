@@ -1,4 +1,5 @@
 const API_PRODUCTOS = '../../core/api/admin/productos.php?action=';
+const API_CATEGORIAS = '../../core/api/admin/categoria.php?action=readAll';
 
 $( document ).ready(function() {
     // Se llama a la función que obtiene los registros para llenar la tabla. Se encuentra en el archivo components.js
@@ -30,14 +31,15 @@ function fillTable( dataset )
 }
 
 // Función que prepara formulario para insertar un registro.
-// function openCreateModal()
-// {
+function openCreateModal()
+{
 
-//     $( '#save-form' )[0].reset();
-//     $( '#save-modal' ).modal( 'open' );
-//     $( '#modal-title' ).text( 'Crear producto' );
-//     $( '#archivo_categoria' ).prop( 'required', true );
-// }
+    $( '#save-form' )[0].reset();
+    $( '#productoModal' ).modal( 'show' );
+    $( '#archivoProducto' ).prop( 'required', true );
+    fillSelect( API_CATEGORIAS, 'categoriaProducto', null );
+}
+
 // function openUpdateModal( id )
 // {
 
@@ -81,15 +83,15 @@ function fillTable( dataset )
 //     });
 // }
 
-// $( '#save-form' ).submit(function( event ) {
-//     event.preventDefault();
+$( '#save-form' ).submit(function( event ) {
+    event.preventDefault();
 
-//     if ( $( '#id_producto' ).val() ) {
-//         saveRow( API_PRODUCTOS, 'update', this, 'save-modal' );
-//     } else {
-//         saveRow( API_PRODUCTOS, 'create', this, 'save-modal' );
-//     }
-// });
+    if ( $( '#id_producto' ).val() ) {
+        saveRow( API_PRODUCTOS, 'update', this, 'productoModal' );
+    } else {
+        saveRow( API_PRODUCTOS, 'create', this, 'productoModal' );
+    }
+});
 
 // function openDeleteDialog( id )
 // {
