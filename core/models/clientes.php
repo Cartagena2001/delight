@@ -9,7 +9,7 @@ class clientes extends Validator{
     private $correo = null;
     private $telefono = null;
     private $clave = null;
-    private $estado = null;
+    private $estado_cliente = null;
 
 
 //Metodos para asignar valores a los atributos
@@ -88,10 +88,10 @@ public function setClave($value)
         }
 }
 
-public function setEstado($value)
+public function setEstadoCliente($value)
 {
         if ($this->validateAlphanumeric($value, 1, 50)) {
-            $this->estado = $value;
+            $this->estado_cliente = $value;
             return true;
         } else {
             return false;
@@ -135,7 +135,7 @@ public function setEstado($value)
 
     public function getEstado()
     {
-        return $this->estado;
+        return $this->estado_cliente;
     }
 
     public function buscarClientes($value)
@@ -170,9 +170,9 @@ public function setEstado($value)
     //Metodo para leer solo una cliente
     public function leerUnCliente()
     {
-        $sql = 'SELECT Id_cliente, Usuario, Nombre, Direccion, Correo, Telefono, clave, estado_cliente
+        $sql = 'SELECT id_cliente, estado_cliente
                 FROM tb_Cliente
-                WHERE Id_cliente = ?';
+                WHERE id_cliente = ?';
         $params = array($this->id);
         return Database::getRow($sql, $params);
     }
@@ -180,10 +180,10 @@ public function setEstado($value)
     //Metodo para actualizar una cliente
     public function actualizarClientes()
     {
-        $sql = 'UPDATE tb_Cliente
-                SET Nombre = ?, Direccion = ?, Correo = ? Telefono = ?, clave = ? estado_cliente = ?
-                WHERE Id_cliente = ?';
-        $params = array($this->Nombre, $this->Direccion, $this->Correo, $this->Telefono, $this->clave, $this->estado_cliente,$this->id);
+        $sql = 'UPDATE tb_cliente
+                SET estado_cliente = ?
+                WHERE id_cliente = ?';
+        $params = array($this->estado_cliente, $this->id);
         return Database::executeRow($sql, $params);
     }
 

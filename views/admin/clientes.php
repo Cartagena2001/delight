@@ -28,12 +28,14 @@ $pagina->headerTemplate('Principal');
     </div>
 </div>
 
-        <!-- modal -->
-        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<!-- modal -->
+        <div class="modal fade" id="actualizarClientes" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
+                <form method="post" id="save-form">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalCenterTitle">Editar estado</h5>
+                        <input class="invisible" type="text" id="id_cliente" name="id_cliente"/>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -42,18 +44,20 @@ $pagina->headerTemplate('Principal');
                         <div class="container text-center">
                             <div class="form-group">
                                 <h5>Estado del cliente</h5>
-                                <select class="form-control" id="exampleFormControlSelect1">
+                                <!-- <input class="visible" type="text" id="comboEstadoCliente" name="comboEstadoCliente"/> -->
+                                <select class="form-control" id="comboEstadoCliente" name="comboEstadoCliente">
                                     <option>Activo</option>
-                                    <option>Suspendido</option>
+                                    <option>Inactivo</option>
                                 </select>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                        <button type="button" class="btn btn-primary">Guardar cambios</button>
+                        <button type="submit" class="btn btn-primary">Guardar cambios</button>
                     </div>
                 </div>
+                </form>
             </div>
         </div>
     </div>

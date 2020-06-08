@@ -52,7 +52,7 @@
                             if($clientes-> setCorreo ($_POST['correo'])){
                                 if($clientes-> setTelefono ($_POST['telefono'])){
                                     if($clientes-> setClave ($_POST['clave'])){
-                                        if($clientes-> setEstado (isset($_POST['estado']) ? 1 : 0)){
+                                        if($clientes-> setEstadoCliente (isset($_POST['estado']) ? 1 : 0)){
                                             if ($clientes->crearClientes()) {
                                                 $result['status'] = 1;
                                                 $result['message'] = 'cliente registrado correctamente';
@@ -83,7 +83,7 @@
                 break;
                 case 'readOne':
                     if ($clientes->setId($_POST['id_cliente'])) {
-                        if ($result['dataset'] = $clientes->leerTodosClientes()) {
+                        if ($result['dataset'] = $clientes->leerUnCliente()) {
                             $result['status'] = 1;
                         } else {
                             $result['exception'] = 'cliente inexistente';
@@ -94,46 +94,21 @@
                 break;
                 case 'update':
                     $_POST = $clientes->validateForm($_POST);
-                    if ($clientes->setUsuario($_POST['usuario'])) { 
-                        if ($data = $clientes->leerUnCliente()) {
-                         if($clientes-> setNombre($_POST['nombre'])){
-                             if($clientes-> setDireccion($_POST['direccion'])){
-                                if($clientes-> setCorreo ($_POST['correo'])){
-                                    if($clientes-> setTelefono ($_POST['telefono'])){
-                                        if($clientes-> setClave ($_POST['clave'])){
-                                            if($clientes-> setEstado (isset($_POST['estado']) ? 1 : 0)){
-                                                if ($clientes->actualizarClientes()) {
-                                                    $result['status'] = 1;
-                                                    $result['message'] = 'cliente actualizado correctamente';
-                                                } else {
-                                                    $result['exception'] = Database::getException();;
-                                                }
-                                            }else{
-                                                $result['exception'] = 'Estado incorrecto';
-                                        }
-                                        }else{
-                                            $result['exception'] = 'Estado incorrecto';
-                                        } 
-                                    }else{
-                                        $result['exception'] = 'Estado incorrecto';
-                                    }
-                                }else{
-                                    $result['exception'] = 'Estado incorrecto';
-                                }
+                    if($clientes->setId($_POST['id_cliente'])){
+                        if($clientes->setEstadoCliente($_POST['comboEstadoCliente'])){
+                            if($clientes->actualizarClientes()){
+                                $result['status'] = 1;
+                                $result['message'] = 'Cliente actualizado correctamente';
                             }else{
-                                $result['exception'] = 'Estado incorrecto';
+                                $result['exception'] = Database::getException();
                             }
-                         }else{
+                        }else{
                             $result['exception'] = 'Estado incorrecto';
-                         } 
-                     }else{
-                        $result['exception'] = ' incorrecto';
-                     }
+                        }
                     }else{
-                        $result['exception'] = 'Estado incorrecto';
-                     }
-                    break;
-
+                        $result['exception'] = 'Cliente incorrecto';
+                    }
+                break;
                     case 'delete':
                         if ($_POST['id_cliente'] != $_SESSION['id_cliente']) {
                             if ($clientes->setId($_POST['id_usuario'])) {
