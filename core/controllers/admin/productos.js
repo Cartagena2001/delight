@@ -13,14 +13,13 @@ function fillTable( dataset )
     dataset.forEach(function( row ) {
         content += `
             <tr>
-                <td>${row.nombre}</td>
+                <td>${row.nombre_p}</td>
                 <td>${row.precio}</td>
                 <td>${row.descripcion}</td>
                 <td>../../resources/img/categorias/${row.imagen}</td>
                 <td>${row.nombre}</td>
                 <td>${row.estado}</td>
-                <td>
-                <a href="#" class="btn btn-info" data-toggle="modal" data-target="#agregarmodal (${row.id_producto})"><i class="fas fa-plus-square"></i></a>    
+                <td>  
                 <a href="#" class="btn btn-warning" data-toggle="modal" data-target="#editarmodal (${row.id_producto})"><i class="fas fa-edit"></i></a>
                 <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#eliminarmodal (${row.id_producto})"><i class="fas fa-trash-alt"></i></a></td>
             </tr>

@@ -64,7 +64,7 @@ $pagina->headerTemplate('Principal');
                     <div class="form-group">
                     <div class="input-group mb-3">
                         <div class="custom-file">
-                            <input id="archivoProducto" type="file" class="custom-file-input">
+                            <input id="archivoProducto" name="archivoProducto" type="file" class="custom-file-input">
                             <label  class="custom-file-label" for="archivoProducto" aria-describedby="archivoProducto">Buscar imagen</label>
                         </div>
                         <!-- <div class="input-group-append">
@@ -73,11 +73,6 @@ $pagina->headerTemplate('Principal');
                     </div>
                     <label for="exampleFormControlSelect1">Categoria</label>
                     <select class="form-control" id="categoriaProducto" name="categoriaProducto">
-                    <!-- <option>Comida</option>
-                    <option>Tecnologia</option>
-                    <option>Amor</option>
-                    <option>Navidad</option>
-                    <option>Hallowen</option> -->
                     </select>
                     </div>
                     

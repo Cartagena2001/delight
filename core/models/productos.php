@@ -156,35 +156,35 @@ public function setEstado($value)
     }
 
     //Metodo para insertar una nuevo productos
-    // public function crearProductos()
-    // {
-    //     if ($this->saveFile($this->archivo, $this->ruta, $this->imagen)) {
-    //         $sql = 'INSERT INTO tb_productos(nombre, precio, descripcion, imagen, id_categoria, estado)
-    //                 VALUES(?, ?, ?, ?, ?, ?)';
-    //         $params = array($this->nombre, $this->precio, $this->descripcion, $this->imagen, $this->categoria, $this->estado);
-    //         return Database::executeRow($sql, $params);
-    //     } else {
-    //         return false;
-    //     }
-    // }
-
     public function crearProductos()
     {
-        
-            $sql = 'INSERT INTO tb_productos(nombre, precio, descripcion, id_categoria, estado)
-                    VALUES(?, ?, ?, ?, ?)';
-            $params = array($this->nombre, $this->precio, $this->descripcion, $this->categoria, $this->estado);
+        if ($this->saveFile($this->archivo, $this->ruta, $this->imagen)) {
+            $sql = 'INSERT INTO tb_productos(nombre, precio, descripcion, imagen, id_categoria, estado)
+                    VALUES(?, ?, ?, ?, ?, ?)';
+            $params = array($this->nombre, $this->precio, $this->descripcion, $this->imagen, $this->categoria, $this->estado);
             return Database::executeRow($sql, $params);
-        
+        } else {
+            return false;
+        }
     }
+
+    // public function crearProductos()
+    // {
+        
+    //         $sql = 'INSERT INTO tb_productos(nombre, precio, descripcion, id_categoria, estado)
+    //                 VALUES(?, ?, ?, ?, ?)';
+    //         $params = array($this->nombre, $this->precio, $this->descripcion, $this->categoria, $this->estado);
+    //         return Database::executeRow($sql, $params);
+        
+    // }
 
     //Metodo para leer todas las productos
     public function leerTodosProductos()
     {
-        $sql = 'SELECT tb_productos.Id_producto, tb_productos.Nombre, tb_productos.Precio, tb_productos.Descripcion, tb_productos.Imagen, tb_categoria.nombre, estado
+        $sql = 'SELECT tb_productos.Id_producto, tb_productos.nombre_p, tb_productos.Precio, tb_productos.Descripcion, tb_productos.Imagen, tb_categoria.nombre, estado
         FROM tb_productos INNER JOIN tb_categoria ON tb_productos.id_categoria = tb_categoria.id_categoria
-        GROUP BY tb_productos.Id_producto, tb_productos.Nombre, tb_productos.Precio, tb_productos.Descripcion, tb_productos.Imagen, tb_categoria.nombre, estado
-        ORDER BY tb_productos.Nombre';
+        GROUP BY tb_productos.Id_producto, tb_productos.nombre_p, tb_productos.Precio, tb_productos.Descripcion, tb_productos.Imagen, tb_categoria.nombre, estado
+        ORDER BY tb_productos.nombre_p';
         $params = null;
         return Database::getRows($sql, $params);
     }

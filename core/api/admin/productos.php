@@ -45,8 +45,8 @@ if (isset($_GET['action'])) {
                 if($producto->setNombre($_POST['nombre'])){
                     if($producto->setPrecio($_POST['precio'])){
                         if($producto->setDescripcion($_POST['descripcion'])){
-                            // if(is_uploaded_file($_FILES['archivoProducto']['tmp_name'])){
-                            //     if($producto->setImagen($_FILES['archivoProducto'])){
+                            if(is_uploaded_file($_FILES['archivoProducto']['tmp_name'])){
+                                if($producto->setImagen($_FILES['archivoProducto'])){
                                     if(isset($_POST['categoriaProducto'])){
                                         if($producto->setCategoria($_POST['categoriaProducto'])){
                                             if($producto->setEstado($_POST['estadoProducto'])){
@@ -65,12 +65,12 @@ if (isset($_GET['action'])) {
                                     }else{
                                         $result['exception'] = 'Seleccione una categoría';
                                     }
-                            //     }else{
-                            //         $result['exception'] = $producto->getImageError();
-                            //     }
-                            // }else{
-                            //     $result['exception'] = 'Seleccione una imagen';
-                            // }
+                                }else{
+                                    $result['exception'] = $producto->getImageError();
+                                }
+                            }else{
+                                $result['exception'] = 'Seleccione una imagen';
+                            }
                         }else{
                             $result['exception'] = 'Descripcion incorrecta'; 
                         }

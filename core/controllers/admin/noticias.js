@@ -17,7 +17,6 @@ function fillTable( dataset )
                 <td>../../resources/img/noticias/${row.imagen}</td>
                 <td>${row.fecha_pub}</td>
                 <td>
-                    <a href="#" class="btn btn-info" data-toggle="modal" data-target="#agregarmodal (${row.id_noticias})"><i class="fas fa-plus-square"></i></a>    
                     <a href="#" class="btn btn-warning" data-toggle="modal" data-target="#editarmodal (${row.id_noticias})"><i class="fas fa-edit"></i></a>
                     <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#eliminarmodal (${row.id_noticias})"><i class="fas fa-trash-alt"></i></a></td>
             </tr>
