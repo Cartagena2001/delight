@@ -26,58 +26,56 @@ function fillTable( dataset )
 }
 
 // Función que prepara formulario para insertar un registro.
-// function openCreateModal()
-// {
-//     $( '#save-form' )[0].reset();
-//     $( '#save-modal' ).modal( 'open' );
-//     $( '#modal-title' ).text( 'Crear cupon' );
-//     $( '#archivo_cupon' ).prop( 'required', true );
-// }
+function openCreateModal()
+{
+    $( '#save-form' )[0].reset();
+    $( '#detallepedidomodal' ).modal( 'show' );
+}
 
-// function openUpdateModal( id )
-// {
+ function openUpdateModal( id )
+{
 
-//     $( '#save-form' )[0].reset();
-//     $( '#save-modal' ).modal( 'open' );
-//     $( '#modal-title' ).text( 'Modificar categoría' );
-//     $( '#archivo_categoria' ).prop( 'required', false );
+    $( '#save-form' )[0].reset();
+    $( '#save-modal' ).modal( 'open' );
+    $( '#modal-title' ).text( 'Modificar categoría' );
+    $( '#archivo_categoria' ).prop( 'required', false );
 
-//     $.ajax({
-//         dataType: 'json',
-//         url: API_CUPONES + 'readOne',
-//         data: { id_categoria: id },
-//         type: 'post'
-//     })
-//     .done(function( response ) {
-//         if ( response.status ) {
-//             $( '#id_cupon' ).val( response.dataset.id_cupon );
-//             $( '#puntos' ).val( response.dataset.puntos );
-//             $( '#opcion' ).val( response.dataset.opcion );
-//             M.updateTextFields();
-//         } else {
-//             sweetAlert( 2, response.exception, null );
-//         }
-//     })
-//     .fail(function( jqXHR ) {
-//         if ( jqXHR.status == 200 ) {
-//             console.log( jqXHR.responseText );
-//         } else {
-//             console.log( jqXHR.status + ' ' + jqXHR.statusText );
-//         }
-//     });
-// }
+    $.ajax({
+        dataType: 'json',
+        url: API_CUPONES + 'readOne',
+        data: { id_categoria: id },
+        type: 'post'
+    })
+    .done(function( response ) {
+        if ( response.status ) {
+            $( '#id_cupon' ).val( response.dataset.id_cupon );
+            $( '#puntos' ).val( response.dataset.puntos );
+            $( '#opcion' ).val( response.dataset.opcion );
+            M.updateTextFields();
+        } else {
+            sweetAlert( 2, response.exception, null );
+        }
+    })
+    .fail(function( jqXHR ) {
+        if ( jqXHR.status == 200 ) {
+            console.log( jqXHR.responseText );
+        } else {
+            console.log( jqXHR.status + ' ' + jqXHR.statusText );
+        }
+    });
+}
 
-// $( '#save-form' ).submit(function( event ) {
-//     event.preventDefault();
-//     if ( $( '#id_cupon' ).val() ) {
-//         saveRow( API_CUPONES, 'update', this, 'save-modal' );
-//     } else {
-//         saveRow( API_CUPONES, 'create', this, 'save-modal' );
-//     }
-// });
+$( '#save-form' ).submit(function( event ) {
+    event.preventDefault();
+    if ( $( '#id_cupon' ).val() ) {
+        saveRow( API_CUPONES, 'update', this, 'save-modal' );
+    } else {
+        saveRow( API_CUPONES, 'create', this, 'save-modal' );
+    }
+});
 
-// function openDeleteDialog( id )
-// {
-//     let identifier = { id_cupon: id };
-//     confirmDelete( API_CUPONES, identifier );
-// }
+function openDeleteDialog( id )
+{
+    let identifier = { id_cupon: id };
+    confirmDelete( API_CUPONES, identifier );
+}

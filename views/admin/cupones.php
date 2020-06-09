@@ -32,8 +32,9 @@ $pagina->headerTemplate('Principal');
 
 
         <!-- modal agregar -->
-        <div class="modal fade" id="agregarmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal fade" id="agregarcuponesmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
+        <form method="post" id="save-form"  name="save-form" enctype="multipart/form-data">
             <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalCenterTitle">Agregar Cupon</h5>
@@ -42,18 +43,11 @@ $pagina->headerTemplate('Principal');
                 </button>
             </div>
             <div class="modal-body">
-                <div class="container text-center">
-                <form>
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Cantidad de puntos">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlSelect1">Opcion</label>
-                        <select class="form-control" id="exampleFormControlSelect1">
-                        <option>Producto gratis</option>
-                        <option>Bolsa sorpresa</option>
-                        </select>
-                    </div>
+            <div class="form-group">
+                        <input id="precio_compra" name="precio_compra" type="text" class="form-control" placeholder="Precio" required>
+                </div>                
+                <div class="form-group">
+                        <input  id="cantidad" name="cantidad" type="text" class="form-control" placeholder="Cantidad" required>
                 </div>
             </div>
             <div class="modal-footer">
@@ -61,12 +55,14 @@ $pagina->headerTemplate('Principal');
                 <button type="button" class="btn btn-primary">Agregar cupon</button>
             </div>
             </div>
+            </div>
         </div>
 </div>
 
 <!-- modal editar -->
-<div class="modal fade" id="editarmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="editarcuponesmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
+        <form method="post" id="save-form"  name="save-form" enctype="multipart/form-data">
             <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalCenterTitle">Editar Cupon</h5>
@@ -93,13 +89,15 @@ $pagina->headerTemplate('Principal');
                 <button type="button" class="btn btn-primary">Guardar cambios</button>
             </div>
             </div>
+            </div>
         </div>
     </div>
 </div>
 
 <!-- modal eliminar -->
-<div class="modal fade" id="eliminarmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="eliminarcuponesmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
+        <form method="post" id="save-form"  name="save-form" enctype="multipart/form-data">
             <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalCenterTitle">Eliminar cupon</h5>
@@ -117,6 +115,7 @@ $pagina->headerTemplate('Principal');
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                 <button type="button" class="btn btn-primary">Eliminar</button>
+            </div>
             </div>
             </div>
         </div>

@@ -101,28 +101,20 @@ if (isset($_GET['action'])) {
                         break;
     
                         case 'delete':
-                            if ($_POST['id_cliente'] != $_SESSION['id_cliente']) {
+                            if ($detalleP->setId($_POST['id_detalle_pedido'])) {
                                 if ($data = $detalleP->leerUnaDetalle()) {
-                                if ($detalleP->setId($_POST['id_detalle_pedido'])) {
-                                    if ($detalleP->leerUnaDetalle()) {
-                                        if ($detalleP->eliminarDetalle()) {
-                                            $result['status'] = 1;
-                                            $result['message'] = 'Usuario eliminado correctamente';
-                                        } else {
-                                            $result['exception'] = Database::getException();
-                                        }
+                                    if ($detalleP->eliminarDetalle()) {
+                                        $result['status'] = 1;
+                                        $result['message'] = 'Producto eliminado correctamente';
                                     } else {
-                                        $result['exception'] = 'Usuario inexistente';
+                                        $result['exception'] = Database::getException();
                                     }
                                 } else {
-                                    $result['exception'] = 'Usuario incorrecto';
+                                    $result['exception'] = 'Producto inexistente';
                                 }
                             } else {
-                                $result['exception'] = 'No se puede eliminar a sí mismo';
+                                $result['exception'] = 'Producto incorrecto';
                             }
-                        } else {
-                            $result['exception'] = 'No se puede eliminar a sí mismo';
-                        }
                             break;
                         default:
                             exit('Acción no disponible log');

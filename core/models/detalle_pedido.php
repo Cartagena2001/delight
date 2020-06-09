@@ -124,8 +124,8 @@ class  detalle_pedido extends Validator{
     //Metodo para eliminar una detalle pedido
     public function eliminarDetalle()
     {
-        $sql = 'DELETE FROM tb_detalle_pedido
-                WHERE Id_detelle_pedido = ?';
+        $sql = 'DELETE FROM tb_detelle_pedido
+                WHERE Id_detalle_pedido = ?';
         $params = array($this->id);
         return Database::executeRow($sql, $params);
     }
