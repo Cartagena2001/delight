@@ -53,10 +53,10 @@ $pagina->headerTemplate('Principal');
                 <div class="container text-center">
                 
                     <div class="form-group">
-                        <input id="nombre" name="nombre" type="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nombre del producto" required>
+                        <input id="nombre" name="nombre" type="name" class="form-control"  aria-describedby="emailHelp" placeholder="Nombre del producto" required>
                     </div>
                     <div class="form-group">
-                        <input id="precio" name="precio" type="text" class="form-control" id="exampleInputPassword1" placeholder="Precio" required>
+                        <input id="precio" name="precio" type="number"  max="999.99" min="0.01" step="any" class="form-control validate"  placeholder="Precio" required>
                     </div>
                     <div class="form-group">
                         <textarea id="descripcion" name="descripcion" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Descripcion" required></textarea>
@@ -94,92 +94,6 @@ $pagina->headerTemplate('Principal');
         </div>
 </div>
 
-
-<!-- modal editar -->
-<div class="modal fade" id="editarmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterTitle">Editar producto</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="container text-center">
-                <form>
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nombre del producto">
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Precio">
-                    </div>
-                    <div class="form-group">
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Descripcion"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Existencias">
-                    </div>
-                    <div class="form-group">
-                    <label for="exampleFormControlSelect1">Categoria</label>
-                    <select class="form-control" id="exampleFormControlSelect1">
-                    <!-- <option>Comida</option>
-                    <option>Tecnologia</option>
-                    <option>Amor</option>
-                    <option>Navidad</option>
-                    <option>Hallowen</option> -->
-                    </select>
-                    </div>
-                    <div class="form-group">
-                    <label for="exampleFormControlSelect1">Estado</label>
-                    <select class="form-control" id="exampleFormControlSelect1">
-                    <option>Existencia</option>
-                    <option>Agotado</option>
-                    </select>
-                    </div>
-                    <div class="input-group mb-3">
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="inputGroupFile02">
-                            <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Buscar imagen</label>
-                        </div>
-                        <div class="input-group-append">
-                            <span class="input-group-text" id="inputGroupFileAddon02">Subir</span>
-                        </div>
-                    </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary">Guardar cambios</button>
-            </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- modal eliminar -->
-<div class="modal fade" id="eliminarmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterTitle">Eliminar producto</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="container text-center">
-                <div class="form-group">
-                        <h5>¿Desea eliminar este producto de su lista?</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary">Eliminar</button>
-            </div>
-            </div>
-        </div>
-</div>
 
     </div>
 </div>

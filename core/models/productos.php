@@ -34,16 +34,14 @@ public function setNombre($value)
 }
 
 public function setPrecio($value)
-{
-    if ($value) {
-        if ($this->validateAlphanumeric($value, 1, 3)) {
+    {
+        if ($this->validateMoney($value)) {
             $this->precio = $value;
             return true;
         } else {
             return false;
         }
     }
-}
 
 // public function setDescripcion($value)
 //     {
@@ -181,9 +179,9 @@ public function setEstado($value)
     //Metodo para leer todas las productos
     public function leerTodosProductos()
     {
-        $sql = 'SELECT tb_productos.Id_producto, tb_productos.nombre_p, tb_productos.Precio, tb_productos.Descripcion, tb_productos.Imagen, tb_categoria.nombre, estado
+        $sql = 'SELECT tb_productos.Id_producto, tb_productos.nombre_p, tb_productos.Precio, tb_productos.Descripcion, tb_productos.imagen, tb_categoria.nombre, estado
         FROM tb_productos INNER JOIN tb_categoria ON tb_productos.id_categoria = tb_categoria.id_categoria
-        GROUP BY tb_productos.Id_producto, tb_productos.nombre_p, tb_productos.Precio, tb_productos.Descripcion, tb_productos.Imagen, tb_categoria.nombre, estado
+        GROUP BY tb_productos.Id_producto, tb_productos.nombre_p, tb_productos.Precio, tb_productos.Descripcion, tb_productos.imagen, tb_categoria.nombre, estado
         ORDER BY tb_productos.nombre_p';
         $params = null;
         return Database::getRows($sql, $params);
@@ -192,9 +190,9 @@ public function setEstado($value)
     //Metodo para leer solo una producto
     public function leerUnaProductos()
     {
-        $sql = 'SELECT Id_producto, Nombre, Precio, Descripcion, Imagen, Id_categoria, estado
+        $sql = 'SELECT id_producto, nombre_p, precio, descripcion, imagen, id_categoria, estado
                 FROM tb_productos
-                WHERE Id_Producto = ?';
+                WHERE id_producto = ?';
         $params = array($this->id);
         return Database::getRow($sql, $params);
     }
@@ -204,14 +202,14 @@ public function setEstado($value)
     {
         if ($this->saveFile($this->archivo, $this->ruta, $this->imagen)) {
             $sql = 'UPDATE tb_productos
-                    SET Nombre = ?, Precio = ?, Descripcion = ?, Imagen = ?, Id_categoria = ?, estado = ?
-                    WHERE Id_producto = ?';
-            $params = array($this->Nombre, $this->Precio, $this->Descripcion, $this->imagen, $this->categoria, $this->estado,$this->id);
+                    SET nombre_p = ?, precio = ?, descripcion = ?, imagen = ?, id_categoria = ?, estado = ?
+                    WHERE id_producto = ?';
+            $params = array($this->nombre, $this->precio, $this->descripcion, $this->imagen, $this->categoria, $this->estado, $this->id);
         } else {
             $sql = 'UPDATE tb_productos
-                    SET SET Nombre = ?, Precio = ?, Descripcion = ?, Id_categoria = ?, estado = ?
-                    WHERE Id_producto = ?';
-            $params = array($this->Nombre, $this->Precio, $this->Descripcion, $this->categoria, $this->estado,$this->id);
+                    SET nombre_p = ?, precio = ?, descripcion = ?, id_categoria = ?, estado = ?
+                    WHERE id_producto = ?';
+            $params = array($this->nombre, $this->precio, $this->descripcion, $this->categoria, $this->estado, $this->id);
         }
         return Database::executeRow($sql, $params);
     }
@@ -220,7 +218,7 @@ public function setEstado($value)
     public function eliminarProductos()
     {
         $sql = 'DELETE FROM tb_productos
-                WHERE Id_producto = ?';
+                WHERE id_producto = ?';
         $params = array($this->id);
         return Database::executeRow($sql, $params);
     }

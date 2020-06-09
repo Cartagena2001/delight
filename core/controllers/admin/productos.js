@@ -15,13 +15,13 @@ function fillTable( dataset )
             <tr>
                 <td>${row.nombre_p}</td>
                 <td>${row.precio}</td>
-                <td>${row.descripcion}</td>
-                <td>../../resources/img/categorias/${row.imagen}</td>
+                <td>${row.descripcion}</td>                
+                <td><img src="../../resources/img/categorias/${row.imagen}" style="Width: 80px; Height:80px;" ></td>
                 <td>${row.nombre}</td>
                 <td>${row.estado}</td>
                 <td>  
-                <a href="#" class="btn btn-warning" data-toggle="modal" data-target="#editarmodal (${row.id_producto})"><i class="fas fa-edit"></i></a>
-                <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#eliminarmodal (${row.id_producto})"><i class="fas fa-trash-alt"></i></a></td>
+                <a href="#" onclick="openUpdateModal(${row.id_producto})" class="btn btn-warning" data-toggle="modal""><i class="fas fa-edit"></i></a>
+                <a href="#" onclick="openDeleteDialog(${row.id_producto})"  class="btn btn-danger" data-toggle="modal" "><i class="fas fa-trash-alt"></i></a></td>
             </tr>
         `;
     });
@@ -39,48 +39,44 @@ function openCreateModal()
     fillSelect( API_CATEGORIAS, 'categoriaProducto', null );
 }
 
-// function openUpdateModal( id )
-// {
+function openUpdateModal( id )
+{
 
-//     $( '#save-form' )[0].reset();
+    $( '#save-form' )[0].reset();
 
-//     $( '#save-modal' ).modal( 'open' );
-//     $( '#modal-title' ).text( 'Modificar producto' );
+    $( '#productoModal' ).modal( 'show' );
+    $( '#archivo_productos' ).prop( 'required', false );
 
-//     $( '#archivo_productos' ).prop( 'required', false );
-
-//     $.ajax({
-//         dataType: 'json',
-//         url: API_PRODUCTOS + 'readOne',
-//         data: { id_categoria: id },
-//         type: 'post'
-//     })
-//     .done(function( response ) {
+    $.ajax({
+        dataType: 'json',
+        url: API_PRODUCTOS + 'readOne',
+        data: { id_producto: id },
+        type: 'post'
+    })
+    .done(function( response ) {
     
-//         if ( response.status ) {
+        if ( response.status ) {
             
-//             $( '#id_producto' ).val( response.dataset.id );
-//             $( '#nombre' ).val( response.dataset.nombre );
-//             $( '#precio' ).val( response.dataset.precio );
-//             $( '#descripcion' ).val( response.dataset.descripcion );
-//             $( '#imagen' ).val( response.dataset.imagen );
-//             $( '#id_categoria' ).val( response.dataset.id_categoria );
-//             $( '#estado' ).val( response.dataset.estado );
-            
-//             M.updateTextFields();
-//         } else {
-//             sweetAlert( 2, response.exception, null );
-//         }
-//     })
-//     .fail(function( jqXHR ) {
+            $( '#id_producto' ).val( response.dataset.id_producto );
+            $( '#nombre' ).val( response.dataset.nombre_p );
+            $( '#precio' ).val( response.dataset.precio );
+            $( '#descripcion' ).val( response.dataset.descripcion );
+            fillSelect( API_CATEGORIAS, 'categoriaProducto', response.dataset.id_categoria );
+            $( '#estadoProducto' ).val( response.dataset.estado );
+            M.updateTextFields();
+        } else {
+            sweetAlert( 2, response.exception, null );
+        }
+    })
+    .fail(function( jqXHR ) {
 
-//         if ( jqXHR.status == 200 ) {
-//             console.log( jqXHR.responseText );
-//         } else {
-//             console.log( jqXHR.status + ' ' + jqXHR.statusText );
-//         }
-//     });
-// }
+        if ( jqXHR.status == 200 ) {
+            console.log( jqXHR.responseText );
+        } else {
+            console.log( jqXHR.status + ' ' + jqXHR.statusText );
+        }
+    });
+}
 
 $( '#save-form' ).submit(function( event ) {
     event.preventDefault();
@@ -92,8 +88,8 @@ $( '#save-form' ).submit(function( event ) {
     }
 });
 
-// function openDeleteDialog( id )
-// {
-//     let identifier = { id_producto: id };
-//     confirmDelete( API_PRODUCTOS, identifier );
-// }
+function openDeleteDialog( id )
+{
+    let identifier = { id_producto: id };
+    confirmDelete( API_PRODUCTOS, identifier );
+}
