@@ -22,7 +22,7 @@
                     }
                     break;
                     case 'search':
-                        $_POST = $clientes->validateForm($_POST);
+                        $_POST = $cupones->validateForm($_POST);
                         if ($_POST['search'] != '') {
                             if ($result['dataset'] = $cupones->buscarCupones($_POST['search'])) {
                                 $result['status'] = 1;
@@ -42,7 +42,7 @@
                     case 'create':
                         $_POST = $cupones->validateForm($_POST);
                         if ($cupones->setPuntos($_POST['puntos'])) { 
-                             if($cupones->setOpcion($_POST['opciones'])){
+                             if($cupones->setOpcion($_POST['opcion'])){
                                     if ($cupones->crearCupones()){
                                         $result['status'] = 1;
                                                 $result['message'] = 'cupon registrado correctamente';
@@ -58,7 +58,7 @@
                         break;
                         case 'readOne':
                             if ($cupones->setId($_POST['id_cupon'])) {
-                                if ($result['dataset'] = $cupones->leerTodasCupones()) {
+                                if ($result['dataset'] = $cupones->leerUnaCupones()) {
                                     $result['status'] = 1;
                                 } else {
                                     $result['exception'] = 'cupon inexistente';
@@ -71,7 +71,7 @@
                             $_POST = $cupones->validateForm($_POST);
                             if ($data = $cupones->leerUnaCupones()) {
                                  if ($cupones->setPuntos($_POST['puntos'])) { 
-                                    if($cupones->setOpcion($_POST['opciones'])){
+                                    if($cupones->setOpcion($_POST['opcion'])){
                                         if ($cupones->actualizarCupones()) {
                                             $result['status'] = 1;
                                             $result['message'] = 'cupon actualizado correctamente';
