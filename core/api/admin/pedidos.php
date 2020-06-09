@@ -41,7 +41,7 @@ if (isset($_GET['action'])) {
                 }
             break;
             case 'create':
-                $_POST = $clientes->validateForm($_POST);
+                $_POST = $pedidos->validateForm($_POST);
                 if ($pedidos->setId_cliente($_POST['id_cliente'])) { 
                      if($pedidos-> setId_cupon($_POST['id_cupon'])){
                          if($pedidos-> setId_detalle($_POST['id_detalle_pedido'])){
@@ -74,11 +74,12 @@ if (isset($_GET['action'])) {
                  }
                 break;
                 case 'readOne':
-                    if ($pedidos->setId($_POST['id_cliente'])) {
+                    $dato =  (int)$_POST['id_pedido'];
+                    if ($pedidos->setId($dato)) {
                         if ($result['dataset'] = $pedidos->leerUnPedidos()) {
                             $result['status'] = 1;
                         } else {
-                            $result['exception'] = 'pedido inexistente';
+                            $result['exception'] = $dato;
                         }
                     } else {
                         $result['exception'] = 'pedido incorrecto';
@@ -125,7 +126,7 @@ if (isset($_GET['action'])) {
 
                     case 'delete':
                         if ($_POST['id_cliente'] != $_SESSION['id_cliente']) {
-                            if ($pedidos->setId($_POST['id_pedidos'])) {
+                            if ($pedidos->setId($_POST['id_pedido'])) {
                                 if ($pedidos->leerUnPedidos()) {
                                     if ($pedidos->eliminarPedidos()) {
                                         $result['status'] = 1;

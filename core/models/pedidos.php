@@ -3,8 +3,11 @@
 class pedidos extends Validator{
     private $id = null;
     private $id_cliente = null;
+    private $cliente = null;
     private $id_cupon = null;
+    private $cupon = null;
     private $id_detalle = null;
+    private $detalle = null;
     private $costo_envio = null;
     private $fecha_pedido = null;
     private $fecha_entrega = null;
@@ -32,6 +35,16 @@ public function setId_cliente($value)
     }
 }
 
+public function setCliente($value)
+{
+    if($this->validateAlphanumeric($value, 1, 50)) {
+        $this->cliente = $value;
+        return true;
+    } else {
+        return false;
+    }
+}
+
 public function setId_cupon($value)
 {
     if($this->validateNaturalNumber($value)){
@@ -43,6 +56,16 @@ public function setId_cupon($value)
     }
 }
 
+public function setCupon($value)
+{
+    if($this->validateAlphanumeric($value, 1, 50)) {
+        $this->cupon = $value;
+        return true;
+    } else {
+        return false;
+    }
+}
+
 public function setId_detalle($value)
 {
     if($this->validateNaturalNumber($value)){
@@ -50,6 +73,16 @@ public function setId_detalle($value)
         return true;    
     }
     else{
+        return false;
+    }
+}
+
+public function setDetalle($value)
+{
+    if($this->validateAlphanumeric($value, 1, 50)) {
+        $this->detalle = $value;
+        return true;
+    } else {
         return false;
     }
 }
@@ -159,7 +192,7 @@ public function setFecha_entrega($value)
     {
         $sql = 'SELECT Id_pedido, Id_pedido, Id_cliente, Id_cupon, Id_detalle_pedido, Costo_envio, Fecha_pedido, Fecha_entrega
                 FROM tb_pedidos
-                WHERE Id_pedido, = ?';
+                WHERE Id_pedido = ?';
         $params = array($this->id);
         return Database::getRow($sql, $params);
     }

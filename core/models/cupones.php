@@ -30,7 +30,7 @@ class  cupones extends Validator{
 
     public function setOpcion($value)
     {
-        if($this->validateString($value, 1, 6)) {
+        if($this->validateString($value, 1, 20)) {
             $this->opcion = $value;
             return true;
         } else {

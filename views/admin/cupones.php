@@ -44,7 +44,7 @@ $pagina->headerTemplate('Principal');
                 </button>
             </div>
             <div class="modal-body"> 
-            <div class="form-group">
+                <div class="form-group">
                         <input id="puntos" name="puntos" type="text" class="form-control" placeholder="Puntos" required>
                 </div>                
                 <div class="form-group">
@@ -58,6 +58,7 @@ $pagina->headerTemplate('Principal');
             </div>
             </div>
             </div>
+        </form>
         </div>
 </div>
  
@@ -86,6 +87,7 @@ $pagina->headerTemplate('Principal');
             </div>
             </div>
             </div>
+        </form>
         </div>
 </div>
 
