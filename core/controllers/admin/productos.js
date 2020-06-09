@@ -63,7 +63,7 @@ function openUpdateModal( id )
             $( '#descripcion' ).val( response.dataset.descripcion );
             fillSelect( API_CATEGORIAS, 'categoriaProducto', response.dataset.id_categoria );
             $( '#estadoProducto' ).val( response.dataset.estado );
-            M.updateTextFields();
+            
         } else {
             sweetAlert( 2, response.exception, null );
         }

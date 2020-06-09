@@ -12,7 +12,7 @@ class Database{
         $server = 'localhost';
         $database = 'delight';
         $username = 'postgres';
-        $password = '14217';
+        $password = 'fifa2012';
         
         try{
             self::$connection = new PDO('pgsql:host='.$server.';dbname='.$database.';port=5432', $username, $password);

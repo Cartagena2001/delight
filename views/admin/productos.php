@@ -79,8 +79,8 @@ $pagina->headerTemplate('Principal');
                     <div class="form-group">
                     <label for="exampleFormControlSelect1">Estado</label>
                     <select class="form-control" id="estadoProducto" name="estadoProducto">
-                    <option>En existencias</option>
-                    <option>Agotado</option>
+                    <option value="En existencias">En existencias</option>
+                    <option value="Agotado">Agotado</option>
                     </select>
                     </div>
                 </div>
