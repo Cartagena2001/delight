@@ -14,8 +14,8 @@ function fillTable( dataset )
                 <td>${row.puntos}</td>
                 <td>${row.opcion}</td>
                 <td>
-                <a href="#" class="btn btn-warning" data-toggle="modal" data-target="#editarmodal (${row.id_cupon})"><i class="fas fa-edit"></i></a>
-                <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#eliminarmodal (${row.id_cupon}) "><i class="fas fa-trash-alt"></i></a></td>
+                <a href="#" class="btn btn-warning" data-toggle="modal" onclick="openUpdateModal (${row.id_cupon})"><i class="fas fa-edit"></i></a>
+                <a href="#" class="btn btn-danger" data-toggle="modal" onclick="openDeleteDialog (${row.id_cupon}) "><i class="fas fa-trash-alt"></i></a></td>
             </tr>
         `;
     });
@@ -29,34 +29,33 @@ function fillTable( dataset )
 function openCreateModal()
 {
     $( '#save-form' )[0].reset();
-    $( '#detallepedidomodal' ).modal( 'show' );
+    $( '#agregarcuponesmodal' ).modal( 'show' );
 }
 
- function openUpdateModal( id )
-{
 
+function openUpdateModal( id )
+{
     $( '#save-form' )[0].reset();
-    $( '#save-modal' ).modal( 'open' );
-    $( '#modal-title' ).text( 'Modificar categoría' );
-    $( '#archivo_categoria' ).prop( 'required', false );
+    $( '#editarcuponesmodal' ).modal( 'show' ); 
 
     $.ajax({
         dataType: 'json',
         url: API_CUPONES + 'readOne',
-        data: { id_categoria: id },
+        data: { id_cupon: id },
         type: 'post'
     })
     .done(function( response ) {
-        if ( response.status ) {
-            $( '#id_cupon' ).val( response.dataset.id_cupon );
-            $( '#puntos' ).val( response.dataset.puntos );
-            $( '#opcion' ).val( response.dataset.opcion );
-            M.updateTextFields();
+
+        if ( response.status ) { 
+            $( '#id_cupon' ).val( response.dataset.id_cupon); 
+            $( '#puntos' ).val( response.dataset.puntos);
+            $( '#opcion' ).val( response.dataset.opcion);
         } else {
             sweetAlert( 2, response.exception, null );
         }
     })
     .fail(function( jqXHR ) {
+        
         if ( jqXHR.status == 200 ) {
             console.log( jqXHR.responseText );
         } else {
@@ -68,9 +67,9 @@ function openCreateModal()
 $( '#save-form' ).submit(function( event ) {
     event.preventDefault();
     if ( $( '#id_cupon' ).val() ) {
-        saveRow( API_CUPONES, 'update', this, 'save-modal' );
+        saveRow( API_CUPONES, 'update', this, 'editarcuponesmodal' );
     } else {
-        saveRow( API_CUPONES, 'create', this, 'save-modal' );
+        saveRow( API_CUPONES, 'create', this, 'agregarcuponesmodal' );
     }
 });
 

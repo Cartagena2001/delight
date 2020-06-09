@@ -58,7 +58,7 @@ class  cupones extends Validator{
     //Metodos para realizar las acciones del SCRUD
     public function buscarCupones($value)
     {
-        $sql = 'SELECT Id_cupon, puntos, opcion
+        $sql = 'SELECT id_cupon, puntos, opcion
                 FROM tb_cupones
                 WHERE puntos ILIKE ? OR opcion ILIKE ?
                 ORDER BY puntos';
@@ -78,7 +78,7 @@ class  cupones extends Validator{
     //Metodo para leer todas las cupones
     public function leerTodasCupones()
     {
-        $sql = 'SELECT Id_cupon, puntos, opcion
+        $sql = 'SELECT id_cupon, puntos, opcion
                 FROM tb_cupones
                 ORDER BY puntos';
         $params = null;
@@ -88,9 +88,9 @@ class  cupones extends Validator{
     //Metodo para leer solo una cupon
     public function leerUnaCupones()
     {
-        $sql = 'SELECT Id_cupon, puntos, opcion
+        $sql = 'SELECT id_cupon, puntos, opcion
                 FROM tb_cupones
-                WHERE Id_cupon = ?';
+                WHERE id_cupon = ?';
         $params = array($this->id);
         return Database::getRow($sql, $params);
     }
@@ -100,7 +100,7 @@ class  cupones extends Validator{
     {
         $sql = 'UPDATE tb_cupones
                 SET puntos = ?, opcion = ?
-                WHERE Id_cupon = ?';
+                WHERE id_cupon = ?';
         $params = array($this->puntos, $this->opcion, $this->id);
         return Database::executeRow($sql, $params);
     }
@@ -109,7 +109,7 @@ class  cupones extends Validator{
     public function eliminarCupones()
     {
         $sql = 'DELETE FROM tb_cupones
-                WHERE Id_cupon = ?';
+                WHERE id_cupon = ?';
         $params = array($this->id);
         return Database::executeRow($sql, $params);
     }

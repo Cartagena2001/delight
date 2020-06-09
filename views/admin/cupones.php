@@ -44,15 +44,16 @@ $pagina->headerTemplate('Principal');
             </div>
             <div class="modal-body">
             <div class="form-group">
-                        <input id="precio_compra" name="precio_compra" type="text" class="form-control" placeholder="Precio" required>
+                        <input id="puntos" name="puntos" type="text" class="form-control" placeholder="Puntos" required>
                 </div>                
                 <div class="form-group">
-                        <input  id="cantidad" name="cantidad" type="text" class="form-control" placeholder="Cantidad" required>
+                        <input  id="opcion" name="opcion" type="text" class="form-control" placeholder="Opcion" required>
+
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary">Agregar cupon</button>
+                <button type="submit" class="btn btn-primary">Guardar cambios</button>
             </div>
             </div>
             </div>
@@ -66,27 +67,23 @@ $pagina->headerTemplate('Principal');
             <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalCenterTitle">Editar Cupon</h5>
+                <input class="hide" type="hidden" id="id_cupon" name="id_cupon"/>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <div class="container text-center">
-                <form>
+            <div class="form-group">
+                        <input id="puntos" name="puntos" type="text" class="form-control" placeholder="Puntos" required>
+                </div>                
                 <div class="form-group">
-                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Cantidad de puntos">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlSelect1">Opcion</label>
-                        <select class="form-control" id="exampleFormControlSelect1">
-                        <option>Producto gratis</option>
-                        <option>Bolsa sorpresa</option>
-                        </select>
-                    </div>
+                        <input  id="opcion" name="opcion" type="text" class="form-control" placeholder="Opcion" required>
+
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary">Guardar cambios</button>
+                <button type="submit" class="btn btn-primary">Guardar cambios</button>
             </div>
             </div>
             </div>
@@ -101,6 +98,7 @@ $pagina->headerTemplate('Principal');
             <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalCenterTitle">Eliminar cupon</h5>
+                <input class="hide" type="hidden" id="id_cupon" name="id_cupon"/>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
@@ -114,7 +112,7 @@ $pagina->headerTemplate('Principal');
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary">Eliminar</button>
+                <button type="submit" class="btn btn-primary">Eliminar</button>
             </div>
             </div>
             </div>
