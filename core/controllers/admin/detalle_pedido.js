@@ -1,4 +1,5 @@
 const API_DETALLE_PEDIDO= '../../core/api/admin/detallepedidos.php?action=';
+const API_PRODUCTOS = '../../core/api/admin/productos.php?action=readAll';
 
 $( document ).ready(function() {
     // Se llama a la función que obtiene los registros para llenar la tabla. Se encuentra en el archivo components.js
@@ -28,61 +29,59 @@ function fillTable( dataset )
 
 
 // Función que prepara formulario para insertar un registro.
-// function openCreateModal()
-// {
-//     $( '#save-form' )[0].reset();
-//     $( '#save-modal' ).modal( 'open' );
-//     $( '#modal-title' ).text( 'Crear detalle pedido' );
-//     $( '#archivo_detale_pedido' ).prop( 'required', true );
-// }
+function openCreateModal()
+{
+    $( '#save-form' )[0].reset();
+    $( '#detallepedidomodal' ).modal( 'show' );
+    fillSelect( API_PRODUCTOS, 'id_producto', null );
+}
 
-// function openUpdateModal( id )
-// {
-//     $( '#save-form' )[0].reset();
-//     $( '#save-modal' ).modal( 'open' );
-//     $( '#modal-title' ).text( 'Modificar detalle pedido' );
-//     $( '#archivo_categoria' ).prop( 'required', false );
+function openUpdateModal( id )
+{
+    $( '#save-form' )[0].reset();
+    $( '#editdetallepedidomodal' ).modal( 'show' );
+    fillSelect( API_PRODUCTOS, 'id_producto', null );
 
-//     $.ajax({
-//         dataType: 'json',
-//         url: API_DETALLE_PEDIDO + 'readOne',
-//         data: { id_detalle_pedido: id },
-//         type: 'post'
-//     })
-//     .done(function( response ) {
+    $.ajax({
+        dataType: 'json',
+        url: API_DETALLE_PEDIDO + 'readOne',
+        data: { id_detalle_pedido: id },
+        type: 'post'
+    })
+    .done(function( response ) {
 
-//         if ( response.status ) {
-//             $( '#id_detalle_pedido' ).val( response.dataset.id_detalle_pedido);
-//             $( '#id_producto' ).val( response.dataset.id_producto );
-//             $( '#precio' ).val( response.dataset.Precio );
-//             $( '#cantidad' ).val( response.dataset.cantidad );
-//             M.updateTextFields();
-//         } else {
-//             sweetAlert( 2, response.exception, null );
-//         }
-//     })
-//     .fail(function( jqXHR ) {
+        if ( response.status ) {
+            $( '#id_detalle_pedido' ).val( response.dataset.id_detalle_pedido);
+            $( '#id_producto' ).val( response.dataset.id_producto );
+            $( '#precio' ).val( response.dataset.Precio );
+            $( '#cantidad' ).val( response.dataset.cantidad );
+            M.updateTextFields();
+        } else {
+            sweetAlert( 2, response.exception, null );
+        }
+    })
+    .fail(function( jqXHR ) {
         
-//         if ( jqXHR.status == 200 ) {
-//             console.log( jqXHR.responseText );
-//         } else {
-//             console.log( jqXHR.status + ' ' + jqXHR.statusText );
-//         }
-//     });
-// }
+        if ( jqXHR.status == 200 ) {
+            console.log( jqXHR.responseText );
+        } else {
+            console.log( jqXHR.status + ' ' + jqXHR.statusText );
+        }
+    });
+}
 
 
-// $( '#save-form' ).submit(function( event ) {
-//     event.preventDefault();
-//     if ( $( '#id_detalle_pedido' ).val() ) {
-//         saveRow( API_DETALLE_PEDIDO, 'update', this, 'save-modal' );
-//     } else {
-//         saveRow( API_DETALLE_PEDIDO, 'create', this, 'save-modal' );
-//     }
-// });
+$( '#save-form' ).submit(function( event ) {
+    event.preventDefault();
+    if ( $( '#id_detalle_pedido' ).val() ) {
+        saveRow( API_DETALLE_PEDIDO, 'update', this, 'detallepedidomodal' );
+    } else {
+        saveRow( API_DETALLE_PEDIDO, 'create', this, 'detallepedidomodal' );
+    }
+});
 
-// function openDeleteDialog( id )
-// {
-//     let identifier = { id_detalle_pedido: id };
-//     confirmDelete( API_DETALLE_PEDIDO, identifier );
-// }
+function openDeleteDialog( id )
+{
+    let identifier = { id_detalle_pedido: id };
+    confirmDelete( API_DETALLE_PEDIDO, identifier );
+}

@@ -33,7 +33,7 @@ class  detalle_pedido extends Validator{
     public function setPrecio($value)
     {
         if($this->validateAlphanumeric($value, 1, 50)) {
-            $this->precio = $value;
+            $this->Precio = $value;
             return true;
         } else {
             return false;
@@ -63,7 +63,7 @@ class  detalle_pedido extends Validator{
 
     public function getPrecio()
     {
-        return $this->precio;
+        return $this->Precio;
     }
 
     public function getCantidad()
@@ -85,9 +85,9 @@ class  detalle_pedido extends Validator{
     //Metodo para insertar una nuevo detalle pedido
     public function crearDetalle()
     {
-        $sql = 'INSERT INTO tb_detalle_pedido(Id_producto, Precio, cantidad)
+        $sql = 'INSERT INTO tb_detelle_pedido(id_producto, precio, cantidad)
         VALUES(?, ?, ?)';
-        $params = array($this->nombre, $this->imagen, $this->descripcion);
+        $params = array($this->id_producto, $this->Precio, $this->cantidad);
         return Database::executeRow($sql, $params);
     }
 

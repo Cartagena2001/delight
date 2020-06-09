@@ -43,15 +43,20 @@ if (isset($_GET['action'])) {
                     if ($detalleP->setId_producto($_POST['id_producto'])) { 
                          if($detalleP-> setPrecio($_POST['precio_compra'])){
                              if($detalleP-> setCantidad($_POST['cantidad'])){
-  
+                                if($detalleP->crearDetalle()){
+                                    $result['status'] = 1;
+                                    $result['message'] = 'Detalle creado correctamente';
+                                }else{
+                                    $result['exception'] = Database::getException();
+                                }
                             }else{
-                                $result['exception'] = 'Estado incorrecto';
+                                $result['exception'] = 'Estado incorrecto cantidad';
                             }
                          }else{
-                            $result['exception'] = 'Estado incorrecto';
+                            $result['exception'] = 'Estado incorrecto precio';
                          } 
                      }else{
-                        $result['exception'] = 'Estado incorrecto';
+                        $result['exception'] = 'Estado incorrecto id prodcuto';
                      }
                     break;
                     case 'readOne':
