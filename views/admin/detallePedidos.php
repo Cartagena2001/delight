@@ -37,8 +37,8 @@ $pagina->headerTemplate('Principal');
         <form method="post" id="save-form"  name="save-form" enctype="multipart/form-data">
             <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterTitle">Agregar Detalle</h5>
-                <input class="hide" type="htextidden" id="id_detalle_pedido" name="id_detalle_pedido"/>
+                <h5 class="modal-title" id="exampleModalCenterTitle">Detalle</h5>
+                <input  type="hidden" id="id_detalle_pedido" name="id_detalle_pedido"/>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>

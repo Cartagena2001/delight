@@ -5,7 +5,7 @@ class  detalle_pedido extends Validator{
     //Atributos
     private $id = null;
     private $id_producto = null;
-    private $Precio = null;
+    private $precio = null;
     private $cantidad = null;
 
 
@@ -33,7 +33,7 @@ class  detalle_pedido extends Validator{
     public function setPrecio($value)
     {
         if($this->validateAlphanumeric($value, 1, 50)) {
-            $this->Precio = $value;
+            $this->precio = $value;
             return true;
         } else {
             return false;
@@ -63,7 +63,7 @@ class  detalle_pedido extends Validator{
 
     public function getPrecio()
     {
-        return $this->Precio;
+        return $this->precio;
     }
 
     public function getCantidad()
@@ -87,7 +87,7 @@ class  detalle_pedido extends Validator{
     {
         $sql = 'INSERT INTO tb_detelle_pedido(id_producto, precio, cantidad)
         VALUES(?, ?, ?)';
-        $params = array($this->id_producto, $this->Precio, $this->cantidad);
+        $params = array($this->id_producto, $this->precio, $this->cantidad);
         return Database::executeRow($sql, $params);
     }
 
@@ -117,7 +117,7 @@ class  detalle_pedido extends Validator{
         $sql = 'UPDATE tb_detelle_pedido
                 SET Id_producto= ?, precio= ?, cantidad = ?
                 WHERE Id_detalle_pedido = ?';
-        $params = array($this->id_producto, $this->Precio, $this->cantidad, $this->id);
+        $params = array($this->id_producto, $this->precio, $this->cantidad, $this->id);
         return Database::executeRow($sql, $params);
     }
 

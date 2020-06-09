@@ -68,8 +68,9 @@
                             }
                         break;
                         case 'update':
-                            $_POST = $cupones->validateForm($_POST);
-                            if ($data = $cupones->leerUnaCupones()) {
+                            $_POST = $cupones->validateForm($_POST); 
+                            if ($cupones->setId($_POST['id_cupon'])) {
+                                if ($data = $cupones->leerUnaCupones()) {
                                  if ($cupones->setPuntos($_POST['puntos'])) { 
                                     if($cupones->setOpcion($_POST['opcion'])){
                                         if ($cupones->actualizarCupones()) {
@@ -79,13 +80,16 @@
                                             $result['exception'] = Database::getException();;
                                         }
                              }else{
-                                $result['exception'] = 'Estado incorrecto';
+                                $result['exception'] = 'Opcion incorrecta';
                              } 
                          }else{
-                            $result['exception'] = 'Estado incorrecto';
+                            $result['exception'] = 'Puntos incorrectos';
                           } 
                         }else{
-                            $result['exception'] = 'Estado incorrecto';
+                            $result['exception'] = 'Cupon inexistente';
+                         }
+                        }else{
+                            $result['exception'] = 'Cupon incorrecto';
                          }
                            
                          break;

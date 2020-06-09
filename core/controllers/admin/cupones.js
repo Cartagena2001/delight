@@ -29,14 +29,14 @@ function fillTable( dataset )
 function openCreateModal()
 {
     $( '#save-form' )[0].reset();
-    $( '#agregarcuponesmodal' ).modal( 'show' );
+    $( '#cuponesmodal' ).modal( 'show' );
 }
 
 
 function openUpdateModal( id )
 {
     $( '#save-form' )[0].reset();
-    $( '#editarcuponesmodal' ).modal( 'show' ); 
+    $( '#cuponesmodal' ).modal( 'show' ); 
 
     $.ajax({
         dataType: 'json',
@@ -47,9 +47,9 @@ function openUpdateModal( id )
     .done(function( response ) {
 
         if ( response.status ) { 
-            $( '#id_cupon' ).val( response.dataset.id_cupon); 
-            $( '#puntos' ).val( response.dataset.puntos);
-            $( '#opcion' ).val( response.dataset.opcion);
+            $('#id_cupon').val(response.dataset.id_cupon); 
+            $('#puntos').val(response.dataset.puntos);
+            $('#opcion').val(response.dataset.opcion); 
         } else {
             sweetAlert( 2, response.exception, null );
         }
@@ -67,9 +67,9 @@ function openUpdateModal( id )
 $( '#save-form' ).submit(function( event ) {
     event.preventDefault();
     if ( $( '#id_cupon' ).val() ) {
-        saveRow( API_CUPONES, 'update', this, 'editarcuponesmodal' );
+        saveRow( API_CUPONES, 'update', this, 'cuponesmodal' );
     } else {
-        saveRow( API_CUPONES, 'create', this, 'agregarcuponesmodal' );
+        saveRow( API_CUPONES, 'create', this, 'cuponesmodal' );
     }
 });
 

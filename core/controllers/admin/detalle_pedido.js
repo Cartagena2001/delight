@@ -36,11 +36,10 @@ function openCreateModal()
 }
 
 function openUpdateModal( id )
-{
+{  
     $( '#save-form' )[0].reset();
     $( '#detallepedidomodal' ).modal( 'show' );
-    fillSelect( API_PRODUCTOS, 'id_producto', null );
-
+    fillSelect( API_PRODUCTOS, 'id_producto', null ); 
     $.ajax({
         dataType: 'json',
         url: API_DETALLE_PEDIDO + 'readOne',

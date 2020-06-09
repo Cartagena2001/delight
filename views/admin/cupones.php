@@ -32,47 +32,18 @@ $pagina->headerTemplate('Principal');
 
 
         <!-- modal agregar -->
-        <div class="modal fade" id="agregarcuponesmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal fade" id="cuponesmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
         <form method="post" id="save-form"  name="save-form" enctype="multipart/form-data">
             <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterTitle">Agregar Cupon</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-            <div class="form-group">
-                        <input id="puntos" name="puntos" type="text" class="form-control" placeholder="Puntos" required>
-                </div>                
-                <div class="form-group">
-                        <input  id="opcion" name="opcion" type="text" class="form-control" placeholder="Opcion" required>
-
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <button type="submit" class="btn btn-primary">Guardar cambios</button>
-            </div>
-            </div>
-            </div>
-        </div>
-</div>
-
-<!-- modal editar -->
-<div class="modal fade" id="editarcuponesmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-        <form method="post" id="save-form"  name="save-form" enctype="multipart/form-data">
-            <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterTitle">Editar Cupon</h5>
+                <h5 class="modal-title" id="exampleModalCenterTitle">Cupones</h5>
                 <input class="hide" type="hidden" id="id_cupon" name="id_cupon"/>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body"> 
             <div class="form-group">
                         <input id="puntos" name="puntos" type="text" class="form-control" placeholder="Puntos" required>
                 </div>                
@@ -88,9 +59,8 @@ $pagina->headerTemplate('Principal');
             </div>
             </div>
         </div>
-    </div>
 </div>
-
+ 
 <!-- modal eliminar -->
 <div class="modal fade" id="eliminarcuponesmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
