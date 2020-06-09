@@ -75,7 +75,7 @@ class  detalle_pedido extends Validator{
     public function buscarDetalle($value)
     {
         $sql = 'SELECT Id_detalle_pedido, Id_producto, Precio, cantidad
-                FROM tb_detalle_pedido
+                FROM tb_detelle_pedido
                 WHERE Id_detalle_pedido ILIKE ? OR Id_producto ILIKE ?
                 ORDER BY Id_detalle_pedido';
         $params = array("%$value%", "%$value%");
@@ -96,7 +96,7 @@ class  detalle_pedido extends Validator{
     {
         $sql = 'SELECT id_detalle_pedido, id_producto, precio, cantidad
                 FROM tb_detelle_pedido
-                ORDER BY id_detalle_pedido';
+                ORDER BY precio';
         $params = null;
         return Database::getRows($sql, $params);
     }
@@ -104,9 +104,9 @@ class  detalle_pedido extends Validator{
     //Metodo para leer solo una detalle pedido
     public function leerUnaDetalle()
     {
-        $sql = 'SELECT Id_detalle_pedido, Id_producto, Precio, cantidad
-                FROM tb_detalle_pedido
-                WHERE Id_detalle_pedido = ?';
+        $sql = 'SELECT id_detalle_pedido, id_producto, precio, cantidad
+                FROM tb_detelle_pedido
+                WHERE id_detalle_pedido = ?';
         $params = array($this->id);
         return Database::getRow($sql, $params);
     }
@@ -114,8 +114,8 @@ class  detalle_pedido extends Validator{
     //Metodo para actualizar una detalle pedido
     public function actualizarDetalle()
     {
-        $sql = 'UPDATE tb_detalle_pedido
-                SET Id_producto= ?, Precio= ?, cantidad = ?
+        $sql = 'UPDATE tb_detelle_pedido
+                SET Id_producto= ?, precio= ?, cantidad = ?
                 WHERE Id_detalle_pedido = ?';
         $params = array($this->id_producto, $this->Precio, $this->cantidad, $this->id);
         return Database::executeRow($sql, $params);
@@ -125,7 +125,7 @@ class  detalle_pedido extends Validator{
     public function eliminarDetalle()
     {
         $sql = 'DELETE FROM tb_detalle_pedido
-                WHERE Id_detalle_pedido = ?';
+                WHERE Id_detelle_pedido = ?';
         $params = array($this->id);
         return Database::executeRow($sql, $params);
     }

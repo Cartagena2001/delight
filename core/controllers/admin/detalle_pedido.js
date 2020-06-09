@@ -17,9 +17,8 @@ function fillTable( dataset )
                 <td>${row.precio}</td>
                 <td>${row.cantidad}</td>
                 <td>
-        
-                    <a href="#" class="btn btn-warning" data-toggle="modal" data-target="#editarmodal (${row.id_detalle_pedido})"><i class="fas fa-edit"></i></a>
-                    <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#eliminarmodal (${row.id_detalle_pedido})"><i class="fas fa-trash-alt"></i></a></td>
+                    <a href="#" class="btn btn-warning" data-toggle="modal" onclick="openUpdateModal (${row.id_detalle_pedido})"><i class="fas fa-edit"></i></a>
+                    <a href="#" class="btn btn-danger" data-toggle="modal" onclick="openDeleteDialog (${row.id_detalle_pedido})"><i class="fas fa-trash-alt"></i></a></td>
             </tr>
         `;
     });
@@ -39,7 +38,7 @@ function openCreateModal()
 function openUpdateModal( id )
 {
     $( '#save-form' )[0].reset();
-    $( '#editdetallepedidomodal' ).modal( 'show' );
+    $( '#detallepedidomodal' ).modal( 'show' );
     fillSelect( API_PRODUCTOS, 'id_producto', null );
 
     $.ajax({
@@ -52,10 +51,9 @@ function openUpdateModal( id )
 
         if ( response.status ) {
             $( '#id_detalle_pedido' ).val( response.dataset.id_detalle_pedido);
-            $( '#id_producto' ).val( response.dataset.id_producto );
-            $( '#precio' ).val( response.dataset.Precio );
+            fillSelect( API_PRODUCTOS, 'id_producto', response.dataset.id_producto );
+            $( '#precio_compra' ).val( response.dataset.precio );
             $( '#cantidad' ).val( response.dataset.cantidad );
-            M.updateTextFields();
         } else {
             sweetAlert( 2, response.exception, null );
         }

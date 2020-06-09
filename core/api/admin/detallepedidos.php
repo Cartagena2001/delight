@@ -60,24 +60,29 @@ if (isset($_GET['action'])) {
                      }
                     break;
                     case 'readOne':
-                        if ($clientes->setId($_POST['id_cliente'])) {
-                            if ($result['dataset'] = $detalleP->leerTodosDetalle()) {
+                        if ($detalleP->setId($_POST['id_detalle_pedido'])) {
+                            if ($result['dataset'] = $detalleP->leerUnaDetalle()) {
                                 $result['status'] = 1;
                             } else {
-                                $result['exception'] = 'cliente inexistente';
+                                $result['exception'] = 'detalle inexistente';
                             }
                         } else {
-                            $result['exception'] = 'Categoría incorrecta';
+                            $result['exception'] = 'detalle incorrecta';
                         }
                     break;
                     case 'update':
                         $_POST = $detalleP->validateForm($_POST);
-                        if ($detalleP->setId($_POST['id_detalle_pedidos'])) {
+                        if ($detalleP->setId($_POST['id_detalle_pedido'])) {
                             if ($data = $detalleP->leerUnaDetalle()) {
                                if ($detalleP->setId_producto($_POST['id_producto'])) { 
                                  if($detalleP-> setPrecio($_POST['precio_compra'])){
                                     if($detalleP-> setCantidad($_POST['cantidad'])){
-      
+                                        if ($detalleP->actualizarDetalle()) {
+                                            $result['status'] = 1; 
+                                                $result['message'] = 'Detalle modificado correctamente';
+                                            } else {
+                                                $result['message'] = 'Detalle modificada pero no se borro la imagen anterior';
+                                            }  
                                 }else{
                                     $result['exception'] = 'Estado incorrecto';
                                 }
