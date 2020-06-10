@@ -89,9 +89,9 @@ class  categorias extends Validator{
     {
         $sql = 'SELECT id_categoria, nombre, descripcion, imagen
                 FROM tb_categoria
-                WHERE nombre ILIKE ? OR descripcion ILIKE ?
+                WHERE nombre ILIKE ? 
                 ORDER BY nombre';
-        $params = array("%$value%", "%$value%");
+        $params = array("%$value%");
         return Database::getRows($sql, $params);
     }
 

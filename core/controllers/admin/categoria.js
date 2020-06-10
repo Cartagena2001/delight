@@ -27,6 +27,14 @@ function fillTable( dataset )
     // $( '.tooltipped' ).tooltip();
 }
 
+ // Evento para mostrar los resultados de una búsqueda.
+ $( '#search-categorias' ).submit(function( event ) {
+    // Se evita recargar la página web después de enviar el formulario.
+    event.preventDefault();
+    // Se llama a la función que realiza la búsqueda. Se encuentra en el archivo components.js
+    searchRows( API_CATEGORIAS, this );
+});
+
 
 // Función que prepara formulario para insertar un registro.
 function openCreateModal()

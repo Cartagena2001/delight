@@ -140,11 +140,11 @@ public function setEstadoCliente($value)
 
     public function buscarClientes($value)
     {
-        $sql = 'SELECT Id_cliente, Usuario, Nombre, Direccion, Correo, Telefono, clave, estado_cliente
+        $sql = 'SELECT id_cliente, usuario, nombre, direccion, correo, telefono, clave, estado_cliente
                 FROM tb_cliente
-                WHERE Nombre ILIKE ? OR Direccion ILIKE ?
+                WHERE Nombre LIKE ?
                 ORDER BY Nombre';
-        $params = array("%$value%", "%$value%");
+        $params = array("%$value%");
         return Database::getRows($sql, $params);
     }
 

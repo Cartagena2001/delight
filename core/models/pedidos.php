@@ -165,9 +165,9 @@ public function setFecha_entrega($value)
         on p.Id_cupon = u.Id_cupon
         inner join tb_detelle_pedido d
         on p.id_detalle_pedido = d.id_detalle_pedido 
-        WHERE p.Id_pedido ILIKE ? OR p.Id_cliente ILIKE ?
+        WHERE c.nombre LIKE ?
         ORDER BY p.Id_pedido';
-        $params = array("%$value%", "%$value%");
+        $params = array("%$value%");
         return Database::getRows($sql, $params);
     }
 

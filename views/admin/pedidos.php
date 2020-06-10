@@ -7,9 +7,20 @@ $pagina->headerTemplate('Principal');
 <div class="container">
     <div class="row">
         <div class="container col-lg-12">
-        <h1 class="display-4">Pedidos</h1>
-        </div>
+        <h1 class="display-4">Pedidos</h1>   
+        <br>
+        <form method="post" id="search-form">
+            <div class="input-field col s6 m6"> 
+                <label for="search">Buscar Pedido por Cliente</label>
+                <input id="search" type="text" name="search"/>
+            </div>
+            <div class="input-field col s6 m4">
+                <button type="submit" class="btn btn-info mt-3" data-tooltip="Buscar">Buscar</button>
+            </div>
+        </form>
+    </div>
 <div class="container">
+<br>
     <div class="row">
         <button type="button" class="btn btn-success mt-3" onclick="openCreateModal()">Agregar pedido</button>
     </div>
@@ -41,7 +52,7 @@ $pagina->headerTemplate('Principal');
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalCenterTitle">Pedidos</h5>
-                    <input class="visible" type="number" id="id_pedido" name="id_pedido"/>
+                    <input class="hide" type="hidden" id="id_pedido" name="id_pedido"/>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>

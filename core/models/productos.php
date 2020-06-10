@@ -145,11 +145,11 @@ public function setEstado($value)
 
     public function buscarProductos($value)
     {
-        $sql = 'SELECT Id_producto, Nombre, Precio, Descripcion, Imagen, Id_categoria, estado
-                FROM tb_producto
-                WHERE Nombre ILIKE ? OR Precio ILIKE ?
-                ORDER BY Nombre';
-        $params = array("%$value%", "%$value%");
+        $sql = 'SELECT Id_producto, nombre_p, Precio, Descripcion, Imagen, Id_categoria, estado
+                FROM tb_productos
+                WHERE nombre_p ILIKE ?
+                ORDER BY nombre_p';
+        $params = array("%$value%");
         return Database::getRows($sql, $params);
     }
 

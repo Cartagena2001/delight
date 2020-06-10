@@ -23,23 +23,23 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'No hay productos registrados';
                 }
                 break;
-            case 'search':
-                $_POST = $noticia->validateForm($_POST);
-                if ($_POST['search'] != '') {
-                    if ($result['dataset'] = $noticia->buscarNoticias($_POST['search'])) {
-                        $result['status'] = 1;
-						$rows = count($result['dataset']);
-						if ($rows > 1) {
-							$result['message'] = 'Se encontraron '.$rows.' coincidencias';
-						} else {
-							$result['message'] = 'Solo existe una coincidencia';
-						}
+                case 'search':
+                    $_POST = $noticia->validateForm($_POST);
+                    if ($_POST['search'] != '') {
+                        if ($result['dataset'] = $noticia->buscarNoticiass($_POST['search'])) {
+                            $result['status'] = 1;
+                            $rows = count($result['dataset']);
+                            if ($rows > 1) {
+                                $result['message'] = 'Se encontraron '.$rows.' coincidencias';
+                            } else {
+                                $result['message'] = 'Solo existe una coincidencia';
+                            }
+                        } else {
+                            $result['exception'] = 'No hay coincidencias';
+                        }
                     } else {
-                        $result['exception'] = 'No hay coincidencias';
+                        $result['exception'] = 'Ingrese un valor para buscar';
                     }
-                } else {
-                    $result['exception'] = 'Ingrese un valor para buscar';
-                }
                 break;
             case 'create':
                 $_POST = $noticia->validateForm($_POST);

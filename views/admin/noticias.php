@@ -8,6 +8,16 @@ $pagina->headerTemplate('Principal');
     <div class="row">
         <div class="container col-lg-12">
             <h1 class="display-4">Noticias</h1>
+        <br>
+        <form method="post" id="search-noticia">
+            <div class="input-field col s6 m6"> 
+                <label for="search">Buscar por titulo</label>
+                <input id="search" type="text" name="search"/>
+            </div>
+            <div class="input-field col s6 m4">
+                <button type="submit" class="btn btn-info mt-3" data-tooltip="Buscar">Buscar</button>
+            </div>
+        </form>
         </div>
         <div class="container">
             <div class="row">

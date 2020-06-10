@@ -60,9 +60,9 @@ class  cupones extends Validator{
     {
         $sql = 'SELECT id_cupon, puntos, opcion
                 FROM tb_cupones
-                WHERE puntos ILIKE ? OR opcion ILIKE ?
-                ORDER BY puntos';
-        $params = array("%$value%", "%$value%");
+                WHERE opcion LIKE ?
+                ORDER BY opcion';
+        $params = array("%$value%");
         return Database::getRows($sql, $params);
     }
 

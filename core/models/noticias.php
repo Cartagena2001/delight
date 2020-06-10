@@ -104,10 +104,10 @@ class  noticias extends Validator{
     public function buscarNoticias($value)
     {
         $sql = 'SELECT Id_noticia, titulo, descripcion, imagen, fecha_pub
-                FROM tb_noticia
-                WHERE titulo ILIKE ? OR descripcion ILIKE ?
+                FROM tb_noticias
+                WHERE titulo LIKE ?
                 ORDER BY titulo';
-        $params = array("%$value%", "%$value%");
+        $params = array("%$value%");
         return Database::getRows($sql, $params);
     }
 

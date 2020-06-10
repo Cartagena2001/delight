@@ -13,7 +13,7 @@ function fillTable( dataset )
     dataset.forEach(function( row ) {
         content += `
             <tr>
-                <td>${row.id_producto}</td>
+                <td>${row.nombre_p}</td>
                 <td>${row.precio}</td>
                 <td>${row.cantidad}</td>
                 <td>
@@ -25,6 +25,13 @@ function fillTable( dataset )
     // Se agregan las filas al cuerpo de la tabla mediante su id para mostrar los registros.
     $( '#table-detallepedidos' ).html( content );
 }
+ // Evento para mostrar los resultados de una búsqueda.
+ $( '#search-detalle' ).submit(function( event ) {
+    // Se evita recargar la página web después de enviar el formulario.
+    event.preventDefault();
+    // Se llama a la función que realiza la búsqueda. Se encuentra en el archivo components.js
+    searchRows( API_DETALLE_PEDIDO, this );
+});
 
 
 // Función que prepara formulario para insertar un registro.

@@ -14,7 +14,7 @@ function fillTable( dataset )
     dataset.forEach(function( row ) {
         content += `
             <tr>
-                <td>${row.id_cliente}</td>
+                <td>${row.nombre}</td>
                 <td>${row.id_cupon}</td>
                 <td>${row.costo_envio}</td>
                 <td>${row.fecha_pedido}</td>
@@ -31,7 +31,14 @@ function fillTable( dataset )
     // $( '.materialboxed' ).materialbox();
     // $( '.tooltipped' ).tooltip();
 }
- 
+
+ // Evento para mostrar los resultados de una búsqueda.
+$( '#search-form' ).submit(function( event ) {
+    // Se evita recargar la página web después de enviar el formulario.
+    event.preventDefault();
+    // Se llama a la función que realiza la búsqueda. Se encuentra en el archivo components.js
+    searchRows( API_PEDIDOS, this );
+});
 
 
 // Función que prepara formulario para insertar un registro.

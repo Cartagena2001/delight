@@ -74,11 +74,12 @@ class  detalle_pedido extends Validator{
     //Metodos para realizar las acciones del SCRUD
     public function buscarDetalle($value)
     {
-        $sql = 'SELECT Id_detalle_pedido, Id_producto, Precio, cantidad
-                FROM tb_detelle_pedido
-                WHERE Id_detalle_pedido ILIKE ? OR Id_producto ILIKE ?
-                ORDER BY Id_detalle_pedido';
-        $params = array("%$value%", "%$value%");
+        $sql = 'SELECT d.Id_detalle_pedido, d.Id_producto,p.nombre_p, d.Precio, d.cantidad
+                FROM tb_detelle_pedido d inner join tb_productos p
+                on d.Id_producto = p.Id_producto
+                WHERE p.nombre_p LIKE ?
+                ORDER BY d.Id_detalle_pedido';
+        $params = array("%$value%");
         return Database::getRows($sql, $params);
     }
 
@@ -94,9 +95,10 @@ class  detalle_pedido extends Validator{
     //Metodo para leer todas las detalle pedidos
     public function leerTodosDetalle()
     {
-        $sql = 'SELECT id_detalle_pedido, id_producto, precio, cantidad
-                FROM tb_detelle_pedido
-                ORDER BY precio';
+        $sql = 'SELECT d.Id_detalle_pedido, d.Id_producto,p.nombre_p, d.Precio, d.cantidad
+                FROM tb_detelle_pedido d inner join tb_productos p
+                on d.Id_producto = p.Id_producto 
+                ORDER BY d.Id_detalle_pedido';
         $params = null;
         return Database::getRows($sql, $params);
     }
