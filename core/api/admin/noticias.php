@@ -43,39 +43,32 @@ if (isset($_GET['action'])) {
                 break;
             case 'create':
                 $_POST = $noticia->validateForm($_POST);
-                if ($noticia->setTitulo($_POST['titulo'])) {
-                    if ($noticia->setDescripcion($_POST['descripcion'])) {
-                            if (is_uploaded_file($_FILES['imagen']['tmp_name'])) {
-                                if ($noticia->setImagen($_FILES['imagen '])) {
-                                             if ($noticia->setFecha($_POST['fecha_pub'])) {
-                                                  if ($noticia->setFecha($_POST['fecha_pub'])) {
-                                                if ($noticia->crearNoticias()) {
-                                                    $result['status'] = 1;
-                                                    $result['message'] = 'Producto creado correctamente';
-                                                } else {
-                                                    $result['exception'] = Database::getException();
-                                                }
-                                            } else {
-                                                $result['exception'] = 'Estado incorrecto';
-                                            }
-                                        } else {
-                                            $result['exception'] = 'seleciona imagen';
-                                        }
-                                    } else {
-                                        $result['exception'] = $producto->getImageError();
-                                    }
-                                } else {
-                                    $result['exception'] = 'Categoría incorrecta';
+                if($noticia->setTitulo($_POST['titulo'])){
+                    if($noticia->setDescripcion($_POST['descripcion'])){
+                        if(is_uploaded_file($_FILES['archivoNoticia']['tmp_name'])){
+                            if($noticia->setImagen($_FILES['archivoNoticia'])){
+                                if($noticia->crearNoticias()){
+                                    $result['status'] = 1;
+                                    $result['message'] = 'Noticia creado correctamente';
+                                }else{
+                                    $result['exception'] = Database::getException();
                                 }
-                            } else {
-                                $result['exception'] = 'Categoría incorrecta';
+                            }else{
+                                $result['exception'] = $producto->getImageError();
                             }
-                        } else {
-                            $result['exception'] = 'titulo incorrecto';
+                        }else{
+                            $result['exception'] = 'Seleccione una imagen';
                         }
-                break;
+                    }else{  
+                        $result['exception'] = 'Descripcion incorrecto';
+                    }
+                }else{
+                    $result['exception'] = 'Titulo incorrecto';
+                }
+            break;
+
             case 'readOne':
-                if ($noticia->setId($_POST['id_producto'])) {
+                if ($noticia->setId($_POST['id_noticia'])) {
                     if ($result['dataset'] = $noticia->leerUnaNoticias()) {
                         $result['status'] = 1;
                     } else {
@@ -85,41 +78,84 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'noticia incorrecta';
                 }
                 break;
+
             case 'update':
-                $_POST = $noticia->validateForm($_POST);
-                if ($noticia->setTitulo($_POST['titulo'])) {
-                    if ($noticia->setDescripcion($_POST['descripcion'])) {
-                            if (is_uploaded_file($_FILES['iamgen']['tmp_name'])) {
-                                if ($noticia->setImagen($_FILES['imagen'])) {
-                                             if ($noticia->setFecha($_POST['fecha_pub'])) {
-                                                if ($noticia->actualizarNoticias()) {
-                                                    $result['status'] = 1;
-                                                    $result['message'] = 'Producto creado correctamente';
-                                                } else {
-                                                    $result['exception'] = Database::getException();;
-                                                }
-                                            } else {
-                                                $result['exception'] = 'Estado incorrecto';
+                $_POST = $noticia->validateForm($_POST); 
+                if($noticia->setId($_POST['id_noticia'])){
+                    if($data = $noticia->leerUnaNoticias()){
+                        if($noticia->setTitulo($_POST['titulo'])){
+                            if($noticia->setDescripcion($_POST['descripcion'])){
+                                if(is_uploaded_file($_FILES['archivoNoticia']['tmp_name'])){
+                                    if($noticia->setImagen($_FILES['archivoNoticia'])){
+                                        if($noticia->actualizarNoticias()){
+                                            $result['status'] = 1;
+                                            if($noticia->deleteFile($noticia->getRuta(), $data['imagen'])){
+                                                $result['message'] = 'Producto modificado correctamente';     
+                                            }else{
+                                                $result['message'] = 'Producto modificada pero no se borro la imagen anterior';
                                             }
-                                        } else {
-                                            $result['exception'] = 'seleciona imagen';
+                                        }else{
+                                            $result['exception'] = Database::getException();
                                         }
-                                    } else {
+                                    }else{
                                         $result['exception'] = $producto->getImageError();
                                     }
-                                } else {
-                                    $result['exception'] = 'Categoría incorrecta';
+                                }else{
+                                    if($noticia->actualizarNoticias()){
+                                        $result['status'] = 1;
+                                        $result['message'] = 'Producto modificado correctamente';
+                                    }else{
+                                        $result['exception'] = Database::getException();
+                                    }
                                 }
-                            } else {
-                                $result['exception'] = 'Categoría incorrecta';
+                            }else{
+                                $result['exception'] = 'Descripcion incorrecto';
                             }
-                break;
+                        }else{
+                            $result['exception'] = 'Titulo incorrecto';
+                        }
+                    }else{
+                        $result['exception'] = 'Noticia inexistente';
+                    }
+                }else{
+                    $result['exception'] = 'Noticia incorrecto';
+                }
+            break;
+            // case 'update':
+            //     $_POST = $noticia->validateForm($_POST);
+            //     if ($noticia->setTitulo($_POST['titulo'])) {
+            //         if ($noticia->setDescripcion($_POST['descripcion'])) {
+            //                 if (is_uploaded_file($_FILES['iamgen']['tmp_name'])) {
+            //                     if ($noticia->setImagen($_FILES['imagen'])) {
+            //                                  if ($noticia->setFecha($_POST['fecha_pub'])) {
+            //                                     if ($noticia->actualizarNoticias()) {
+            //                                         $result['status'] = 1;
+            //                                         $result['message'] = 'Producto creado correctamente';
+            //                                     } else {
+            //                                         $result['exception'] = Database::getException();;
+            //                                     }
+            //                                 } else {
+            //                                     $result['exception'] = 'Estado incorrecto';
+            //                                 }
+            //                             } else {
+            //                                 $result['exception'] = 'seleciona imagen';
+            //                             }
+            //                         } else {
+            //                             $result['exception'] = $producto->getImageError();
+            //                         }
+            //                     } else {
+            //                         $result['exception'] = 'Categoría incorrecta';
+            //                     }
+            //                 } else {
+            //                     $result['exception'] = 'Categoría incorrecta';
+            //                 }
+            //     break;
             case 'delete':
                 if ($noticia->setId($_POST['id_noticia'])) {
                     if ($data = $noticia->leerUnaNoticias()) {
                         if ($noticia->eliminarNoticias()) {
                             $result['status'] = 1;
-                            if ($noticia->deleteFile($noticia->getRuta(), $data['imagen_noticia'])) {
+                            if ($noticia->deleteFile($noticia->getRuta(), $data['imagen'])) {
                                 $result['message'] = 'Producto eliminado correctamente';
                             } else {
                                 $result['message'] = 'Producto eliminado pero no se borro la imagen';
@@ -128,10 +164,10 @@ if (isset($_GET['action'])) {
                             $result['exception'] = Database::getException();
                         }
                     } else {
-                        $result['exception'] = 'Producto inexistente';
+                        $result['exception'] = 'Noticia inexistente';
                     }
                 } else {
-                    $result['exception'] = 'Producto incorrecto';
+                    $result['exception'] = 'Noticia incorrecto';
                 }
                 break;
             
