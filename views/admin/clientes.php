@@ -65,5 +65,4 @@ $pagina->headerTemplate('Principal');
 
 <?php
 $pagina->footerTemplate('clientes.js');
-$pagina->footerTemplate('account.js');
 ?>

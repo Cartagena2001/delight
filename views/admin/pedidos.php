@@ -113,5 +113,5 @@ $pagina->headerTemplate('Principal');
     </div>
 </div>
 <?php
-$pagina->footerTemplate('pedidos.js'); 
+$pagina->footerTemplate('pedidos.js');
 ?>

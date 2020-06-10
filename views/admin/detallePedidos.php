@@ -99,5 +99,4 @@ $pagina->headerTemplate('Principal');
 </div>
 <?php
 $pagina->footerTemplate('detalle_pedido.js');
-$pagina->footerTemplate('account.js');
 ?>

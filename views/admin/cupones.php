@@ -95,5 +95,4 @@ $pagina->headerTemplate('Principal');
 </div>
 <?php
 $pagina->footerTemplate('cupones.js');
-$pagina->footerTemplate('account.js');
 ?>

@@ -39,7 +39,7 @@ $pagina->headerTemplate('Principal');
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="exampleModalCenterTitle">Agregar noticia</h5>
-                            <input class="visible" type="text" id="id_noticia" name="id_noticia" />
+                            <input class="invisible" type="text" id="id_noticia" name="id_noticia" />
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -137,5 +137,4 @@ $pagina->headerTemplate('Principal');
 </div>
 <?php
 $pagina->footerTemplate('noticias.js');
-$pagina->footerTemplate('account.js');
 ?>
