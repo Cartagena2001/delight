@@ -13,9 +13,7 @@ $pagina->headerTemplate('Principal');
             <div class="input-field col s6 m6"> 
                 <label for="search">Buscar Categorias</label>
                 <input id="search" type="text" name="search"/>
-            </div>
-            <div class="input-field col s6 m4">
-                <button type="submit" class="btn btn-info mt-3" data-tooltip="Buscar">Buscar</button>
+                <button type="submit" class="btn btn-info ml-3" data-tooltip="Buscar">Buscar</button>
             </div>
         </form>
         </div>

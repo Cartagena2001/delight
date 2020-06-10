@@ -52,6 +52,7 @@ class page
               <a href="categorias.php" class="list-group-item list-group-item-action" id="itemAdmin">Categorias</a>
               <a href="cupones.php" class="list-group-item list-group-item-action" id="itemAdmin">Cupones</a>
               <a href="noticias.php" class="list-group-item list-group-item-action" id="itemAdmin">Noticias</a>
+              <a href="resenia.php" class="list-group-item list-group-item-action" id="itemAdmin">Reseñas</a>
               <li><a href="#" onclick="openModalProfile()">Editar perfil</a></li>
               <a class="btn text-center" href="#" onclick="signOff()" ><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a>
             </div>

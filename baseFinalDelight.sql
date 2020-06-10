@@ -67,8 +67,10 @@
 	Id_resenia serial primary key,
 	Calificacion int,
 	Comentario varchar(100),
+	estado varchar(100) default  'Activo' check (estado in('Activo', 'Suspendido')),
 	Id_detalle_pedido int references Tb_Detelle_Pedido(Id_detalle_pedido)
 	)
+
 	create table TB_noticias(
 	Id_noticia bigserial Primary key,
 	titulo varchar(50),
@@ -98,26 +100,27 @@
 -----------------------------------------------------------------------------------------------------------
 	/* INSERT */
 	--Prueba de insert asuando bigserial o bigint
+
+	--Cuarta tabla a ejectutar
 	insert into Tb_Cupones (puntos, opcion)
 	values (1.5, 'Producto gratis'),
 	 		(2, 'Bolsa sorpresa')
 	select * from Tb_cupones
 	
-	--Insert
-	select * from tb_cupones
 
+	--Sexta tabla a ejectutar
 	select * from Tb_Pedidos
 	insert into tb_pedidos(id_cliente, id_detalle_pedido, costo_envio, fecha_pedido, fecha_entrega)
 	values	( 1,1, 3.40, '2020/02/15', '2020/02/20'),
 			( 1,2, 3.40, '2020/02/16', '2020/02/20')
 
-
+	--Quinta tabla a ejectutar
 	select * from tb_detelle_Pedido
 	insert into tb_detelle_Pedido (id_producto, precio, cantidad)
 	values	(1, 1.30, 4),
 			(2, 1.10, 2)
 
-
+	
 	insert into Tb_Administradores(Usuario, Nombre, Correo, Telefono, clave)
 	values	('Gabys', ' Gabriela Sofia Ramirez', 'Gaby2011@gmail.com', 77617755, 'chamaco12'),
 			('Keveen', ' Keveen Josue Reyes', 'Keveen3111@gmail.com', 77734897, 'serial3'),
@@ -127,7 +130,7 @@
 			
 			select * from Tb_Administradores
 
-
+	--Primera tabla a ejectutar
 	insert into Tb_Cliente(Usuario, Nombre, direccion, Correo, Telefono, clave)
 	values	('Monik', ' Monica Ely Martinez', 'Km 26 1/2 Carretera a Santa Ana (Parque Industrial Intercomplex) Contiguo residencial Pasatiempo', 'MONIK19@gmail.com', 77349055, 'garfield39'),
 			('Cezraz', ' Cesar Alfonso Ramirez', 'Col San Francisco Las Mercedes Cl Los Granados No 37', 'CezrazA11@gmail.com', 77256807, 'Finnhda'),
@@ -147,6 +150,7 @@
 		    ('kath','katherine michelle gavidia', 'Col Escalón 81 Av Sur No 302', 'kathmichell@gmail.com',52558936,'katherineM')
 			select * from Tb_Cliente
 
+	--Segunda tabla a ejectutar
 	insert into Tb_categoria (Nombre, Descripcion, imagen)
 	values 	('Comida', 'alimentos varios', 'img'),
 			('Tecnologia','diversos productos', 'img'),
@@ -154,7 +158,8 @@
 			('Navidad', 'articulos navideños', 'img'),
 			('Hallowen', 'obsequios de susto', 'img')
 			select * from Tb_categoria
-			
+
+	--Tercera tabla a ejectutar		
 	insert into Tb_Productos (nombre_p, Precio, Descripcion, Imagen,Id_categoria)
 	values 	('llavero de banana', 0.75, 'Combina con todo conjunto', 'imagen',1),
 			('Llavero de sandia', 0.80, 'Refresca tu mente', 'imagen',1),
@@ -178,10 +183,10 @@
 		select * from Tb_Productos
 		
 
-	
+	--Septima tabla a ejectutar
 	select * from Tb_Resenia
-	insert into Tb_Resenia(Calificacion, Comentario, Id_detalle_pedido)
-	values ('10',' Ofrece una gama amplia de posibilidades para todos los gusto',1),
-		('8', ' Este será, sin duda alguna, uno de los productos más llamativos para estos meses',1),
-		('9', ' En conclusión, este excelente producto es totalmente recomendable.',1),
-		('7','Un vasto panorama de tranquilidad',1)
+	insert into Tb_Resenia(Calificacion, Comentario, estado, Id_detalle_pedido)
+	values ('10',' Ofrece una gama amplia de posibilidades para todos los gusto', 'Activo', 1),
+		('8', ' Este será, sin duda alguna, uno de los productos más llamativos para estos meses', 'Activo', 1),
+		('9', ' En conclusión, este excelente producto es totalmente recomendable.', 'Activo', 1),
+		('7','Un vasto panorama de tranquilidad', 'Activo', 1)
