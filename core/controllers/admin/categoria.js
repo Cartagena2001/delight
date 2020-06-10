@@ -14,10 +14,10 @@ function fillTable( dataset )
             <tr>
                 <td>${row.nombre}</td>
                 <td>${row.descripcion}</td>
-                <td>../../resources/img/categorias/${row.imagen}</td>
+                <td><img src="../../resources/img/categorias/${row.imagen}" style="Width: 80px; Height:80px;"></td>
                 <td>
-                    <a href="#" class="btn btn-warning" data-toggle="modal" data-target="#editarmodal (${row.id_categoria})"><i class="fas fa-edit"></i></a>
-                    <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#eliminarmodal (${row.id_categoria})"><i class="fas fa-trash-alt"></i></a></td>
+                    <a href="#" onclick="openUpdateModal(${row.id_categoria})" class="btn btn-warning" data-toggle="modal"><i class="fas fa-edit"></i></a>
+                    <a href="#" onclick="openDeleteDialog(${row.id_categoria})" class="btn btn-danger" data-toggle="modal" ><i class="fas fa-trash-alt"></i></a></td>
             </tr>
         `;
     });
@@ -29,57 +29,54 @@ function fillTable( dataset )
 
 
 // Función que prepara formulario para insertar un registro.
-// function openCreateModal()
-// {
-//     $( '#save-form' )[0].reset();
-//     $( '#save-modal' ).modal( 'open' );
-//     $( '#modal-title' ).text( 'Crear categoría' );
-//     $( '#archivo_categoria' ).prop( 'required', true );
-// }
+function openCreateModal()
+{
+    $( '#save-form' )[0].reset();
+    $( '#categoriaModal' ).modal( 'show' );
+    $( '#archivoCategoria' ).prop( 'required', true );
+}
 
-// function openUpdateModal( id )
-// {
-//     $( '#save-form' )[0].reset();
-//     $( '#save-modal' ).modal( 'open' );
-//     $( '#modal-title' ).text( 'Modificar categoría' );
-//     $( '#archivo_categoria' ).prop( 'required', false );
+function openUpdateModal( id )
+{
+    $( '#save-form' )[0].reset();
+    $( '#categoriaModal' ).modal( 'show' );
+    $( '#archivoCategoria' ).prop( 'required', false );
 
-//     $.ajax({
-//         dataType: 'json',
-//         url: API_CATEGORIAS + 'readOne',
-//         data: { id_categoria: id },
-//         type: 'post'
-//     })
-//     .done(function( response ) {
-//         if ( response.status ) {
-//             $( '#id_categoria' ).val( response.dataset.id_categoria );
-//             $( '#nombre_categoria' ).val( response.dataset.nombre_categoria );
-//             $( '#descripcion_categoria' ).val( response.dataset.descripcion_categoria );
-//             M.updateTextFields();
-//         } else {
-//             sweetAlert( 2, response.exception, null );
-//         }
-//     })
-//     .fail(function( jqXHR ) {
-//         if ( jqXHR.status == 200 ) {
-//             console.log( jqXHR.responseText );
-//         } else {
-//             console.log( jqXHR.status + ' ' + jqXHR.statusText );
-//         }
-//     });
-// }
+    $.ajax({
+        dataType: 'json',
+        url: API_CATEGORIAS + 'readOne',
+        data: { id_categoria: id },
+        type: 'post'
+    })
+    .done(function( response ) {
+        if ( response.status ) {
+            $( '#id_categoria' ).val( response.dataset.id_categoria );
+            $( '#nombre' ).val( response.dataset.nombre );
+            $( '#descripcion' ).val( response.dataset.descripcion );
+        } else {
+            sweetAlert( 2, response.exception, null );
+        }
+    })
+    .fail(function( jqXHR ) {
+        if ( jqXHR.status == 200 ) {
+            console.log( jqXHR.responseText );
+        } else {
+            console.log( jqXHR.status + ' ' + jqXHR.statusText );
+        }
+    });
+}
 
-// $( '#save-form' ).submit(function( event ) {
-//     event.preventDefault();
-//     if ( $( '#id_categoria' ).val() ) {
-//         saveRow( API_CATEGORIAS, 'update', this, 'save-modal' );
-//     } else {
-//         saveRow( API_CATEGORIAS, 'create', this, 'save-modal' );
-//     }
-// });
+$( '#save-form' ).submit(function( event ) {
+    event.preventDefault();
+    if ( $( '#id_categoria' ).val() ) {
+        saveRow( API_CATEGORIAS, 'update', this, 'categoriaModal' );
+    } else {
+        saveRow( API_CATEGORIAS, 'create', this, 'categoriaModal' );
+    }
+});
 
-// function openDeleteDialog( id )
-// {
-//     let identifier = { id_categoria: id };
-//     confirmDelete( API_CATEGORIAS, identifier );
-// }
+function openDeleteDialog( id )
+{
+    let identifier = { id_categoria: id };
+    confirmDelete( API_CATEGORIAS, identifier );
+}

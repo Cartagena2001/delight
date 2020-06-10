@@ -9,6 +9,7 @@ class  noticias extends Validator{
     private $imagen = null;
     private $ruta = '../../../resources/img/noticias/';
     private $fecha = null;
+    private $archivo = null;
 
 
     //Metodos para asignar valores a los atributos
@@ -114,9 +115,9 @@ class  noticias extends Validator{
     public function crearNoticias()
     {
         if ($this->saveFile($this->archivo, $this->ruta, $this->imagen)) {
-            $sql = 'INSERT INTO tb_noticia(titulo, descripcion, imagen, fecha_pub)
-                    VALUES(?, ?, ?, ?)';
-            $params = array($this->titulo, $this->descripcion, $this->imagen, $this->fecha);
+            $sql = 'INSERT INTO tb_noticias(titulo, descripcion, imagen, fecha_pub)
+                    VALUES(?, ?, ?, current_date)';
+            $params = array($this->titulo, $this->descripcion, $this->imagen);
             return Database::executeRow($sql, $params);
         } else {
             return false;
@@ -136,9 +137,9 @@ class  noticias extends Validator{
     //Metodo para leer solo una notica
     public function leerUnaNoticias()
     {
-        $sql = 'SELECT Id_noticia, titulo, descripcion, imagen, fecha_pub
-                FROM tb_noticia
-                WHERE Id_noticia = ?';
+        $sql = 'SELECT id_noticia, titulo, descripcion, imagen
+                FROM tb_noticias
+                WHERE id_noticia = ?';
         $params = array($this->id);
         return Database::getRow($sql, $params);
     }
@@ -147,15 +148,15 @@ class  noticias extends Validator{
     public function actualizarNoticias()
     {
         if ($this->saveFile($this->archivo, $this->ruta, $this->imagen)) {
-            $sql = 'UPDATE tb_noticia
-                    SET titulo = ?, descripcion = ?, imagen = ?, fecha_pub = ?
-                    WHERE Id_noticia = ?';
-            $params = array($this->titulo, $this->descripcion, $this->imagen, $this->fecha, $this->id);
+            $sql = 'UPDATE tb_noticias
+                    SET titulo = ?, descripcion = ?, imagen = ?
+                    WHERE id_noticia = ?';
+            $params = array($this->titulo, $this->descripcion, $this->imagen, $this->id);
         } else {
-            $sql = 'UPDATE tb_noticia
-                    SET titulo = ?, descripcion = ?, fecha_pub = ?
-                    WHERE Id_noticia = ?';
-            $params = array($this->titulo, $this->descripcion, $this->fecha, $this->id);
+            $sql = 'UPDATE tb_noticias
+                    SET titulo = ?, descripcion = ?
+                    WHERE id_noticia = ?';
+            $params = array($this->titulo, $this->descripcion, $this->id);
         }
         return Database::executeRow($sql, $params);
     }
@@ -163,8 +164,8 @@ class  noticias extends Validator{
     //Metodo para eliminar una noticas
     public function eliminarNoticias()
     {
-        $sql = 'DELETE FROM tb_noticia
-                WHERE Id_noticia = ?';
+        $sql = 'DELETE FROM tb_noticias
+                WHERE id_noticia = ?';
         $params = array($this->id);
         return Database::executeRow($sql, $params);
     }

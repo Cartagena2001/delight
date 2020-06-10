@@ -218,6 +218,7 @@ function sweetAlert( type, text, url )
         });
     }
 }
+
 /*
 *   Función para cargar las opciones en un select de formulario.
 *

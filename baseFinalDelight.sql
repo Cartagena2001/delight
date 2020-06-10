@@ -4,7 +4,7 @@
 	Nombre varchar(50),
 	Correo varchar(60),
 	Telefono numeric(8),
-	clave varchar(15),	
+	clave varchar(100),	
 	estado_admin varchar(10) default 'Activo' check (estado_admin in ('Activo','Inactivo'))
    	)	
 
@@ -15,7 +15,7 @@
 	direccion varchar(100),
 	Correo varchar(60),
 	Telefono varchar(8),
-	clave varchar(15),
+	clave varchar(100),
 	estado_cliente  varchar(10) default 'Activo' check (estado_cliente in ('Activo', 'Inactivo'))
 	)
  	
@@ -35,11 +35,11 @@
 
 	create table Tb_Productos(
 	Id_producto serial primary key,
-	Nombre varchar(50),
+	nombre_p varchar(50),
 	Precio numeric(5,2) check(Precio >0),
 	Descripcion varchar(100),
 	Imagen varchar(50),
-	Id_categoria int references Tb_productos(Id_producto),
+	Id_categoria int references Tb_categoria(Id_categoria),
 	estado varchar(100) default  'En existencias' check (estado in('En existencias', 'Agotado'))
 	
 	)
@@ -155,7 +155,7 @@
 			('Hallowen', 'obsequios de susto', 'img')
 			select * from Tb_categoria
 			
-	insert into Tb_Productos (Nombre,Precio, Descripcion, Imagen,Id_categoria)
+	insert into Tb_Productos (nombre_p, Precio, Descripcion, Imagen,Id_categoria)
 	values 	('llavero de banana', 0.75, 'Combina con todo conjunto', 'imagen',1),
 			('Llavero de sandia', 0.80, 'Refresca tu mente', 'imagen',1),
 			('Llavero de fresa', 0.70, 'Adorable con tu estilo', 'imagen',1),

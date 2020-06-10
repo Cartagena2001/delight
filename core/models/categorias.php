@@ -8,6 +8,7 @@ class  categorias extends Validator{
     private $descripcion = null;
     private $imagen = null;
     private $ruta = '../../../resources/img/categorias/';
+    private $archivo = null;
 
 
     //Metodos para asignar valores a los atributos
@@ -98,9 +99,9 @@ class  categorias extends Validator{
     public function crearCategoria()
     {
         if ($this->saveFile($this->archivo, $this->ruta, $this->imagen)) {
-            $sql = 'INSERT INTO tb_categorias(nombre, descripcion, imagen)
+            $sql = 'INSERT INTO tb_categoria(nombre, descripcion, imagen)
                     VALUES(?, ?, ?)';
-            $params = array($this->nombre, $this->imagen, $this->descripcion);
+            $params = array($this->nombre, $this->descripcion, $this->imagen);
             return Database::executeRow($sql, $params);
         } else {
             return false;
@@ -112,7 +113,7 @@ class  categorias extends Validator{
     {
         $sql = 'SELECT id_categoria, nombre, descripcion, imagen
                 FROM tb_categoria
-                ';
+                ORDER BY nombre';
         $params = null;
         return Database::getRows($sql, $params);
     }

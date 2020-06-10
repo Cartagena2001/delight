@@ -14,11 +14,11 @@ function fillTable( dataset )
             <tr>
                 <td>${row.titulo}</td>
                 <td>${row.descripcion}</td>
-                <td>../../resources/img/noticias/${row.imagen}</td>
+                <td><img src="../../resources/img/noticias/${row.imagen}" style="Width: 80px; Height:80px;"></td>
                 <td>${row.fecha_pub}</td>
                 <td>
-                    <a href="#" class="btn btn-warning" data-toggle="modal" data-target="#editarmodal (${row.id_noticias})"><i class="fas fa-edit"></i></a>
-                    <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#eliminarmodal (${row.id_noticias})"><i class="fas fa-trash-alt"></i></a></td>
+                    <a href="#" onclick="openUpdateModal(${row.id_noticia})" class="btn btn-warning" data-toggle="modal"><i class="fas fa-edit"></i></a>
+                    <a href="#" onclick="openDeleteDialog(${row.id_noticia})" class="btn btn-danger" data-toggle="modal"><i class="fas fa-trash-alt"></i></a></td>
             </tr>
         `;
     });
@@ -30,59 +30,54 @@ function fillTable( dataset )
 
 
 // Función que prepara formulario para insertar un registro.
-// function openCreateModal()
-// {
-//     $( '#save-form' )[0].reset();
-//     $( '#save-modal' ).modal( 'open' );
-//     $( '#modal-title' ).text( 'Crear noticia' );
-//     $( '#archivo_noticia' ).prop( 'required', true );
-// }
+function openCreateModal()
+{
+    $( '#save-form' )[0].reset();
+    $( '#noticiaModal' ).modal( 'show' );
+    $( '#archivoNoticia' ).prop( 'required', true );
+}
 
-// function openUpdateModal( id )
-// {
-//     $( '#save-form' )[0].reset();
-//     $( '#save-modal' ).modal( 'open' );
-//     $( '#modal-title' ).text( 'Modificar noticia' );
-//     $( '#archivo_noticia' ).prop( 'required', false );
+function openUpdateModal( id )
+{
+    $( '#save-form' )[0].reset();
+    $( '#noticiaModal' ).modal( 'show' );
+    $( '#archivoNoticia' ).prop( 'required', false );
 
-//     $.ajax({
-//         dataType: 'json',
-//         url: API_NOTICIAS + 'readOne',
-//         data: { id_noticia: id },
-//         type: 'post'
-//     })
-//     .done(function( response ) {
-//         if ( response.status ) {
-//             $( '#id_noticia' ).val( response.dataset.id_noticia );
-//             $( '#titulo' ).val( response.dataset.titulo );
-//             $( '#descripcion' ).val( response.dataset.descripcion );
-//             $( '#imagen' ).val( response.dataset.imagen );
-//             $( '#fecha_pub' ).val( response.dataset.fecha_pub );
-//             M.updateTextFields();
-//         } else {
-//             sweetAlert( 2, response.exception, null );
-//         }
-//     })
-//     .fail(function( jqXHR ) {
-//         if ( jqXHR.status == 200 ) {
-//             console.log( jqXHR.responseText );
-//         } else {
-//             console.log( jqXHR.status + ' ' + jqXHR.statusText );
-//         }
-//     });
-// }
+    $.ajax({
+        dataType: 'json',
+        url: API_NOTICIAS + 'readOne',
+        data: { id_noticia: id },
+        type: 'post'
+    })
+    .done(function( response ) {
+        if ( response.status ) {
+            $( '#id_noticia' ).val( response.dataset.id_noticia );
+            $( '#titulo' ).val( response.dataset.titulo );
+            $( '#descripcion' ).val( response.dataset.descripcion );
+        } else {
+            sweetAlert( 2, response.exception, null );
+        }
+    })
+    .fail(function( jqXHR ) {
+        if ( jqXHR.status == 200 ) {
+            console.log( jqXHR.responseText );
+        } else {
+            console.log( jqXHR.status + ' ' + jqXHR.statusText );
+        }
+    });
+}
 
-// $( '#save-form' ).submit(function( event ) {
-//     event.preventDefault();
-//     if ( $( '#id_noticia' ).val() ) {
-//         saveRow( API_NOTICIAS, 'update', this, 'save-modal' );
-//     } else {
-//         saveRow( API_NOTICIAS, 'create', this, 'save-modal' );
-//     }
-// });
+$( '#save-form' ).submit(function( event ) {
+    event.preventDefault();
+    if ( $( '#id_noticia' ).val() ) {
+        saveRow( API_NOTICIAS, 'update', this, 'noticiaModal' );
+    } else {
+        saveRow( API_NOTICIAS, 'create', this, 'noticiaModal' );
+    }
+});
 
-// function openDeleteDialog( id )
-// {
-//     let identifier = { id_noticia: id };
-//     confirmDelete( API_NOTICIAS, identifier );
-// }
+function openDeleteDialog( id )
+{
+    let identifier = { id_noticia: id };
+    confirmDelete( API_NOTICIAS, identifier );
+}
