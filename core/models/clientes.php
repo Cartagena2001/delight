@@ -161,8 +161,7 @@ public function setEstadoCliente($value)
     public function leerTodosClientes()
     {
         $sql = 'SELECT id_cliente ,usuario, nombre, correo, telefono, estado_cliente
-                FROM tb_cliente
-                ORDER BY nombre';
+                FROM tb_cliente';
         $params = null;
         return Database::getRows($sql, $params);
     }

@@ -27,17 +27,17 @@ public function setId($value){
 public function setId_cliente($value)
 {
     if($this->validateNaturalNumber($value)){
-        $this->id_cliente = $value;
+        $this->id_cliente = $value; 
         return true;    
     }
-    else{
+    else{ 
         return false;
     }
 }
 
 public function setCliente($value)
 {
-    if($this->validateAlphanumeric($value, 1, 50)) {
+    if($this->validateAlphanumeric($value)) {
         $this->cliente = $value;
         return true;
     } else {
@@ -58,7 +58,7 @@ public function setId_cupon($value)
 
 public function setCupon($value)
 {
-    if($this->validateAlphanumeric($value, 1, 50)) {
+    if($this->validateNaturalNumber($value, 1, 50)) {
         $this->cupon = $value;
         return true;
     } else {
@@ -125,41 +125,48 @@ public function setFecha_entrega($value)
 
     public function getId_cliente()
     {
-        return $this->nombre;
+        return $this->id_cliente;
     } 
 
     public function getId_cupon()
     {
-        return $this->precio;
+        return $this->id_cupon;
     }
 
     public function getId_detalle()
     {
-        return $this->descripcion;
+        return $this->id_detalle;
     }
 
     public function getCosto_envio()
     {
-        return $this->imagen;
+        return $this->costo_envio;
     }
 
     public function getFecha_pedido()
     {
-        return $this->id_categoria;
+        return $this->fecha_pedido;
     }
     
     public function getFecha_entrega()
     {
-        return $this->estado;
+        return $this->fecha_entrega;
     }
 
     //Metodo para buscar un pedidos
     public function buscarPedidos($value)
     {
-        $sql = 'SELECT Id_pedido, Id_cliente, Id_cupon, Id_detalle_pedido, Costo_envio, Fecha_pedido , Fecha_entrega
-                FROM tb_pedido
-                WHERE Id_pedido ILIKE ? OR Id_cliente ILIKE ?
-                ORDER BY Id_pedido';
+        $sql = 'SELECT Id_pedido, p.Id_cliente,c.nombre, p.Id_cupon,p.id_detalle_pedido, 
+        Costo_envio, Fecha_pedido, Fecha_entrega
+        FROM 
+        tb_pedidos p inner join tb_cliente c
+        on p.Id_cliente = c.Id_cliente
+        inner join tb_cupones u
+        on p.Id_cupon = u.Id_cupon
+        inner join tb_detelle_pedido d
+        on p.id_detalle_pedido = d.id_detalle_pedido 
+        WHERE p.Id_pedido ILIKE ? OR p.Id_cliente ILIKE ?
+        ORDER BY p.Id_pedido';
         $params = array("%$value%", "%$value%");
         return Database::getRows($sql, $params);
     }
@@ -167,22 +174,25 @@ public function setFecha_entrega($value)
     //Metodo para insertar una nuevo pedidos
     public function crearPedidos()
     {
-        if ($this->saveFile($this->Id_cliente, $this->Id_cupon, $this->Id_detalle_pedido, $this->Costo_envio, $this->Fecha_pedido, $this->Fecha_entrega)) {
-            $sql = 'INSERT INTO tb_pedidos(Id_cliente, Id_cupon, Id_detalle_pedido, Costo_envio, Fecha_pedido, Fecha_entrega)
+        $sql = 'INSERT INTO tb_pedidos(id_cliente, id_cupon, id_detalle_pedido, costo_envio, fecha_pedido, fecha_entrega)
                     VALUES(?, ?, ?, ?, ?, ?)';
-            $params = array($this->Id_cliente, $this->Id_cupon, $this->Id_detalle_pedido, $this->Costo_envio, $this->Fecha_pedido, $this->Fecha_entrega);
+            $params = array($this->id_cliente, $this->id_cupon, $this->id_detalle, $this->costo_envio, $this->fecha_pedido, $this->fecha_entrega);
             return Database::executeRow($sql, $params);
-        } else {
-            return false;
-        }
     }
 
     //Metodo para leer todas las pedidos
     public function leerTodosPedidos()
     {
-        $sql = 'SELECT Id_pedido, Id_cliente, Id_cupon, Costo_envio, Fecha_pedido, Fecha_entrega
-                FROM tb_pedidos
-                ORDER BY Id_pedido';
+        $sql = 'SELECT Id_pedido, p.Id_cliente,c.nombre, p.Id_cupon,p.id_detalle_pedido, 
+        Costo_envio, Fecha_pedido, Fecha_entrega
+        FROM 
+        tb_pedidos p inner join tb_cliente c
+        on p.Id_cliente = c.Id_cliente
+        inner join tb_cupones u
+        on p.Id_cupon = u.Id_cupon
+        inner join tb_detelle_pedido d
+        on p.id_detalle_pedido = d.id_detalle_pedido
+        ORDER BY Id_pedido';
         $params = null;
         return Database::getRows($sql, $params);
     }

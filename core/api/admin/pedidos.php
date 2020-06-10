@@ -42,8 +42,9 @@ if (isset($_GET['action'])) {
             break;
             case 'create':
                 $_POST = $pedidos->validateForm($_POST);
+                if (isset($_POST['id_cliente'])) {
                 if ($pedidos->setId_cliente($_POST['id_cliente'])) { 
-                     if($pedidos-> setId_cupon($_POST['id_cupon'])){
+                     if($pedidos-> getId_cupon($_POST['id_cupon'])){
                          if($pedidos-> setId_detalle($_POST['id_detalle_pedido'])){
                             if($pedidos-> setCosto_envio ($_POST['costo_envio'])){
                                 if($pedidos-> setFecha_pedido ($_POST['fecha_pedido'])){
@@ -55,23 +56,26 @@ if (isset($_GET['action'])) {
                                                 $result['exception'] = Database::getException();;
                                             }
                                         }else{
-                                            $result['exception'] = 'Estado incorrecto';
+                                            $result['exception'] = 'Fecha entrega';
                                     }  
                                 }else{
-                                    $result['exception'] = 'Estado incorrecto';
+                                    $result['exception'] = 'Fecha pedido';
                                 }
                             }else{
-                                $result['exception'] = 'Estado incorrecto';
+                                $result['exception'] = 'Costo envio';
                             }
                         }else{
-                            $result['exception'] = 'Estado incorrecto';
+                            $result['exception'] = 'Detalle inexistente';
                         }
                      }else{
-                        $result['exception'] = 'Estado incorrecto';
+                        $result['exception'] = 'Cupon inexistente';
                      } 
                  }else{
-                    $result['exception'] = 'Estado incorrecto';
+                    $result['exception'] = 'Cliente inexistente';
                  }
+                } else {
+                    $result['exception'] =  $_POST['id_cliente']; 
+                }
                 break;
                 case 'readOne':
                     $dato =  (int)$_POST['id_pedido'];

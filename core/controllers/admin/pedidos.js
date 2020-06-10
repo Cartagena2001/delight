@@ -1,4 +1,7 @@
 const API_PEDIDOS = '../../core/api/admin/pedidos.php?action=';
+const API_CLIENTES = '../../core/api/admin/clientes.php?action=readAll';
+const API_CUPONES = '../../core/api/admin/cupones.php?action=readAll';
+const API_DETALLE_PEDIDO = '../../core/api/admin/detallepedidos.php?action=readAll';
 
 $( document ).ready(function() {
     // Se llama a la función que obtiene los registros para llenar la tabla. Se encuentra en el archivo components.js
@@ -34,6 +37,9 @@ function openCreateModal()
 {
     $( '#save-form' )[0].reset();
     $( '#pedidomodal' ).modal( 'show' );
+    fillSelect( API_CLIENTES, 'id_cliente', null );
+    fillSelect( API_CUPONES, 'id_cupon', null );
+    fillSelect( API_DETALLE_PEDIDO, 'id_detalle_pedido', null );
 }
 
 
@@ -74,7 +80,7 @@ function openUpdateModal( id )
 
 $( '#save-form' ).submit(function( event ) {
     event.preventDefault();
-    if ( $( '#id_cupon' ).val() ) {
+    if ( $( '#id_pedido' ).val() ) {
         saveRow( API_PEDIDOS, 'update', this, 'pedidomodal' );
     } else {
         saveRow( API_PEDIDOS, 'create', this, 'pedidomodal' );
