@@ -37,7 +37,7 @@ $pagina->headerTemplate('Principal');
         <!-- modal agregar -->
         <div class="modal fade" id="pedidomodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
-        <form method="post" id="save-form"  name="save-form" enctype="multipart/form-data">
+        <form method="post" id="save-form">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalCenterTitle">Pedidos</h5>
@@ -113,6 +113,5 @@ $pagina->headerTemplate('Principal');
     </div>
 </div>
 <?php
-$pagina->footerTemplate('pedidos.js');
-$pagina->footerTemplate('account.js');
+$pagina->footerTemplate('pedidos.js'); 
 ?>

@@ -85,3 +85,37 @@ function signOff()
         }
     });
 }
+
+
+// Función para mostrar el formulario de editar perfil con los datos del usuario que ha iniciado sesión.
+function openModalProfile()
+{
+    // Se abre la caja de dialogo (modal) con el formulario para editar perfil, ubicado en el archivo de las plantillas.
+    $( '#profile-modal' ).modal( 'show' );
+    $.ajax({
+        dataType: 'json',
+        url: API + 'readProfile'
+    })
+    .done(function( response ) {
+        // Se comprueba si la API ha retornado una respuesta satisfactoria, de lo contrario se muestra un mensaje de error.
+        if ( response.status ) {
+            // Se inicializan los campos del formulario con los datos del usuario que ha iniciado sesión.
+            $( '#nombres_perfil' ).val( response.dataset.nombres_usuario );
+            $( '#apellidos_perfil' ).val( response.dataset.apellidos_usuario );
+            $( '#correo_perfil' ).val( response.dataset.correo_usuario );
+            $( '#alias_perfil' ).val( response.dataset.alias_usuario );
+            // Se actualizan los campos para que las etiquetas (labels) no queden sobre los datos.
+            //M.updateTextFields();
+        } else {
+            sweetAlert( 2, response.exception, null );
+        }
+    })
+    .fail(function( jqXHR ) {
+        // Se verifica si la API ha respondido para mostrar la respuesta, de lo contrario se presenta el estado de la petición.
+        if ( jqXHR.status == 200 ) {
+            console.log( jqXHR.responseText );
+        } else {
+            console.log( jqXHR.status + ' ' + jqXHR.statusText );
+        }
+    });
+}

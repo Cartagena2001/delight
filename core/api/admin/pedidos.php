@@ -41,10 +41,10 @@ if (isset($_GET['action'])) {
                 }
             break;
             case 'create':
-                $_POST = $pedidos->validateForm($_POST);
+                $_POST = $pedidos->validateForm($_POST); 
                 if (isset($_POST['id_cliente'])) {
                 if ($pedidos->setId_cliente($_POST['id_cliente'])) { 
-                     if($pedidos-> getId_cupon($_POST['id_cupon'])){
+                     if($pedidos-> setId_cupon($_POST['id_cupon'])){
                          if($pedidos-> setId_detalle($_POST['id_detalle_pedido'])){
                             if($pedidos-> setCosto_envio ($_POST['costo_envio'])){
                                 if($pedidos-> setFecha_pedido ($_POST['fecha_pedido'])){

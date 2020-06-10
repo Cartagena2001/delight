@@ -31,6 +31,8 @@ function fillTable( dataset )
     // $( '.materialboxed' ).materialbox();
     // $( '.tooltipped' ).tooltip();
 }
+ 
+
 
 // Función que prepara formulario para insertar un registro.
 function openCreateModal()

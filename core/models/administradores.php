@@ -202,7 +202,7 @@ public function getId()
     {
         $sql = 'SELECT id_administrador, usuario, nombre, Correo, Telefono, clave, estado_admin
                 FROM tb_administradores
-                WHERE id_administradores = ?';
+                WHERE id_administrador = ?';
         $params = array($this->id);
         return Database::getRow($sql, $params);
     }

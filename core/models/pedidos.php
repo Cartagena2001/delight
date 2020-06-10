@@ -100,7 +100,7 @@ public function setCosto_envio($value)
 
 public function setFecha_pedido($value)
 {
-    if($this->validateAlphanumeric($value, 1, 50)) {
+    if($value) {
         $this->fecha_pedido = $value;
         return true;
     } else {
@@ -110,7 +110,7 @@ public function setFecha_pedido($value)
 
 public function setFecha_entrega($value)
 {
-    if($this->validateAlphanumeric($value, 1, 50)) {
+    if($value) {
         $this->fecha_entrega = $value;
         return true;
     } else {
