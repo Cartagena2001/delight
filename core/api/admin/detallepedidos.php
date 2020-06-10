@@ -40,6 +40,7 @@ if (isset($_GET['action'])) {
                 break;
                 case 'create':
                     $_POST = $detalleP->validateForm($_POST);
+                    if (isset($_POST['id_producto'])) {
                     if ($detalleP->setId_producto($_POST['id_producto'])) { 
                          if($detalleP-> setPrecio($_POST['precio_compra'])){
                              if($detalleP-> setCantidad($_POST['cantidad'])){
@@ -50,13 +51,16 @@ if (isset($_GET['action'])) {
                                     $result['exception'] = Database::getException();
                                 }
                             }else{
-                                $result['exception'] = 'Estado incorrecto cantidad';
+                                $result['exception'] = 'Cantidad incorrecta';
                             }
                          }else{
-                            $result['exception'] = 'Estado incorrecto precio';
+                            $result['exception'] = 'Precio incorrecto';
                          } 
+                        } else {
+                            $result['exception'] = 'Producto inexistente'; 
+                        }
                      }else{
-                        $result['exception'] = 'Estado incorrecto id prodcuto';
+                        $result['exception'] = 'Producto incorrecto';
                      }
                     break;
                     case 'readOne':

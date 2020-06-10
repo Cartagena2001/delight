@@ -58,10 +58,10 @@ $pagina->headerTemplate('Principal');
                             <div class="container text-center">
                                 <form>
                                     <div class="form-group">
-                                        <input id="titulo" name="titulo" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Titulo de la noticia">
+                                        <input id="titulo" name="titulo" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Titulo de la noticia" required>
                                     </div>
                                     <div class="form-group">
-                                        <textarea id="descripcion" name="descripcion" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Descripcion de la noticia"></textarea>
+                                        <textarea id="descripcion" name="descripcion" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Descripcion de la noticia" required></textarea>
                                     </div>
                                     <div class="input-group mb-3">
                                         <div class="custom-file">

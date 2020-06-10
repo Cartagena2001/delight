@@ -60,17 +60,17 @@ $pagina->headerTemplate('Principal');
                 <div class="modal-body">
                 <div class="form-group">                   
                         <label for="exampleFormControlSelect1">Cliente</label>
-                        <select class="form-control" id="id_cliente" name="id_cliente">
+                        <select class="form-control" id="id_cliente" name="id_cliente" required>
                         </select>
                 </div> 
                 <div class="form-group">                   
                         <label for="exampleFormControlSelect1">Cupon</label>
-                        <select class="form-control" id="id_cupon" name="id_cupon">
+                        <select class="form-control" id="id_cupon" name="id_cupon" required>
                         </select>
                 </div>    
                 <div class="form-group">                   
                         <label for="exampleFormControlSelect1">Detalle Pedido</label>
-                        <select class="form-control" id="id_detalle_pedido" name="id_detalle_pedido">
+                        <select class="form-control" id="id_detalle_pedido" name="id_detalle_pedido" required>
                         </select>
                 </div>
                     <div class="form-group">

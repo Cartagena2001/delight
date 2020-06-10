@@ -26,7 +26,7 @@ if (isset($_GET['action'])) {
                 case 'search':
                     $_POST = $noticia->validateForm($_POST);
                     if ($_POST['search'] != '') {
-                        if ($result['dataset'] = $noticia->buscarNoticiass($_POST['search'])) {
+                        if ($result['dataset'] = $noticia->buscarNoticias($_POST['search'])) {
                             $result['status'] = 1;
                             $rows = count($result['dataset']);
                             if ($rows > 1) {
@@ -90,9 +90,9 @@ if (isset($_GET['action'])) {
                                         if($noticia->actualizarNoticias()){
                                             $result['status'] = 1;
                                             if($noticia->deleteFile($noticia->getRuta(), $data['imagen'])){
-                                                $result['message'] = 'Producto modificado correctamente';     
+                                                $result['message'] = 'Noticia modificado correctamente';     
                                             }else{
-                                                $result['message'] = 'Producto modificada pero no se borro la imagen anterior';
+                                                $result['message'] = 'Noticia modificada pero no se borro la imagen anterior';
                                             }
                                         }else{
                                             $result['exception'] = Database::getException();
@@ -103,7 +103,7 @@ if (isset($_GET['action'])) {
                                 }else{
                                     if($noticia->actualizarNoticias()){
                                         $result['status'] = 1;
-                                        $result['message'] = 'Producto modificado correctamente';
+                                        $result['message'] = 'Noticia modificado correctamente';
                                     }else{
                                         $result['exception'] = Database::getException();
                                     }
@@ -156,9 +156,9 @@ if (isset($_GET['action'])) {
                         if ($noticia->eliminarNoticias()) {
                             $result['status'] = 1;
                             if ($noticia->deleteFile($noticia->getRuta(), $data['imagen'])) {
-                                $result['message'] = 'Producto eliminado correctamente';
+                                $result['message'] = 'Noticia eliminado correctamente';
                             } else {
-                                $result['message'] = 'Producto eliminado pero no se borro la imagen';
+                                $result['message'] = 'Noticia eliminado pero no se borro la imagen';
                             }
                         } else {
                             $result['exception'] = Database::getException();

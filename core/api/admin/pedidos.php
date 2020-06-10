@@ -44,7 +44,9 @@ if (isset($_GET['action'])) {
                 $_POST = $pedidos->validateForm($_POST); 
                 if (isset($_POST['id_cliente'])) {
                 if ($pedidos->setId_cliente($_POST['id_cliente'])) { 
+                    if (isset($_POST['id_cupon'])) {
                      if($pedidos-> setId_cupon($_POST['id_cupon'])){
+                        if (isset($_POST['id_detalle_pedido'])) {
                          if($pedidos-> setId_detalle($_POST['id_detalle_pedido'])){
                             if($pedidos-> setCosto_envio ($_POST['costo_envio'])){
                                 if($pedidos-> setFecha_pedido ($_POST['fecha_pedido'])){
@@ -67,14 +69,20 @@ if (isset($_GET['action'])) {
                         }else{
                             $result['exception'] = 'Detalle inexistente';
                         }
+                    }else{
+                        $result['exception'] = 'Detalle incorrecto';
+                    }
+                    }else{
+                       $result['exception'] = 'Cupon inexistente';
+                    } 
                      }else{
-                        $result['exception'] = 'Cupon inexistente';
+                        $result['exception'] = 'Cupon incorrecto';
                      } 
                  }else{
                     $result['exception'] = 'Cliente inexistente';
                  }
                 } else {
-                    $result['exception'] =  $_POST['id_cliente']; 
+                    $result['exception'] = 'Revise el campo cliente'; 
                 }
                 break;
                 case 'readOne':

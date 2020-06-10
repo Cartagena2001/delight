@@ -57,10 +57,10 @@ $pagina->headerTemplate('Principal');
                 <div class="container text-center">
                 <form>
                     <div class="form-group">
-                        <input id="nombre" name="nombre" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nombre del la categoria">
+                        <input id="nombre" name="nombre" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nombre del la categoria" required>
                     </div>
                     <div class="form-group">
-                        <textarea id="descripcion" name="descripcion" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Descripcion"></textarea>
+                        <textarea id="descripcion" name="descripcion" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Descripcion" required></textarea>
                     </div>
                     <div class="input-group mb-3">
                         <div class="custom-file">
