@@ -32,7 +32,7 @@ class  detalle_pedido extends Validator{
 
     public function setPrecio($value)
     {
-        if($this->validateAlphanumeric($value, 1, 50)) {
+        if($this->validateMoney($value)) {
             $this->precio = $value;
             return true;
         } else {

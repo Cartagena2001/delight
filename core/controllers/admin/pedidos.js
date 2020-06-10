@@ -60,9 +60,9 @@ function openUpdateModal( id )
        
         if ( response.status ) {
             $( '#id_pedido' ).val( response.dataset.id_pedido );
-            $( '#id_cliente' ).val( response.dataset.id_cliente );
-            $( '#id_cupon' ).val( response.dataset.id_cupon );
-            $( '#id_detalle_pedido' ).val( response.dataset.id_detalle_pedido );
+            fillSelect( API_CLIENTES, 'id_cliente', response.dataset.id_cliente );
+            fillSelect( API_CUPONES, 'id_cupon', response.dataset.id_cupon );
+            fillSelect( API_DETALLE_PEDIDO, 'id_detalle_pedido', response.dataset.id_detalle_pedido );
             $( '#costo_envio' ).val( response.dataset.costo_envio );
             $( '#fecha_pedido' ).val( response.dataset.fecha_pedido );
             $( '#fecha_entrega' ).val( response.dataset.fecha_entrega ); 
@@ -91,6 +91,6 @@ $( '#save-form' ).submit(function( event ) {
 
 function openDeleteDialog( id )
 {
-    let identifier = { id_cupon: id };
+    let identifier = { id_pedido: id };
     confirmDelete( API_PEDIDOS, identifier );
 }

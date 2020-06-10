@@ -91,63 +91,61 @@ if (isset($_GET['action'])) {
                 break;
                 case 'update':
                     $_POST = $pedidos->validateForm($_POST);
-                    if ($pedidos->setId_cliente($_POST['id_cliente'])) { 
-                        if ($data = $pedidos->leerUnPedidos()) {
-                            if($pedidos-> setId_cupon($_POST['id_cupon'])){
-                                if($pedidos-> setId_detalle($_POST['id_detalle_pedido'])){
-                                   if($pedidos-> setCosto_envio ($_POST['costo_envio'])){
-                                       if($pedidos-> setFecha_pedido ($_POST['fecha_pedido'])){
-                                           if($pedidos-> setFecha_entrega ($_POST['fecha_entrega'])){
-                                                if ($pedidos->actualizarPedidos()) {
-                                                    $result['status'] = 1;
-                                                    $result['message'] = 'pedido actualizado correctamente';
-                                                } else {
-                                                    $result['exception'] = Database::getException();;
-                                                }
-                                            }else{
-                                                $result['exception'] = 'Estado incorrecto';
+                    if($pedidos->setId($_POST['id_pedido'])){
+                        if($data = $pedidos->leerUnPedidos()){
+                            if($pedidos ->setId_cliente($_POST['id_cliente'])){
+                                if($pedidos-> setId_cupon($_POST['id_cupon'])){
+                                    if($pedidos-> setId_detalle($_POST['id_detalle_pedido'])){
+                                       if($pedidos-> setCosto_envio ($_POST['costo_envio'])){
+                                           if($pedidos-> setFecha_pedido ($_POST['fecha_pedido'])){
+                                               if($pedidos-> setFecha_entrega ($_POST['fecha_entrega'])){
+                                                    if ($pedidos->actualizarPedidos()) {
+                                                        $result['status'] = 1;
+                                                        $result['message'] = 'pedido actualizado correctamente';
+                                                    } else {
+                                                        $result['exception'] = Database::getException();;
+                                                    }
+                                                }else{
+                                                $result['exception'] = 'Fecha entrega incorrecto';
+                                            }
+                                        }else{
+                                            $result['exception'] = 'Fecha pedido incorrecto';
                                         }
-                                        
                                     }else{
-                                        $result['exception'] = 'Estado incorrecto';
+                                        $result['exception'] = 'Costo incorrecto';
                                     }
                                 }else{
-                                    $result['exception'] = 'Estado incorrecto';
+                                    $result['exception'] = 'Detalle pedido incorrecto';
                                 }
+                             }else{
+                                $result['exception'] = 'Cupon incorrecto';
+                             } 
                             }else{
-                                $result['exception'] = 'Estado incorrecto';
+                                $result['exception'] = 'Cliente incorrecto';
                             }
-                         }else{
-                            $result['exception'] = 'Estado incorrecto';
-                         } 
-                     }else{
-                        $result['exception'] = ' incorrecto';
-                     }
+                        }else{
+                            $result['exception'] = 'Pedido inexistente';
+                        }
                     }else{
-                        $result['exception'] = 'Estado incorrecto';
-                     }
-                    break;
-
-                    case 'delete':
-                        if ($_POST['id_cliente'] != $_SESSION['id_cliente']) {
-                            if ($pedidos->setId($_POST['id_pedido'])) {
-                                if ($pedidos->leerUnPedidos()) {
-                                    if ($pedidos->eliminarPedidos()) {
-                                        $result['status'] = 1;
-                                        $result['message'] = 'pedido eliminado correctamente';
-                                    } else {
-                                        $result['exception'] = Database::getException();
-                                    }
-                                } else {
-                                    $result['exception'] = 'Usuario inexistente';
-                                }
+                        $result['exception'] = 'Pedido incorrecto';
+                    }   
+                break;
+                case 'delete':
+                    if ($pedidos->setId($_POST['id_pedido'])) {
+                        if ($data = $pedidos->leerUnPedidos()) {
+                            if ($pedidos->eliminarPedidos()) {
+                                $result['status'] = 1;
+                                $result['message'] = 'Pedido eliminado correctamente';
                             } else {
-                                $result['exception'] = 'Usuario incorrecto';
+                                $result['exception'] = Database::getException();
                             }
                         } else {
-                            $result['exception'] = 'No se puede eliminar a sí mismo';
+                            $result['exception'] = 'Pedido inexistente';
                         }
-                        break;
+                    } else {
+                        $result['exception'] = 'Pedido incorrecto';
+                    }
+                    break;
                     default:
                         exit('Acción no disponible log');
                 }

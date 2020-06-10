@@ -41,7 +41,7 @@ $pagina->headerTemplate('Principal');
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalCenterTitle">Pedidos</h5>
-                    <input class="hide" type="hidden" id="id_pedido" name="id_pedido"/>
+                    <input class="visible" type="number" id="id_pedido" name="id_pedido"/>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
@@ -80,35 +80,7 @@ $pagina->headerTemplate('Principal');
         </form>
         </div>
 </div>
- 
-<!-- modal eliminar -->
-<div class="modal fade" id="eliminarpedidomodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-        <form method="post" id="save-form"  name="save-form" enctype="multipart/form-data">
-            <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterTitle">Eliminar cupon</h5>
-                <input class="hide" type="hidden" id="id_cupon" name="id_cupon"/>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="container text-center">
-                <div class="form-group">
-                        <h5>¿Desea eliminar este cupon de su lista?</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <button type="submit" class="btn btn-primary">Eliminar</button>
-            </div>
-            </div>
-            </div>
-        </form>
-        </div>
-</div>
+
 
     </div>
 </div>

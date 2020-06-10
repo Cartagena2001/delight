@@ -37,7 +37,7 @@ public function setId_cliente($value)
 
 public function setCliente($value)
 {
-    if($this->validateAlphanumeric($value)) {
+    if($this->validateAlphanumeric($value, 1, 50)) {
         $this->cliente = $value;
         return true;
     } else {
@@ -89,7 +89,7 @@ public function setDetalle($value)
 
 public function setCosto_envio($value)
     {
-        if($this->validateNaturalNumber($value)){
+        if($this->validateMoney($value)){
             $this->costo_envio = $value;
             return true;    
         }
@@ -200,9 +200,9 @@ public function setFecha_entrega($value)
     //Metodo para leer solo una pedido
     public function leerUnPedidos()
     {
-        $sql = 'SELECT Id_pedido, Id_pedido, Id_cliente, Id_cupon, Id_detalle_pedido, Costo_envio, Fecha_pedido, Fecha_entrega
+        $sql = 'SELECT id_pedido, id_cliente, id_cupon, id_detalle_pedido, costo_envio, fecha_pedido, fecha_entrega
                 FROM tb_pedidos
-                WHERE Id_pedido = ?';
+                WHERE id_pedido = ?';
         $params = array($this->id);
         return Database::getRow($sql, $params);
     }
@@ -211,9 +211,9 @@ public function setFecha_entrega($value)
     public function actualizarPedidos()
     {
         $sql = 'UPDATE tb_pedidos
-                SET Id_cliente = ?, Id_cupon = ?, Id_detalle_pedido = ?, Costo_envio = ?, Fecha_pedido = ?, Fecha_entrega = ?
-                WHERE Id_pedido = ?';
-        $params = array($this->Id_cliente, $this->Id_cupon, $this->Id_detalle_pedido, $this->Costo_envio, $this->Fecha_pedido, $this->Fecha_entrega, $this->id);
+                SET id_cliente = ?, id_cupon = ?, id_detalle_pedido = ?, costo_envio = ?, fecha_pedido = ?, fecha_entrega = ?
+                WHERE id_pedido = ?';
+        $params = array($this->id_cliente, $this->id_cupon, $this->id_detalle, $this->costo_envio, $this->fecha_pedido, $this->fecha_entrega, $this->id);
         return Database::executeRow($sql, $params);
     }
 
@@ -221,7 +221,7 @@ public function setFecha_entrega($value)
     public function eliminarPedidos()
     {
         $sql = 'DELETE FROM tb_pedidos
-                WHERE Id_pedido = ?';
+                WHERE id_pedido = ?';
         $params = array($this->id);
         return Database::executeRow($sql, $params);
     }
