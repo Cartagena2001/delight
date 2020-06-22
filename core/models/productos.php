@@ -145,7 +145,7 @@ public function setEstado($value)
 
     public function buscarProductos($value)
     {
-        $sql = 'SELECT Id_producto, nombre_p, Precio, Descripcion, Imagen, Id_categoria, estado
+        $sql = 'SELECT id_producto, nombre_p, precio, descripcion, imagen, id_categoria, estado
                 FROM tb_productos
                 WHERE nombre_p ILIKE ?
                 ORDER BY nombre_p';

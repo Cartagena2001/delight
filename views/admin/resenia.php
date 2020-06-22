@@ -42,7 +42,7 @@ $pagina->headerTemplate('Principal');
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalCenterTitle">Editar estado</h5>
-                        <input class="visible" type="text" id="id_resenia" name="id_resenia"/>
+                        <input class="invisible" type="text" id="id_resenia" name="id_resenia"/>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
