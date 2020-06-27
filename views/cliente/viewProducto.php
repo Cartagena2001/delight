@@ -9,40 +9,28 @@ Page::headerTemplate('Principal');
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                    <img src="../../resources/img/calabera.jpg" class="d-block w-100" alt="Producto">
-                    </div>
-                    <div class="carousel-item">
-                    <img src="../../resources/img/calabera.jpg" class="d-block w-100" alt="Producto">
-                    </div>
-                    <div class="carousel-item">
-                    <img src="../../resources/img/calabera.jpg" class="d-block w-100" alt="Producto">
+                    <img  class="d-block w-100" alt="Producto" id="imagen">
                     </div>
                 </div>
-                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
             </div>
         </div>
-        <div class="col-lg-6">
-            <h1 class="display-4">Nombre del producto</h1>
+        <div class="col-lg-6" id="detalle">
+            <input type="number" id="id_producto" name="id_producto" class="invisible"/>
+            <h1 class="display-4" id="nombreProducto">Nombre del producto</h1>
+            
             <div>
             <i class="fas fa-star" style="color:#FFBB00"></i>
             <i class="fas fa-star" style="color:#FFBB00"></i>
             <i class="fas fa-star" style="color:#FFBB00"></i>
             <i class="fas fa-star"></i>
             <i class="fas fa-star"></i>
+            <p> <i class="fas fa-shopping-basket" style="color:#025373"></i> Vendidos: 324</p>
             </div>
             <div>
-                <h4>Precio: $1.99</h4>
-                <p> <i class="fas fa-shopping-basket" style="color:#025373"></i> Vendidos: 324</p>
+                <p>Precio (US$) <b id="precio"></b></p> 
             </div>
             <div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto voluptates vel voluptate voluptatem praesentium officia esse. Qui deleniti mollitia, voluptatum beatae vel consequuntur! Distinctio quod quisquam, laudantium molestiae accusantium nobis.</p>
+                <p id="descripcion">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto voluptates vel voluptate voluptatem praesentium officia esse. Qui deleniti mollitia, voluptatum beatae vel consequuntur! Distinctio quod quisquam, laudantium molestiae accusantium nobis.</p>
             </div>
             <div>
                 <div class="form-group col-lg-3">
@@ -86,5 +74,5 @@ Page::headerTemplate('Principal');
     </div>
 </div>
 <?php
-Page::footerTemplate();
+Page::footerTemplate('detalleProducto.js');
 ?>

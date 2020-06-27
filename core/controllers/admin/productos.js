@@ -17,7 +17,7 @@ function fillTable( dataset )
                 <td>${row.precio}</td>
                 <td>${row.descripcion}</td>                
                 <td><img src="../../resources/img/categorias/${row.imagen}" style="Width: 80px; Height:80px;" ></td>
-                <td>${row.id_categoria}</td>
+                <td>${row.nombre}</td>
                 <td>${row.estado}</td>
                 <td>  
                 <a href="#" onclick="openUpdateModal(${row.id_producto})" class="btn btn-warning" data-toggle="modal""><i class="fas fa-edit"></i></a>
