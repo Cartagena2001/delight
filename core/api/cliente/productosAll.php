@@ -2,17 +2,23 @@
 require_once('../../helpers/database.php');
 require_once('../../helpers/validator.php');
 require_once('../../models/productos.php');
+require_once('../../models/categorias.php');    
 
 if(isset($_GET['action'])){
     $productos = new productos;
+    $categorias = new categorias;
     $result = array('status' => 0, 'message' => null, 'exception' => null);
 
     switch ($_GET['action']){
-        case'LeerTodosProductos':
-            if($result['dataset'] = $productos->leerTodosProductos()){
-                $result['status'] = 1;
+        case'leerTodosProductosPorCat':
+            if($productos->setCategoria($_POST['id_categoria'])){
+                if($result['dataset'] = $productos->leerTodosProductosPorCat()){
+                    $result['status'] = 1;
+                }else{
+                    $result['exception'] = 'Contenido no disponible';
+                }
             }else{
-                $result['exception'] = 'Contenido no disponible';
+                $result['exception'] = 'Categoría incorrecta';
             }
         break;
         case'detalleProducto':
@@ -24,6 +30,13 @@ if(isset($_GET['action'])){
                 }
             }else{
                 $result['exception'] = 'Producto incorrecto';
+            }
+        break;
+        case'LeerCategorias':
+            if($result['dataset']=$categorias->leerTodasCategorias()){
+                $result['status'] = 1;
+            }else{
+                $result['exception'] = 'Contenido no disponible';
             }
         break;
         default:

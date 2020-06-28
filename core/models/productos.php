@@ -187,6 +187,17 @@ public function setEstado($value)
         return Database::getRows($sql, $params);
     }
 
+    public function leerTodosProductosPorCat()
+    {
+        $sql = 'SELECT tb_productos.Id_producto, tb_productos.nombre_p, tb_productos.Precio, tb_productos.Descripcion, tb_productos.imagen, tb_categoria.nombre, estado
+        FROM tb_productos INNER JOIN tb_categoria ON tb_productos.id_categoria = tb_categoria.id_categoria WHERE tb_categoria.id_categoria = ?
+        GROUP BY tb_productos.Id_producto, tb_productos.nombre_p, tb_productos.Precio, tb_productos.Descripcion, tb_productos.imagen, tb_categoria.nombre, estado
+        ORDER BY tb_productos.nombre_p';
+        $params = array($this->categoria);
+        return Database::getRows($sql, $params);
+    }
+
+
     //Metodo para leer solo una producto
     public function leerUnaProductos()
     {

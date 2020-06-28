@@ -60,5 +60,5 @@ Page::headerTemplate('Principal');
 </div>
 
 <?php
-Page::footerTemplate();
+Page::footerTemplate('');
 ?>

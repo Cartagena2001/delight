@@ -38,5 +38,5 @@ Page::headerTemplate('Principal');
 
 
 <?php
-Page::footerTemplate();
+Page::footerTemplate('');
 ?>
