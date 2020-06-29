@@ -5,15 +5,15 @@ const API_DETALLEPEDIDOS = '../../core/api/commerce/detallepedidos.php?action=';
 // Método que se ejecuta cuando el documento está listo.
 $( document ).ready(function() {
     // Se llama a la función que obtiene los productos del carrito de compras para llenar la tabla en la vista.
-    readCart();
+    leerCarrito();
 });
 
 // Función para obtener el detalle del pedido (carrito de compras).
-function readCart()
+function leerCarrito()
 {
     $.ajax({
         dataType: 'json',
-        url: API_PEDIDOS + 'readCart'
+        url: API_PEDIDOS + 'leerCarrito'
     })
     .done(function( response ) {
         // Se comprueba si la API ha retornado una respuesta satisfactoria, de lo contrario se muestra un mensaje y se direcciona a la página principal.
@@ -63,13 +63,13 @@ function readCart()
 }
 
 // Función que abre una caja de dialogo (modal) con formulario para modificar la cantidad de producto.
-function openUpdateDialog( id, quantity )
+function actualizarDetalle( id, quantity )
 {
     // Se abre la caja de dialogo (modal) que contiene el formulario.
     $( '#item-modal' ).modal( 'open' );
     // Se inicializan los campos del formulario con los datos del registro seleccionado previamente.
     $( '#id_detalle' ).val( id );
-    $( '#cantidad_producto' ).val( quantity );
+    $( '#cantidad' ).val( quantity );
     // Se actualizan los campos para que las etiquetas (labels) no queden sobre los datos.
     M.updateTextFields();
 }
@@ -107,7 +107,7 @@ $( '#item-form' ).submit(function( event ) {
 });
 
 // Función que abre una caja de dialogo para confirmar la finalización del pedido.
-function finishOrder()
+function terminarOrden()
 {
     swal({
         title: 'Aviso',
@@ -122,13 +122,13 @@ function finishOrder()
         if ( value ) {
             $.ajax({
                 type: 'post',
-                url: API_PEDIDOS + 'finishOrder',
+                url: API_PEDIDOS + 'terminarOrden',
                 dataType: 'json'
             })
             .done(function( response ) {
                 // Se comprueba si la API ha retornado una respuesta satisfactoria, de lo contrario se muestra un mensaje de error.
                 if ( response.status ) {
-                    sweetAlert( 1, response.message, 'index.php' );
+                    sweetAlert( 1, response.message, 'bienvenido.php' );
                 } else {
                     sweetAlert( 2, response.exception, null );
                 }
@@ -146,7 +146,7 @@ function finishOrder()
 }
 
 // Función que abre una caja de dialogo para confirmar la eliminación de un producto del carrito de compras.
-function openDeleteDialog( id )
+function eliminarDetalle( id )
 {
     swal({
         title: 'Advertencia',
@@ -161,7 +161,7 @@ function openDeleteDialog( id )
         if ( value ) {
             $.ajax({
                 type: 'post',
-                url: API_PEDIDOS + 'deleteDetail',
+                url: API_PEDIDOS + 'eliminarDetalle',
                 data: { id_detalle: id },
                 dataType: 'json'
             })
