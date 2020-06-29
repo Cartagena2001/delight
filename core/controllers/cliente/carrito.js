@@ -26,7 +26,7 @@ function readCart()
             let total = 0;
             // Se recorre el conjunto de registros (dataset) fila por fila a través del objeto row.
             response.dataset.forEach(function( row ) {
-                subtotal = row.precio_producto * row.cantidad_producto;
+                subtotal = row.precio * row.cantidad;
                 total += subtotal;
                 // Se crean y concatenan las filas de la tabla con los datos de cada registro.
                 content += `
@@ -36,7 +36,7 @@ function readCart()
                         <td>${row.cantidad}</td>
                         <td>${subtotal.toFixed(2)}</td>
                         <td>
-                            <a href="#" onclick="openUpdateDialog(${row.id_detalle}, ${row.cantidad_producto})" class="btn waves-effect blue tooltipped" data-tooltip="Cambiar"><i class="material-icons">exposure</i></a>
+                            <a href="#" onclick="openUpdateDialog(${row.id_detalle}, ${row.cantidad})" class="btn waves-effect blue tooltipped" data-tooltip="Cambiar"><i class="material-icons">exposure</i></a>
                             <a href="#" onclick="openDeleteDialog(${row.id_detalle})" class="btn waves-effect red tooltipped" data-tooltip="Remover"><i class="material-icons">remove_shopping_cart</i></a>
                         </td>
                     </tr>
@@ -80,7 +80,7 @@ $( '#item-form' ).submit(function( event ) {
     event.preventDefault();
     $.ajax({
         type: 'post',
-        url: API_PEDIDOS + 'updateDetail',
+        url: API_PEDIDOS + 'actualizarDetalle',
         data: $( '#item-form' ).serialize(),
         dataType: 'json'
     })
