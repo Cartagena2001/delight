@@ -59,7 +59,8 @@
 	Id_detalle_pedido int references Tb_Detelle_Pedido(Id_detalle_pedido),
 	Costo_envio numeric(5,2) check(Costo_envio >0),
 	Fecha_pedido date,
-	Fecha_entrega date
+	Fecha_entrega date,
+	estadoPedido smallint DEFAULT 0 NOT NULL
 	)
 	
 
@@ -110,9 +111,9 @@
 
 	--Sexta tabla a ejectutar
 	select * from Tb_Pedidos
-	insert into tb_pedidos(id_cliente, id_detalle_pedido, costo_envio, fecha_pedido, fecha_entrega)
-	values	( 1,1, 3.40, '2020/02/15', '2020/02/20'),
-			( 1,2, 3.40, '2020/02/16', '2020/02/20')
+	insert into tb_pedidos(id_cliente, id_detalle_pedido, costo_envio, fecha_pedido, fecha_entrega, estadoPedido)
+	values	( 1,1, 3.40, '2020/02/15', '2020/02/20', 1),
+			( 1,2, 3.40, '2020/02/16', '2020/02/20', 1)
 
 	--Quinta tabla a ejectutar
 	select * from tb_detelle_Pedido
