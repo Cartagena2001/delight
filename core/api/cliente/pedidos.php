@@ -21,7 +21,7 @@ if(isset($_GET['action'])){
                         if($pedidos->setId_producto($_POST['id_producto'])){
                             if($pedidos->setPrecio($_POST['precio'])){
                                 if($pedidos->setCantidad($_POST['cantidad'])){
-                                    if($pedidos->crearPedidos()){
+                                    if($pedidos->createDetalle()){
                                         $result['status'] = 1;
                                         $result['message'] = 'Producto agregado correctamente';
                                     }else{

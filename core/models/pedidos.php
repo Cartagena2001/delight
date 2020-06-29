@@ -204,13 +204,13 @@ public function setFecha_entrega($value)
         return $this->fecha_entrega;
     }
 
-    // public function createDetalle()
-    // {
-    //     $sql = 'INSERT INTO tb_pedido(id_producto, precio, cantidad)
-    //             VALUES(?, ?, ?)';
-    //     $params = array($this->id_producto, $this->precio, $this->cantidad);
-    //     return Database::executeRow($sql, $params);
-    // }
+    public function createDetalle()
+    {
+        $sql = 'INSERT INTO tb_pedido(id_producto, precio, cantidad)
+                VALUES(?, ?, ?)';
+        $params = array($this->id_producto, $this->precio, $this->cantidad);
+        return Database::executeRow($sql, $params);
+    }
 
     public function leerOrden(){
         $sql = 'SELECT tb_productos.nombre_p, tb_productos.precio, tb_detelle_pedido.cantidad
