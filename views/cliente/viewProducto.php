@@ -33,16 +33,8 @@ Page::headerTemplate('Principal');
                 <p id="descripcion">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto voluptates vel voluptate voluptatem praesentium officia esse. Qui deleniti mollitia, voluptatum beatae vel consequuntur! Distinctio quod quisquam, laudantium molestiae accusantium nobis.</p>
             </div>
             <div>
-                <div class="form-group col-lg-3">
-                    <label for="exampleFormControlSelect1">Cantidad:</label>
-                    <select class="form-control" id="exampleFormControlSelect1">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                    </select>
-                </div>
+                <p><b>Cantidad:</b></p>
+                <input type="number" class="form-control" id="cantidad">
             </div>
             <div>
             <a href="#" class="btn col-lg-2 mt-3" id="btnuniversal">Comprar</a>
