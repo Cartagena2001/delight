@@ -59,7 +59,7 @@ class page{
                     </button>
             <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
                 <div class="navbar-nav">
-                    <a class="nav-item nav-link" href="../../views/cliente/index.php">Inicio</a>
+                    <a class="nav-item nav-link" href="../../views/cliente/bienvenido.php">Inicio</a>
                     <a class="nav-item nav-link" href="../../views/cliente/productos.php">Productos</a>
                     <a class="nav-item nav-link" href="../../views/cliente/noticias.php">Noticias</a>
                     <a class="nav-item nav-link" href="../../views/cliente/informacion.php">Informacion</a>
