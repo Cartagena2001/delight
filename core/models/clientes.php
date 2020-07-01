@@ -57,7 +57,7 @@ public function setDireccion($value)
 public function setCorreo($value)
 {
     if ($value) {
-        if($this->validateAlphanumeric($value, 1, 50)) {
+        if($this->validateEmail($value)) {
             $this->correo = $value;
             return true;
         } else {
@@ -138,6 +138,49 @@ public function setEstadoCliente($value)
         return $this->estado_cliente;
     }
 
+    public function checkCliente($correo)
+    {
+        $sql = 'SELECT id_cliente, estado_cliente FROM tb_cliente WHERE usuario = ?';
+        $params = array($correo);
+        if ($data = Database::getRow($sql, $params)) {
+            $this->id = $data['id_cliente'];
+            $this->estado = $data['estado_cliente'];
+            $this->correo = $correo;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function checkPass($password)
+    {
+        $sql = 'SELECT clave FROM tb_cliente WHERE id_cliente = ?';
+        $params = array($this->id);
+        $data = Database::getRow($sql, $params);
+        if (password_verify($password, $data['clave'])) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function changePassword()
+    {
+        $hash = password_hash($this->clave, PASSWORD_DEFAULT);
+        $sql = 'UPDATE tb_cliente  SET clave = ? WHERE id_cliente = ?';
+        $params = array($hash, $this->id);
+        return Database::executeRow($sql, $params);
+    }
+   
+    public function editProfile()
+    {
+        $sql = 'UPDATE clientes
+                SET usuario=?, nombre=?, direccion=?, correo=?, telefono=?, clave=?
+                WHERE id_cliente = ?';
+        $params = array($this->usuario, $this->nombre, $this->direccion, $this->correo, $this->telefono, $this->clave, $this->id);
+        return Database::executeRow($sql, $params);
+    }
+
     public function buscarClientes($value)
     {
         $sql = 'SELECT id_cliente, usuario, nombre, direccion, correo, telefono, clave, estado_cliente
@@ -151,9 +194,10 @@ public function setEstadoCliente($value)
     //Metodo para insertar una nuevo cliente
     public function crearClientes()
     {
-        $sql = 'INSERT INTO tb_cliente(Nombre, Direccion, Correo, Telefono, clave, estado_cliente)
-                VALUES(?, ?, ?, ?, ?, ?)';
-        $params = array($this->Nombre, $this->Direccion, $this->Correo, $this->Telefono, $this->clave, $this->estado_cliente);
+        $hash = password_hash($this->clave, PASSWORD_DEFAULT);
+        $sql = 'INSERT INTO tb_cliente(usuario,nombre, direccion, correo, telefono, clave, estado_cliente)
+                VALUES(?, ?, ?, ?, ?, ?, ?)';
+        $params = array($this->usuario, $this->nombre, $this->direccion, $this->correo, $this->telefono, $hash, 'Activo');
         return Database::executeRow($sql, $params);
     }
 
