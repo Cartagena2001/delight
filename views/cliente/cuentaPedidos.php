@@ -73,5 +73,5 @@ Page::headerTemplate('Principal');
 <br></br>
 
 <?php
-Page::footerTemplate();
+Page::footerTemplate('');
 ?>

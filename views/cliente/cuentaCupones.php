@@ -56,5 +56,5 @@ Page::headerTemplate('Principal');
     </div>
 </div>
 <?php
-Page::footerTemplate();
+Page::footerTemplate('');
 ?>
