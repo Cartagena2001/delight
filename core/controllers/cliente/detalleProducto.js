@@ -1,4 +1,5 @@
 const API_DETALLEPRO = '../../core/api/cliente/productosAll.php?action=';
+const API_PEDIDOS = '../../core/api/cliente/pedidos.php?action=';
 
 $( document ).ready(function() {
 
@@ -39,22 +40,18 @@ function leerDetalle(id)
     });
 }
 
-// Evento para agregar un producto al carrito de compras. -------------------------ESTE METODO COPIAR
 $( '#shopping-form' ).submit(function( event ) {
-    // Se evita recargar la página web después de enviar el formulario.
     event.preventDefault();
     $.ajax({
         type: 'post',
-        url: API_PEDIDOS + 'createDetail', 
+        url: API_PEDIDOS + 'crearDetalle', 
         data: $( '#shopping-form' ).serialize(),
         dataType: 'json'
     })
     .done(function( response ) {
-        // Se comprueba si la API ha retornado una respuesta satisfactoria, de lo contrario se muestra un mensaje.
         if ( response.status ) {
-            sweetAlert( 1, response.message, 'cart.php' );
+            sweetAlert( 1, response.message, 'carrito.php' );
         } else {
-            // Se verifica si el usuario ha iniciado sesión para mostrar algún error ocurrido, de lo contrario se direcciona para que se autentique. 
             if ( response.session ) {
                 sweetAlert( 2, response.exception, null );
             } else {
@@ -63,7 +60,6 @@ $( '#shopping-form' ).submit(function( event ) {
         }
     })
     .fail(function( jqXHR ) {
-        // Se verifica si la API ha respondido para mostrar la respuesta, de lo contrario se presenta el estado de la petición.
         if ( jqXHR.status == 200 ) {
             console.log( jqXHR.responseText );
         } else {

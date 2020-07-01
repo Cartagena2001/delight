@@ -39,6 +39,17 @@ if(isset($_GET['action'])){
                 $result['exception'] = 'Contenido no disponible';
             }
         break;
+        case 'Leeruno':
+            if($productos->setId($_POST['id_producto'])){
+                if($result['dataset'] = $productos->leerUnaProductos()){
+                    $result['status'] = 1;
+                }else{
+                    $result['exception'] = 'Contenido no disponible';
+                }
+            }else{
+                $result['exception'] = 'Producto incorrecto';
+            }
+        break;
         default:
             exit('Acción no disponible');
     }

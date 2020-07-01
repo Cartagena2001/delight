@@ -222,11 +222,10 @@ public function setFecha_entrega($value)
             $this->id_pedido = $data['id_detalle_pedido'];
             return true;
         }else{
-            $sql = 'INSERT INTO tb_detelle_pedido(id_producto, precio, cantidad)
-            VALUES(?, ?, ?)';
+            $sql = 'INSERT INTO tb_pedidos(id_cliente, id_detalle_pedido, costo_envio, fecha_pedido, fecha_entrega, estadopedido)
+            VALUES(?, ?, ?, ?, ?, ?)';
             $params = array($this->id_producto, $this->precio, $this->cantidad);
             if (Database::executeRow($sql, $params)) {
-                // Se obtiene el ultimo valor insertado en la llave primaria de la tabla pedidos.
                 $this->id = Database::getLastRowId();
                 return true;
             } else {
