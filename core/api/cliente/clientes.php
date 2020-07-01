@@ -4,13 +4,12 @@ require_once('../../helpers/database.php');
 require_once('../../helpers/validator.php');
 require_once('../../models/clientes.php');
 
-if (isset($_GET['action'])) {
+if (isset($_GET['action']))  {
     session_start();
     $cliente = new clientes;
     $result = array('status' => 0, 'message' => null, 'exception' => null);
     if (isset($_SESSION['id_cliente'])) {
         switch ($_GET['action']) {
-            
             case 'logout':
                 if(session_destroy()){
                     $result['status'] = 1;
