@@ -10,9 +10,11 @@ if(isset($_GET['action'])){
     $pedidos = new pedidos;
     $result = array('status' => 0, 'session' => 0, 'message' => null, 'exception' => null);
 
+//verifica la cuenta del cliente
     if(isset($_SESSION['id_cliente'])){
         $result['session'] = 1;
 
+//Funcion que se encarga de recolectar los datos del modelo de pedidos
         switch($_GET['action']){
             case 'crearDetalle':
                 if($pedidos->setId_cliente($_SESSION['id_cliente'])){
@@ -43,6 +45,8 @@ if(isset($_GET['action'])){
                     $result['exception'] = 'Cliente incorrecto';
                 }
             break;
+
+//Lee los productos que van a comprar
             case 'LeerCarrito':
                 if($pedidos->setId_cliente($_SESSION['id_cliente'])){
                     if($pedidos->leerOrden()){
@@ -59,6 +63,8 @@ if(isset($_GET['action'])){
                     $result['exception'] = 'Cliente incorrecto';     
                 }
             break;
+
+//visualiza la cantidad de los productos
             case 'ActuCarrito':
                 if($pedidos->setId($_SESSION['id_pedido'])){
                     $_POST = $pedidos->validateForm($_POST);
@@ -80,6 +86,8 @@ if(isset($_GET['action'])){
                     $result['exception'] = 'Pedido incorrecto';
                 }
             break;
+            
+//Elimina la compra en el carrito
             case 'eliminarCarrito':
                 if($pedidos->setId($_SESSION['id_pedido'])){
                     if($pedidos->setId_detalle($_POST['id_detalle'])){
@@ -96,6 +104,8 @@ if(isset($_GET['action'])){
                     $result['exception'] = 'Pedido incorrecto';
                 }
             break;
+            
+//Se confirma la compra de producto y pasa a estado 1
             case 'finalizarPago':
                 if($pedidos->setId($_SESSION['id_pedido'])){
                     if($pedidos->setEstado(1)){

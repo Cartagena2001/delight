@@ -8,7 +8,7 @@ if(isset($_GET['action'])){
     $noticias = new noticias;
     $result = array('status' => 0, 'message' => null, 'exception' => null);
 
-//Case que hace contacto con el modelo
+//Funcion que se encarga de leer los datos del modelo
     switch ($_GET['action']){
         case 'leerNoticias':
             if($result['dataset']=$noticias->leerTodasNoticias()){
