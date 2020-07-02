@@ -166,15 +166,6 @@ public function setEstado($value)
         }
     }
 
-    // public function crearProductos()
-    // {
-        
-    //         $sql = 'INSERT INTO tb_productos(nombre, precio, descripcion, id_categoria, estado)
-    //                 VALUES(?, ?, ?, ?, ?)';
-    //         $params = array($this->nombre, $this->precio, $this->descripcion, $this->categoria, $this->estado);
-    //         return Database::executeRow($sql, $params);
-        
-    // }
 
     //Metodo para leer todas las productos
     public function leerTodosProductos()
