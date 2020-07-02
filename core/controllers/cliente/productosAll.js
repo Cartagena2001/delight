@@ -95,3 +95,10 @@ function LeertodaslasCategorias(){
     });
     
 }
+
+$( '#search-form' ).submit(function( event ) {
+    // Se evita recargar la página web después de enviar el formulario.
+    event.preventDefault();
+    // Se llama a la función que realiza la búsqueda. Se encuentra en el archivo components.js
+    searchRows( API_PRODUCTOSALL, this );
+});

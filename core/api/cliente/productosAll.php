@@ -50,6 +50,24 @@ if(isset($_GET['action'])){
                 $result['exception'] = 'Producto incorrecto';
             }
         break;
+        case 'buscarProducto':
+            $_POST = $productos->validateForm($_POST);
+            if ($_POST['search'] != '') {
+                if ($result['dataset'] = $productos->buscarProductos($_POST['search'])) {
+                    $result['status'] = 1;
+                    $rows = count($result['dataset']);
+                    if ($rows > 1) {
+                        $result['message'] = 'Se encontraron '.$rows.' coincidencias';
+                    } else {
+                        $result['message'] = 'Solo existe una coincidencia';
+                    }
+                } else {
+                    $result['exception'] = 'No hay coincidencias';
+                }
+            } else {
+                $result['exception'] = 'Ingrese un valor para buscar';
+            }
+        break;
         default:
             exit('Acción no disponible');
     }

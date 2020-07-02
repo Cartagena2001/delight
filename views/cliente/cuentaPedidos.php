@@ -38,7 +38,7 @@ Page::headerTemplate('Principal');
         </button>
       </div>
       <div class="modal-body border-0">
-        <table class="table table-dark">
+        <table class="table" style="background-color: #17A2B8;color:white;">
           <thead>
             <tr>
               <th scope="col">Producto</th>

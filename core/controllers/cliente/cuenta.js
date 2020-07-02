@@ -90,7 +90,7 @@ function leerPedidosPorcliente(){
                         <li class="list-group-item"><b>Fecha del pedido Realizado:</b> ${row.fecha_pedido}</li>
                         <li class="list-group-item"><b>Fecha de entrega:</b> ${row.fecha_entrega}</li>
                         <li class="list-group-item"><b>Estado del pedido:</b> ${row.estadopedido}</li>
-                        <button type="button" class="btn btn-secondary" onclick="leerDellateProducto(${row.id_pedido})">Ver detalles</button>
+                        <button type="button" class="btn" style="background-color: #17A2B8;color:white;" onclick="leerDellateProducto(${row.id_pedido})">Ver detalles</button>
                         </ul>
                     </div>
                 `;
