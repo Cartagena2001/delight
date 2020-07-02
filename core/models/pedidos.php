@@ -380,9 +380,9 @@ public function setEstado($value)
     {
         $sql = 'SELECT tb_pedidos.id_pedido, tb_cliente.nombre, tb_pedidos.costo_envio, tb_pedidos.fecha_pedido, tb_pedidos.fecha_entrega, tb_pedidos.estadopedido
                 FROM tb_pedidos INNER JOIN tb_cliente ON tb_pedidos.id_cliente = tb_cliente.id_cliente 
-                WHERE tb_cliente.id_cliente = ?';
+                WHERE tb_cliente.id_cliente = ?  ORDER BY  tb_pedidos.id_pedido ASC';
         $params = array($this->id_cliente);
-        return Database::getRow($sql, $params);
+        return Database::getRows($sql, $params);
     }
 
 

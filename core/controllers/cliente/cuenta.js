@@ -69,7 +69,8 @@ $( '#editarPerfil' ).submit(function( event ) {
 function leerPedidosPorcliente(){
     $.ajax({
         dataType: 'json',
-        url: ACCOUNT + 'leerPedidos'
+        url: ACCOUNT + 'leerPedidos',
+        
     })
     .done(function(response){
         if( response.status){
@@ -77,21 +78,25 @@ function leerPedidosPorcliente(){
             let content = '';
 
             response.dataset.forEach(function( row ){
+
                 content +=`
-                    <div class="card ml-3 mt-3" style="width: 18rem;">
-                    <div class="card-body">
-                    <h5 class="card-title">Identicador del pedido:${row.id_pedido}</h5>
-                    <p class="card-text">${row.nombre}</p>
+                    <div class="card mt-4 ml-4 ml-2" style="width: 18rem;">
+                        <div class="card-body">
+                        <h5 class="card-title">Pedido Numero: ${row.id_pedido}</h5>
+                        <p class="card-text"><b>Propietario del envio: </b>${row.nombre}</p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><b>Costo de envio: </b>${row.costo_envio}</li>
+                        <li class="list-group-item"><b>Fecha del pedido Realiado:</b> ${row.fecha_pedido}</li>
+                        <li class="list-group-item"><b>Fecha de entrega:</b> ${row.fecha_entrega}</li>
+                        </ul>
                     </div>
-                    <ul class="list-group list-group-flush">
-                    <li class="list-group-item">${row.costo_envio}</li>
-                    <li class="list-group-item">${row.fecha_pedido}</li>
-                    <li class="list-group-item">${row.fecha_entrega}</li>
-                    </ul>
-                </div>
                 `;
             });
             $( '#pedidosCliente' ).html( content );
+        }else {
+            // Se presenta un mensaje de error cuando no existen datos para mostrar.
+            $( '#title' ).html( `<i class="fas fa-sad-tear"></i><span class="red-text">${response.exception}</span>` );
         }
 
 

@@ -18,29 +18,12 @@ Page::headerTemplate('Principal');
     <div class="container">
       <h3>Pedidos</h3>
     </div>
-    <div class="cotainter">
+    <div class="cotainter" >
       <div class="row" id="pedidosCliente">
-      <!-- <div class="card ml-3 mt-3" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title">Identifacor del pedido:</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Cras justo odio</li>
-            <li class="list-group-item">Dapibus ac facilisis in</li>
-            <li class="list-group-item">Vestibulum at eros</li>
-          </ul>
-          <div class="card-body">
-            <a href="#" class="card-link">Card link</a>
-            <a href="#" class="card-link">Another link</a>
-          </div>
-        </div> -->
+
       </div>
     </div>
-
-
   </div>
-
 </div>
 
 </div>
