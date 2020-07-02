@@ -87,5 +87,4 @@ class page
   }
 }
 ?>
-<!-- <script type="text/javascript" src=".././resources/js/bootstrap.bundle.min.js"></script> -->
-<!-- <script type="text/javascript" src="../../resources/js/initialisation.js"></script> -->
+<!--  -->

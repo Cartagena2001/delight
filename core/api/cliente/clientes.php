@@ -3,10 +3,13 @@
 require_once('../../helpers/database.php');
 require_once('../../helpers/validator.php');
 require_once('../../models/clientes.php');
+require_once('../../models/pedidos.php');
+require_once('../../models/detalle_pedido.php');
 
 if (isset($_GET['action']))  {
     session_start();
     $cliente = new clientes;
+    $pedidos = new pedidos;
     $result = array('status' => 0, 'message' => null, 'exception' => null);
     if (isset($_SESSION['id_cliente'])) {
         switch ($_GET['action']) {
@@ -18,7 +21,66 @@ if (isset($_GET['action']))  {
                     $result['exception'] = 'Ocurrio un problema al cerrar la sesion';
                 }
             break;
-
+            case 'leerPerfil':
+                if($cliente->setId($_SESSION['id_cliente'])){
+                   if($result['dataset'] = $cliente->leerUnClientePerfil()){
+                    $result['status'] = 1;
+                   }else{
+                    $result['exception'] = 'Usuario inexistente';
+                   }     
+                }else{
+                    $result['exception'] = 'Usuario incorrecto';
+                }
+            break;
+            case 'ActualizarPerfil':
+                if($cliente->setId($_SESSION['id_cliente'])){
+                    if($cliente->leerUnClientePerfil()){
+                        $_POST = $cliente->validateForm($_POST);
+                            if($cliente->setUsuario($_POST['nombreUser'])){
+                                if($cliente->setNombre($_POST['nombreCompleto'])){
+                                    if($cliente->setDireccion($_POST['direccion'])){
+                                        if($cliente->setCorreo($_POST['correo'])){
+                                            if($cliente->setTelefono($_POST['telefono'])){
+                                                if($cliente->editarPerfil()){
+                                                    $_SESSION['usuario'] = $cliente->getUsuario();
+                                                    $result['status'] = 1;
+                                                    $result['message'] = 'Perfil modificado correctamente';
+                                                }else{
+                                                    $result['exception'] = Database::getException();
+                                                }
+                                            }else{
+                                                $result['exception'] = 'Telefono incorrecto'; 
+                                            }
+                                        }else{
+                                            $result['exception'] = 'Correo incorrecto'; 
+                                        }
+                                    }else{
+                                        $result['exception'] = 'Direccion incorrecto'; 
+                                    }
+                                }else{
+                                    $result['exception'] = 'Nombre incorrecto'; 
+                                }
+                            }else{
+                                $result['exception'] = 'Usuario incorrecto';    
+                            }
+                    }else{
+                        $result['exception'] = 'Cliente inexistente';
+                    }
+                }else{
+                    $result['exception'] = 'Cliente incorrecto';
+                }
+            break;
+            case 'leerPedidos':
+                if($pedidos->setId_cliente($_SESSION['id_cliente'])){
+                    if($result['dataset'] = $pedidos->leerPedidoPorClint()){
+                        $result['status'] = 1;
+                    }else{
+                        $result['exception'] = 'Contenido no disponible';
+                    }
+                }else{  
+                    $result['exception'] = 'Cliente Incorrecto';
+                }
+            break;
             default:
             exit('Acción no disponible log');
        }
@@ -98,7 +160,6 @@ if (isset($_GET['action']))  {
     } else {
         exit('Recurso denegado');
     }
-
 
 
 ?>

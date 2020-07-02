@@ -1,5 +1,4 @@
-const API = '../../core/api/cliente/clientes.php?action=';
-
+const LOGOUT = '../../core/api/cliente/clientes.php?action=';
 
 function logOut()
 {
@@ -15,7 +14,7 @@ function logOut()
         if ( value ) {
             $.ajax({
                 dataType: 'json',
-                url: API + 'logout'
+                url: LOGOUT + 'logout'
             })
             .done(function( response ) {
                 if ( response.status ) {
