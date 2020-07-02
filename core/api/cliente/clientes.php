@@ -21,6 +21,8 @@ if (isset($_GET['action']))  {
                     $result['exception'] = 'Ocurrio un problema al cerrar la sesion';
                 }
             break;
+
+//Verefica que el cliente exista en la base
             case 'leerPerfil':
                 if($cliente->setId($_SESSION['id_cliente'])){
                    if($result['dataset'] = $cliente->leerUnClientePerfil()){
@@ -32,6 +34,8 @@ if (isset($_GET['action']))  {
                     $result['exception'] = 'Usuario incorrecto';
                 }
             break;
+
+//Busca informacion en el model de clientes par verificar los datos
             case 'ActualizarPerfil':
                 if($cliente->setId($_SESSION['id_cliente'])){
                     if($cliente->leerUnClientePerfil()){
@@ -70,6 +74,8 @@ if (isset($_GET['action']))  {
                     $result['exception'] = 'Cliente incorrecto';
                 }
             break;
+
+//Lee los productos que el cliente a comprado
             case 'leerPedidos':
                 if($pedidos->setId_cliente($_SESSION['id_cliente'])){
                     if($result['dataset'] = $pedidos->leerPedidoPorClint()){
@@ -81,6 +87,8 @@ if (isset($_GET['action']))  {
                     $result['exception'] = 'Cliente Incorrecto';
                 }
             break;
+            
+//Busca y muestra la informacion de los pedidos
             case 'leerDetallePedido':
                 if($pedidos->setId($_POST['id_pedido'])){
                     if($result['dataset'] = $pedidos->leerDetallePedido()){
@@ -96,7 +104,7 @@ if (isset($_GET['action']))  {
             exit('Acción no disponible log');
        }
     } else {
-    // Se compara la acción a realizar cuando el administrador no ha iniciado sesión.
+// Se compara la acción a realizar cuando el administrador no ha iniciado sesión.
     switch ($_GET['action']) {
         
         case 'readAll':
@@ -107,6 +115,8 @@ if (isset($_GET['action']))  {
                 $result['exception'] = 'No existen usuarios registrados';
             }
             break;
+
+//Verificacion de los datos del cliente
         case 'registrarse':
             $_POST = $cliente->validateForm($_POST);
             if($cliente -> setUsuario($_POST['usuario'])){
@@ -145,6 +155,8 @@ if (isset($_GET['action']))  {
         }
 
         break;
+
+//Si los datos son coreectos permite el ingreso
         case 'InicioSesion':
             $_POST = $cliente->validateForm($_POST);
                 if ($cliente->checkCliente($_POST['usuario'])) {
