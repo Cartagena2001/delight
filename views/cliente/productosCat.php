@@ -10,7 +10,7 @@ Page::headerTemplate('Principal');
     <div class="row">
         <form class="form-inline" method="post" id="search-form">
             <input class="form-control mr-sm-2" type="search" id="search" type="text" name="search" placeholder="Busca producto">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit"> Buscar</button>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
         </form>
     </div>
 </div>
@@ -19,7 +19,6 @@ Page::headerTemplate('Principal');
     <div class="row" id="productoAll">
     </div>
 </div>
-
 
 <?php
 Page::footerTemplate('productosAll.js');

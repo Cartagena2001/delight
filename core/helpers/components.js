@@ -52,7 +52,7 @@ function searchRows( api, form )
         // Se comprueba si la API ha retornado una respuesta satisfactoria, de lo contrario se muestra un mensaje de error.
         if ( response.status ) {
             // Se envían los datos a la función del controlador para que llene la tabla en la vista.
-            fillTable( response.dataset );
+
             sweetAlert( 1, response.message, null );
         } else {
             sweetAlert( 2, response.exception, null );
@@ -67,6 +67,35 @@ function searchRows( api, form )
         }
     });
 }
+
+function searchRowsCliente( api, form )
+{
+    $.ajax({
+        type: 'post',
+        url: api + 'buscarProducto',
+        data: $( '#' + form.id ).serialize(),
+        dataType: 'json'
+    })
+    .done(function( response ) {
+        // Se comprueba si la API ha retornado una respuesta satisfactoria, de lo contrario se muestra un mensaje de error.
+        if ( response.status ) {
+            // Se envían los datos a la función del controlador para que llene la tabla en la vista.
+
+            sweetAlert( 1, response.message, null );
+        } else {
+            sweetAlert( 2, response.exception, null );
+        }
+    })
+    .fail(function( jqXHR ) {
+        // Se verifica si la API ha respondido para mostrar la respuesta, de lo contrario se presenta el estado de la petición.
+        if ( jqXHR.status == 200 ) {
+            console.log( jqXHR.responseText );
+        } else {
+            console.log( jqXHR.status + ' ' + jqXHR.statusText );
+        }
+    });
+}
+
 
 /*
 *   Función para crear o actualizar un registro en los mantenimientos de tablas (operación create y update).
