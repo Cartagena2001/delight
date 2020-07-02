@@ -70,5 +70,5 @@ Page::headerTemplate('Principal');
 
 
 <?php
-Page::footerTemplate('account.js');
+Page::footerTemplate('');
 ?>

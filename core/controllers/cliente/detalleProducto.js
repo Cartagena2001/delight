@@ -26,6 +26,8 @@ function leerDetalle(id)
             $( '#descripcion' ).text( response.dataset.descripcion );
             $( '#imagen' ).prop( 'src', '../../resources/img/categorias/' + response.dataset.imagen );
 
+            $( '#precio_producto' ).val( response.dataset.precio );
+
         }else{
             ( '#detalle' ).html( '' );
         }

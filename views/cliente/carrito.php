@@ -4,85 +4,64 @@ Page::headerTemplate('Principal');
 ?>
 <div class="container mb-5">
   <div class="row">
-      <div class="container-fluid col-lg-6">
-          <div class="mt-1 col-lg-12">
-          <h4 class="display-4">Carrito de compras</h4>
-          </div>
-          <div class="p-3 mb-2 bg-info text-white mt-4">
-          <table class="table table-hover text-light">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Producto</th>
-        <th scope="col">Precio</th>
-        <th scope="col">Cantidad</th>
-        <th scope="col">Total</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Casa tejado naranja</td>
-        <td>$1.00</td>
-        <td>1</td>
-        <td>$2.00</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Taza de cafe</td>
-        <td>$1.05</td>
-        <td>1</td>
-        <td>$2.00</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Llavero de tomate</td>
-        <td>$0.99</td>
-        <td>1</td>
-        <td>$1.99</td>
-      </tr>
-    </tbody>
-          </table>
-          </div>
-      </div>
-      <!--taba de confirma de apagar--> 
-      <div class="container col-lg-5 mt-5 mb-2">
-      <div class="bd-callout bd-callout-warning mt-5">
-          <h6 class="text-info" id="conveying-meaning-to-assistive-technologies">Total a pagar</h6>
-          <table class="table table-hover">
-    <thead>
-      <tr>
-        <th scope="col">Total a pagar</th>
-        <th scope="col">Puntos</th>
-        <th scope="col">Precio</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>$2.00</td>
-        <td>3 puntos</td>
-        <td>$5.04</td>
-      </tr>
+    <div class="col-lg-12">
+      <h3 class="mt-4">Carrito de compras</h3>
+    </div>
+
+    <div class="col-lg-9 mt-3">
+      <table class="table table-hover" style="background-color: #138496;color:white;">
+        <thead>
+          <tr>
+            <th scope="col">Productos</th>
+            <th scope="col">Precio(US$)</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">SubTotal</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="tbodyCarrito">
+
+        </tbody>
       </table>
-          </div>
-          
-          <div class="forgot-link d-flex aling-items-center justify-content-between">
-                  <div class="form-check">
-                    <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="customCheck1">
-                    <label class="custom-control-label" for="customCheck1">Aceptar terminos y condiciones</label>
-                    </div>
-                  <div>
-                      <a href="#" class="btn col-lg-12 mt-3" id="btnuniversal">Comprar ahora</a>
-                  </div>
-          </div>
-          </div>
-      </div>
+    </div>
+
+    <div class="col-lg-3 mt-3">
+      <p>TOTAL A PAGAR (US$) <b id="pago"></b></p>
+      <button type="buttom" class="btn btn-success" onclick="finishOrder()">Finalizar pago</button>
+      <button type="button" class="btn mt-2" style="background-color: #138496;color:white;" onclick="window.location.href='/delight/views/cliente/productos.php'">Regresar a la tienda</button>
+    </div>
+
   </div>
-<br></br>
 </div>
-<br>
-<br>
+
+
+<!-- modals -->
+<div class="modal fade" id="modalCantidad" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header border-0">
+        <h5 class="modal-title" id="staticBackdropLabel">Cambiar cantidad</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form method="post" id="ActuCantidad">
+      <div class="modal-body border-0">
+        <p>Cantidad del producto</p>
+        <input type="number" class="form-control" id="cantidad_producto" name="cantidad_producto">
+        <input type="number" class="form-control invisible" id="id_detalle" name="id_detalle">
+      </div>
+      
+      <div class="modal-footer border-0">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-success">Aceptar</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
 <?php
-Page::footerTemplate();
+Page::footerTemplate('carrito.js');
 ?>

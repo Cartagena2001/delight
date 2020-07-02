@@ -11,6 +11,7 @@ class pedidos extends Validator{
     private $costo_envio = null;
     private $fecha_pedido = null;
     private $fecha_entrega = null;
+    private $estado = null;
 
     ///////////////////////////////////////////////
     private $id_producto = null;
@@ -169,6 +170,16 @@ public function setFecha_entrega($value)
     }
 }
 
+public function setEstado($value)
+    {
+        if ($this->validateNaturalNumber($value)) {
+            $this->estado = $value;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public function getId()
     {
         return $this->id;
@@ -206,25 +217,24 @@ public function setFecha_entrega($value)
 
     public function createDetalle()
     {
-        $sql = 'INSERT INTO tb_pedido(id_producto, precio, cantidad)
-                VALUES(?, ?, ?)';
-        $params = array($this->id_producto, $this->precio, $this->cantidad);
+        $sql = 'INSERT INTO tb_detelle_pedido(id_producto, precio, cantidad, id_pedido)
+                VALUES(?, ?, ?, ?)';
+        $params = array($this->id_producto, $this->precio, $this->cantidad, $this->id);
         return Database::executeRow($sql, $params);
     }
 
     public function leerOrden(){
-        $sql = 'SELECT tb_productos.nombre_p, tb_productos.precio, tb_detelle_pedido.cantidad
-        FROM tb_pedidos INNER JOIN tb_detelle_pedido ON tb_pedidos.id_detalle_pedido = tb_detelle_pedido.id_detalle_pedido 
-        INNER JOIN tb_productos ON tb_detelle_pedido.id_producto = tb_productos.id_producto WHERE tb_pedidos.estadoPedido = 0 AND tb_pedidos.id_cliente = ? 
-        GROUP BY tb_productos.nombre_p, tb_productos.precio, tb_detelle_pedido.cantidad ';
-        $params = array($this->cliente);
+        $sql = 'SELECT id_pedido
+                FROM tb_pedidos
+                WHERE estadopedido = 0 AND id_cliente = ?';
+        $params = array($this->id_cliente);
         if($data = Database::getRow($sql, $params)){
-            $this->id_pedido = $data['id_detalle_pedido'];
+            $this->id = $data['id_pedido'];
             return true;
         }else{
-            $sql = 'INSERT INTO tb_pedidos(id_cliente, id_detalle_pedido, costo_envio, fecha_pedido, fecha_entrega, estadopedido)
-            VALUES(?, ?, ?, ?, ?, ?)';
-            $params = array($this->id_producto, $this->precio, $this->cantidad);
+            $sql = 'INSERT INTO tb_pedidos(id_cliente, costo_envio, fecha_pedido, fecha_entrega)
+            VALUES(?, ?, current_date, current_date+15)';
+            $params = array($this->id_cliente, '2.50');
             if (Database::executeRow($sql, $params)) {
                 $this->id = Database::getLastRowId();
                 return true;
@@ -233,6 +243,38 @@ public function setFecha_entrega($value)
             }
         }
     }
+
+    public function LeerCarrito()
+    {
+        $sql = 'SELECT tb_detelle_pedido.id_detalle_pedido, tb_productos.nombre_p, tb_detelle_pedido.precio, tb_detelle_pedido.cantidad
+        FROM  tb_pedidos INNER JOIN tb_detelle_pedido ON tb_detelle_pedido.id_pedido = tb_pedidos.id_pedido 
+        INNER JOIN tb_productos ON tb_detelle_pedido.id_producto = tb_productos.id_producto WHERE tb_pedidos.id_pedido = ?
+        GROUP BY tb_detelle_pedido.id_detalle_pedido, tb_productos.nombre_p, tb_detelle_pedido.precio, tb_detelle_pedido.cantidad';
+        $params = array($this->id);
+        return Database::getRows($sql, $params);
+    }
+
+    // public function leerOrden(){
+    //     $sql = 'SELECT tb_productos.nombre_p, tb_productos.precio, tb_detelle_pedido.cantidad
+    //     FROM tb_pedidos INNER JOIN tb_detelle_pedido ON tb_pedidos.id_detalle_pedido = tb_detelle_pedido.id_detalle_pedido 
+    //     INNER JOIN tb_productos ON tb_detelle_pedido.id_producto = tb_productos.id_producto WHERE tb_pedidos.estadoPedido = 0 AND tb_pedidos.id_cliente = ? 
+    //     GROUP BY tb_productos.nombre_p, tb_productos.precio, tb_detelle_pedido.cantidad ';
+    //     $params = array($this->cliente);
+    //     if($data = Database::getRow($sql, $params)){
+    //         $this->id_pedido = $data['id_detalle_pedido'];
+    //         return true;
+    //     }else{
+    //         $sql = 'INSERT INTO tb_pedidos(id_cliente, id_detalle_pedido, costo_envio, fecha_pedido, fecha_entrega, estadopedido)
+    //         VALUES(?, ?, ?, ?, ?, ?)';
+    //         $params = array($this->id_producto, $this->precio, $this->cantidad);
+    //         if (Database::executeRow($sql, $params)) {
+    //             $this->id = Database::getLastRowId();
+    //             return true;
+    //         } else {
+    //             return false;
+    //         }
+    //     }
+    // }
 
 
     //Metodo para buscar un pedidos
@@ -296,6 +338,32 @@ public function setFecha_entrega($value)
                 SET id_cliente = ?, id_cupon = ?, id_detalle_pedido = ?, costo_envio = ?, fecha_pedido = ?, fecha_entrega = ?
                 WHERE id_pedido = ?';
         $params = array($this->id_cliente, $this->id_cupon, $this->id_detalle, $this->costo_envio, $this->fecha_pedido, $this->fecha_entrega, $this->id);
+        return Database::executeRow($sql, $params);
+    }
+
+    public function actualizarCarrito()
+    {
+        $sql = 'UPDATE tb_detelle_pedido
+                SET cantidad = ?
+                WHERE id_detalle_pedido = ?';
+        $params = array($this->cantidad, $this->id_detalle);
+        return Database::executeRow($sql, $params);
+    }
+
+    public function actualizarEstadoOrden()
+    {
+        $sql = 'UPDATE tb_pedidos
+                SET estadopedido = ?
+                WHERE id_pedido = ?';
+        $params = array($this->estado, $this->id);
+        return Database::executeRow($sql, $params);
+    }
+
+    public function eliminarDetalle()
+    {
+        $sql = 'DELETE FROM tb_detelle_pedido
+                WHERE id_detalle_pedido = ? AND id_pedido = ?';
+        $params = array($this->id_detalle, $this->id);
         return Database::executeRow($sql, $params);
     }
 
