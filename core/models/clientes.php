@@ -172,12 +172,12 @@ public function setEstadoCliente($value)
         return Database::executeRow($sql, $params);
     }
    
-    public function editProfile()
+    public function editarPerfil()
     {
-        $sql = 'UPDATE clientes
-                SET usuario=?, nombre=?, direccion=?, correo=?, telefono=?, clave=?
+        $sql = 'UPDATE tb_cliente
+                SET usuario=?, nombre=?, direccion=?, correo=?, telefono=?
                 WHERE id_cliente = ?';
-        $params = array($this->usuario, $this->nombre, $this->direccion, $this->correo, $this->telefono, $this->clave, $this->id);
+        $params = array($this->usuario, $this->nombre, $this->direccion, $this->correo, $this->telefono, $this->id);
         return Database::executeRow($sql, $params);
     }
 
@@ -219,6 +219,16 @@ public function setEstadoCliente($value)
         $params = array($this->id);
         return Database::getRow($sql, $params);
     }
+
+    public function leerUnClientePerfil()
+    {
+        $sql = 'SELECT id_cliente, usuario, nombre, direccion, correo, telefono
+                FROM tb_cliente
+                WHERE id_cliente = ?';
+        $params = array($this->id);
+        return Database::getRow($sql, $params);
+    }
+
 
     //Metodo para actualizar una cliente
     public function actualizarClientes()
