@@ -52,7 +52,7 @@ function searchRows( api, form )
         // Se comprueba si la API ha retornado una respuesta satisfactoria, de lo contrario se muestra un mensaje de error.
         if ( response.status ) {
             // Se envían los datos a la función del controlador para que llene la tabla en la vista.
-
+            fillTable( response.dataset );
             sweetAlert( 1, response.message, null );
         } else {
             sweetAlert( 2, response.exception, null );
@@ -80,7 +80,7 @@ function searchRowsCliente( api, form )
         // Se comprueba si la API ha retornado una respuesta satisfactoria, de lo contrario se muestra un mensaje de error.
         if ( response.status ) {
             // Se envían los datos a la función del controlador para que llene la tabla en la vista.
-
+            fillTable( response.dataset );
             sweetAlert( 1, response.message, null );
         } else {
             sweetAlert( 2, response.exception, null );

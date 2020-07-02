@@ -96,9 +96,39 @@ function LeertodaslasCategorias(){
     
 }
 
+// Función para llenar la tabla con los datos enviados por readRows().
+function fillTable( dataset )
+{
+    let content = '';
+    // Se recorre el conjunto de registros (dataset) fila por fila a través del objeto row.
+    dataset.forEach(function( row ) {
+       // Se crean y concatenan las filas de la tabla con los datos de cada registro.
+       content += `
+       <div class="card mb-5 mt-4 ml-3 border-0" style="max-width: 350px; ">
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+                        <img src="../../resources/img/categorias/${row.imagen}" class="card-img mt-4" alt="producto">
+                        </div>
+                            <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">${row.nombre_p}</h5>
+                                <p class="card-text">${row.descripcion}</p>
+                                <a href="viewProducto.php?id=${row.id_producto}" class="btn" style="background-color: #138496;color:white;">Ver más</a>
+                            </div>
+                    </div>
+                </div>
+        </div>
+        `;
+    });
+    // Se agregan las filas al cuerpo de la tabla mediante su id para mostrar los registros.
+    $( '#productoAll' ).html( content );
+}
+
+
 $( '#search-form' ).submit(function( event ) {
     // Se evita recargar la página web después de enviar el formulario.
     event.preventDefault();
     // Se llama a la función que realiza la búsqueda. Se encuentra en el archivo components.js
-    searchRowsCliente( API_PRODUCTOSALL, this );
+    searchRows( API_PRODUCTOSALL, this );
 });
+

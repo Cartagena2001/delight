@@ -50,7 +50,7 @@ if(isset($_GET['action'])){
                 $result['exception'] = 'Producto incorrecto';
             }
         break;
-        case 'buscarProducto':
+        case 'search':
             $_POST = $productos->validateForm($_POST);
             if ($_POST['search'] != '') {
                 if ($result['dataset'] = $productos->buscarProductos($_POST['search'])) {
