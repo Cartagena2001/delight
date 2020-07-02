@@ -385,6 +385,16 @@ public function setEstado($value)
         return Database::getRows($sql, $params);
     }
 
+    public function leerDetallePedido()
+    {
+        $sql = 'SELECT tb_detelle_pedido.id_detalle_pedido, tb_productos.nombre_p, tb_detelle_pedido.precio, tb_detelle_pedido.cantidad
+        FROM  tb_pedidos INNER JOIN tb_detelle_pedido ON tb_detelle_pedido.id_pedido = tb_pedidos.id_pedido 
+        INNER JOIN tb_productos ON tb_detelle_pedido.id_producto = tb_productos.id_producto WHERE tb_pedidos.id_pedido = ?
+        GROUP BY tb_detelle_pedido.id_detalle_pedido, tb_productos.nombre_p, tb_detelle_pedido.precio, tb_detelle_pedido.cantidad';
+        $params = array($this->id);
+        return Database::getRows($sql, $params);
+    }
+
 
 
 }

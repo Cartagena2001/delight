@@ -81,6 +81,17 @@ if (isset($_GET['action']))  {
                     $result['exception'] = 'Cliente Incorrecto';
                 }
             break;
+            case 'leerDetallePedido':
+                if($pedidos->setId($_POST['id_pedido'])){
+                    if($result['dataset'] = $pedidos->leerDetallePedido()){
+                        $result['status'] = 1;
+                    }else{
+                        $result['exception'] = 'Contenido no disponible';
+                    }
+                }else{  
+                    $result['exception'] = 'Detalle Incorrecto';
+                }
+            break;
             default:
             exit('Acción no disponible log');
        }

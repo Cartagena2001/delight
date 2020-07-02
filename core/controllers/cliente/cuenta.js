@@ -74,29 +74,28 @@ function leerPedidosPorcliente(){
     })
     .done(function(response){
         if( response.status){
-
+            
             let content = '';
 
             response.dataset.forEach(function( row ){
 
                 content +=`
-                    <div class="card mt-4 ml-4 ml-2" style="width: 18rem;">
+                    <div class="card mt-4 ml-4 ml-2 mb-2" style="width: 18rem;">
                         <div class="card-body">
-                        <h5 class="card-title">Pedido Numero: ${row.id_pedido}</h5>
+                        <h5 class="card-title" id="id_pedido">Pedido Numero: ${row.id_pedido}</h5>
                         <p class="card-text"><b>Propietario del envio: </b>${row.nombre}</p>
                         </div>
                         <ul class="list-group list-group-flush">
                         <li class="list-group-item"><b>Costo de envio: </b>${row.costo_envio}</li>
-                        <li class="list-group-item"><b>Fecha del pedido Realiado:</b> ${row.fecha_pedido}</li>
+                        <li class="list-group-item"><b>Fecha del pedido Realizado:</b> ${row.fecha_pedido}</li>
                         <li class="list-group-item"><b>Fecha de entrega:</b> ${row.fecha_entrega}</li>
+                        <li class="list-group-item"><b>Estado del pedido:</b> ${row.estadopedido}</li>
+                        <button type="button" class="btn btn-secondary" onclick="leerDellateProducto(${row.id_pedido})">Ver detalles</button>
                         </ul>
                     </div>
                 `;
             });
             $( '#pedidosCliente' ).html( content );
-        }else {
-            // Se presenta un mensaje de error cuando no existen datos para mostrar.
-            $( '#title' ).html( `<i class="fas fa-sad-tear"></i><span class="red-text">${response.exception}</span>` );
         }
 
 
@@ -111,3 +110,39 @@ function leerPedidosPorcliente(){
     });
     
 }
+
+function leerDellateProducto( id ){
+
+    $( '#verdetalle' ).modal( 'show' );
+    $.ajax({
+        dataType: 'json',
+        url: ACCOUNT + 'leerDetallePedido',
+        data: { id_pedido: id },
+        type: 'post'
+    })
+    .done(function( response ) {
+        if(response.status){
+
+            let content = '';
+
+            response.dataset.forEach(function (row){
+                content +=`
+                <tr>
+                    <td>${row.nombre_p}</td>
+                    <td>${row.precio}</td>
+                    <td>${row.cantidad}</td>
+                </tr>
+                `;
+            });
+            $( '#tbodyDetalle' ).html( content );
+        }
+    })
+    .fail(function( jqXHR ) {
+        if ( jqXHR.status == 200 ) {
+            console.log( jqXHR.responseText );
+        } else {
+            console.log( jqXHR.status + ' ' + jqXHR.statusText );
+        }
+    });
+}
+
