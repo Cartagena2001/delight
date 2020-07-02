@@ -97,7 +97,9 @@
 	select * from Tb_noticias
 	select * from Tb_contactenos 
 	
-	alter table 
+	-- Para reinciar el contador de la llave primaria
+	ALTER SEQUENCE tb_detelle_pedido_id_detalle_pedido_seq RESTART WITH 1;
+	ALTER SEQUENCE tb_pedidos_id_pedido_seq RESTART WITH 1;
 -----------------------------------------------------------------------------------------------------------
 	/* INSERT */
 	--Prueba de insert asuando bigserial o bigint
