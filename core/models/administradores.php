@@ -226,6 +226,15 @@ public function getId()
         return Database::executeRow($sql, $params);
     }
 
+    public function leerClientes()
+    {
+        $sql = 'SELECT COUNT(id_cliente)Cantidad
+                FROM tb_cliente';
+         $params = null;
+        return Database::getRow($sql, $params);
+    }
+
+
 }
 
 ?>

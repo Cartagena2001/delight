@@ -1,4 +1,11 @@
 const API = '../../core/api/admin/administradores.php?action=';
+const API_PRO = '../../core/api/admin/productos.php?action=';
+
+$(document).ready(function(){
+    graficaCategorias();
+    graficaProductos();
+    leerClientes();
+});
 
 function checkUsuarios()
 {
@@ -36,7 +43,6 @@ function checkUsuarios()
         }
     });
 }
-
 
 
 
@@ -118,4 +124,87 @@ function openModalProfile()
             console.log( jqXHR.status + ' ' + jqXHR.statusText );
         }
     });
+}
+
+function graficaCategorias()
+{
+    $.ajax({
+        dataType: 'json',
+        url: API_PRO + 'grafica1',
+        data: null
+    })
+    .done(function( response ) {
+        // Se comprueba si la API ha retornado datos, de lo contrario se remueve la etiqueta canvas asignada para la gráfica.
+        if ( response.status ) {
+            // Se declaran los arreglos para guardar los datos por gráficar.
+            let categorias = [];
+            let cantidad = [];
+            // Se recorre el conjunto de registros devuelto por la API (dataset) fila por fila a través del objeto row.
+            response.dataset.forEach(function( row ) {
+                // Se asignan los datos a los arreglos.
+                categorias.push( row.nombre );
+                cantidad.push( row.cantidad );
+            });
+            // Se llama a la función que genera y muestra una gráfica de barras. Se encuentra en el archivo components.js
+            barGraph( 'chart', categorias, cantidad, 'Cantidad de productos', 'Cantidad de productos por categoría' );
+        } else {
+            $( '#chart' ).remove();
+        }
+    })
+    .fail(function( jqXHR ) {
+        // Se verifica si la API ha respondido para mostrar la respuesta, de lo contrario se presenta el estado de la petición.
+        if ( jqXHR.status == 200 ) {
+            console.log( jqXHR.responseText );
+        } else {
+            console.log( jqXHR.status + ' ' + jqXHR.statusText );
+        }
+    });
+}
+
+function graficaProductos()
+{
+    $.ajax({
+        dataType: 'json',
+        url: API_PRO + 'grafica2',
+        data: null
+    })
+    .done(function( response ) {
+        // Se comprueba si la API ha retornado datos, de lo contrario se remueve la etiqueta canvas asignada para la gráfica.
+        if ( response.status ) {
+            // Se declaran los arreglos para guardar los datos por gráficar.
+            let nombre = [];
+            let precio = [];
+            // Se recorre el conjunto de registros devuelto por la API (dataset) fila por fila a través del objeto row.
+            response.dataset.forEach(function( row ) {
+                // Se asignan los datos a los arreglos.
+                nombre.push( row.nombre_p );
+                precio.push( row.precio );
+            });
+            // Se llama a la función que genera y muestra una gráfica de barras. Se encuentra en el archivo components.js
+            barGraph( 'chartP', nombre, precio, 'Precio del producto', 'Productos mas baratos' );
+        } else {
+            $( '#chartP' ).remove();
+        }
+    })
+    .fail(function( jqXHR ) {
+        // Se verifica si la API ha respondido para mostrar la respuesta, de lo contrario se presenta el estado de la petición.
+        if ( jqXHR.status == 200 ) {
+            console.log( jqXHR.responseText );
+        } else {
+            console.log( jqXHR.status + ' ' + jqXHR.statusText );
+        }
+    });
+}
+
+function leerClientes(Cantidad)
+{
+    $.ajax({
+        dataType: 'json',
+        url: API + 'leerCliente',
+        type: 'post'
+        
+    })
+    .done(function(response){
+        $( '#Ncliente' ).val( response.dataset.Cantidad );
+    })
 }

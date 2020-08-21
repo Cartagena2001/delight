@@ -112,7 +112,7 @@ class page
 
 
 
-    <script type="text/javascript" src="../../resources/js/morris.min.js"></script>
+    <script type="text/javascript" src="../../resources/js/chart.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
     <script type="text/javascript" src="../../resources/js/initialisation.js"></script>
 

@@ -224,14 +224,23 @@ public function setEstado($value)
         $params = array($this->id);
         return Database::executeRow($sql, $params);
     }
+    
+    public function graficaProductos()
+    {
+        $sql = 'SELECT tb_categoria.nombre, COUNT(tb_productos.id_producto) cantidad
+                FROM tb_productos INNER JOIN tb_categoria USING(id_categoria) 
+                GROUP BY tb_categoria.id_categoria, tb_categoria.nombre';
+        $params = null;
+        return Database::getRows($sql, $params);
+    }
 
-
-
-
-
-
-
-
+    public function graficaProductoBarato()
+    {
+        $sql = 'SELECT nombre_p, precio
+                FROM tb_productos WHERE precio <= 0.80';
+        $params = null;
+        return Database::getRows($sql, $params);
+    }
 
 }
 ?>

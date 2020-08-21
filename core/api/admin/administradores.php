@@ -202,6 +202,13 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'No se puede eliminar a sí mismo';
                 }
                 break;
+                case 'leerCliente':
+                    if($result['dataset'] = $usuario->leerClientes()){
+                        $result['status'] = 1;
+                    }else{
+                        $result['exception'] = 'No hay datos disponibles';
+                    }
+                break;
             default:
                 exit('Acción no disponible log');
         }

@@ -166,6 +166,20 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'Producto incorrecto';
                 }
                 break;
+                case 'grafica1':
+                    if($result['dataset'] = $producto->graficaProductos()){
+                        $result['status'] = 1;
+                    }else{
+                        $result['exception'] = 'No hay datos disponibles';
+                    }
+                break;
+                case 'grafica2':
+                    if($result['dataset'] = $producto->graficaProductoBarato()){
+                        $result['status'] = 1;
+                    }else{
+                        $result['exception'] = 'No hay datos disponibles';
+                    }
+                break;
                 default: 
                 exit('Accion no disponible .-.');
         }
