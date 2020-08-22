@@ -13,6 +13,7 @@ $pagina->headerTemplate('Principal');
                 <label for="search" toot>Buscar por reseñas</label>
                 <input id="search" type="text" name="search"/>
                 <button type="submit" class="btn btn-info ml-3" data-tooltip="Buscar">Buscar</button>
+                <a href="../../core/reports/dashboard/resenia.php" target="_blank" class="btn btn-primary ml-4" data-tooltip="Reporte de productos por categoría">Generar reporte</a>
             </div>
         </form>
     </div>

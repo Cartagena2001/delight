@@ -46,8 +46,8 @@ class page
             <div class="list-group list-group-flush text-center mt-4">
               <a href="bienvenido.php" class="list-group-item list-group-item-action" id="itemAdmin">Inicio</a>
               <a href="clientes.php" class="list-group-item list-group-item-action" id="itemAdmin">Clientes</a>
-              <a href="pedidos.php" class="list-group-item list-group-item-action" id="itemAdmin">Pedidos</a>
-              <a href="detallePedidos.php" class="list-group-item list-group-item-action" id="itemAdmin">Detalle Pedidos</a>
+              
+              
               <a href="productos.php" class="list-group-item list-group-item-action" id="itemAdmin">Productos</a>
               <a href="categorias.php" class="list-group-item list-group-item-action" id="itemAdmin">Categorias</a>
               <a href="cupones.php" class="list-group-item list-group-item-action" id="itemAdmin">Cupones</a>
@@ -207,3 +207,6 @@ class page
   }
 } 
 ?>  
+
+<!-- <a href="pedidos.php" class="list-group-item list-group-item-action" id="itemAdmin">Pedidos</a>
+<a href="detallePedidos.php" class="list-group-item list-group-item-action" id="itemAdmin">Detalle Pedidos</a> -->
