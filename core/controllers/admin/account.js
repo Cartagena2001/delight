@@ -181,7 +181,8 @@ function graficaProductos()
                 precio.push( row.precio );
             });
             // Se llama a la función que genera y muestra una gráfica de barras. Se encuentra en el archivo components.js
-            barGraph( 'chartP', nombre, precio, 'Precio del producto', 'Productos mas baratos' );
+            // barGraph( 'chartP', nombre, precio, 'Precio del producto', 'Productos mas baratos' );
+            DoughnutGraph( 'chartP', precio, nombre, 'Productos mas baratos');
         } else {
             $( '#chartP' ).remove();
         }

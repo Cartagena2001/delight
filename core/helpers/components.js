@@ -349,3 +349,41 @@ function barGraph( canvas, xAxis, yAxis, legend, title )
         }
     });
 }
+
+function DoughnutGraph( canvas, info, legend, title )
+{
+    // Se declara un arreglo para guardar códigos de colores en formato hexadecimal.
+    let colors = [];
+  //Se generan hexadecimales, para poder brindarle un color a cada seccion del grafico tipo dona
+    for ( i = 0; i < info.length; i++ ) {
+        colors.push( '#' + ( Math.random().toString( 16 )).substring( 2, 8 ) );
+    }
+
+    // Se establece el contexto donde se mostrará el gráfico, es decir, se define la etiqueta canvas a utilizar.
+    const context = $( '#' + canvas );
+    // Se crea una instancia para generar la gráfica con los datos recibidos.
+    const chart = new Chart( context, {
+        //Grafica de tipo dona
+        type: 'doughnut',
+        data: {
+            labels: legend,
+            datasets: [{
+                label: legend,
+                data: info,
+                //Se establece el background en funcion de el arreglo colors, establecido con anterioridad
+                backgroundColor: colors,
+                borderColor: '#000000',
+                borderWidth: 2
+            }]
+        },
+        options: {
+            legend: {
+                display: false
+            },
+            title: {
+                display: true,
+                text: title
+            },
+        }
+    });
+}
