@@ -31,14 +31,14 @@ if ($dataResenia = $resenia->leerTodosResenias()) {
                 $pdf->Cell(46, 10, utf8_decode($rowResenia['calificacion']), 1, 0);
                 $pdf->Cell(146, 10, ($rowResenia['comentario']), 1, 1);
             } else {
-                $pdf->Cell(0, 10, utf8_decode('No hay productos para esta categoría'), 1, 1);
+                $pdf->Cell(0, 10, utf8_decode('No hay productos para esta reseñas'), 1, 1);
             }
         } else {
-            $pdf->Cell(0, 10, utf8_decode('Ocurrió un error en una categoría'), 1, 1);
+            $pdf->Cell(0, 10, utf8_decode('Ocurrió un error en una reseñas'), 1, 1);
         }
     }
 } else {
-    $pdf->Cell(0, 10, utf8_decode('No hay categorías para mostrar'), 1, 1);
+    $pdf->Cell(0, 10, utf8_decode('No hay reseñas para mostrar'), 1, 1);
 }
 
 $pdf->Output();
