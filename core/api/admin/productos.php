@@ -180,6 +180,13 @@ if (isset($_GET['action'])) {
                         $result['exception'] = 'No hay datos disponibles';
                     }
                 break;
+                case 'grafica3':
+                    if($result['dataset'] = $producto->graficaProductoAltocoste()){
+                        $result['status'] = 1;
+                    }else{
+                        $result['exception'] = 'No hay datos disponibles';
+                    }
+                break;
                 default: 
                 exit('Accion no disponible .-.');
         }

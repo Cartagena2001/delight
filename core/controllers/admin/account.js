@@ -197,6 +197,8 @@ function graficaProductos()
     });
 }
 
+
+
 function leerClientes(Cantidad)
 {
     $.ajax({

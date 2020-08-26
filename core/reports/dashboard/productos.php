@@ -48,6 +48,8 @@ if ($dataCategorias = $categoria->leerTodasCategorias()) {
             $pdf->Cell(0, 10, utf8_decode('Ocurrió un error en una categoría'), 1, 1);
         }
     }
+   
+    
 } else {
     $pdf->Cell(0, 10, utf8_decode('No hay categorías para mostrar'), 1, 1);
 }

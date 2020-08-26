@@ -242,5 +242,13 @@ public function setEstado($value)
         return Database::getRows($sql, $params);
     }
 
+    public function graficaProductoAltocoste()
+    {
+        $sql = 'SELECT nombre_p, precio
+                FROM tb_productos WHERE precio >= 1.75';
+        $params = null;
+        return Database::getRows($sql, $params);
+    }
+
 }
 ?>

@@ -44,6 +44,7 @@ $pagina->headerTemplate('Principal');
                 <canvas id="chartP"></canvas>
             </div>
 
+
         <div class="col-lg-6">
             <h4 id="Equipo">Equipo</h4>
             <p>• Gabriela Sofia Ramirez Martinez</p>

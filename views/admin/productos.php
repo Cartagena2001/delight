@@ -8,6 +8,7 @@ $pagina->headerTemplate('Principal');
     <div class="row">
         <div class="container col-lg-12">
         <h1 class="display-4">Productos</h1> 
+        
         <br>
         <form method="post" id="search-productos">
             <div class="input-field col s6 m6"> 
@@ -15,6 +16,7 @@ $pagina->headerTemplate('Principal');
                 <input id="search" type="text" name="search"/>
                 <button type="submit" class="btn btn-info ml-3" data-tooltip="Buscar">Buscar</button>
                 <a href="../../core/reports/dashboard/productos.php" target="_blank" class="btn btn-primary ml-4" data-tooltip="Reporte de productos por categoría">Generar reporte</a>
+                <a class="btn btn-primary ml-4 text-white" data-tooltip="Grafca de productos por" data-toggle="modal" data-target="#modalProductos">Grafica de productos mas caros</a>
             </div>
         </form>
     </div>
@@ -25,6 +27,7 @@ $pagina->headerTemplate('Principal');
         
     </div>
 </div>
+
 
 <div class="container mt-4">
     <div class="row">
@@ -44,6 +47,30 @@ $pagina->headerTemplate('Principal');
         </tbody>
         </table>
     </div>
+</div>
+
+
+<!-- modal grafica -->
+<div class="modal fade" id="modalProductos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <div class="">
+                <canvas id="chart"></canvas>
+            </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 
