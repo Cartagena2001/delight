@@ -91,6 +91,7 @@ function leerPedidosPorcliente(){
                         <li class="list-group-item"><b>Fecha de entrega:</b> ${row.fecha_entrega}</li>
                         <li class="list-group-item"><b>Estado del pedido:</b> ${row.estadopedido}</li>
                         <button type="button" class="btn" style="background-color: #17A2B8;color:white;" onclick="leerDellateProducto(${row.id_pedido})">Ver detalles</button>
+                        <a href="../../core/reports/cliente/comprobanteCompra.php" target="_blank" class="btn mt-3 text-white" style="background-color: #17A2B8;color:white;">Comprobante de compra</a>
                         </ul>
                     </div>
                 `;
