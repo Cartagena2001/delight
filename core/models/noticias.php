@@ -172,11 +172,9 @@ class  noticias extends Validator{
 
     public function graficaNoticias()
     {
-        $sql = '
-        SELECT COUNT (titulo)as titulo , fecha_pub
+        $sql = 'SELECT COUNT (titulo)as titulo , fecha_pub
         FROM tb_noticias  
-        GROUP BY fecha_pub   
-       ';
+        GROUP BY fecha_pub';
         $params = null;
         return Database::getRows($sql, $params);
     }

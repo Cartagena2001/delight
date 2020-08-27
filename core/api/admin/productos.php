@@ -166,21 +166,27 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'Producto incorrecto';
                 }
                 break;
+                //Manda los datos del modelo de producto a el controlador para verificar
                 case 'grafica1':
+                    //va a verificar en models
                     if($result['dataset'] = $producto->graficaProductos()){
                         $result['status'] = 1;
                     }else{
                         $result['exception'] = 'No hay datos disponibles';
                     }
                 break;
+                //verifica los datos para devolverlos a el controlador
                 case 'grafica2':
+                    //verificar en models la funcion
                     if($result['dataset'] = $producto->graficaProductoBarato()){
                         $result['status'] = 1;
                     }else{
                         $result['exception'] = 'No hay datos disponibles';
                     }
                 break;
+                //verifica los datos para devolverlos a el controlador
                 case 'grafica3':
+                    //verificar en models la funcion
                     if($result['dataset'] = $producto->graficaProductoAltocoste()){
                         $result['status'] = 1;
                     }else{

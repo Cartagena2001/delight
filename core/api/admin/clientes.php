@@ -81,6 +81,7 @@
                     $result['exception'] = 'Estado incorrecto';
                  }
                 break;
+                ////Manda los datos del modelo de producto a el controlador para verificar
                 case 'graficaCliente':
                     if($result['dataset'] = $clientes->graficaClientes()){
                         $result['status'] = 1;

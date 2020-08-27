@@ -12,7 +12,7 @@ $resenia = new resenia;
 
 if ($dataResenia = $resenia->leerTodosResenias()) {
 
-    $pdf->SetFillColor(175);
+    $pdf->SetFillColor(78,175,221);
     $pdf->SetFont('Times', 'B', 12);
 
     $pdf->Cell(46, 10, utf8_decode('Calificacion'), 1, 0, 'C', 1);
@@ -24,7 +24,7 @@ if ($dataResenia = $resenia->leerTodosResenias()) {
 
             if ($dataResenia = $resenia->leerTodosResenias()) {
 
-                $pdf->SetFillColor(225);
+                $pdf->SetFillColor(133,184,229);
                 $pdf->SetFont('Times', 'B', 11);
                 $pdf->SetFont('Times', '', 11);
 

@@ -224,7 +224,8 @@ public function setEstado($value)
         $params = array($this->id);
         return Database::executeRow($sql, $params);
     }
-    
+
+    //consulta para mostrar los productos por sus categorias
     public function graficaProductos()
     {
         $sql = 'SELECT tb_categoria.nombre, COUNT(tb_productos.id_producto) cantidad
@@ -234,18 +235,22 @@ public function setEstado($value)
         return Database::getRows($sql, $params);
     }
 
+    //consulta para mostrar los productos mas baratos
     public function graficaProductoBarato()
     {
+        //se declaran los campos a utilizar
         $sql = 'SELECT nombre_p, precio
-                FROM tb_productos WHERE precio = 0.75';
+                FROM tb_productos order by precio asc limit 5';
         $params = null;
         return Database::getRows($sql, $params);
     }
 
+    //consulta para mostrar los productos con mayor precio
     public function graficaProductoAltocoste()
     {
+        //se declaran los campos
         $sql = 'SELECT nombre_p, precio
-                FROM tb_productos WHERE precio >= 0.95';
+                FROM tb_productos order by precio desc limit 5';
         $params = null;
         return Database::getRows($sql, $params);
     }

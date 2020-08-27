@@ -15,7 +15,9 @@ $pagina->headerTemplate('Principal');
                 <label for="search">Buscar producto</label>
                 <input id="search" type="text" name="search"/>
                 <button type="submit" class="btn btn-info ml-3" data-tooltip="Buscar">Buscar</button>
+                <!-- boton que nos llevara al reporte de productos -->
                 <a href="../../core/reports/dashboard/productos.php" target="_blank" class="btn btn-primary ml-4" data-tooltip="Reporte de productos por categoría">Generar reporte</a>
+                <!-- boton que manda a llamar el id de canva para luego mostrar el grafico -->
                 <a class="btn btn-primary ml-4 text-white" data-tooltip="Grafca de productos por" data-toggle="modal" data-target="#modalProductos">Grafica de productos mas caros</a>
             </div>
         </form>
@@ -50,7 +52,7 @@ $pagina->headerTemplate('Principal');
 </div>
 
 
-<!-- modal para mostrar la grafica -->
+<!-- modal para mostrar la grafica de los productos mas caros -->
 <div class="modal fade" id="modalProductos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -104,9 +106,6 @@ $pagina->headerTemplate('Principal');
                             <input id="archivoProducto" name="archivoProducto" type="file" class="custom-file-input">
                             <label  class="custom-file-label" for="archivoProducto" aria-describedby="archivoProducto">Buscar imagen</label>
                         </div>
-                        <!-- <div class="input-group-append">
-                            <span class="input-group-text" id="inputGroupFileAddon02">Upload</span>
-                        </div> -->
                     </div>
                     <label for="exampleFormControlSelect1">Categoria</label>
                     <select class="form-control" id="categoriaProducto" name="categoriaProducto">
