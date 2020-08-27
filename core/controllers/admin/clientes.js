@@ -3,6 +3,7 @@ const API_CLIENTES = '../../core/api/admin/clientes.php?action=';
 $(document).ready(function() {
     // Se llama a la función que obtiene los registros para llenar la tabla. Se encuentra en el archivo components.js
     readRows( API_CLIENTES );
+    graficaClientes();
 });
 
 function fillTable( dataset )
@@ -53,6 +54,42 @@ function openUpdateModal( id )
         }
     })
     .fail(function( jqXHR ) {
+        if ( jqXHR.status == 200 ) {
+            console.log( jqXHR.responseText );
+        } else {
+            console.log( jqXHR.status + ' ' + jqXHR.statusText );
+        }
+    });
+}
+
+function graficaClientes()
+{
+    $.ajax({
+        dataType: 'json',
+        url: API_CLIENTES + 'graficaCliente',
+        data: null
+    })
+    .done(function( response ) {
+        // Se comprueba si la API ha retornado datos, de lo contrario se remueve la etiqueta canvas asignada para la gráfica.
+        if ( response.status ) {
+            // Se declaran los arreglos para guardar los datos por gráficar.
+            let usuario = [];
+            let estado = [];
+            // Se recorre el conjunto de registros devuelto por la API (dataset) fila por fila a través del objeto row.
+            response.dataset.forEach(function( row ) {
+                // Se asignan los datos a los arreglos.
+                usuario.push( row.usuario );
+                estado.push( row.estado_cliente );
+            });
+            // Se llama a la función que genera y muestra una gráfica de barras. Se encuentra en el archivo components.js
+            // barGraph( 'chartP', nombre, precio, 'Precio del producto', 'Productos mas baratos' );
+            DoughnutGraph( 'chartCLIENTES', usuario, estado, 'Clientes activos e inactivos');
+        } else {
+            $( '#chartchartCLIENTESP' ).remove();
+        }
+    })
+    .fail(function( jqXHR ) {
+        // Se verifica si la API ha respondido para mostrar la respuesta, de lo contrario se presenta el estado de la petición.
         if ( jqXHR.status == 200 ) {
             console.log( jqXHR.responseText );
         } else {

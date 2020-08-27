@@ -14,6 +14,7 @@ $pagina->headerTemplate('Principal');
                 <input id="search" type="text" name="search"/>
                 <button type="submit" class="btn btn-info ml-3" data-tooltip="Buscar">Buscar</button>
                 <a href="../../core/reports/dashboard/clientes.php" target="_blank" class="btn btn-primary ml-4" data-tooltip="Reporte de clientes">Generar reporte</a>
+                <a class="btn btn-primary ml-4 text-white" data-tooltip="Grafca de productos por" data-toggle="modal" data-target="#modalClientes">Grafica de clientes activos e inactivos</a>
             </div>
         </form>
     </div>
@@ -35,6 +36,29 @@ $pagina->headerTemplate('Principal');
         </tbody>
         </table>
     </div>
+</div>
+
+<!-- modal para mostrar la grafica -->
+<div class="modal fade" id="modalClientes" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Clientes activos e inactivos</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <div class="">
+                <canvas id="chartCLIENTES"></canvas>
+            </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary">Aceptar</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- modal -->

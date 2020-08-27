@@ -81,6 +81,13 @@
                     $result['exception'] = 'Estado incorrecto';
                  }
                 break;
+                case 'graficaCliente':
+                    if($result['dataset'] = $clientes->graficaClientes()){
+                        $result['status'] = 1;
+                    }else{
+                        $result['exception'] = 'No hay datos disponibles';
+                    }
+                break;
                 case 'readOne':
                     if ($clientes->setId($_POST['id_cliente'])) {
                         if ($result['dataset'] = $clientes->leerUnCliente()) {

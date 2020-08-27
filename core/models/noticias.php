@@ -169,5 +169,17 @@ class  noticias extends Validator{
         $params = array($this->id);
         return Database::executeRow($sql, $params);
     }
+
+    public function graficaNoticias()
+    {
+        $sql = '
+        SELECT COUNT (titulo)as titulo , fecha_pub
+        FROM tb_noticias  
+        GROUP BY fecha_pub   
+       ';
+        $params = null;
+        return Database::getRows($sql, $params);
+    }
+    
 }
 ?>

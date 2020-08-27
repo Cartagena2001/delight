@@ -150,6 +150,13 @@ if (isset($_GET['action'])) {
             //                     $result['exception'] = 'Categoría incorrecta';
             //                 }
             //     break;
+            case 'graficaNoticia':
+                if($result['dataset'] = $noticia->graficaNoticias()){
+                    $result['status'] = 1;
+                }else{
+                    $result['exception'] = 'No hay datos disponibles';
+                }
+            break;
             case 'delete':
                 if ($noticia->setId($_POST['id_noticia'])) {
                     if ($data = $noticia->leerUnaNoticias()) {

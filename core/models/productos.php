@@ -237,7 +237,7 @@ public function setEstado($value)
     public function graficaProductoBarato()
     {
         $sql = 'SELECT nombre_p, precio
-                FROM tb_productos WHERE precio <= 0.75';
+                FROM tb_productos WHERE precio = 0.75';
         $params = null;
         return Database::getRows($sql, $params);
     }
@@ -245,7 +245,7 @@ public function setEstado($value)
     public function graficaProductoAltocoste()
     {
         $sql = 'SELECT nombre_p, precio
-                FROM tb_productos WHERE precio >= 1.75';
+                FROM tb_productos WHERE precio >= 0.95';
         $params = null;
         return Database::getRows($sql, $params);
     }

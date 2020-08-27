@@ -104,7 +104,7 @@ function openDeleteDialog( id )
     let identifier = { id_producto: id };
     confirmDelete( API_PRODUCTOS, identifier );
 }
-
+//Funcion que mostrara los productos con mayor precio//
 function graficaProductosAltoCoste()
 {
     $.ajax({
@@ -116,18 +116,18 @@ function graficaProductosAltoCoste()
         // Se comprueba si la API ha retornado datos, de lo contrario se remueve la etiqueta canvas asignada para la gráfica.
         if ( response.status ) {
             // Se declaran los arreglos para guardar los datos por gráficar.
-            let categorias = [];
-            let cantidad = [];
+            let nombre_p = [];
+            let precio = [];
             // Se recorre el conjunto de registros devuelto por la API (dataset) fila por fila a través del objeto row.
             response.dataset.forEach(function( row ) {
                 // Se asignan los datos a los arreglos.
-                categorias.push( row.nombre );
-                cantidad.push( row.cantidad );
+                nombre_p.push( row.nombre_p );
+                precio.push( row.precio );
             });
             // Se llama a la función que genera y muestra una gráfica de barras. Se encuentra en el archivo components.js
-            barGraph( 'chartio', categorias, cantidad, 'Cantidad de productos', 'Cantidad de productos por categoría' );
+            barGraph( 'chartALTOS', nombre_p, precio, 'El precio de productos', 'Productos con mayor precio' );
         } else {
-            $( '#chartio' ).remove();
+            $( '#chartALTOS' ).remove();
         }
     })
     .fail(function( jqXHR ) {

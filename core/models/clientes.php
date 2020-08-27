@@ -249,5 +249,13 @@ public function setEstadoCliente($value)
         return Database::executeRow($sql, $params);
     }
 
+    public function graficaClientes()
+    {
+        $sql = 'SELECT COUNT (usuario) as usuario, estado_cliente
+        FROM tb_cliente GROUP BY estado_cliente';
+        $params = null;
+        return Database::getRows($sql, $params);
+    }
+
 }
 ?>

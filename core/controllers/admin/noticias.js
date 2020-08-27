@@ -3,6 +3,7 @@ const API_NOTICIAS = '../../core/api/admin/noticias.php?action=';
 $( document ).ready(function() {
     // Se llama a la función que obtiene los registros para llenar la tabla. Se encuentra en el archivo components.js
     readRows( API_NOTICIAS );
+    graficaNoticias();
 });
 
 // Función para llenar la tabla con los datos enviados por readRows().
@@ -89,4 +90,40 @@ function openDeleteDialog( id )
 {
     let identifier = { id_noticia: id };
     confirmDelete( API_NOTICIAS, identifier );
+}
+
+function graficaNoticias()
+{
+    $.ajax({
+        dataType: 'json',
+        url: API_NOTICIAS + 'graficaNoticia',
+        data: null
+    })
+    .done(function( response ) {
+        // Se comprueba si la API ha retornado datos, de lo contrario se remueve la etiqueta canvas asignada para la gráfica.
+        if ( response.status ) {
+            // Se declaran los arreglos para guardar los datos por gráficar.
+            let titulo = [];
+            let fecha = [];
+            // Se recorre el conjunto de registros devuelto por la API (dataset) fila por fila a través del objeto row.
+            response.dataset.forEach(function( row ) {
+                // Se asignan los datos a los arreglos.
+                titulo.push( row.titulo );
+                fecha.push( row.fecha_pub );
+            });
+            // Se llama a la función que genera y muestra una gráfica de barras. Se encuentra en el archivo components.js
+            // barGraph( 'chartP', nombre, precio, 'Precio del producto', 'Productos mas baratos' );
+            barGraph( 'charNoticias', fecha, titulo, 'Cantidad de noticias', 'Cantidad de noticias por mes');
+        } else {
+            $( '#charNoticias' ).remove();
+        }
+    })
+    .fail(function( jqXHR ) {
+        // Se verifica si la API ha respondido para mostrar la respuesta, de lo contrario se presenta el estado de la petición.
+        if ( jqXHR.status == 200 ) {
+            console.log( jqXHR.responseText );
+        } else {
+            console.log( jqXHR.status + ' ' + jqXHR.statusText );
+        }
+    });
 }
