@@ -54,6 +54,10 @@ tr{
     font-family: 'Montserrat', sans-serif;
     font-size: 35px;
 }
+.btneditarcontra{
+    border-radius: 50px;
+    color: white;
+}
 
 /* cards */
 #cards1{

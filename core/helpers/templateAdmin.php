@@ -53,10 +53,57 @@ class page
               <a href="cupones.php" class="list-group-item list-group-item-action" id="itemAdmin">Cupones</a>
               <a href="noticias.php" class="list-group-item list-group-item-action" id="itemAdmin">Noticias</a>
               <a href="resenia.php" class="list-group-item list-group-item-action" id="itemAdmin">Reseñas</a>
-              <li><a href="#" onclick="openModalProfile()">Editar perfil</a></li>
+              <button type="button" class="btn btn-warning btneditarcontra" data-toggle="modal" data-target="#editarPerfil">Editar contraseña</button>
               <a class="btn text-center" href="#" onclick="signOff()" ><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a>
             </div>
           </div>
+
+                    <!-- Modal -->
+          <div class="modal fade" id="editarPerfil" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">Editar contraseña</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                <form method="post" id="password-form">
+                  <div class="row">                
+                      <div class="text-center col-12">
+                        <p><b>Contraseña antigua</b></p>
+                      </div>
+                      <div class="col-12">
+                        <p>Contraseña antigua</p>
+                        <input type="password" class="form-control" id="clave_actual_1" name="clave_actual_1" required>
+                      </div>
+                      <div class="col-12">
+                        <p>Confirmar clave</p>
+                        <input type="password" class="form-control" id="clave_actual_2" name="clave_actual_2" required>
+                      </div>
+                      <div class="text-center col-12 mt-3">
+                        <p><b>Contraseña nueva</b></p>
+                      </div>
+                      <div class="col-12">
+                        <p>Contraseña nueva</p>
+                        <input type="password" class="form-control" id="clave_nueva_1" name="clave_nueva_1" required>
+                      </div>
+                      <div class="col-12">
+                        <p>Confirmar clave</p>
+                        <input type="password" class="form-control" id="clave_nueva_2" name="clave_nueva_2" required>
+                      </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                  <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
       ');
       }else{
         header('location: bienvenido.php');
@@ -126,85 +173,85 @@ class page
     ');
   }
 
-  private function modals()
-  {
-      print('
-          <!-- Componente Modal para mostrar el formulario de editar perfil -->
-          <div class="modal fade" id="profile-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered" role="document">
-          <form method="post" id="save-perfil">
-              <div class="modal-content">
-                  <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalCenterTitle">PERFIL</h5>
-                      <input class="hide" type="hidden" id="id_administrador" name="id_administrador"/>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                      </button>
-                  </div>
-                  <div class="modal-body"> 
-                      <div class="form-group">
-                              <input id="nombre" name="nombre" type="text" class="form-control" placeholder="Costo envio" required>
-                      </div>                
-                      <div class="form-group">
-                              <input  id="correo" name="correo" type="date" class="form-control" placeholder="Fecha pedido" required>
-                      </div>
-                      <div class="form-group">
-                              <input  id="password" name="password" type="date" class="form-control" placeholder="Fecha entrega" required>
-                      </div>
-                  </div>
-                  <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                      <button type="submit" class="btn btn-primary">Guardar cambios</button>
-                  </div>  
-                   </div>  
-          </form>
-          </div>
-  </div>
+  // private function modals()
+  // {
+  //     print('
+  //         <!-- Componente Modal para mostrar el formulario de editar perfil -->
+  //         <div class="modal fade" id="profile-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  //         <div class="modal-dialog modal-dialog-centered" role="document">
+  //         <form method="post" id="save-perfil">
+  //             <div class="modal-content">
+  //                 <div class="modal-header">
+  //                     <h5 class="modal-title" id="exampleModalCenterTitle">PERFIL</h5>
+  //                     <input class="hide" type="hidden" id="id_administrador" name="id_administrador"/>
+  //                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+  //                     <span aria-hidden="true">&times;</span>
+  //                     </button>
+  //                 </div>
+  //                 <div class="modal-body"> 
+  //                     <div class="form-group">
+  //                             <input id="nombre" name="nombre" type="text" class="form-control" placeholder="Costo envio" required>
+  //                     </div>                
+  //                     <div class="form-group">
+  //                             <input  id="correo" name="correo" type="date" class="form-control" placeholder="Fecha pedido" required>
+  //                     </div>
+  //                     <div class="form-group">
+  //                             <input  id="password" name="password" type="date" class="form-control" placeholder="Fecha entrega" required>
+  //                     </div>
+  //                 </div>
+  //                 <div class="modal-footer">
+  //                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+  //                     <button type="submit" class="btn btn-primary">Guardar cambios</button>
+  //                 </div>  
+  //                  </div>  
+  //         </form>
+  //         </div>
+  // </div>
 
-          <!-- Componente Modal para mostrar el formulario de cambiar contraseña -->
-          <div id="password-modal" class="modal">
-              <div class="modal-content">
-                  <h4 class="center-align">Cambiar contraseña</h4>
-                  <form method="post" id="password-form">
-                      <div class="row center-align">
-                          <label>CLAVE ACTUAL</label>
-                      </div>
-                      <div class="row">
-                          <div class="input-field col s12 m6">
-                              <i class="material-icons prefix">security</i>
-                              <input id="clave_actual_1" type="password" name="clave_actual_1" class="validate" required/>
-                              <label for="clave_actual_1">Clave</label>
-                          </div>
-                          <div class="input-field col s12 m6">
-                              <i class="material-icons prefix">security</i>
-                              <input id="clave_actual_2" type="password" name="clave_actual_2" class="validate" required/>
-                              <label for="clave_actual_2">Confirmar clave</label>
-                          </div>
-                      </div>
-                      <div class="row center-align">
-                          <label>CLAVE NUEVA</label>
-                      </div>
-                      <div class="row">
-                          <div class="input-field col s12 m6">
-                              <i class="material-icons prefix">security</i>
-                              <input id="clave_nueva_1" type="password" name="clave_nueva_1" class="validate" required/>
-                              <label for="clave_nueva_1">Clave</label>
-                          </div>
-                          <div class="input-field col s12 m6">
-                              <i class="material-icons prefix">security</i>
-                              <input id="clave_nueva_2" type="password" name="clave_nueva_2" class="validate" required/>
-                              <label for="clave_nueva_2">Confirmar clave</label>
-                          </div>
-                      </div>
-                      <div class="row center-align">
-                          <a href="#" class="btn waves-effect grey tooltipped modal-close" data-tooltip="Cancelar"><i class="material-icons">cancel</i></a>
-                          <button type="submit" class="btn waves-effect blue tooltipped" data-tooltip="Guardar"><i class="material-icons">save</i></button>
-                      </div>
-                  </form>
-              </div>
-          </div>
-      ');
-  }
+  //         <!-- Componente Modal para mostrar el formulario de cambiar contraseña -->
+  //         <div id="password-modal" class="modal">
+  //             <div class="modal-content">
+  //                 <h4 class="center-align">Cambiar contraseña</h4>
+  //                 <form method="post" id="password-form">
+  //                     <div class="row center-align">
+  //                         <label>CLAVE ACTUAL</label>
+  //                     </div>
+  //                     <div class="row">
+  //                         <div class="input-field col s12 m6">
+  //                             <i class="material-icons prefix">security</i>
+  //                             <input id="clave_actual_1" type="password" name="clave_actual_1" class="validate" required/>
+  //                             <label for="clave_actual_1">Clave</label>
+  //                         </div>
+  //                         <div class="input-field col s12 m6">
+  //                             <i class="material-icons prefix">security</i>
+  //                             <input id="clave_actual_2" type="password" name="clave_actual_2" class="validate" required/>
+  //                             <label for="clave_actual_2">Confirmar clave</label>
+  //                         </div>
+  //                     </div>
+  //                     <div class="row center-align">
+  //                         <label>CLAVE NUEVA</label>
+  //                     </div>
+  //                     <div class="row">
+  //                         <div class="input-field col s12 m6">
+  //                             <i class="material-icons prefix">security</i>
+  //                             <input id="clave_nueva_1" type="password" name="clave_nueva_1" class="validate" required/>
+  //                             <label for="clave_nueva_1">Clave</label>
+  //                         </div>
+  //                         <div class="input-field col s12 m6">
+  //                             <i class="material-icons prefix">security</i>
+  //                             <input id="clave_nueva_2" type="password" name="clave_nueva_2" class="validate" required/>
+  //                             <label for="clave_nueva_2">Confirmar clave</label>
+  //                         </div>
+  //                     </div>
+  //                     <div class="row center-align">
+  //                         <a href="#" class="btn waves-effect grey tooltipped modal-close" data-tooltip="Cancelar"><i class="material-icons">cancel</i></a>
+  //                         <button type="submit" class="btn waves-effect blue tooltipped" data-tooltip="Guardar"><i class="material-icons">save</i></button>
+  //                     </div>
+  //                 </form>
+  //             </div>
+  //         </div>
+  //     ');
+  // }
 } 
 ?>  
 
